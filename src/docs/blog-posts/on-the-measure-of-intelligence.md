@@ -1,0 +1,1 @@
+It turns out that the real measure of intelligence to benchmark AI by is not by the performance in task specific domains such as video or board games, but in the field of psychometrics: the IQ test.

@@ -1,0 +1,35 @@
+site_name: Nicholas
+theme:
+  name: material
+  favicon: '/static/images/favicon.png'
+  icon:
+    logo: material/home
+site_url: https://nicholaslyz.com/
+nav:
+  - Home: 'index.md'
+  - About Me: 'about.md'
+  - Resume: 'resume.md'
+  - Photography: 'photography.md'
+  - Mountaineering: 'mountaineering.md'
+  - 'Blog Posts':
+    - 'Calculating Return': 'blog-posts/2020-04-22-calculating-return.md'
+    - 'Python Package Management on Windows': 'blog-posts/2021-04-15-python-package-management-windows.md'
+    - 'Life Insurance': 'blog-posts/2021-03-19-life-insurance.md'
+    - 'My Investment Portfolio': 'blog-posts/2021-01-16-my-investment-portfolio.md'
+    - 'Asset Allocation': 'blog-posts/2020-12-02-asset-allocation.md'
+    - 'Getting Started with Investing': 'blog-posts/2020-11-30-getting-started-with-investing.md'
+    - 'Making Stevia Powder': 'blog-posts/2020-11-28-making-stevia-powder.md'
+    - 'Cloudflare and Github Pages': 'blog-posts/2020-09-24-cloudflare-and-github-pages.md'
+    - 'Finance Booklist': 'blog-posts/2020-09-21-finance-book-list.md'
+    - 'IEM Reviews': 'blog-posts/2020-09-21-iem-reviews.md'
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - footnotes

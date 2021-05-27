@@ -1,0 +1,4 @@
+# www.robotstxt.org/
+
+User-agent: *
+Disallow: /static/images/photography/profile-stars-lishan-taiwan-2019.webp
