@@ -25,7 +25,9 @@ jobs:
           pipenv install
 
       - name: Build
-        run: pipenv run mkdocs build
+        run: |
+          cd src
+          pipenv run mkdocs build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.3
