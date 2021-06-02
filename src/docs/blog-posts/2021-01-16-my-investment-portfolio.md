@@ -1,6 +1,6 @@
 # My Investment Portfolio
 
-This is my current portfolio allocation as of 16/1/21.
+This is my current portfolio allocation as of 2/6/21.
 
 | %   	| Product[^ishares] (Ticker on LSE)                                                                                                                                             	|
 |-----	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -25,29 +25,50 @@ These are the reasons for my own portfolio allocation [above](2020-12-02-asset-a
 
 ### FAQ
 
-- Why not consider high yield, short duration bonds e.g. [SDHA](https://www.ishares.com/ch/individual/en/products/297889/ishares-short-duration-high-yield-corp-bond-ucits-etf-fund)?
-    - High yield, short duration bonds perform remarkably similar to equities (they lack the traditional stability associated with bonds). I would rather invest more in equities.
+#### Why are all your ETFs dormiciled in Ireland? What does UCITS mean?
+The main reasons are to save on witholding tax on dividends (15% vs 30%), and estate duty. [Bogleheads](https://www.bogleheads.org/wiki/Nonresident_alien_investors_and_Ireland_domiciled_ETFs) has a great explanation. Note: this only applies if you're not a US investor.
+
+#### Why not consider high yield, short duration bonds e.g. [SDHA](https://www.ishares.com/ch/individual/en/products/297889/ishares-short-duration-high-yield-corp-bond-ucits-etf-fund)?
+High yield, short duration bonds perform remarkably similar to equities (they lack the traditional stability associated with bonds). I would rather invest more in equities than in these or junk bonds.
   
-- Why [ISAC](https://www.ishares.com/uk/individual/en/products/251850/ishares-msci-acwi-ucits-etf) and not [IWDA](https://www.ishares.com/uk/individual/en/products/251882/) + [CSPX](https://www.ishares.com/uk/individual/en/products/253743/)
-    - That was a combo I used to do previously, as ISAC had an expense ratio of 0.6% (I don't like anything above 0.5%). The expense ratio of ISAC has since dropped to 0.2%, and that of WSML to 0.35%. This makes them much more attractive, as with these two funds, I am invested essentially globally in small- to large-cap stocks. With CSPX and IWDA, you'd only be invested in mid- to large-cap stocks in developed countries, missing out small-cap companies, which historically have provided higher returns (aka the 'small-cap premium').
+#### Why [ISAC](https://www.ishares.com/uk/individual/en/products/251850/ishares-msci-acwi-ucits-etf) + [WSML](https://www.ishares.com/uk/individual/en/products/296576/ishares-msci-world-small-cap-ucits-etf-usd-(acc)-fund) and not [IWDA](https://www.ishares.com/uk/individual/en/products/251882/) + [CSPX](https://www.ishares.com/uk/individual/en/products/253743/) or [VWRA](https://www.vanguardinvestments.dk/portal/instl/dk/en/product.html#/fundDetail/etf/portId=9679/assetCode=equity/?overview)?
+
+Let's look at how they compare.
+
+| As of 2021-06-02    | CSPX             | ISAC             | IWDA             | WSML             | VWRA             |
+|---------------------|------------------|------------------|------------------|------------------|------------------|
+| Expense Ratio (%)   | 0.07             | 0.20             | 0.20             | 0.35             | 0.22             |
+| Developed Large Cap | :material-check: | :material-check: | :material-check: |                  | :material-check: |
+| Developed Mid Cap   |                  | :material-check: | :material-check: |                  | :material-check: |
+| Developed Small Cap |                  |                  |                  | :material-check: |                  |
+| Emerging Large Cap  |                  | :material-check: |                  |                  | :material-check: |
+| Emerging Mid Cap    |                  | :material-check: |                  |                  | :material-check: |
+| Emerging Small Cap  |                  |                  |                  | :material-check: |                  |
+    
+I previously used the CSPX + IWDA combo, as ISAC had an expense ratio of 0.6% (I don't like anything above 0.5%). However, the expense ratio of ISAC has since dropped to 0.2%, making ISAC more attractive. ISAC includes mid and large-cap emerging market stocks, while the CSPX + IWDA combo does not. And ISAC does all this in 1 ETF instead of 2.
+
+I combine ISAC Together with WSML (expense ratio of 0.35%), to ensure I am invested globally in small to large-cap stocks across developing and emerging markets.
+
+#### Why ISAC over VWRA?
+[VWRA](https://www.vanguardinvestments.dk/portal/instl/dk/en/product.html#/fundDetail/etf/portId=9679/?overview) is a Vanguard fund dormiciled in Ireland, tracking the [FTSE All-World index](https://research.ftserussell.com/Analytics/Factsheets/Home/DownloadSingleIssue?issueName=AWORLDS&IsManual=false), an index covering large and mid-cap companies across developed and developing markets which claims to track 98% of the world investible market capitalization. The [MSCI ACWI Index](https://www.msci.com/documents/10199/8d97d244-4685-4200-a24c-3e2942e3adeb) on the other hand, tracks 85% of the global investible set. Apart from [some other minor differences](https://www.bankeronwheels.com/best-international-etfs/), the MSCI and FTSE World indices are similar in that they include mid to large-cap stocks in developing and developed countries. I wouldn't fret over the differences too much. If you're already in ISAC, keep it. Otherwise, you can consider buying VWRA to begin with.
+
+#### How often to rebalance the portfolio?
+A very good, mathematically accurate answer I read[^rebalancing] suggests that you should rebalance at most once a year. That is what I do. In terms of adding cash into the portfolio however, I add once I have a suitable amount, to make the cost of transaction fees minimal.
   
-- How often to rebalance the portfolio?
-    - A very good, mathematically accurate answer I read[^rebalancing] suggests that you should rebalance at most once a year. Personally I rebalance my portfolio every 6 months or longer.
-  
-- How much can I withdraw a year, without losing all of my principal?
-    - 4% of the total portfolio value per annum, assuming a portfolio invested in stocks and bonds[^withdrawal]. Withdrawing more than 4% p.a. will make the portfolio go to $0 eventually.
+#### How much can I withdraw a year, without losing all of my principal?
+4% of the total portfolio value per annum, assuming a portfolio invested in stocks and bonds[^withdrawal]. Withdrawing more than 4% p.a. will make the portfolio go to $0 eventually.
   
 ![](/static/images/2020-01-16/how-low-nest-egg-last.jpg)
   
-- Should I hedge against foreign currency risk?
-    - This is controversial, but essentially if you are looking at the long term, currency hedging has little to no impact on your portfolio.[^hedging]
+#### Should I hedge against foreign currency risk?
+This is controversial, but essentially if you are looking at the long term, currency hedging has little to no impact on your portfolio.[^hedging]
     
-- Why not put more into CPF instead? E.g. SA (SA shielding)?
-    - The main idea behind using CPF as an investment vehicle ([1M65](https://blog.seedly.sg/1m65-1-million-by-65-cpf/) etc) is to reap the 4% p.a. guaranteed return from the SA account. I firmly believe that over the course of a long investment horizon, such as 20 years, investment into the global markets can and will yield much better results than 4% p.a. (about 10% p.a. in fact). $1000 invested at 4% p.a. is worth $2191 in 20 years. But with an interest rate of 10% p.a. compounded, you'd have $6727 instead.
+#### Why not put more into CPF instead? E.g. SA (SA shielding)?
+The main idea behind using CPF as an investment vehicle ([1M65](https://blog.seedly.sg/1m65-1-million-by-65-cpf/) etc) is to reap the 4% p.a. guaranteed return from the SA account. I firmly believe that over the course of a long investment horizon, such as 20 years, investment into the global markets can and will yield much better results than 4% p.a. (about 10% p.a. in fact). $1000 invested at 4% p.a. is worth $2191 in 20 years. But with an interest rate of 10% p.a. compounded, you'd have $6727 instead.
     - That being said, if you have a shorter investment horizon and plan to use your funds soon, investing in the SA (or the RA) could be part of your portfolio.
     
-- Why is insurance (e.g. whole-life insurance) not part of the portfolio?
-    - [Insurance is not investment.](https://www.valueresearchonline.com/stories/9261/do-not-mix-insurance-and-investment). The returns from a whole life policy are much lower than even CPF (SA account earns 4% guaranteed interest, while most whole-life plans have a floor interest rate of 2% p.a.). Rather, one buys insurance as a hedge against adverse events which may cause you to need the money earlier, such as disability or illness. For most working adults with dependents, term life insurance is sufficient.
+#### Why is insurance (e.g. whole-life insurance) not part of the portfolio?
+[Insurance is not investment.](https://www.valueresearchonline.com/stories/9261/do-not-mix-insurance-and-investment). The returns from a whole life policy are much lower than even CPF (SA account earns 4% guaranteed interest, while most whole-life plans have a floor interest rate of 2% p.a.). Rather, one buys insurance as a hedge against adverse events which may cause you to need the money earlier, such as disability or illness. For most working adults with dependents, term life insurance is sufficient.
 
 [^ishares]: If you're wondering why I buy so many ETFs from iShares, it's because they boast one of the lowest expense ratios (an annual fee charged by the ETF managers). Alternative ETF providers include [SSGA](https://www.ssga.com/us/en/institutional/etfs) and [Vanguard](https://investor.vanguard.com/etf/list#/etf/asset-class/month-end-returns).
 [^rebalancing]: From 'The Intelligent Asset Allocator'. Stock returns exhibit autocorrelation (that is, future returns are affected by past returns) over short time periods (e.g. days to months). If you were to rebalance during such a period where the autocorrelation is positive, you would lose money as you would be selling the rising asset too soon. 

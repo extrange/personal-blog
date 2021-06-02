@@ -8,9 +8,9 @@ Other than this, there are a few more problems with Conda:
 - Conda sometimes hosts outdated versions of packages vs pip, such as `pdfminer` (that was a real headache)
 - Search is slow
 
-However, Conda allows you to specify and manage Python itself as a dependency, which is great on Windows, as it prevents you from polluting the environment.
+However, Conda allows you to specify and manage Python itself as a dependency, which is great on Windows, as it prevents you from polluting the working environment.
 
-# Pipenv
+## Pipenv
 
 Pipenv is [recommended](https://packaging.python.org/tutorials/managing-dependencies/) by Python itself. It can update all packages installed via pip and manage dependencies. Meanwhile, `conda update --all` doesn't update pip packages...
 
@@ -20,7 +20,7 @@ I finally settled around to using [Chocolatey](https://chocolatey.org/) to manag
 
 My current plan now is to use Chocolatey to manage Python versions, and then use `pipenv` to create virtualenvs for each project.
 
-# Automatic Dependency Generation
+## Automatic Dependency Generation
 
 I've tried both, and pipreqs is better than pigar for automatically generating the requirements for your project.
 
