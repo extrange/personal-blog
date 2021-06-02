@@ -290,9 +290,46 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Python Package Management on Windows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Python Package Management on Windows
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pipenv" class="md-nav__link">
+    Pipenv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-dependency-generation" class="md-nav__link">
+    Automatic Dependency Generation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -419,6 +456,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pipenv" class="md-nav__link">
+    Pipenv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-dependency-generation" class="md-nav__link">
+    Automatic Dependency Generation
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -438,13 +497,13 @@
 <li>Conda sometimes hosts outdated versions of packages vs pip, such as <code>pdfminer</code> (that was a real headache)</li>
 <li>Search is slow</li>
 </ul>
-<p>However, Conda allows you to specify and manage Python itself as a dependency, which is great on Windows, as it prevents you from polluting the environment.</p>
-<h1 id="pipenv">Pipenv</h1>
+<p>However, Conda allows you to specify and manage Python itself as a dependency, which is great on Windows, as it prevents you from polluting the working environment.</p>
+<h2 id="pipenv">Pipenv</h2>
 <p>Pipenv is <a href="https://packaging.python.org/tutorials/managing-dependencies/">recommended</a> by Python itself. It can update all packages installed via pip and manage dependencies. Meanwhile, <code>conda update --all</code> doesn't update pip packages...</p>
 <p>However, it requires a base Python installation. On Windows, version management for Python is a headache...</p>
 <p>I finally settled around to using <a href="https://chocolatey.org/">Chocolatey</a> to manage Python itself as a dependency. Granted, there are several problems, the largest being that Chocolatey executes administrator-level code on your computer, but at least it does the job.</p>
 <p>My current plan now is to use Chocolatey to manage Python versions, and then use <code>pipenv</code> to create virtualenvs for each project.</p>
-<h1 id="automatic-dependency-generation">Automatic Dependency Generation</h1>
+<h2 id="automatic-dependency-generation">Automatic Dependency Generation</h2>
 <p>I've tried both, and pipreqs is better than pigar for automatically generating the requirements for your project.</p>
                 
               
