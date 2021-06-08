@@ -32,31 +32,13 @@ The main reasons are to save on witholding tax on dividends (15% vs 30%), and es
 High yield, short duration bonds perform remarkably similar to equities (they lack the traditional stability associated with bonds). I would rather invest more in equities than in these or junk bonds.
   
 #### Why [ISAC](https://www.ishares.com/uk/individual/en/products/251850/ishares-msci-acwi-ucits-etf) + [WSML](https://www.ishares.com/uk/individual/en/products/296576/ishares-msci-world-small-cap-ucits-etf-usd-(acc)-fund) and not [IWDA](https://www.ishares.com/uk/individual/en/products/251882/) + [CSPX](https://www.ishares.com/uk/individual/en/products/253743/) or [VWRA](https://www.vanguardinvestments.dk/portal/instl/dk/en/product.html#/fundDetail/etf/portId=9679/assetCode=equity/?overview)?
-
-Let's look at how they compare. Take note of the **expense ratio** and **fund size** (this affects liquidity, or the bid/ask spread[^bid-ask-spread]).
-
-| As of 2021-06-02    | CSPX             | ISAC             | IMID             | IWDA             | WSML             | VWRA             |
-|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Expense Ratio (%)   | 0.07             | 0.20             | 0.40             | 0.20             | 0.35             | 0.22             |
-| Fund Size           | 45B              | 2.4B             | 0.27B            | 36B              | 4.2B             | 2.6B             |
-| Developed Large Cap | :material-check: | :material-check: | :material-check: | :material-check: |                  | :material-check: |
-| Developed Mid Cap   |                  | :material-check: | :material-check: | :material-check: |                  | :material-check: |
-| Developed Small Cap |                  |                  | :material-check: |                  | :material-check: |                  |
-| Emerging Large Cap  |                  | :material-check: | :material-check: |                  |                  | :material-check: |
-| Emerging Mid Cap    |                  | :material-check: | :material-check: |                  |                  | :material-check: |
-| Emerging Small Cap  |                  |                  | :material-check: |                  |                  |                  |
-    
-I previously used the CSPX + IWDA combo, as ISAC had an expense ratio of 0.6% (I don't like anything above 0.5%). However, the expense ratio of ISAC has since dropped to 0.2%, making ISAC more attractive. ISAC includes mid and large-cap emerging market stocks, while the CSPX + IWDA combo does not. Also, ISAC does all this in 1 ETF, instead of 2.
-
-I combine ISAC together with WSML (expense ratio of 0.35%), to ensure I am invested globally in small to large-cap stocks across developing and emerging markets.
-
-While the ISAC + WSML combo does not include emerging small cap markets, to me this isn't a problem - I think emerging small caps are quite a gamble. That's my opinion.
+See this [post](2021-06-08-which-is-the-best-index-fund-etf.md).
 
 #### Why ISAC over VWRA?
-[VWRA](https://www.vanguardinvestments.dk/portal/instl/dk/en/product.html#/fundDetail/etf/portId=9679/?overview) is a Vanguard fund dormiciled in Ireland, tracking the [FTSE All-World index](https://research.ftserussell.com/Analytics/Factsheets/Home/DownloadSingleIssue?issueName=AWORLDS&IsManual=false), an index covering large and mid-cap companies across developed and developing markets which claims to track 98% of the world investible market capitalization. The [MSCI ACWI Index](https://www.msci.com/documents/10199/8d97d244-4685-4200-a24c-3e2942e3adeb) on the other hand, tracks 85% of the global investible set. Apart from [some other minor differences](https://www.bankeronwheels.com/best-international-etfs/), the MSCI and FTSE World indices are similar in that they include mid to large-cap stocks in developing and developed countries. I wouldn't fret over the differences too much. If you're already in ISAC, keep it. Otherwise, you can consider buying VWRA to begin with.
+See this [post](2021-06-08-which-is-the-best-index-fund-etf.md#why-isac-over-vwra).
 
 #### Why not [IMID](https://markets.ft.com/data/etfs/tearsheet/summary?s=IMID:LSE:USD)? This includes small to large-cap stocks across developing AND developed markets!
-The main reason is due to the small fund size at the moment (0.27B), and the higher expense ration (0.4%). Otherwise, it is an attractive option, being 1 ETF instead of 2.
+See this [post](2021-06-08-which-is-the-best-index-fund-etf.md#why-not-imidhttpsmarketsftcomdataetfstearsheetsummarysimidlseusd-this-includes-small-to-large-cap-stocks-across-developing-and-developed-markets).
 
 #### How often to rebalance the portfolio?
 A very good, mathematically accurate answer I read[^rebalancing] suggests that you should rebalance at most once a year. That is what I do. In terms of adding cash into the portfolio however, I add once I have a suitable amount, to make the cost of transaction fees minimal.
@@ -77,7 +59,6 @@ The main idea behind using CPF as an investment vehicle ([1M65](https://blog.see
 [Insurance is not investment.](https://www.valueresearchonline.com/stories/9261/do-not-mix-insurance-and-investment). The returns from a whole life policy are much lower than even CPF (SA account earns 4% guaranteed interest, while most whole-life plans have a floor interest rate of 2% p.a.). Rather, one buys insurance as a hedge against adverse events which may cause you to need the money earlier, such as disability or illness. For most working adults with dependents, term life insurance is sufficient.
 
 [^ishares]: If you're wondering why I buy so many ETFs from iShares, it's because they boast one of the lowest expense ratios (an annual fee charged by the ETF managers). Alternative ETF providers include [SSGA](https://www.ssga.com/us/en/institutional/etfs) and [Vanguard](https://investor.vanguard.com/etf/list#/etf/asset-class/month-end-returns).
-[^bid-ask-spread]: This is the difference between the price you buy and sell at. Lower liquidity means this gap will be bigger.
 [^rebalancing]: From 'The Intelligent Asset Allocator'. Stock returns exhibit autocorrelation (that is, future returns are affected by past returns) over short time periods (e.g. days to months). If you were to rebalance during such a period where the autocorrelation is positive, you would lose money as you would be selling the rising asset too soon. 
 [^withdrawal]: From 'The Intelligent Asset Allocator'. While the real, inflation-adjusted return of your portfolio may be more than 4% p.a., there are years where your portfolio may earn less than this and vice versa. Based on historical data, a withdrawal rate of more than 4% p.a. has quite a high probability of draining the entire portfolio during a string of years with poor returns. With a 4% or lower withdrawal rate, the portfolio theoretically can be sustained nearly indefinitely. Contrast this to CPF ;)
 [^hedging]: The Intelligent Asset Allocator, pg 142.

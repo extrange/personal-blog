@@ -12,6 +12,7 @@ nav:
   - Photography: 'photography.md'
   - Mountaineering: 'mountaineering.md'
   - 'Blog Posts':
+    - 'The Best Index Fund': 'blog-posts/2021-06-08-which-is-the-best-index-fund-etf.md'
     - 'Calculating Return': 'blog-posts/2020-04-22-calculating-return.md'
     - 'Python Package Management on Windows': 'blog-posts/2021-04-15-python-package-management-windows.md'
     - 'Life Insurance': 'blog-posts/2021-03-19-life-insurance.md'
