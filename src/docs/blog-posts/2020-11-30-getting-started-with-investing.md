@@ -47,7 +47,7 @@ I'm strongly for 4. And this is because:
 
 
 <figure>
-  <a href="/static/images/2020-11-30/wsb.jpg"><img src="/static/images/2020-11-30/Markets-Reward-Discipline.jpg" alt="Markets reward discipline" loading="lazy" width="1080"/></a>
+  <a href="/static/images/2020-11-30/Markets-Reward-Discipline.jpg"><img src="/static/images/2020-11-30/Markets-Reward-Discipline.jpg" alt="Markets reward discipline" loading="lazy" width="1080"/></a>
   <figcaption>The stock market has always recovered</figcaption>
 </figure>
 
