@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/endowus-portfolios-comparison/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2021-06-20-uselayouteffect/">
       
       <link rel="icon" href="/static/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
-        <title>Endowus portfolios comparison - Nicholas</title>
+        <title>useLayoutEffect - Nicholas</title>
       
     
     
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#the-uselayouteffect-hook" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -99,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Endowus portfolios comparison
+              useLayoutEffect
             
           </span>
         </div>
@@ -252,12 +257,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
         Blog Posts
@@ -273,11 +280,51 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../2021-06-20-uselayouteffect/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          useLayoutEffect
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         useLayoutEffect
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uselayouteffect" class="md-nav__link">
+    useLayoutEffect
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -427,15 +474,100 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uselayouteffect" class="md-nav__link">
+    useLayoutEffect
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Endowus portfolios comparison</h1>
-                
-                
+                <h1 id="the-uselayouteffect-hook">The useLayoutEffect hook</h1>
+<p>Suppose you have a parent component <code>A</code> and a child <code>B</code>, and you want to run a <code>useEffect</code> hook on mount in the parent first, followed by another <code>useEffect</code> hook in the child.</p>
+<p>For example, you have a child component which overrides the default styles of the parent on mount.</p>
+<p>This was a problem I faced.</p>
+<p>You might try this, but it does not work as expected:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">A</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Parent useEffect&#39;</span><span class="p">),</span> <span class="p">[])</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Parent body&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">B</span><span class="o">/&gt;</span>
+<span class="p">};</span>
+
+<span class="c1">// omitted</span>
+
+<span class="kd">const</span> <span class="nx">B</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Child useEffect&#39;</span><span class="p">),</span> <span class="p">[])</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Child body&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="cm">/*Logs</span>
+<span class="cm">* Parent body</span>
+<span class="cm">* Child body</span>
+<span class="cm">* Child useEffect</span>
+<span class="cm">* Parent useEffect*/</span>
+</code></pre></div>
+<p>The child component's <code>useEffect</code> is being called <strong>before</strong> the parent component. Why is this happening?</p>
+<p><a href="https://reactjs.org/docs/hooks-reference.html#useeffect"><code>useEffect</code> runs after every completed render</a>. If no dependencies are specified in the dependency array (the second argument), it will run after the first render.</p>
+<p>In the above example, the parent <code>A</code> begins rendering first, followed by the child <code>B</code>. The child finishes rendering before the parent, and so its <code>useEffect</code> hook is called first, followed by the parent's.</p>
+<p>Is there a way to run effects in the parent, before the child?</p>
+<h2 id="uselayouteffect">useLayoutEffect</h2>
+<p>You can use <a href="https://reactjs.org/docs/hooks-reference.html#uselayouteffect"><code>useLayoutEffect</code></a>.</p>
+<p><code>useLayoutEffect</code> runs synchronously, before the browser has had a chance to paint.</p>
+<p>We can rewrite our example above to the following:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">A</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="hll">    <span class="nx">useLayoutEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Parent useEffect&#39;</span><span class="p">),</span> <span class="p">[])</span>
+</span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Parent body&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">B</span><span class="o">/&gt;</span>
+<span class="p">};</span>
+
+<span class="c1">// omitted</span>
+
+<span class="kd">const</span> <span class="nx">B</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Child useEffect&#39;</span><span class="p">),</span> <span class="p">[])</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Child body&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="cm">/*Logs</span>
+<span class="cm">* Parent body</span>
+<span class="cm">* Child body</span>
+<span class="cm">* Parent useEffect</span>
+<span class="cm">* Child useEffect*/</span>
+</code></pre></div>
+<p>Now, effects in the child run <strong>before</strong> the parent!</p>
+<p>A caveat: <code>useLayoutEffect</code> is synchronous and will block visual updates, so avoid doing heavy lifting here.</p>
+<p>The next time you need to run an effect in the parent <em>before</em> the child, consider using <code>useLayoutEffect</code>.</p>
                 
               
               
@@ -451,6 +583,41 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../mountaineering/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mountaineering" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Mountaineering
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2021-06-08-which-is-the-best-index-fund-etf/" class="md-footer__link md-footer__link--next" aria-label="Next: The Best Index Fund" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              The Best Index Fund
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
