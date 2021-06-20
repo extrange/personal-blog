@@ -4,6 +4,8 @@ theme:
   favicon: '/static/images/favicon.png'
   icon:
     logo: material/home
+  features:
+    - navigation.instant
 site_url: https://nicholaslyz.com/
 nav:
   - Home: 'index.md'
@@ -34,3 +36,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - footnotes
+extra:
+  analytics:
+    provider: google
+    property: G-22SGZWR3ES
