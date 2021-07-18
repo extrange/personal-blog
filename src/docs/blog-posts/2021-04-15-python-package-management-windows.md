@@ -9,6 +9,7 @@ This is not the only problem I have with Conda.
 - Many python packages aren't available on Conda. For example, `broadlink`
 - Conda sometimes hosts outdated versions of packages vs pip, such as `pdfminer` (that was a real headache)
 - Search is slow. Very slow.
+- `conda update --all` doesn't update pip packages...
 
 ![](/static/images/2021-04-15/conda.gif)
 
@@ -16,28 +17,42 @@ That being said, Conda allows you to specify and manage Python itself as a depen
 
 I started looking for alternatives. There's [virtualenv](https://virtualenv.pypa.io/en/latest/), [poetry](https://python-poetry.org/), [pyenv-win](https://github.com/pyenv-win/pyenv-win) among others.
 
+I was previously using `pipenv`, but the dependency resolution wasn't perfect and I kept getting errors about unsatisfiable dependencies.
+
 So what's the best solution?
 
-## Pipenv + Chocolatey to the rescue!
+## Poetry + Chocolatey to the rescue!
 
 <img style="max-width: min(30vw, 150px);" src="/static/images/2021-04-15/chocolatey.svg" alt="Chocolatey"/>
 
 My setup:
 
 - Chocolatey with `--sidebyside` to manage Python versions
-- Pipenv to manage Python packages under a specified Python version
+- Poetry to manage Python packages under a specified Python version
 
-Yup, I decided to use Chocolatey to manage python versions. I don't want to have to keep installing Python 3.8.9 or whatever again and again, just because PyTorch or OpenCV some library doesn't support 3.9.
+I decided to use Chocolatey to manage python versions, because I don't want to have to keep installing Python 3.8.9 or whatever again and again, just because PyTorch or OpenCV some library doesn't support 3.9.
 
-I switch between Python versions using either `pipenv --python <version>` e.g. `pipenv --python 3.8.9` to set the environment.
+I set up a Python environment with Poetry using `poetry new <project-name>`.
 
-You can activate the pipenv shell with `pipenv shell`. Otherwise, some IDEs e.g. PyCharm do this for you automatically.
+By default, the system python version is used (the one present in the `PATH`). However if you want to use another version, you can either do `poetry env use /full/path/to/python` or edit the `pyproject.toml` as follows, then run `poetry update` after:
 
-Subsequently, I use `pipenv install <package>`. If you install packages using `pip` in a `pipenv` environment, they won't appear in the Pipfile, and won't be managed in the dependency graph.
+```toml hl_lines="8"
+[tool.poetry]
+name = "poetry-demo"
+version = "0.1.0"
+description = ""
+authors = ["Sébastien Eustace <sebastien@eustace.io>"]
 
-You can list the dependency graph with `pipenv graph`.
+[tool.poetry.dependencies]
+python = "3.8"
 
-Of note, Pipenv is [recommended](https://packaging.python.org/tutorials/managing-dependencies/) by Python itself. It can update all packages installed via pip and manage dependencies. Meanwhile, `conda update --all` doesn't update pip packages...
+[tool.poetry.dev-dependencies]
+pytest = "^3.4"
+```
+
+You can activate the poetry shell with `poetry shell`. Otherwise, some IDEs e.g. PyCharm do this for you automatically.
+
+You can add new packages with `poetry add <package>`.
 
 I know Chocolatey executes administrator-level code on your computer, but it works. I'll have to move to Linux one day, seeing as so many Python packages can't be built on Windows.
 
