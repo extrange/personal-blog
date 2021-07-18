@@ -4,7 +4,7 @@ Hi there! :wave:
 
 I'm Nicholas and I work as a junior doctor in Singapore.
 
-I'm interested in Machine and Deep Learning, and how it can be used to improve the delivery of healthcare in medical informatics. At the moment, I'm learning full-stack web development - I'm making a web app, a dashboard, to view and organize my tasks, investments, booklists and more all on one page.
+I'm interested in Machine and Deep Learning, and how it can be used to improve the delivery of healthcare in medical informatics. At the moment, I'm learning full-stack web development - I'm making a [web app](https://app.nicholaslyz.com) -  a dashboard, to view and organize my tasks, investments, booklists and more all on one page.
 
 I read, run and play the piano and badminton. I'm also into <u>[mountaineering](mountaineering.md)</u>, <u>[photography](photography.md)</u> and <u>[investing](blog-posts/2020-11-30-getting-started-with-investing.md)</u>. I'm also interested in Zen[^alan-watts] and [lucid dreaming](https://www.reddit.com/r/LucidDreaming/comments/73ih3x/start_here_beginner_guides_faqs_and_resources/)[^lucid-dreaming].
 
