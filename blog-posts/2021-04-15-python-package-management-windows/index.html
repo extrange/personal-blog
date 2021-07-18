@@ -351,8 +351,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pipenv-chocolatey-to-the-rescue" class="md-nav__link">
-    Pipenv + Chocolatey to the rescue!
+  <a href="#poetry-chocolatey-to-the-rescue" class="md-nav__link">
+    Poetry + Chocolatey to the rescue!
   </a>
   
 </li>
@@ -500,8 +500,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pipenv-chocolatey-to-the-rescue" class="md-nav__link">
-    Pipenv + Chocolatey to the rescue!
+  <a href="#poetry-chocolatey-to-the-rescue" class="md-nav__link">
+    Poetry + Chocolatey to the rescue!
   </a>
   
 </li>
@@ -534,24 +534,37 @@
 <li>Many python packages aren't available on Conda. For example, <code>broadlink</code></li>
 <li>Conda sometimes hosts outdated versions of packages vs pip, such as <code>pdfminer</code> (that was a real headache)</li>
 <li>Search is slow. Very slow.</li>
+<li><code>conda update --all</code> doesn't update pip packages...</li>
 </ul>
 <p><img alt="" src="/static/images/2021-04-15/conda.gif" /></p>
 <p>That being said, Conda allows you to specify and manage Python itself as a dependency, which is great on Windows, as it prevents you from polluting the working environment.</p>
 <p>I started looking for alternatives. There's <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, <a href="https://python-poetry.org/">poetry</a>, <a href="https://github.com/pyenv-win/pyenv-win">pyenv-win</a> among others.</p>
+<p>I was previously using <code>pipenv</code>, but the dependency resolution wasn't perfect and I kept getting errors about unsatisfiable dependencies.</p>
 <p>So what's the best solution?</p>
-<h2 id="pipenv-chocolatey-to-the-rescue">Pipenv + Chocolatey to the rescue!</h2>
+<h2 id="poetry-chocolatey-to-the-rescue">Poetry + Chocolatey to the rescue!</h2>
 <p><img style="max-width: min(30vw, 150px);" src="/static/images/2021-04-15/chocolatey.svg" alt="Chocolatey"/></p>
 <p>My setup:</p>
 <ul>
 <li>Chocolatey with <code>--sidebyside</code> to manage Python versions</li>
-<li>Pipenv to manage Python packages under a specified Python version</li>
+<li>Poetry to manage Python packages under a specified Python version</li>
 </ul>
-<p>Yup, I decided to use Chocolatey to manage python versions. I don't want to have to keep installing Python 3.8.9 or whatever again and again, just because PyTorch or OpenCV some library doesn't support 3.9.</p>
-<p>I switch between Python versions using either <code>pipenv --python &lt;version&gt;</code> e.g. <code>pipenv --python 3.8.9</code> to set the environment.</p>
-<p>You can activate the pipenv shell with <code>pipenv shell</code>. Otherwise, some IDEs e.g. PyCharm do this for you automatically.</p>
-<p>Subsequently, I use <code>pipenv install &lt;package&gt;</code>. If you install packages using <code>pip</code> in a <code>pipenv</code> environment, they won't appear in the Pipfile, and won't be managed in the dependency graph.</p>
-<p>You can list the dependency graph with <code>pipenv graph</code>.</p>
-<p>Of note, Pipenv is <a href="https://packaging.python.org/tutorials/managing-dependencies/">recommended</a> by Python itself. It can update all packages installed via pip and manage dependencies. Meanwhile, <code>conda update --all</code> doesn't update pip packages...</p>
+<p>I decided to use Chocolatey to manage python versions, because I don't want to have to keep installing Python 3.8.9 or whatever again and again, just because PyTorch or OpenCV some library doesn't support 3.9.</p>
+<p>I set up a Python environment with Poetry using <code>poetry new &lt;project-name&gt;</code>.</p>
+<p>By default, the system python version is used (the one present in the <code>PATH</code>). However if you want to use another version, you can either do <code>poetry env use /full/path/to/python</code> or edit the <code>pyproject.toml</code> as follows, then run <code>poetry update</code> after:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[tool.poetry]</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s">&quot;poetry-demo&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s">&quot;0.1.0&quot;</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="n">authors</span> <span class="o">=</span> <span class="k">[&quot;Sébastien Eustace &lt;sebastien@eustace.io&gt;&quot;]</span>
+
+<span class="k">[tool.poetry.dependencies]</span>
+<span class="hll"><span class="n">python</span> <span class="o">=</span> <span class="s">&quot;3.8&quot;</span>
+</span>
+<span class="k">[tool.poetry.dev-dependencies]</span>
+<span class="n">pytest</span> <span class="o">=</span> <span class="s">&quot;^3.4&quot;</span>
+</code></pre></div>
+<p>You can activate the poetry shell with <code>poetry shell</code>. Otherwise, some IDEs e.g. PyCharm do this for you automatically.</p>
+<p>You can add new packages with <code>poetry add &lt;package&gt;</code>.</p>
 <p>I know Chocolatey executes administrator-level code on your computer, but it works. I'll have to move to Linux one day, seeing as so many Python packages can't be built on Windows.</p>
 <h2 id="automatic-dependency-generation">Automatic Dependency Generation</h2>
 <p>Sometimes you might have a Python project with another dependency management framework, e.g. Conda or Pip.</p>
