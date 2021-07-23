@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/soybean-jelly-recipe/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2021-07-23-cracking-pdf-hashes/">
       
       <link rel="icon" href="/static/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
-        <title>Soybean jelly recipe - Nicholas</title>
+        <title>Cracking PDF Hashes with hashcat - Nicholas</title>
       
     
     
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#cracking-pdf-hashes-with-hashcat" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -99,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Soybean jelly recipe
+              Cracking PDF Hashes with hashcat
             
           </span>
         </div>
@@ -252,12 +257,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       <label class="md-nav__link" for="__nav_6">
         Blog Posts
@@ -273,11 +280,58 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../2021-07-23-cracking-pdf-hashes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Cracking PDF Hashes with hashcat
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Cracking PDF Hashes with hashcat
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extracting-the-hash-from-the-pdf" class="md-nav__link">
+    Extracting the hash from the PDF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-brute-force-with-hashcat" class="md-nav__link">
+    Starting brute force with hashcat
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -439,15 +493,87 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#extracting-the-hash-from-the-pdf" class="md-nav__link">
+    Extracting the hash from the PDF
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-brute-force-with-hashcat" class="md-nav__link">
+    Starting brute force with hashcat
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Soybean jelly recipe</h1>
-                
-                
+                <h1 id="cracking-pdf-hashes-with-hashcat">Cracking PDF Hashes with <code>hashcat</code></h1>
+<p>Do you have a PDF document lying around somewhere, but it's encrypted and you've forgotten the password to it?</p>
+<p><a href="https://hashcat.net/hashcat/"><code>hashcat</code></a> is a great open-source hash cracker with GPU acceleration. It also comes with features such as masking, dictionary attacks and even <a href="https://hashcat.net/wiki/doku.php?id=statsprocessor">statistical methods</a> of password guessing. It also supports 300+ hash types (e.g. SHA-1, MD5, WPA, Django...) out of the box.</p>
+<p>Don't use this for unlawful purposes!</p>
+<h2 id="extracting-the-hash-from-the-pdf">Extracting the hash from the PDF</h2>
+<p>First, we need to extract the password hash from the PDF. There's an online tool for this, but for now let's use this python script (<a href="https://github.com/truongkma/ctf-tools/blob/master/John/run/pdf2john.py">pdf2john.py</a>).</p>
+<p>Run it with <code>python pdf2john.py &lt;your-pdf-file&gt;</code>.</p>
+<p>The output should resemble something like this:</p>
+<div class="highlight"><pre><span></span><code>b&#39;aa.pdf&#39;:b&#39;$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6&#39;:::::b&#39;D:\\Desktop\\aa.pdf&#39;
+</code></pre></div>
+<p>We're only interested in the second part (beginning with <code>$pdf$4...</code> up till <code>...69d6</code>). So, let's copy that out:</p>
+<div class="highlight"><pre><span></span><code>$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6
+</code></pre></div>
+<p>This is the hash we'll supply to <code>hashcat</code> later on.</p>
+<h2 id="starting-brute-force-with-hashcat">Starting brute force with <code>hashcat</code></h2>
+<p>First, grab the latest copy of <code>hashcat</code> from <a href="https://hashcat.net/hashcat/">here</a>.</p>
+<p>This command runs a brute force attack on the hash (up till the maximum number of characters):</p>
+<p><code>hashcat -a 3 -m 10500 '&lt;hash&gt;'</code> (note: the hash must be in quotes, or else some OSes might interpret the <code>$</code> as a variable)</p>
+<p>Let's break it down.</p>
+<p><code>-a</code> specifies the attack mode. In this case, <code>3</code> indicates brute force.</p>
+<p><code>-m</code> specifies the type of hash. <code>hashcat</code> can actually autodetect the hash type, but for this purpose, we'll specify it as as <code>10500</code>, which is <code>PDF 1.4 - 1.6 (Acrobat 5 - 8)</code>.</p>
+<p><code>hashcat</code> also supports masking options. So if you wanted to try all lowercase alphanumeric passwords (a-z, 0-9) up to 10 characters, you could do</p>
+<p><code>.\hashcat -a 3 -1 ?l?d -i -m 10500 '&lt;hash&gt;' ?1?1?1?1?1?1?1?1?1?1?1?1</code></p>
+<p><code>-1</code> specifies the character set in the first position (<code>hashcat</code> supports multiple character sets). In this case, <code>?l</code> refers to the set <code>abcde...xyz</code>, and <code>?d</code> refers to all digits 0-9.</p>
+<p><code>-i</code> specifies that we want to progressively try the mask, starting from <code>--increment-min</code> (default 1). What this does is it will try only 1 character of the mask (e.g. <code>a</code>), then 2, up till <code>--increment-max</code> (default being the length of the mask, e.g. <code>zzzzzzzzzz</code>).</p>
+<p><code>?1?1?1?1?1?1?1?1?1?1?1?1</code> is the mask itself. <code>?1</code> refers to the character set in the first position, that we specified above with <code>-1</code>.</p>
+<p><img alt="" src="/static/images/2021-07-23/hashcat.jpg" /></p>
+<p>And that's it! Password cracking is exponentially slower with regards to the length of the password<sup id="fnref:limits"><a class="footnote-ref" href="#fn:limits">1</a></sup>, so any clues as to the content of the password will speed it up greatly.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:limits">
+<p>Theoretically, a 51-character alphanumeric, case-sensitive password would be <a href="https://en.wikipedia.org/wiki/Transcomputational_problem">uncrackable.</a>&#160;<a class="footnote-backref" href="#fnref:limits" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               
@@ -463,6 +589,41 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../mountaineering/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mountaineering" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Mountaineering
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2021-06-20-uselayouteffect/" class="md-footer__link md-footer__link--next" aria-label="Next: useLayoutEffect" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              useLayoutEffect
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
