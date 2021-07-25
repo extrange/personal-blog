@@ -14,6 +14,8 @@ nav:
   - Photography: 'photography.md'
   - Mountaineering: 'mountaineering.md'
   - 'Blog Posts':
+    - 'My Endowus Portfolio': 'blog-posts/2021-07-25-my-endowus-portfolio.md'
+    - 'To Endowus, Or Not?': 'blog-posts/2021-07-25-endowus-or-not.md'
     - 'Cracking PDF Hashes with hashcat': 'blog-posts/2021-07-23-cracking-pdf-hashes.md'
     - 'useLayoutEffect': 'blog-posts/2021-06-20-uselayouteffect.md'
     - 'The Best Index Fund': 'blog-posts/2021-06-08-which-is-the-best-index-fund-etf.md'
