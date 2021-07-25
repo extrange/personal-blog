@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2020-09-24-cloudflare-and-github-pages/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2021-07-25-endowus-or-not/">
       
       <link rel="icon" href="/static/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
-        <title>Cloudflare and Github Pages - Nicholas</title>
+        <title>To Endowus, Or Not? - Nicholas</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dns-settings-for-serving-github-pages-over-cloudflare" class="md-skip">
+        <a href="#to-endowus-or-not" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cloudflare and Github Pages
+              To Endowus, Or Not?
             
           </span>
         </div>
@@ -292,11 +292,72 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../2021-07-25-endowus-or-not/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          To Endowus, Or Not?
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         To Endowus, Or Not?
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#endowus" class="md-nav__link">
+    Endowus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-brokers" class="md-nav__link">
+    Interactive Brokers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    Comparison
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verdict" class="md-nav__link">
+    Verdict
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -424,106 +485,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Cloudflare and Github Pages
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2020-09-24-cloudflare-and-github-pages/" class="md-nav__link">
         Cloudflare and Github Pages
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#update-201220-cloudflare-proxying-prevents-ssl-certificate-renewal" class="md-nav__link">
-    Update (20/12/20) - Cloudflare proxying prevents SSL Certificate renewal
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    The Problem
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    Solution
-  </a>
-  
-    <nav class="md-nav" aria-label="Solution">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-cloudflare-on" class="md-nav__link">
-    Example 1 - Cloudflare ON
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-cloudflare-off" class="md-nav__link">
-    Example 2 - Cloudflare OFF
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-3-without-cname-flattening" class="md-nav__link">
-    Example 3 - Without CNAME flattening
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-4-origin-presents-valid-certificate-for-requested-hostname" class="md-nav__link">
-    Example 4 - Origin presents valid certificate for requested hostname
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-5-origin-presents-invalid-certificate-for-requested-hostname" class="md-nav__link">
-    Example 5 - Origin presents invalid certificate for requested hostname
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -584,64 +550,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#update-201220-cloudflare-proxying-prevents-ssl-certificate-renewal" class="md-nav__link">
-    Update (20/12/20) - Cloudflare proxying prevents SSL Certificate renewal
+  <a href="#endowus" class="md-nav__link">
+    Endowus
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-problem" class="md-nav__link">
-    The Problem
+  <a href="#interactive-brokers" class="md-nav__link">
+    Interactive Brokers
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution" class="md-nav__link">
-    Solution
-  </a>
-  
-    <nav class="md-nav" aria-label="Solution">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-1-cloudflare-on" class="md-nav__link">
-    Example 1 - Cloudflare ON
+  <a href="#comparison" class="md-nav__link">
+    Comparison
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#example-2-cloudflare-off" class="md-nav__link">
-    Example 2 - Cloudflare OFF
+      
+        <li class="md-nav__item">
+  <a href="#verdict" class="md-nav__link">
+    Verdict
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-3-without-cname-flattening" class="md-nav__link">
-    Example 3 - Without CNAME flattening
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-4-origin-presents-valid-certificate-for-requested-hostname" class="md-nav__link">
-    Example 4 - Origin presents valid certificate for requested hostname
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-5-origin-presents-invalid-certificate-for-requested-hostname" class="md-nav__link">
-    Example 5 - Origin presents invalid certificate for requested hostname
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -658,200 +590,157 @@
               
                 
                 
-                <h1 id="dns-settings-for-serving-github-pages-over-cloudflare">DNS settings for serving Github Pages over Cloudflare</h1>
-<p><em>Written on 24/9/20</em></p>
-<h2 id="update-201220-cloudflare-proxying-prevents-ssl-certificate-renewal">Update (20/12/20) - Cloudflare proxying prevents SSL Certificate renewal</h2>
-<p>When the SSL certificate (provisioned by Github automatically for the custom domain you specified, via Let's Encrypt) expired on 18/12/20, I started getting errors from Cloudflare.</p>
-<p>Looking deeper, I realized Github was having trouble provisioning the SSL certificate.</p>
-<p><strong>The solution was to disable Cloudflare proxying</strong>. Upon doing so, I was able to get an SSL certificate provisioned for the root domain, <code>nicholaslyz.com</code>.</p>
-<h2 id="the-problem">The Problem</h2>
-<p><img alt="" src="../../static/images/cloudflare-logo.jpg" />
- <img src="/static/images/github-pages-logo.jpg" width="332" alt="Github Logo" loading="lazy"/></p>
-<p><a href="https://www.cloudflare.com">Cloudflare</a> is one of the largest CDNs, and the Free plan offers unlimited bandwidth to your site. I use it for this site. However, the configuration can be tricky...</p>
-<figure>
-  <img src="/static/images/cf-error.jpg" alt="Cloudflare Error" loading="lazy"/>
-  <figcaption>I kept getting this error for ```www.nicholaslyz.com```, but not ```nicholaslyz.com```</figcaption>
-</figure>
-
-<p>Here was my initial configuration:</p>
-<p><img alt="" loading="lazy" src="../../static/images/incorrect-config.jpg" /></p>
-<p>I use Github Pages with <a href="https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain">custom domains</a> and 'Enforce HTTPS' enabled, and Cloudflare with <a href="https://support.cloudflare.com/hc/en-us/articles/200170416-End-to-end-HTTPS-with-Cloudflare-Part-3-SSL-options#h_8afd8a8d-382d-4694-a2b2-44cbc9f637ef">SSL Full (Strict)</a>.</p>
-<p>When a visitor visits <code>www.your-site.com</code>, Github issues a HTTPS 301 redirect from the <code>www</code> subdomain to the registered custom domain/subdomain (in this case <code>your-site.com</code>), presenting a certificate valid for <code>www.github.com, *.github.com, github.com, *.github.io, github.io, *.githubusercontent.com, githubusercontent.com</code>. This happens because Github <a href="https://github.community/t/does-github-pages-support-https-for-www-and-subdomains/10360/2">only provisions certificates for the registered (sub)domain</a> (in my case, <code>nicholaslyz.com</code>) and not the other subdomains.</p>
-<figure>
-  <img src="/static/images/gh-pages.jpg" alt="Github redirection" loading="lazy"/>
-  <figcaption>Github redirects users automatically to the correct version of your page, using their Github certificate</figcaption>
-</figure>
-
-<p>With Cloudflare proxying switched off - Firefox displays <a href="https://support.mozilla.org/en-US/kb/what-does-your-connection-is-not-secure-mean">'Warning: Potential Security Risk Ahead'</a> for the <code>www</code> version of the site, because the Github certificate is not valid for the <code>www</code> subdomain. This is the same error Cloudflare is getting. Chrome and Edge however, <a href="https://www.thesslstore.com/blog/chrome-fix-common-name-mismatch-error/">ignore the certificate error</a>, so they follow the redirect and work fine.</p>
-<p>This configuration (without cloudflare proxying) will still result in an error when the user tries to visit the <code>www</code> subdomain:</p>
-<figure>
-  <img src="/static/images/cf-no-proxy.jpg" alt="Cloudflare Error" loading="lazy"/>
-  <figcaption>If Cloudflare proxying is turned off, the error recurs</figcaption>
-</figure>
-
-<p>This is because Github is trying to redirect the user to the non-<code>www</code> version of the site while presenting the Github certificate.</p>
-<h2 id="solution">Solution</h2>
-<p>The following DNS settings worked (changes in red):</p>
-<p><img alt="" loading="lazy" src="../../static/images/correct-config.jpg" /></p>
-<p><strong>I believe CF allows requests from the origin with mismatched certificates to pass through if</strong></p>
+                <h1 id="to-endowus-or-not">To Endowus, Or Not?</h1>
+<p><a href="https://endowus.com/">Endowus</a> has been making waves in the robo-advisor market in Singapore, hitting $1 billion in assets under management (AUM) recently.</p>
+<p>It offers tailored investment solutions, customized for your risk appetite. Its portfolios are constructed from institutional-level fund classes, so fees are lower. Endowus also rebates trailer fees they receive from funds, so you pay even less. Finally, you can even build your own portfolio, using funds from PIMCO to Dimensional.</p>
+<p>With that in mind, should you switch from IBKR to Endowus?</p>
+<h2 id="endowus">Endowus</h2>
+<p>Of the robo-advisors in Singapore, Endowus is the only one offering <a href="https://endowus.com/insights/endowus-fund-smart-in-depth-review/">institutional level funds</a> (the rest, such as <a href="https://www.syfe.com/core-growth">Syfe</a> or <a href="https://www.stashaway.sg/how-we-invest">Stashaway</a>, use ETFs). Institutional-level funds may offer <a href="https://www.cruxinvestor.com/articles/institutional-vs-retail-investors">lower</a> costs than their retail counterparts.</p>
+<p>Endowus is also the only way you can access to funds from <a href="https://sg.dimensional.com/">Dimensional</a>, a world-wide mutual fund company boasting Nobel laureates such as Myron Scholes<sup id="fnref:scholes"><a class="footnote-ref" href="#fn:scholes">1</a></sup>. Most of the Dimensional funds are based off broad indexes such as the MSCI World Index, the ACWI or the AGGU (for fixed income).</p>
+<p>Endowus also offers <a href="https://endowus.com/cash-smart">Cash Smart</a>, their version of fixed deposit, with varying levels of risk and returns up to 2% pa.</p>
+<p>There are also no currency conversion fees with Endowus - all their funds are denominated in SGD. Presumably, the conversion to USD happens within the fund internally and is charged in the net expense ratio, but even that is low (Endowus' fund's expense ratios are ~0.5% pa).</p>
+<p>Instead, what Endowus charges is an <em>access fee</em>, ranging from 0.25% - 0.6% pa, charged quarterly. This is comparable to the 0.4% - 0.65% pa charged by <a href="https://www.syfe.com/pricing">Syfe</a>, the 0.2 - 0.8% charged by <a href="https://www.stashaway.sg/pricing">Stashaway</a> and the 0.3 - 0.5% pa charged by <a href="https://kristal.ai/wp-content/themes/di_kristal/documents/02_2021-Kristal_Freedom_Pricing-Singapore.pdf">Kristal</a>.</p>
+<h2 id="interactive-brokers">Interactive Brokers</h2>
+<p><a href="https://www.interactivebrokers.com/en/home.php">Interactive Brokers</a> (IBKR) is the largest electronic trading platform in the US. In June 2021, they managed <a href="https://investors.interactivebrokers.com/ir/main.php?file=latestMetricPR">$363.5 billion</a> in assets, with over 2,471,000 trades executed daily.</p>
+<p>Unlike Endowus, which is at heart a robo-advisor, IBKR is a fully featured broker, giving you access to stocks, ETFs, futures, currency, derivatives and more, across global markets.</p>
+<p>The <a href="https://www.interactivebrokers.com/en/index.php?f=1340">commissions</a> IBKR charges are highly competitive and are one of the lowest in the market. There is even a <a href="https://www.interactivebrokers.com/en/index.php?f=45196">commission-free</a> account, which is sadly unavailable in Singapore.</p>
+<p>IBKR also recently slashed its monthly inactivity fees - there are now <a href="https://www.interactivebrokers.com/en/index.php?f=4969">no annual or monthly charges</a> to use the platform. You therefore only pay on each trade (the bid-ask spread + commissions + exchange fees).</p>
+<p>With this flexibility however, comes some drawbacks:</p>
+<ul>
+<li>You must convert currency yourself (although the rates are one of the best<sup id="fnref2:ibkr-currency"><a class="footnote-ref" href="#fn:ibkr-currency">3</a></sup>)</li>
+<li>You must decide which securities to purchase</li>
+<li>Rebalancing must be done by yourself</li>
+<li>A maximum of 1 free withdrawal a month, with fees charged subsequently</li>
+</ul>
+<h2 id="comparison">Comparison</h2>
+<p>Let's summarize the information above:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Endowus</th>
+<th>IBKR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>Robo-Advisor</td>
+<td>Fully-featured Broker</td>
+</tr>
+<tr>
+<td>Founded</td>
+<td>2017</td>
+<td>1978</td>
+</tr>
+<tr>
+<td>AUM</td>
+<td>$1bn</td>
+<td>$363.5bn</td>
+</tr>
+<tr>
+<td>What you can buy</td>
+<td>Institional-Level, SGD Denominated funds</td>
+<td>Stocks, ETFs, mutual funds, bonds, derivatives</td>
+</tr>
+<tr>
+<td>Annual Fees</td>
+<td>0.25 - 0.6%</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Transaction Fees</td>
+<td>None</td>
+<td>Commission + Exchange Fee + Bid/Ask Spread</td>
+</tr>
+<tr>
+<td>Rebalancing</td>
+<td>Automatic, free</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td>Currency Conversion</td>
+<td>N/A</td>
+<td>Manual<sup id="fnref:ibkr-currency"><a class="footnote-ref" href="#fn:ibkr-currency">3</a></sup></td>
+</tr>
+<tr>
+<td>Custodian</td>
+<td>UOB Kay Hian (trust account in your name)</td>
+<td>IB LLC</td>
+</tr>
+<tr>
+<td>Custodian Bond Rating</td>
+<td><a href="https://www.uobgroup.com/investor-relations/capital-and-funding-information/credit-ratings.html">Aa1 (Moody's)<sup id="fnref:uob-rating"><a class="footnote-ref" href="#fn:uob-rating">2</a></sup></a></td>
+<td><a href="https://www.interactivebrokers.com/en/index.php?f=2334">BBB+ (S&amp;P)</a></td>
+</tr>
+<tr>
+<td>Withdrawals</td>
+<td>Free</td>
+<td>1 free a month, subsequent charged ~USD $10</td>
+</tr>
+</tbody>
+</table>
+<p>Here is what you pay per year, assuming you invest 25% of the amount each quarter, until you reach the full amount by the end of the year<sup id="fnref:assumptions"><a class="footnote-ref" href="#fn:assumptions">4</a></sup>.</p>
+<table>
+<thead>
+<tr>
+<th>Total Amount</th>
+<th>Endowus</th>
+<th>IBKR (1 ticker)</th>
+<th>IBKR (4 tickers)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$10,000</td>
+<td>$60</td>
+<td>~$16</td>
+<td>~$64</td>
+</tr>
+<tr>
+<td>$$100,000</td>
+<td>$600</td>
+<td>~$50</td>
+<td>~$64</td>
+</tr>
+<tr>
+<td>$1,000,000</td>
+<td>$3,500</td>
+<td>~$500</td>
+<td>~$520</td>
+</tr>
+</tbody>
+</table>
+<p>For a small amount (~$10,000), Endowus and IBKR cost about the same. But as you invest more, IBKR's pricing becomes more attractive.</p>
+<p>Note that for IBKR, for small amounts, buying more stocks costs more. For large amounts however, the price is essentially identical.</p>
+<p>Endowus' fees are the same, regardless of how many individual funds you purchase.</p>
+<h2 id="verdict">Verdict</h2>
+<p>With all this in mind, which is better - Endowus or IBKR?</p>
+<p>Personally, I would go with Endowus for small amounts up to $500,000. Although I pay more fees, I think of this as a convenience factor for:</p>
+<ul>
+<li>being able to invest in Dimensional</li>
+<li>automatic rebalancing</li>
+<li>no currency conversion required</li>
+</ul>
+<p>For larger amounts above $500,000, the difference in commissions becomes significant (about $3,000 starting from $1M in assets). In that scenario, taking the time to DIY your portfolio in IBKR makes more sense.</p>
+<p>For ideas on what to buy, check out my suggestions for <a href="../2021-01-16-my-investment-portfolio/">IBKR</a> and <a href="../2021-07-25-my-endowus-portfolio/">Endowus</a>.</p>
+<div class="footnote">
+<hr />
 <ol>
-<li><strong>The CNAME entry closest to the origin is being queried or</strong></li>
-<li><strong>The certificate issued by the origin is valid for the requested hostname, regardless of the intermediate CNAME domains.</strong></li>
-</ol>
-<p>Here are some examples of this hypothesis.</p>
-<h3 id="example-1-cloudflare-on">Example 1 - Cloudflare ON</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Name</th>
-<th>Content</th>
-<th>Proxy Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CNAME</td>
-<td>www.example.com</td>
-<td>example.com</td>
-<td>Proxied</td>
-</tr>
-<tr>
-<td>CNAME</td>
-<td>example.com</td>
-<td>google.com</td>
-<td>Proxied</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><code>www.example.com</code> gives the 526 error (google.com does not have a valid certificate for <code>`www.example.com</code>)</li>
-<li><code>example.com</code> loads <code>google.com</code> (Point 1 above)</li>
-</ul>
-<h3 id="example-2-cloudflare-off">Example 2 - Cloudflare OFF</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Name</th>
-<th>Content</th>
-<th>Proxy Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CNAME</td>
-<td>www.example.com</td>
-<td>example.com</td>
-<td>DNS Only</td>
-</tr>
-<tr>
-<td>CNAME</td>
-<td>example.com</td>
-<td>google.com</td>
-<td>DNS Only</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><code>www.example.com</code> gives certificate error on browsers</li>
-<li><code>example.com</code> gives certificate error on browsers</li>
-</ul>
-<p>This is expected browser behavior as the certificates presented by <code>example.com</code> and <code>google.com</code> do not match <code>www.example.com</code> and <code>example.com</code> respectively.</p>
-<h3 id="example-3-without-cname-flattening">Example 3 - Without CNAME flattening</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Name</th>
-<th>Content</th>
-<th>Proxy Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CNAME</td>
-<td>www.example.com</td>
-<td>subdomain.example.com</td>
-<td>Proxied</td>
-</tr>
-<tr>
-<td>CNAME</td>
-<td>subdomain.example.com</td>
-<td>google.com</td>
-<td>Proxied</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><code>www.example.com</code> gives the 526 error</li>
-<li><code>subdomain.example.com</code> loads google.com (Point 1 above)</li>
-</ul>
-<p>So CNAME flattening is not the cause.</p>
-<h3 id="example-4-origin-presents-valid-certificate-for-requested-hostname">Example 4 - Origin presents valid certificate for requested hostname</h3>
-<p>Assume <code>example.github.io</code> has the certificate for ONLY <code>example.com</code> (not its subdomains)</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Name</th>
-<th>Content</th>
-<th>Proxy Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CNAME</td>
-<td>example.com</td>
-<td>subdomain.example.com</td>
-<td>Proxied</td>
-</tr>
-<tr>
-<td>CNAME</td>
-<td>subdomain.example.com</td>
-<td>example.github.io</td>
-<td>Proxied</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><code>example.com</code> loads properly (Point 2 above)</li>
-<li><code>subdomain.example.com</code> gives a Github Page not found error<ul>
-<li>This is because Github is receiving a request for the hostname <code>subdomain.example.com</code> which does not have a Github page setup. Cloudflare however, accepts Github's mismatched certificate just fine during the processing of this request.</li>
-</ul>
+<li id="fn:scholes">
+<p>Co-originator of the Black-Scholes options pricing model, used widely for hedging, pricing and speculative purposes in all markets globally.&#160;<a class="footnote-backref" href="#fnref:scholes" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-</ul>
-<h3 id="example-5-origin-presents-invalid-certificate-for-requested-hostname">Example 5 - Origin presents invalid certificate for requested hostname</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Name</th>
-<th>Content</th>
-<th>Proxy Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CNAME</td>
-<td>www.example.com</td>
-<td>subdomain.example.com</td>
-<td>Proxied</td>
-</tr>
-<tr>
-<td>CNAME</td>
-<td>subdomain.example.com</td>
-<td>example.github.io</td>
-<td>Proxied</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><code>www.example.com</code>gives the 526 error (Github does not have the certificate for <code>www.example.com</code>)</li>
-<li><code>subdomain.example.com</code> gives a Github Page not found error (same as above)</li>
-</ul>
-<p>Many people have had this problem, in fact there is a <a href="https://github.community/t/does-github-pages-support-https-for-www-and-subdomains/10360/39#M2417">list of pages</a> affected by the certificate mismatch error.</p>
-<p>There is also a <a href="https://github.community/t/does-github-pages-support-https-for-www-and-subdomains/10360/29">temporary hack</a> to get Github to provision certificates for both the <code>www</code> and <code>root</code> domains.</p>
+<li id="fn:uob-rating">
+<p>This is the rating for UOB's Long-Term Bank Deposits by Moody's.&#160;<a class="footnote-backref" href="#fnref:uob-rating" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ibkr-currency">
+<p>IBKR's rates for currency exchange are highly <a href="https://investmentmoats.com/uncategorized/convert-currencies-interactive-brokers/">competitive</a>.&#160;<a class="footnote-backref" href="#fnref:ibkr-currency" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:ibkr-currency" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:assumptions">
+<p>The cost for IBKR includes brokerage commissions, exchange fees, and an estimate of the bid-ask spread.&#160;<a class="footnote-backref" href="#fnref:assumptions" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               
@@ -871,7 +760,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../2020-11-28-making-stevia-powder/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Making Stevia Powder" rel="prev">
+        <a href="../2021-07-25-my-endowus-portfolio/" class="md-footer__link md-footer__link--prev" aria-label="Previous: My Endowus Portfolio" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -880,20 +769,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Making Stevia Powder
+              My Endowus Portfolio
             </div>
           </div>
         </a>
       
       
         
-        <a href="../2020-09-21-finance-book-list/" class="md-footer__link md-footer__link--next" aria-label="Next: Finance Booklist" rel="next">
+        <a href="../2021-07-23-cracking-pdf-hashes/" class="md-footer__link md-footer__link--next" aria-label="Next: Cracking PDF Hashes with hashcat" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Finance Booklist
+              Cracking PDF Hashes with hashcat
             </div>
           </div>
           <div class="md-footer__button md-icon">
