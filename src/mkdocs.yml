@@ -14,6 +14,7 @@ nav:
   - Photography: 'photography.md'
   - Mountaineering: 'mountaineering.md'
   - 'Blog Posts':
+    - 'Crispy Pork Belly Recipe': 'blog-posts/2021-09-16-crispy-pork-belly.md'
     - 'My Endowus Portfolio': 'blog-posts/2021-07-25-my-endowus-portfolio.md'
     - 'To Endowus, Or Not?': 'blog-posts/2021-07-25-endowus-or-not.md'
     - 'Cracking PDF Hashes with hashcat': 'blog-posts/2021-07-23-cracking-pdf-hashes.md'
