@@ -15,7 +15,7 @@ Run it with `python pdf2john.py <your-pdf-file>`.
 The output should resemble something like this:
 
 ```text
-b'aa.pdf':b'$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6':::::b'D:\\Desktop\\aa.pdf'
+b'aa.pdf':b'$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6':::::b'D:\\Desktop\\<your PDF file>.pdf'
 ```
 
 We're only interested in the second part (beginning with `$pdf$4...` up till `...69d6`). So, let's copy that out:
@@ -50,7 +50,15 @@ Let's break it down.
 
 `?1?1?1?1?1?1?1?1?1?1?1?1` is the mask itself. `?1` refers to the character set in the first position, that we specified above with `-1`.
 
-![](/static/images/2021-07-23/hashcat.jpg)
+<figure>
+  <img src="/static/images/2021-07-23/hashcat.jpg" alt="Cracking speed on my GTX 970" loading="lazy"/>
+  <figcaption>Cracking speed on my GTX 970</figcaption>
+</figure>
+
+<figure>
+  <img src="/static/images/2021-07-23/a100.jpg" alt="For comparison, cracking speed on an A100 on GCloud (approx 10x speedup)" loading="lazy"/>
+  <figcaption>For comparison, cracking speed on an A100 on GCloud (approx 10x speedup)</figcaption>
+</figure>
 
 And that's it! Password cracking is exponentially slower with regards to the length of the password[^limits], so any clues as to the content of the password will speed it up greatly.
 
