@@ -582,7 +582,7 @@
 <p>First, we need to extract the password hash from the PDF. There's an online tool for this, but for now let's use this python script (<a href="https://github.com/truongkma/ctf-tools/blob/master/John/run/pdf2john.py">pdf2john.py</a>).</p>
 <p>Run it with <code>python pdf2john.py &lt;your-pdf-file&gt;</code>.</p>
 <p>The output should resemble something like this:</p>
-<div class="highlight"><pre><span></span><code>b&#39;aa.pdf&#39;:b&#39;$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6&#39;:::::b&#39;D:\\Desktop\\aa.pdf&#39;
+<div class="highlight"><pre><span></span><code>b&#39;aa.pdf&#39;:b&#39;$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6&#39;:::::b&#39;D:\\Desktop\\&lt;your PDF file&gt;.pdf&#39;
 </code></pre></div>
 <p>We're only interested in the second part (beginning with <code>$pdf$4...</code> up till <code>...69d6</code>). So, let's copy that out:</p>
 <div class="highlight"><pre><span></span><code>$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6
@@ -600,7 +600,16 @@
 <p><code>-1</code> specifies the character set in the first position (<code>hashcat</code> supports multiple character sets). In this case, <code>?l</code> refers to the set <code>abcde...xyz</code>, and <code>?d</code> refers to all digits 0-9.</p>
 <p><code>-i</code> specifies that we want to progressively try the mask, starting from <code>--increment-min</code> (default 1). What this does is it will try only 1 character of the mask (e.g. <code>a</code>), then 2, up till <code>--increment-max</code> (default being the length of the mask, e.g. <code>zzzzzzzzzz</code>).</p>
 <p><code>?1?1?1?1?1?1?1?1?1?1?1?1</code> is the mask itself. <code>?1</code> refers to the character set in the first position, that we specified above with <code>-1</code>.</p>
-<p><img alt="" src="/static/images/2021-07-23/hashcat.jpg" /></p>
+<figure>
+  <img src="/static/images/2021-07-23/hashcat.jpg" alt="Cracking speed on my GTX 970" loading="lazy"/>
+  <figcaption>Cracking speed on my GTX 970</figcaption>
+</figure>
+
+<figure>
+  <img src="/static/images/2021-07-23/a100.jpg" alt="For comparison, cracking speed on an A100 on GCloud (approx 10x speedup)" loading="lazy"/>
+  <figcaption>For comparison, cracking speed on an A100 on GCloud (approx 10x speedup)</figcaption>
+</figure>
+
 <p>And that's it! Password cracking is exponentially slower with regards to the length of the password<sup id="fnref:limits"><a class="footnote-ref" href="#fn:limits">1</a></sup>, so any clues as to the content of the password will speed it up greatly.</p>
 <div class="footnote">
 <hr />
