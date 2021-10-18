@@ -2,3 +2,5 @@
 
 User-agent: *
 Disallow: /static/images/photography/profile-stars-lishan-taiwan-2019.webp
+Disallow: /static/formyfamily.7z
+Disallow: /blog-posts/dead-mans-switch

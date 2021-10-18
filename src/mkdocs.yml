@@ -10,6 +10,7 @@ site_url: https://nicholaslyz.com/
 nav:
   - Home: 'index.md'
   - About Me: 'about.md'
+  - Dead Man's Switch: 'dead-mans-switch.md'
   - Resume: 'resume.md'
   - Photography: 'photography.md'
   - Mountaineering: 'mountaineering.md'
