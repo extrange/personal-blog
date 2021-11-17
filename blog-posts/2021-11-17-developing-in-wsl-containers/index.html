@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/chia-seed-stevia-jelly-recipe/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2021-11-17-developing-in-wsl-containers/">
       
       <link rel="icon" href="/static/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
     
     
       
-        <title>Chia seed stevia jelly recipe - Nicholas</title>
+        <title>Developing in WSL Containers - Nicholas</title>
       
     
     
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#developing-in-wsl-containers" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -101,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Chia seed stevia jelly recipe
+              Developing in WSL Containers
             
           </span>
         </div>
@@ -276,12 +281,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" checked>
       
       
       
@@ -302,11 +309,101 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../2021-11-17-developing-in-wsl-containers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Developing in WSL Containers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Developing in WSL Containers
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-containers-in-wsl2-in-vscode" class="md-nav__link">
+    Docker Containers, in WSL2, in VSCode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-wsl" class="md-nav__link">
+    What is WSL?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-wsl2-and-a-default-distro" class="md-nav__link">
+    Installing WSL2 and a default distro:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-docker-and-configuring-it-to-use-the-wsl2-backend" class="md-nav__link">
+    Installing Docker and configuring it to use the WSL2 backend:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opening-a-wsl2-folder-in-a-container" class="md-nav__link">
+    Opening a WSL2 Folder in a container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -549,15 +646,163 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-containers-in-wsl2-in-vscode" class="md-nav__link">
+    Docker Containers, in WSL2, in VSCode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-wsl" class="md-nav__link">
+    What is WSL?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-wsl2-and-a-default-distro" class="md-nav__link">
+    Installing WSL2 and a default distro:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-docker-and-configuring-it-to-use-the-wsl2-backend" class="md-nav__link">
+    Installing Docker and configuring it to use the WSL2 backend:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opening-a-wsl2-folder-in-a-container" class="md-nav__link">
+    Opening a WSL2 Folder in a container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Chia seed stevia jelly recipe</h1>
-                
-                
+                <h1 id="developing-in-wsl-containers">Developing in WSL Containers</h1>
+<p>As a programmer there were a lot of version/environment issues I faced while developing with Python/Node. Some examples:</p>
+<ul>
+<li>Switching between different Python versions on Windows is difficult and requires third-party solutions e.g. <a href="https://chocolatey.org/">Chocolatey</a></li>
+<li>Switching between different Node versions also requires a third-party solution (<a href="https://github.com/nvm-sh/nvm">nvm</a>)</li>
+<li>While <code>pipenv</code>, <code>venv</code> and <code>poetry</code> are ways to manage different Python environments, they still depend on the base Python version installed, which is another external dependency</li>
+</ul>
+<p>I thought about this issue while deciding on a <a href="../2021-04-15-python-package-management-windows/">Python packagement system for Windows</a>, and here is my solution.</p>
+<h2 id="docker-containers-in-wsl2-in-vscode">Docker Containers, in WSL2, in VSCode</h2>
+<p>In a nutshell, my solution is to use VSCode's <a href="">Remote - Containers</a> extension, to open a folder in WSL2, and then mount that folder in a <a href="">Docker</a> container.</p>
+<p>This has several benefits:</p>
+<ul>
+<li>Ability to lock ALL dependencies for a project, including Python, Node, or Java versions</li>
+<li><strong>Repeatable builds</strong> irregardless of underlying OS (as long as Docker is installed)</li>
+<li>Host filesystem is not polluted</li>
+<li>The underlying files are stored in the WSL distro, and can be viewed natively with Explorer via <code>\\wsl$</code>.</li>
+</ul>
+<p>The reason why I use the WSL filesystem, and not a <a href="https://docs.docker.com/storage/bind-mounts/">bind mount</a> on the Windows filesystem, is for <a href="https://github.com/microsoft/WSL/issues/4197">performance</a>.</p>
+<h2 id="what-is-wsl">What is WSL?</h2>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/about">WSL</a> is a compatibility layer which allows Linux binaries to run natively on Windows systems. WSL2 takes this further, and includes a real Linux kernel with full system call capabilities.</p>
+<p>Installing WSL will allow you to run a complete Linux distribution on your Windows PC (with the <code>wsl</code> command).</p>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="installing-wsl2-and-a-default-distro">Installing WSL2 and a default distro:</h3>
+<ul>
+<li>Follow the instructions <a href="https://docs.microsoft.com/en-us/windows/wsl/install">here</a> to install WSL2 and the default Linux distribution (Ubuntu)</li>
+<li>Next, check that the Ubuntu distribution is set as default, and is on WSL2:<ul>
+<li><code>wsl -l -v</code> should show:
+<div class="highlight"><pre><span></span><code>  NAME                   STATE           VERSION
+* Ubuntu                 Running         2
+  Legacy                 Stopped         1
+  docker-desktop         Running         2
+  docker-desktop-data    Running         2
+</code></pre></div></li>
+<li>If Ubuntu is missing, install it from the <a href="https://www.microsoft.com/en-sg/p/ubuntu/9nblggh4msv6">Microsoft Store</a> (you need to run <code>ubuntu</code> from the command prompt after)</li>
+<li>If Ubuntu is <strong>not</strong> the default distro (marked with a *), run <code>wsl --set-default Ubuntu</code>.</li>
+<li>If the <code>VERSION</code> for Ubuntu is not <code>2</code>, run <code>wsl --set-version Ubuntu 2</code>.</li>
+<li>(Advanced) If you want to move the WSL installation to another folder of your choice, you can use the <code>--export</code> followed by the <code>--import</code> commands.</li>
+</ul>
+</li>
+</ul>
+<h3 id="installing-docker-and-configuring-it-to-use-the-wsl2-backend">Installing Docker and configuring it to use the WSL2 backend:</h3>
+<ul>
+<li>Follow the instructions <a href="https://code.visualstudio.com/docs/remote/containers#_getting-started">here</a></li>
+<li>Ensure that <code>Enable integration with my default WSL distro</code>, and integration for your distro are both checked. <img alt="" src="../../static/images/2021-11-17/docker.jpg" /></li>
+<li>Check that Docker is working: <code>docker ps</code></li>
+</ul>
+<h3 id="opening-a-wsl2-folder-in-a-container">Opening a WSL2 Folder in a container</h3>
+<ul>
+<li>Follow this <a href="https://code.visualstudio.com/docs/remote/wsl#_advanced-opening-a-wsl-2-folder-in-a-container">guide</a>.</li>
+<li>Notes:<ul>
+<li>You can modify the <code>.devcontainer/Dockerfile</code> to your liking - e.g. if you want to add Java to a Python image, install package dependencies during build, etc</li>
+<li>Workspace files are only mounted in the container after it starts, and if not <code>COPY</code>'ed over, are inaccessible during the build process</li>
+</ul>
+</li>
+</ul>
+<p>And that's it! Start up, rebuild and stop your containers as you like.</p>
+<figure>
+  <img src="/static/images/2021-11-17/vscode.jpg" alt="Source code for this blog post in a container in WSL2" loading="lazy"/>
+  <figcaption>Source code for this blog post in a container in WSL2</figcaption>
+</figure>
+
+<p>Finally, you can even use <a href="https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers">multiple containers with <code>docker-compose.yml</code></a> (although for development you'd be likely to be use just one).</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows/ai/directml/gpu-cuda-in-wsl">GPU (CUDA) support is only available for Windows 11 and the Insider builds of Windows 10</a> (which is troublesome to install).<ul>
+<li>Once I shift to Windows 11, with CUDA in WSL, I can run Pytorch etc. in a container!</li>
+</ul>
+</li>
+</ul>
                 
               
               
@@ -573,6 +818,41 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../mountaineering/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mountaineering" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Mountaineering
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2021-09-16-crispy-pork-belly/" class="md-footer__link md-footer__link--next" aria-label="Next: Crispy Pork Belly Recipe" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Crispy Pork Belly Recipe
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
