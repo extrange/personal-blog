@@ -15,6 +15,7 @@ nav:
   - Photography: 'photography.md'
   - Mountaineering: 'mountaineering.md'
   - 'Blog Posts':
+    - 'Developing in WSL Containers': 'blog-posts/2021-11-17-developing-in-wsl-containers.md'
     - 'Crispy Pork Belly Recipe': 'blog-posts/2021-09-16-crispy-pork-belly.md'
     - 'My Endowus Portfolio': 'blog-posts/2021-07-25-my-endowus-portfolio.md'
     - 'To Endowus, Or Not?': 'blog-posts/2021-07-25-endowus-or-not.md'

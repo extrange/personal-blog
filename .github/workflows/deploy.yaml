@@ -21,16 +21,15 @@ jobs:
         run: |
           python --version
           python -m pip install --upgrade pip
-          pip install pipenv
-          pipenv install
+          pip install -r requirements.txt
 
       - name: Build
         run: |
-          pipenv run mkdocs build -f src/mkdocs.yml
+          mkdocs build
 
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
             branch: gh-pages # The branch the action should deploy to.
-            folder: src/site # The folder the action should deploy.
+            folder: site # The folder the action should deploy.
