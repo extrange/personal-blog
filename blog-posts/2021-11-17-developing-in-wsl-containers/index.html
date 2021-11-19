@@ -395,13 +395,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -730,13 +723,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -818,7 +804,8 @@
 <ul>
 <li>Open up a WSL2 terminal: <code>wsl</code></li>
 <li>Set your username: <code>git config --global user.name &lt;USERNAME&gt;</code></li>
-<li>Set your email: <code>get config --global user.email &lt;EMAIL&gt;</code> (note, if you have setup email privacy on Github, you will find your email at <a href="https://github.com/settings/emails">https://github.com/settings/emails</a>)</li>
+<li>Set your email: <code>git config --global user.email &lt;EMAIL&gt;</code> (note, if you have setup email privacy on Github, you will find your email at <a href="https://github.com/settings/emails">https://github.com/settings/emails</a>)</li>
+<li>If you want to use VSCode as the editor in <code>git</code>, do: <code>git config --global core.editor "code --wait"</code></li>
 <li>Verify your settings with <code>git config --list</code></li>
 </ul>
 <p>That's it. VSCode configures the credential helper automatically for you (by setting up some sort of <a href="https://github.com/microsoft/vscode-remote-release/issues/2925">SSH/GPG agent forwarding</a>).</p>
@@ -834,7 +821,6 @@
 </ul>
 </li>
 </ul>
-<h3 id="_1"></h3>
 <p>And that's it! Start up, rebuild and stop your containers as you like.</p>
 <figure>
   <img src="/static/images/2021-11-17/vscode.jpg" alt="Source code for this blog post in a container in WSL2" loading="lazy"/>
