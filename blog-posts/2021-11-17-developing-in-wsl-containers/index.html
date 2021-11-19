@@ -827,12 +827,10 @@
 <li>Follow this <a href="https://code.visualstudio.com/docs/remote/wsl#_advanced-opening-a-wsl-2-folder-in-a-container">guide</a>.</li>
 <li>Notes:<ul>
 <li>You can modify the <code>.devcontainer/Dockerfile</code> to your liking - e.g. if you want to add Java to a Python image, install package dependencies during build, etc</li>
-<li>If you want to install requirements automatically e.g. with <code>pip</code>, you can either uncomment that particular line in the <code>Dockerfile</code> (if it exists) or write your own e.g.:<ul>
-<li><code>docker
-  COPY requirements.txt /tmp/requirements.txt
-  RUN pip --no-cache-dir  install -r requirements.txt</code></li>
-</ul>
-</li>
+<li>If you want to install requirements automatically e.g. with <code>pip</code>, you can either uncomment that particular line in the <code>Dockerfile</code> (if it exists) or write your own e.g.:
+    <div class="highlight"><pre><span></span><code><span class="k">COPY</span> requirements.txt /tmp/requirements.txt
+<span class="k">RUN</span> pip --no-cache-dir  install -r requirements.txt
+</code></pre></div></li>
 </ul>
 </li>
 </ul>
