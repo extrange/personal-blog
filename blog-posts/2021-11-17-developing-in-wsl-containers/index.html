@@ -382,8 +382,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#setup-git-in-wsl2" class="md-nav__link">
+    Setup git in WSL2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#opening-a-wsl2-folder-in-a-container" class="md-nav__link">
     Opening a WSL2 Folder in a container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
   </a>
   
 </li>
@@ -703,8 +717,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#setup-git-in-wsl2" class="md-nav__link">
+    Setup git in WSL2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#opening-a-wsl2-folder-in-a-container" class="md-nav__link">
     Opening a WSL2 Folder in a container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
   </a>
   
 </li>
@@ -780,15 +808,35 @@
 <li>Ensure that <code>Enable integration with my default WSL distro</code>, and integration for your distro are both checked. <img alt="" src="../../static/images/2021-11-17/docker.jpg" /></li>
 <li>Check that Docker is working: <code>docker ps</code></li>
 </ul>
+<h3 id="setup-git-in-wsl2">Setup <code>git</code> in WSL2</h3>
+<p>VSCode adopts the following behaviors with regards to <code>.gitconfig</code>:</p>
+<ul>
+<li>If a <strong>repository is cloned and opened</strong> in a container, the <code>.gitconfig</code> from <strong>Windows</strong> (<code>C:\Users\&lt;USER&gt;\.gitconfig</code>) is copied and used</li>
+<li>If a <strong>WSL2 folder</strong> is opened in a container, the <code>.gitconfig</code> from <strong>WSL</strong> (<code>~/.gitconfig</code>) is copied and used in the container</li>
+</ul>
+<p>Therefore, since we are opening WSL2 folders in containers, we need to setup <code>git</code> on WSL2 (it's not setup by default).</p>
+<ul>
+<li>Open up a WSL2 terminal: <code>wsl</code></li>
+<li>Set your username: <code>git config --global user.name &lt;USERNAME&gt;</code></li>
+<li>Set your email: <code>get config --global user.email &lt;EMAIL&gt;</code> (note, if you have setup email privacy on Github, you will find your email at <a href="https://github.com/settings/emails">https://github.com/settings/emails</a>)</li>
+<li>Verify your settings with <code>git config --list</code></li>
+</ul>
+<p>That's it. VSCode configures the credential helper automatically for you (by setting up some sort of <a href="https://github.com/microsoft/vscode-remote-release/issues/2925">SSH/GPG agent forwarding</a>).</p>
 <h3 id="opening-a-wsl2-folder-in-a-container">Opening a WSL2 Folder in a container</h3>
 <ul>
 <li>Follow this <a href="https://code.visualstudio.com/docs/remote/wsl#_advanced-opening-a-wsl-2-folder-in-a-container">guide</a>.</li>
 <li>Notes:<ul>
 <li>You can modify the <code>.devcontainer/Dockerfile</code> to your liking - e.g. if you want to add Java to a Python image, install package dependencies during build, etc</li>
-<li>Workspace files are only mounted in the container after it starts, and if not <code>COPY</code>'ed over, are inaccessible during the build process</li>
+<li>If you want to install requirements automatically e.g. with <code>pip</code>, you can either uncomment that particular line in the <code>Dockerfile</code> (if it exists) or write your own e.g.:<ul>
+<li><code>docker
+  COPY requirements.txt /tmp/requirements.txt
+  RUN pip --no-cache-dir  install -r requirements.txt</code></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+<h3 id="_1"></h3>
 <p>And that's it! Start up, rebuild and stop your containers as you like.</p>
 <figure>
   <img src="/static/images/2021-11-17/vscode.jpg" alt="Source code for this blog post in a container in WSL2" loading="lazy"/>
