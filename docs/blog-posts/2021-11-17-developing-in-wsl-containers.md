@@ -52,12 +52,33 @@ Installing WSL will allow you to run a complete Linux distribution on your Windo
 - Ensure that `Enable integration with my default WSL distro`, and integration for your distro are both checked. ![](../static/images/2021-11-17/docker.jpg)
 - Check that Docker is working: `docker ps`
 
+### Setup `git` in WSL2
+
+VSCode adopts the following behaviors with regards to `.gitconfig`:
+
+- If a **repository is cloned and opened** in a container, the `.gitconfig` from **Windows** (`C:\Users\<USER>\.gitconfig`) is copied and used
+- If a **WSL2 folder** is opened in a container, the `.gitconfig` from **WSL** (`~/.gitconfig`) is copied and used in the container
+
+Therefore, since we are opening WSL2 folders in containers, we need to setup `git` on WSL2 (it's not setup by default).
+
+- Open up a WSL2 terminal: `wsl`
+- Set your username: `git config --global user.name <USERNAME>`
+- Set your email: `git config --global user.email <EMAIL>` (note, if you have setup email privacy on Github, you will find your email at [https://github.com/settings/emails](https://github.com/settings/emails))
+- If you want to use VSCode as the editor in `git`, do: `git config --global core.editor "code --wait"`
+- Verify your settings with `git config --list`
+
+That's it. VSCode configures the credential helper automatically for you (by setting up some sort of [SSH/GPG agent forwarding](https://github.com/microsoft/vscode-remote-release/issues/2925)).
+
 ### Opening a WSL2 Folder in a container
 
 - Follow this [guide](https://code.visualstudio.com/docs/remote/wsl#_advanced-opening-a-wsl-2-folder-in-a-container).
 - Notes:
     - You can modify the `.devcontainer/Dockerfile` to your liking - e.g. if you want to add Java to a Python image, install package dependencies during build, etc
-    - Workspace files are only mounted in the container after it starts, and if not `COPY`'ed over, are inaccessible during the build process
+    - If you want to install requirements automatically e.g. with `pip`, you can either uncomment that particular line in the `Dockerfile` (if it exists) or write your own e.g.:
+        ```dockerfile
+        COPY requirements.txt /tmp/requirements.txt
+        RUN pip --no-cache-dir  install -r requirements.txt
+        ```
 
 And that's it! Start up, rebuild and stop your containers as you like.
 
