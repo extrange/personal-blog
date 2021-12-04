@@ -8,7 +8,7 @@ Most of these are taken on my Canon 700D with the [Tokina f/2.8 11-16mm lens](ht
 </figure>
 
 <figure>
-  <img src="/static/images/photography/2019-12-18-taiwan-sunset-hdr.jpg" alt="Lishan, Taiwan, 2019" loading="lazy"/>
+  <img src="/static/images/photography/2019-12-18-taiwan-sunset-hdr.jpg" alt="Qingjing Farm, Taiwan, 2019" loading="lazy"/>
   <figcaption>Qingjing Farm, Taiwan, 2019</figcaption>
 </figure>
 
@@ -61,6 +61,9 @@ Most of these are taken on my Canon 700D with the [Tokina f/2.8 11-16mm lens](ht
   <img src="/static/images/photography/2014-12-17-nepal-stars.jpg" alt="Poon Hill, Nepal, 2014" loading="lazy"/>
   <figcaption>Poon Hill, Nepal, 2014</figcaption>
 </figure>
+
+
+![](static/images/photography/2021-11-25-lightning.jpg){: loading=lazy}
 
 ![](static/images/photography/2015-12-19-kilimanjaro-mouse.jpg){: loading=lazy }
 
