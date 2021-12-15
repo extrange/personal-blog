@@ -1,4 +1,4 @@
-# Developing in WSL Containers
+# Developing in WSL Containers (Now with GPU support!)
 
 As a programmer there were a lot of version/environment issues I faced while developing with Python/Node. Some examples:
 
@@ -18,6 +18,7 @@ This has several benefits:
 - **Repeatable builds** irregardless of underlying OS (as long as Docker is installed)
 - Host filesystem is not polluted
 - The underlying files are stored in the WSL distro, and can be viewed natively with Explorer via `\\wsl$`.
+- **\[NEW\]: [GPU passthrough][gpu-passthrough] is now supported on Windows!**
 
 The reason why I use the WSL filesystem, and not a [bind mount](https://docs.docker.com/storage/bind-mounts/) on the Windows filesystem, is for [performance](https://github.com/microsoft/WSL/issues/4197).
 
@@ -89,8 +90,4 @@ And that's it! Start up, rebuild and stop your containers as you like.
 
 Finally, you can even use [multiple containers with `docker-compose.yml`](https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers) (although for development you'd be likely to be use just one).
 
-
-## Limitations
-
-- [GPU (CUDA) support is only available for Windows 11 and the Insider builds of Windows 10](https://docs.microsoft.com/en-us/windows/ai/directml/gpu-cuda-in-wsl) (which is troublesome to install).
-    - Once I shift to Windows 11, with CUDA in WSL, I can run Pytorch etc. in a container!
+[gpu-passthrough]: https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-21h2#gpu-compute-support-for-the-windows-subsystem-for-linux
