@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2021-11-17-developing-in-wsl-containers/">
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.0.3">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
     
     
       
@@ -19,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.62128196.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.23b6d78a.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -36,7 +36,7 @@
       
     
     
-    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#developing-in-wsl-containers" class="md-skip">
+        <a href="#developing-in-wsl-containers-now-with-gpu-support" class="md-skip">
           Skip to content
         </a>
       
@@ -409,13 +409,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -736,13 +729,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -756,7 +742,7 @@
               
                 
 
-<h1 id="developing-in-wsl-containers">Developing in WSL Containers</h1>
+<h1 id="developing-in-wsl-containers-now-with-gpu-support">Developing in WSL Containers (Now with GPU support!)</h1>
 <p>As a programmer there were a lot of version/environment issues I faced while developing with Python/Node. Some examples:</p>
 <ul>
 <li>Switching between different Python versions on Windows is difficult and requires third-party solutions e.g. <a href="https://chocolatey.org/">Chocolatey</a></li>
@@ -772,6 +758,7 @@
 <li><strong>Repeatable builds</strong> irregardless of underlying OS (as long as Docker is installed)</li>
 <li>Host filesystem is not polluted</li>
 <li>The underlying files are stored in the WSL distro, and can be viewed natively with Explorer via <code>\\wsl$</code>.</li>
+<li><strong>[NEW]: <a href="https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-21h2#gpu-compute-support-for-the-windows-subsystem-for-linux">GPU passthrough</a> is now supported on Windows!</strong></li>
 </ul>
 <p>The reason why I use the WSL filesystem, and not a <a href="https://docs.docker.com/storage/bind-mounts/">bind mount</a> on the Windows filesystem, is for <a href="https://github.com/microsoft/WSL/issues/4197">performance</a>.</p>
 <h2 id="what-is-wsl">What is WSL?</h2>
@@ -836,13 +823,6 @@
 </figure>
 
 <p>Finally, you can even use <a href="https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers">multiple containers with <code>docker-compose.yml</code></a> (although for development you'd be likely to be use just one).</p>
-<h2 id="limitations">Limitations</h2>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/windows/ai/directml/gpu-cuda-in-wsl">GPU (CUDA) support is only available for Windows 11 and the Insider builds of Windows 10</a> (which is troublesome to install).<ul>
-<li>Once I shift to Windows 11, with CUDA in WSL, I can run Pytorch etc. in a container!</li>
-</ul>
-</li>
-</ul>
 
               
             </article>
@@ -908,10 +888,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.01824240.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e0abf5b0.min.js"></script>
+      <script src="../../assets/javascripts/bundle.da79ceb7.min.js"></script>
       
     
   </body>
