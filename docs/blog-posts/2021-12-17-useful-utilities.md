@@ -27,7 +27,6 @@ Stuff I use, arranged by language/OS. Inspired by this [article](https://news.yc
 - [VeraCrypt][veracrypt]: TrueCrypt successor for full-disk/file/partition encryption with plausible deniability
 - [yt-dlp][yt-dlp]: Youtube-dl fork, a general purpose website video downloader
 
-hashcat
 
 [diskcache]: https://github.com/grantjenks/python-diskcache/
 [docker]: https://www.docker.com/
