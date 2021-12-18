@@ -25,15 +25,21 @@ Stuff I use, arranged by language/OS. Inspired by this [article](https://news.yc
 - [Docker][docker]: Containerization at its finest
 - [`hashcat`][hashcat]: GPU-accelerated hash cracker
 - [VeraCrypt][veracrypt]: TrueCrypt successor for full-disk/file/partition encryption with plausible deniability
-- [yt-dlp][yt-dlp]: Youtube-dl fork, a general purpose website video downloader
+- [`yt-dlp`][yt-dlp]: Youtube-dl fork, a general purpose website video downloader
+
+## Web
+
+- [CanaryTokens][canary-tokens]: Get alerted when someone clicks a link, image, opens an Explorer folder, or even when a vulnerable service executes code using the [Log4Shell][log4shell] vulnerability.
 
 
+[canary-tokens]: https://canarytokens.org/generate
 [diskcache]: https://github.com/grantjenks/python-diskcache/
 [docker]: https://www.docker.com/
 [everything]: https://www.voidtools.com/
 [fast-api]: https://fastapi.tiangolo.com/
 [handbrake]: https://handbrake.fr/
 [hashcat]: https://hashcat.net/hashcat/
+[log4shell]: https://en.wikipedia.org/wiki/Log4Shell
 [obs-studio]: https://obsproject.com/
 [pydantic]: https://pydantic-docs.helpmanual.io/
 [rich]: https://github.com/willmcgugan/rich
