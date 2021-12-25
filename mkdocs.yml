@@ -39,6 +39,8 @@ nav:
   - Photography: photography.md
   - Piano: piano.md
   - Resume: resume.md
+  - Trips:
+    - '2021 Dec: Skiing, St Moritz, Switzerland': 'trips/2021-12-25-skiing-switzerland.md'
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
