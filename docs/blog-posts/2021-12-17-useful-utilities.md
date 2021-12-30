@@ -6,13 +6,13 @@ Stuff I use, arranged by language/OS. Inspired by this [article](https://news.yc
 
 ## Python
 
-- [`diskcache`][diskcache]: Python disk-backed cache, Django compatible, faster than Redis and Memcached
-- [`FastAPI`][fast-api]: High performance backend framework based on OpenAPI, JSON Schema and Python types via [Pydantic][pydantic]
-- [`rich`][rich]: rich terminal formatting
-- [`textual`][textual]: CSS/HTML/React inspired reactive, responsive terminal UIs ([demo](/static/images/2021-12-17/textual.gif))
-- [`tqdm`][tqdm]: intuitive progress bars for Python
+- [diskcache][diskcache]: Python disk-backed cache, Django compatible, faster than Redis and Memcached
+- [FastAPI][fast-api]: High performance backend framework based on OpenAPI, JSON Schema and Python types via [Pydantic][pydantic]
+- [rich][rich]: rich terminal formatting
+- [textual][textual]: CSS/HTML/React inspired reactive, responsive terminal UIs ([demo](/static/images/2021-12-17/textual.gif))
+- [tqdm][tqdm]: intuitive progress bars for Python
     - Also with support for sending realtime updates to [Telegram][tqdm-telegram]
-- [`Typer`][Typer]: Alternative to `argparser` using Python types
+- [Typer][Typer]: Alternative to `argparser` using Python types
 
 ## Windows
 
@@ -22,16 +22,17 @@ Stuff I use, arranged by language/OS. Inspired by this [article](https://news.yc
 
 ## Cross-Platform
 
+- [asciinema][asciinema]: Terminal session recorder
 - [Docker][docker]: Containerization at its finest
-- [`hashcat`][hashcat]: GPU-accelerated hash cracker
+- [hashcat][hashcat]: GPU-accelerated hash cracker
 - [VeraCrypt][veracrypt]: TrueCrypt successor for full-disk/file/partition encryption with plausible deniability
-- [`yt-dlp`][yt-dlp]: Youtube-dl fork, a general purpose website video downloader
+- [yt-dlp][yt-dlp]: Youtube-dl fork, a general purpose website video downloader
 
 ## Web
 
 - [CanaryTokens][canary-tokens]: Get alerted when someone clicks a link, image, opens an Explorer folder, or even when a vulnerable service executes code using the [Log4Shell][log4shell] vulnerability.
 
-
+[asciinema]: https://asciinema.org/
 [canary-tokens]: https://canarytokens.org/generate
 [diskcache]: https://github.com/grantjenks/python-diskcache/
 [docker]: https://www.docker.com/
