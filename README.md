@@ -11,4 +11,8 @@ pip install -r requirements.txt
 mkdocs build
 ```
 
+## Notes
+
+- HQ image size: 1600px max width
+
 To test locally, use `mkdocs serve` instead.
