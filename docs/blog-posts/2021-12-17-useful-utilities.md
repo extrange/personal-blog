@@ -1,7 +1,5 @@
 # My Collection of Useful Utilities
 
-Last updated 17/12/21.
-
 Stuff I use, arranged by language/OS. Inspired by this [article](https://news.ycombinator.com/item?id=29582437).
 
 ## Python
@@ -31,8 +29,11 @@ Stuff I use, arranged by language/OS. Inspired by this [article](https://news.yc
 ## Web
 
 - [CanaryTokens][canary-tokens]: Get alerted when someone clicks a link, image, opens an Explorer folder, or even when a vulnerable service executes code using the [Log4Shell][log4shell] vulnerability.
+- [Awesome][awesome]: Huge, community maintained list-of-lists about programming, books, and many other topics (note - [Awesome Piracy][awesome-piracy] isn't linked)
 
 [asciinema]: https://asciinema.org/
+[awesome]: https://github.com/sindresorhus/awesome
+[awesome-piracy]: https://github.com/Igglybuff/awesome-piracy
 [canary-tokens]: https://canarytokens.org/generate
 [diskcache]: https://github.com/grantjenks/python-diskcache/
 [docker]: https://www.docker.com/
