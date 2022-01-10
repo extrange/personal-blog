@@ -30,7 +30,9 @@ Stuff I use, arranged by language/OS. Inspired by this [article](https://news.yc
 
 - [CanaryTokens][canary-tokens]: Get alerted when someone clicks a link, image, opens an Explorer folder, or even when a vulnerable service executes code using the [Log4Shell][log4shell] vulnerability.
 - [Awesome][awesome]: Huge, community maintained list-of-lists about programming, books, and many other topics (note - [Awesome Piracy][awesome-piracy] isn't linked)
+- [4chan Recommendation Charts][4chan-rec-charts]: Massive lists of recommendations about almost anything from books, movies, games, comics to anime.
 
+[4chan-rec-charts]: https://mega.nz/folder/kj5hWI6J#0cyw0-ZdvZKOJW3fPI6RfQ
 [asciinema]: https://asciinema.org/
 [awesome]: https://github.com/sindresorhus/awesome
 [awesome-piracy]: https://github.com/Igglybuff/awesome-piracy
