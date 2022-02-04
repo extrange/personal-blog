@@ -15,6 +15,7 @@ nav:
   - Home: index.md
   - About Me: about.md
   - Blog Posts:
+    - Deep Work: 'blog-posts/2022-02-04-deep-work.md'
     - Useful Utilities: 'blog-posts/2021-12-17-useful-utilities.md'
     - Apple Chips Recipe: 'blog-posts/2021-12-04-apple-chips-recipe.md'
     - Developing in WSL Containers: 'blog-posts/2021-11-17-developing-in-wsl-containers.md'
