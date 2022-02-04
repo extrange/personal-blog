@@ -668,6 +668,68 @@
 - access windows filesystem
 - develop remotely
 - arbitrarily access ports on remote machine</p>
+<p>remote extensions - https://github.com/coder/code-server/issues/1315</p>
+<p>ssh-agent windows https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement</p>
+<p>ssh into wsl on windows - https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine</p>
+<p>develop on remote docker host https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host#_connect-using-docker-contexts</p>
+<p>The issue of trust on first use</p>
+<h1 id="alternatives">Alternatives</h1>
+<h2 id="running-code-server-in-docker">Running code-server in docker</h2>
+<p>Code-server can be run in a container too, and even be created on-the-fly with a particular environment from within code-server itself. This could be used as a common development environment for many projects, e.g. with Python, NodeJS and so on. However, it would need additional configuration to work out of the box for projects with particular requirements (e.g. CUDA support, ffmpeg etc).</p>
+<h1 id="authentication">Authentication</h1>
+<h2 id="code-server">Code Server</h2>
+<p>There's no way to deauthenticate a websocket stream or at least check authenticity without something like a timer, which would delay deauths unlike ssh where if the tunnel is broken, the connection is gone</p>
+<p>Turns out nginx can't terminate websocket connections once they're established</p>
+<h1 id="logging-in-from-new-clients">Logging in from new clients</h1>
+<p>SSH won't allow me to use this on new computers</p>
+<h1 id="remote-containers">Remote - containers</h1>
+<p>You must SSH into WSL on windows for this to work (https://code.visualstudio.com/docs/remote/ssh#_known-limitations)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>code-server</th>
+<th>VSCode Remote-SSH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Security</td>
+<td>Less secure</td>
+<td>As secure as SSH is</td>
+</tr>
+<tr>
+<td>IP Visibility</td>
+<td>Can be hidden behind Cloudflare</td>
+<td>Public</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Password or external server<br>(note issues)</td>
+<td>SSH password or key</td>
+</tr>
+<tr>
+<td>Client requirements</td>
+<td>Any browser</td>
+<td>SSH client</td>
+</tr>
+<tr>
+<td>Access host filesystem</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Forward ports from host</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Full VSCode experience</td>
+<td>No remote Docker support</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
 
               
             </article>
