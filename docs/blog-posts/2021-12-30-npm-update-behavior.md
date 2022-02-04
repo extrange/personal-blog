@@ -1,5 +1,7 @@
 # `npm update` does not write updated versions to `package.json`
 
+Update: This issue has been fixed in `npm` [8.3.2](https://github.com/npm/cli/releases/tag/v8.3.2).
+
 Found this out the hard way.
 
 I was working on an app, and I wanted to update its dependencies.
@@ -30,4 +32,4 @@ my-app@0.1.0 /workspaces/my-app
 
 After googling, I finally found that this was a [behavioral change](https://github.com/npm/cli/issues/2704) ever since `npm` v7.
 
-Oh well. As a workaround, I use [`npm-check-updates`](https://www.npmjs.com/package/npm-check-updates) to update version numbers in `package.json`.
+As a workaround for now, I use [`npm-check-updates`](https://www.npmjs.com/package/npm-check-updates) to update version numbers in `package.json`.
