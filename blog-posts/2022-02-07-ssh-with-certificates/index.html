@@ -977,11 +977,11 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 <h2 id="why-not-host-your-own-ssh-ca">Why not host your own SSH-CA?</h2>
 <p>Prior to my decision to use <code>ssh-keygen</code> as the certificate authority, I considered a number of alternative self-hosted SSH certificate authorities, but rejected them as follows:</p>
 <ul>
-<li><a href="https://www.vaultproject.io/">Vault by HashiCorp</a> - Need to download on both server and client.</li>
 <li><a href="https://www.bastillion.io/">Bastillion</a> - Not certificate based. Also, need to manually upload and download the public keys and configure SSH.</li>
-<li><a href="https://goteleport.com/docs/getting-started/">Teleport</a> - Need to download on both server and client. Teleport Nodes (the server component) are not supported on Windows. The ability to record SSH sessions might be useful if I were to move to Linux.</li>
 <li><a href="https://developers.cloudflare.com/cloudflare-one/tutorials/ssh">Cloudflare Tunnel</a> - Need to download on both server and client. I had some issues setting up SSH certificate login.</li>
 <li><a href="https://smallstep.com/docs/step-ca">Step</a> - Need to download on both server and client. Also, TLS connection to <code>step-ca</code> from a client requires adding its generated root certificate as a trusted certificate<sup id="fnref:leaf-certificates"><a class="footnote-ref" href="#fn:leaf-certificates">3</a></sup>.</li>
+<li><a href="https://goteleport.com/docs/getting-started/">Teleport</a> - Need to download on both server and client. Teleport Nodes (the server component) are not supported on Windows. The ability to record SSH sessions might be useful if I were to move to Linux.</li>
+<li><a href="https://www.vaultproject.io/">Vault by HashiCorp</a> - Need to download on both server and client.</li>
 </ul>
 <p>Instead, to streamline the process of generating client certificates, I plan to write a certificate provisioning server which will probably rely on the (already-existing) 2FA login my web app backend uses. This would call <code>ssh-keygen</code> and return the signed public/private key pair.</p>
 <div class="footnote">
