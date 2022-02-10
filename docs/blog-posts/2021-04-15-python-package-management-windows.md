@@ -1,6 +1,16 @@
 # Python Package Management on Windows
 
-**Update 17/11/21**: I now use [WSL2 containers in VSCode](2021-11-17-developing-in-wsl-containers.md), instead of the below.
+## **Update 17/11/21**
+
+I now use [WSL2 containers in VSCode](2021-11-17-developing-in-wsl-containers.md). Additionally, I use `requirements.txt` files generated with:
+
+ `pip list format=freeze --not-required`
+
+[`--not-required`][--not-required] ensures only top-level packages are printed.
+
+In addition, I use [compatible version specifiers][compatible-version-specifiers] (aka `~=`, equivalent to `>= V.N, == V.*`), which effectively pin the major version of packages, while allowing for minor/patch versions to be updated automatically, each time the container is rebuilt.
+
+## The State of Python Package Management
 
 Python does not have [good](https://www.reddit.com/r/webdev/comments/46w7gt/is_it_just_me_or_is_package_management_with/) [package](https://news.ycombinator.com/item?id=19985802) [management](https://news.ycombinator.com/item?id=21781604).
 
@@ -70,3 +80,5 @@ Here's where automatic dependency generation comes in. Packages like `pipreqs` a
 
 As to which is the best, `pipreqs` or `pigar`, I've tried both, and `pipreqs` is better than `pigar` for automatically generating the requirements for your project.
 
+[--not-required]: https://pip.pypa.io/en/stable/cli/pip_list/#cmdoption-not-required
+[compatible-version-specifiers]: https://www.python.org/dev/peps/pep-0440/#compatible-release

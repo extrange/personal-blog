@@ -14,11 +14,15 @@ In a nutshell, my solution is to use VSCode's [Remote - Containers]() extension,
 
 This has several benefits:
 
-- Ability to lock ALL dependencies for a project, including Python, Node, or Java versions
-- **Repeatable builds** irregardless of underlying OS (as long as Docker is installed)
-- Host filesystem is not polluted
-- The underlying files are stored in the WSL distro, and can be viewed natively with Explorer via `\\wsl$`.
-- **\[NEW\]: [GPU passthrough][gpu-passthrough] is now supported on Windows!**
+- Ability to **lock environments** for a project, such as Python, Node, or even Java versions
+- **Repeatable builds**, irregardless of the host OS/drivers
+- Host filesystem only contains source code and nothing else
+- [Containers on the host can be accessed remotely over SSH][vscode-remote-containers] - the only tools required on the remote computer are [SSH][ssh] and VSCode
+
+Some notes:
+
+- Source code is stored in the WSL distro, and can be viewed natively in Windows Explorer via the network share `\\wsl$`.
+- [**GPU passthrough**][gpu-passthrough] is supported since Windows 10 version 21H2.
 
 The reason why I use the WSL filesystem, and not a [bind mount](https://docs.docker.com/storage/bind-mounts/) on the Windows filesystem, is for [performance](https://github.com/microsoft/WSL/issues/4197).
 
@@ -91,3 +95,5 @@ And that's it! Start up, rebuild and stop your containers as you like.
 Finally, you can even use [multiple containers with `docker-compose.yml`](https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers) (although for development you'd be likely to be use just one).
 
 [gpu-passthrough]: https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-21h2#gpu-compute-support-for-the-windows-subsystem-for-linux
+[ssh]: https://www.ssh.com/academy/ssh/protocol
+[vscode-remote-containers]: 2022-02-07-vscode-remote-containers-over-ssh.md
