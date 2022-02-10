@@ -190,11 +190,11 @@ Sadly, [**the OpenSSH client in Windows does not support `VerifyHostKeyDNS`**][v
 
 Prior to my decision to use `ssh-keygen` as the certificate authority, I considered a number of alternative self-hosted SSH certificate authorities, but rejected them as follows:
 
-- [Vault by HashiCorp][vault] - Need to download on both server and client.
 - [Bastillion][bastillion] - Not certificate based. Also, need to manually upload and download the public keys and configure SSH.
-- [Teleport][Teleport] - Need to download on both server and client. Teleport Nodes (the server component) are not supported on Windows. The ability to record SSH sessions might be useful if I were to move to Linux.
 - [Cloudflare Tunnel][cloudflare-tunnel-ssh] - Need to download on both server and client. I had some issues setting up SSH certificate login.
 - [Step][step] - Need to download on both server and client. Also, TLS connection to `step-ca` from a client requires adding its generated root certificate as a trusted certificate[^leaf-certificates].
+- [Teleport][Teleport] - Need to download on both server and client. Teleport Nodes (the server component) are not supported on Windows. The ability to record SSH sessions might be useful if I were to move to Linux.
+- [Vault by HashiCorp][vault] - Need to download on both server and client.
 
 Instead, to streamline the process of generating client certificates, I plan to write a certificate provisioning server which will probably rely on the (already-existing) 2FA login my web app backend uses. This would call `ssh-keygen` and return the signed public/private key pair.
 
@@ -202,32 +202,32 @@ Instead, to streamline the process of generating client certificates, I plan to 
 [^ssh-key-comparison]: RSA, EdDSA and Ed25519 are [considered secure](https://goteleport.com/blog/comparing-ssh-keys/). DSA (and ECDSA, which uses DSA in a different mathematical group, namely elliptic curves) are susceptible to [key recovery attacks](https://blog.trailofbits.com/2020/06/11/ecdsa-handle-with-care/) when the nonce is reused/predictable.
 [^leaf-certificates]: This is because publicly trusted CAs only issue [leaf certificates](https://github.com/smallstep/certificates/discussions/466), which cannot be used to sign other certificates.
 
-[step]: https://smallstep.com/docs/step-ca
-[cloudflare-tunnel-ssh]: https://developers.cloudflare.com/cloudflare-one/tutorials/ssh
-[teleport]: https://goteleport.com/docs/getting-started/
+[-I]: https://man.openbsd.org/ssh-keygen.1#I
+[-n]: https://man.openbsd.org/ssh-keygen.1#n
+[-s]: https://man.openbsd.org/ssh-keygen.1#s
+[-U]: https://man.openbsd.org/ssh-keygen.1#U
+[-V]: https://man.openbsd.org/ssh-keygen.1#V
+[authorized-keys]: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement#deploying-the-public-key
 [bastillion]: https://www.bastillion.io/
+[cloudflare-tunnel-ssh]: https://developers.cloudflare.com/cloudflare-one/tutorials/ssh
+[digital-signature]: https://en.wikipedia.org/wiki/Digital_signature
+[ed25519]: https://en.wikipedia.org/wiki/EdDSA
+[install-openssh]: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse
+[public-key-certificates]: https://en.wikipedia.org/wiki/Public_key_certificate
+[public-key]: https://en.wikipedia.org/wiki/Public-key_cryptography
+[root-ca]: https://en.wikipedia.org/wiki/Certificate_authority
+[ssh-add]: https://man.openbsd.org/ssh-add.1
+[ssh-agent]: https://man.openbsd.org/ssh-agent.1
+[ssh-auth]: https://datatracker.ietf.org/doc/html/rfc4252#section-5
+[ssh-keygen]: https://man.openbsd.org/ssh-keygen.1
+[ssh]: https://www.ssh.com/academy/ssh/protocol
+[sshfp]: https://en.wikipedia.org/wiki/SSHFP_record
+[step]: https://smallstep.com/docs/step-ca
+[teleport]: https://goteleport.com/docs/getting-started/
+[tls]: https://en.wikipedia.org/wiki/Transport_Layer_Security
+[tofu]: https://en.wikipedia.org/wiki/Trust_on_first_use
 [vault]: https://www.vaultproject.io/
 [verifyhostkeydns]: https://github.com/PowerShell/Win32-OpenSSH/issues/1841
-[sshfp]: https://en.wikipedia.org/wiki/SSHFP_record
-[tofu]: https://en.wikipedia.org/wiki/Trust_on_first_use
-[ssh]: https://www.ssh.com/academy/ssh/protocol
-[ssh-auth]: https://datatracker.ietf.org/doc/html/rfc4252#section-5
-[public-key]: https://en.wikipedia.org/wiki/Public-key_cryptography
-[digital-signature]: https://en.wikipedia.org/wiki/Digital_signature
-[public-key-certificates]: https://en.wikipedia.org/wiki/Public_key_certificate
-[tls]: https://en.wikipedia.org/wiki/Transport_Layer_Security
 [vscode-remote-containers]: 2022-02-07-vscode-remote-containers-over-ssh.md
-[root-ca]: https://en.wikipedia.org/wiki/Certificate_authority
-[authorized-keys]: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement#deploying-the-public-key
-[install-openssh]: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse
-[ed25519]: https://en.wikipedia.org/wiki/EdDSA
-[ssh-keygen]: https://man.openbsd.org/ssh-keygen.1
-[-s]: https://man.openbsd.org/ssh-keygen.1#s
-[-n]: https://man.openbsd.org/ssh-keygen.1#n
-[-I]: https://man.openbsd.org/ssh-keygen.1#I
-[-V]: https://man.openbsd.org/ssh-keygen.1#V
-[ssh-agent]: https://man.openbsd.org/ssh-agent.1
-[-U]: https://man.openbsd.org/ssh-keygen.1#U
-[ssh-add]: https://man.openbsd.org/ssh-add.1
 
 *[nonce]: Number Only used oNCE

@@ -1,10 +1,11 @@
 # Developing in WSL Containers (Now with GPU support!)
 
-As a programmer there were a lot of version/environment issues I faced while developing with Python/Node. Some examples:
+As a programmer there were a lot of version/environment issues I faced while developing with Python, Node and other tools. Some examples:
 
 - Switching between different Python versions on Windows is difficult and requires third-party solutions e.g. [Chocolatey](https://chocolatey.org/)
 - Switching between different Node versions also requires a third-party solution ([nvm](https://github.com/nvm-sh/nvm))
 - While `pipenv`, `venv` and `poetry` are ways to manage different Python environments, they still depend on the base Python version installed, which is another external dependency
+- Maintaining other dependencies such as CUDA drivers, `ffmpeg` etc.
 
 I thought about this issue while deciding on a [Python packagement system for Windows](2021-04-15-python-package-management-windows.md), and here is my solution.
 

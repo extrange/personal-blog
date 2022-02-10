@@ -10,11 +10,14 @@ theme:
     logo: material/home
   features:
     - navigation.instant
+    - header.autohide
 site_url: https://nicholaslyz.com/
 nav:
   - Home: index.md
   - About Me: about.md
   - Blog Posts:
+    - VSCode Remote Containers over SSH: blog-posts/2022-02-07-vscode-remote-containers-over-ssh.md
+    - SSH with Certificates: 'blog-posts/2022-02-07-ssh-with-certificates.md'
     - Deep Work: 'blog-posts/2022-02-04-deep-work.md'
     - npm update Behavior: 'blog-posts/2021-12-30-npm-update-behavior.md'
     - 'Skiing at St Moritz, Switzerland': 'blog-posts/2021-12-25-skiing-switzerland.md'
@@ -43,6 +46,7 @@ nav:
   - Piano: piano.md
   - Resume: resume.md
 markdown_extensions:
+  - abbr
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -53,6 +57,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - footnotes
+  - pymdownx.snippets
 extra:
   analytics:
     provider: google
