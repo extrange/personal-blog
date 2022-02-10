@@ -8,18 +8,18 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-01-29-vscode-in-browser/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-02-07-vscode-remote-containers-over-ssh/">
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
     
     
       
-        <title>Running VSCode in the browser - Nicholas</title>
+        <title>VSCode Remote Containers over SSH - Nicholas</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d6be258b.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#running-vscode-in-the-browser" class="md-skip">
+        <a href="#vscode-remote-containers-over-ssh" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Running VSCode in the browser
+              VSCode Remote Containers over SSH
             
           </span>
         </div>
@@ -221,12 +221,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -242,6 +244,82 @@
           Blog Posts
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          VSCode Remote Containers over SSH
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        VSCode Remote Containers over SSH
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-code-server" class="md-nav__link">
+    Why not code-server?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-02-07-ssh-with-certificates/" class="md-nav__link">
+        SSH with Certificates
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -652,6 +730,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-code-server" class="md-nav__link">
+    Why not code-server?
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -663,39 +763,38 @@
               
                 
 
-<h1 id="running-vscode-in-the-browser">Running VSCode in the browser</h1>
-<p>Key requirements:
-- access windows filesystem
-- develop remotely
-- arbitrarily access ports on remote machine</p>
-<p>remote extensions - https://github.com/coder/code-server/issues/1315</p>
-<p>ssh-agent windows https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement</p>
-<p>ssh into wsl on windows - https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine</p>
-<p>develop on remote docker host https://code.visualstudio.com/remote/advancedcontainers/develop-remote-host#_connect-using-docker-contexts</p>
-<p>The issue of trust on first use</p>
-<h1 id="alternatives">Alternatives</h1>
-<h2 id="running-code-server-in-docker">Running code-server in docker</h2>
-<p>Code-server can be run in a container too, and even be created on-the-fly with a particular environment from within code-server itself. This could be used as a common development environment for many projects, e.g. with Python, NodeJS and so on. However, it would need additional configuration to work out of the box for projects with particular requirements (e.g. CUDA support, ffmpeg etc).</p>
-<h1 id="authentication">Authentication</h1>
-<h2 id="code-server">Code Server</h2>
-<p>There's no way to deauthenticate a websocket stream or at least check authenticity without something like a timer, which would delay deauths unlike ssh where if the tunnel is broken, the connection is gone</p>
-<p>Turns out nginx can't terminate websocket connections once they're established</p>
-<h1 id="logging-in-from-new-clients">Logging in from new clients</h1>
-<p>SSH won't allow me to use this on new computers</p>
-<h1 id="remote-containers">Remote - containers</h1>
-<p>You must SSH into WSL on windows for this to work (https://code.visualstudio.com/docs/remote/ssh#_known-limitations)</p>
+<h1 id="vscode-remote-containers-over-ssh">VSCode Remote Containers over SSH</h1>
+<p>When working remotely with a laptop, sometimes we might want access to more CPU power, RAM or a GPU. <a href="https://code.visualstudio.com/docs/remote/ssh">VSCode supports accessing a remote machine</a>, and if <a href="https://www.docker.com/">Docker</a> is installed on the remote machine, you can even connect to remote <a href="https://code.visualstudio.com/docs/remote/containers">development containers</a>. This approach tremendously saves battery life since computation is done on the remote server.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>
+<p><strong>Working SSH connection</strong>. If you prefer to use SSH with certificates, you can refer to my <a href="../2022-02-07-ssh-with-certificates/">post</a>.</p>
+</li>
+<li>
+<p>(on Windows) <a href="https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine"><strong>Setup <code>bash</code> as the default SSH shell</strong></a>. <code>bash</code> needs to be the default SSH shell, otherwise development containers will <a href="https://code.visualstudio.com/docs/remote/ssh#_known-limitations">not work</a>.</p>
+</li>
+</ul>
+<p>Once that is done, you can follow the <a href="https://code.visualstudio.com/docs/remote/ssh">official guide</a>.</p>
+<p>You can now run <a href="https://huggingface.co/EleutherAI/gpt-j-6B">powerful transformer models</a> and more from your laptop!</p>
+<h2 id="why-not-code-server">Why not <code>code-server</code>?</h2>
+<p><a href="https://github.com/coder/code-server"><code>code-server</code></a> is a fully browser-based implementation of VSCode, and offers nearly the same experience. Compared to SSH, all that is needed is a client with a browser, and there is no need for SSH certificates.</p>
+<p>However, the <a href="https://github.com/coder/code-server/issues/1315">lack of support for VSCode Remote-Container and Remote-SSH extensions</a> were a deal-breaker for me, since I primarily develop within <a href="https://code.visualstudio.com/docs/remote/containers">development containers</a><sup id="fnref:devcontainers"><a class="footnote-ref" href="#fn:devcontainers">1</a></sup>.</p>
+<p><code>code-server</code> can be run in a Docker container too, and addtional <code>code-server</code> containers can even be created on-the-fly from within code-server itself. However, the configuration to automatically forward the relevant ports is going to be complicated.</p>
+<p><strong>Authentication Concerns</strong></p>
+<p><code>code-server</code> uses a websocket stream. While <code>nginx</code> can be setup to <a href="https://nginx.org/en/docs/http/ngx_http_auth_request_module.html">require authentication</a> before initiating the stream, there's no simple way to deauthenticate a websocket stream<sup id="fnref:nginx"><a class="footnote-ref" href="#fn:nginx">2</a></sup> once its established, unlike SSH connections.</p>
+<p>A comparison of features:</p>
 <table>
 <thead>
 <tr>
 <th></th>
-<th>code-server</th>
+<th><code>code-server</code></th>
 <th>VSCode Remote-SSH</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Security</td>
-<td>Less secure</td>
+<td>Less secure<sup id="fnref:http-security"><a class="footnote-ref" href="#fn:http-security">3</a></sup></td>
 <td>As secure as SSH is</td>
 </tr>
 <tr>
@@ -705,8 +804,8 @@
 </tr>
 <tr>
 <td>Authentication</td>
-<td>Password or external server<br>(note issues)</td>
-<td>SSH password or key</td>
+<td>Password or external server<sup id="fnref2:nginx"><a class="footnote-ref" href="#fn:nginx">2</a></sup></td>
+<td>SSH password, 2FA, key or certificate</td>
 </tr>
 <tr>
 <td>Client requirements</td>
@@ -725,11 +824,25 @@
 </tr>
 <tr>
 <td>Full VSCode experience</td>
-<td>No remote Docker support</td>
+<td>No Remote-Containers support</td>
 <td>Yes</td>
 </tr>
 </tbody>
 </table>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:devcontainers">
+<p>For the reasons I do this, see <a href="../2021-11-17-developing-in-wsl-containers/">this post</a>.&#160;<a class="footnote-backref" href="#fnref:devcontainers" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nginx">
+<p>While <code>nginx</code> can <a href="https://nginx.org/en/docs/http/websocket.html">proxy websocket connections</a>, it can't terminate them once established.&#160;<a class="footnote-backref" href="#fnref:nginx" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nginx" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:http-security">
+<p>Web applications have multiple vectors of attack, for example the <a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a>.&#160;<a class="footnote-backref" href="#fnref:http-security" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
               
             </article>
@@ -739,6 +852,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../about/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About Me" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              About Me
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2022-02-07-ssh-with-certificates/" class="md-footer__link md-footer__link--next" aria-label="Next: SSH with Certificates" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              SSH with Certificates
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -760,10 +908,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.092fa1f6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e3b2bf44.min.js"></script>
       
     
   </body>

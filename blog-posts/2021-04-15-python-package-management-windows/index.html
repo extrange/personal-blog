@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2021-04-15-python-package-management-windows/">
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d6be258b.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -251,6 +251,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../2022-02-07-vscode-remote-containers-over-ssh/" class="md-nav__link">
+        VSCode Remote Containers over SSH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-02-07-ssh-with-certificates/" class="md-nav__link">
+        SSH with Certificates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../2022-02-04-deep-work/" class="md-nav__link">
         Deep Work
       </a>
@@ -465,6 +493,20 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#update-171121" class="md-nav__link">
+    Update 17/11/21
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-state-of-python-package-management" class="md-nav__link">
+    The State of Python Package Management
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#poetry-chocolatey-to-the-rescue" class="md-nav__link">
@@ -709,6 +751,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#update-171121" class="md-nav__link">
+    Update 17/11/21
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-state-of-python-package-management" class="md-nav__link">
+    The State of Python Package Management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#poetry-chocolatey-to-the-rescue" class="md-nav__link">
     Poetry + Chocolatey to the rescue!
   </a>
@@ -736,7 +792,12 @@
                 
 
 <h1 id="python-package-management-on-windows">Python Package Management on Windows</h1>
-<p><strong>Update 17/11/21</strong>: I now use <a href="../2021-11-17-developing-in-wsl-containers/">WSL2 containers in VSCode</a>, instead of the below.</p>
+<h2 id="update-171121"><strong>Update 17/11/21</strong></h2>
+<p>I now use <a href="../2021-11-17-developing-in-wsl-containers/">WSL2 containers in VSCode</a>. Additionally, I use <code>requirements.txt</code> files generated with:</p>
+<p><code>pip list format=freeze --not-required</code></p>
+<p><a href="https://pip.pypa.io/en/stable/cli/pip_list/#cmdoption-not-required"><code>--not-required</code></a> ensures only top-level packages are printed.</p>
+<p>In addition, I use <a href="https://www.python.org/dev/peps/pep-0440/#compatible-release">compatible version specifiers</a> (aka <code>~=</code>, equivalent to <code>&gt;= V.N, == V.*</code>), which effectively pin the major version of packages, while allowing for minor/patch versions to be updated automatically, each time the container is rebuilt.</p>
+<h2 id="the-state-of-python-package-management">The State of Python Package Management</h2>
 <p>Python does not have <a href="https://www.reddit.com/r/webdev/comments/46w7gt/is_it_just_me_or_is_package_management_with/">good</a> <a href="https://news.ycombinator.com/item?id=19985802">package</a> <a href="https://news.ycombinator.com/item?id=21781604">management</a>.</p>
 <p>Recently I was trying to update one of my Conda environments. After running <code>conda update --all</code> however, the environment crashed.</p>
 <p>This is not the only problem I have with Conda.</p>
@@ -847,10 +908,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.092fa1f6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e3b2bf44.min.js"></script>
       
     
   </body>

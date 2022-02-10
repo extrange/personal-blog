@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2021-11-17-developing-in-wsl-containers/">
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d6be258b.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -244,6 +244,34 @@
           Blog Posts
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-02-07-vscode-remote-containers-over-ssh/" class="md-nav__link">
+        VSCode Remote Containers over SSH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-02-07-ssh-with-certificates/" class="md-nav__link">
+        SSH with Certificates
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -818,22 +846,27 @@
                 
 
 <h1 id="developing-in-wsl-containers-now-with-gpu-support">Developing in WSL Containers (Now with GPU support!)</h1>
-<p>As a programmer there were a lot of version/environment issues I faced while developing with Python/Node. Some examples:</p>
+<p>As a programmer there were a lot of version/environment issues I faced while developing with Python, Node and other tools. Some examples:</p>
 <ul>
 <li>Switching between different Python versions on Windows is difficult and requires third-party solutions e.g. <a href="https://chocolatey.org/">Chocolatey</a></li>
 <li>Switching between different Node versions also requires a third-party solution (<a href="https://github.com/nvm-sh/nvm">nvm</a>)</li>
 <li>While <code>pipenv</code>, <code>venv</code> and <code>poetry</code> are ways to manage different Python environments, they still depend on the base Python version installed, which is another external dependency</li>
+<li>Maintaining other dependencies such as CUDA drivers, <code>ffmpeg</code> etc.</li>
 </ul>
 <p>I thought about this issue while deciding on a <a href="../2021-04-15-python-package-management-windows/">Python packagement system for Windows</a>, and here is my solution.</p>
 <h2 id="docker-containers-in-wsl2-in-vscode">Docker Containers, in WSL2, in VSCode</h2>
 <p>In a nutshell, my solution is to use VSCode's <a href="">Remote - Containers</a> extension, to open a folder in WSL2, and then mount that folder in a <a href="">Docker</a> container.</p>
 <p>This has several benefits:</p>
 <ul>
-<li>Ability to lock ALL dependencies for a project, including Python, Node, or Java versions</li>
-<li><strong>Repeatable builds</strong> irregardless of underlying OS (as long as Docker is installed)</li>
-<li>Host filesystem is not polluted</li>
-<li>The underlying files are stored in the WSL distro, and can be viewed natively with Explorer via <code>\\wsl$</code>.</li>
-<li><strong>[NEW]: <a href="https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-21h2#gpu-compute-support-for-the-windows-subsystem-for-linux">GPU passthrough</a> is now supported on Windows!</strong></li>
+<li>Ability to <strong>lock environments</strong> for a project, such as Python, Node, or even Java versions</li>
+<li><strong>Repeatable builds</strong>, irregardless of the host OS/drivers</li>
+<li>Host filesystem only contains source code and nothing else</li>
+<li><a href="../2022-02-07-vscode-remote-containers-over-ssh/">Containers on the host can be accessed remotely over SSH</a> - the only tools required on the remote computer are <a href="https://www.ssh.com/academy/ssh/protocol">SSH</a> and VSCode</li>
+</ul>
+<p>Some notes:</p>
+<ul>
+<li>Source code is stored in the WSL distro, and can be viewed natively in Windows Explorer via the network share <code>\\wsl$</code>.</li>
+<li><a href="https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-21h2#gpu-compute-support-for-the-windows-subsystem-for-linux"><strong>GPU passthrough</strong></a> is supported since Windows 10 version 21H2.</li>
 </ul>
 <p>The reason why I use the WSL filesystem, and not a <a href="https://docs.docker.com/storage/bind-mounts/">bind mount</a> on the Windows filesystem, is for <a href="https://github.com/microsoft/WSL/issues/4197">performance</a>.</p>
 <h2 id="what-is-wsl">What is WSL?</h2>
@@ -963,10 +996,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.092fa1f6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e3b2bf44.min.js"></script>
       
     
   </body>

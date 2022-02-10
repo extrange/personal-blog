@@ -1,0 +1,1073 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-02-07-ssh-with-certificates/">
+      
+      <link rel="icon" href="/static/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
+    
+    
+      
+        <title>SSH with Certificates - Nicholas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d6be258b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#00bdd6">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-22SGZWR3ES"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-22SGZWR3ES",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-22SGZWR3ES"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ssh-with-certificates-on-windows" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Nicholas" class="md-header__button md-logo" aria-label="Nicholas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nicholas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SSH with Certificates
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Nicholas" class="md-nav__button md-logo" aria-label="Nicholas" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+
+    </a>
+    Nicholas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        About Me
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Blog Posts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Blog Posts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Blog Posts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-02-07-vscode-remote-containers-over-ssh/" class="md-nav__link">
+        VSCode Remote Containers over SSH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SSH with Certificates
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        SSH with Certificates
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-authentication-methods" class="md-nav__link">
+    SSH Authentication Methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certificates" class="md-nav__link">
+    Certificates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-setting-up-ssh-on-the-host" class="md-nav__link">
+    1. Setting up SSH on the host
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-signing-a-clients-ssh-public-key" class="md-nav__link">
+    2. Signing a client's SSH public key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-login" class="md-nav__link">
+    3. Login
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-adding-the-private-key-and-signed-public-key-to-ssh-agent" class="md-nav__link">
+    (Optional) Adding the private key and signed public key to ssh-agent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-host-public-key-verification-over-dns" class="md-nav__link">
+    (Optional) Host Public Key Verification over DNS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-host-your-own-ssh-ca" class="md-nav__link">
+    Why not host your own SSH-CA?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-02-04-deep-work/" class="md-nav__link">
+        Deep Work
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-12-30-npm-update-behavior/" class="md-nav__link">
+        npm update Behavior
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-12-25-skiing-switzerland/" class="md-nav__link">
+        Skiing at St Moritz, Switzerland
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-12-17-useful-utilities/" class="md-nav__link">
+        Useful Utilities
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-12-04-apple-chips-recipe/" class="md-nav__link">
+        Apple Chips Recipe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-11-17-developing-in-wsl-containers/" class="md-nav__link">
+        Developing in WSL Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-09-16-crispy-pork-belly/" class="md-nav__link">
+        Crispy Pork Belly Recipe
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-07-25-my-endowus-portfolio/" class="md-nav__link">
+        My Endowus Portfolio
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-07-25-endowus-or-not/" class="md-nav__link">
+        To Endowus, Or Not?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-07-23-cracking-pdf-hashes/" class="md-nav__link">
+        Cracking PDF Hashes with hashcat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-06-20-uselayouteffect/" class="md-nav__link">
+        useLayoutEffect
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-06-08-which-is-the-best-index-fund-etf/" class="md-nav__link">
+        The Best Index Fund
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-04-22-calculating-return/" class="md-nav__link">
+        Calculating Return
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-04-15-python-package-management-windows/" class="md-nav__link">
+        Python Package Management on Windows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-03-19-life-insurance/" class="md-nav__link">
+        Life Insurance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2021-01-16-my-investment-portfolio/" class="md-nav__link">
+        My Investment Portfolio
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-12-02-asset-allocation/" class="md-nav__link">
+        Asset Allocation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-11-30-getting-started-with-investing/" class="md-nav__link">
+        Getting Started with Investing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-11-28-making-stevia-powder/" class="md-nav__link">
+        Making Stevia Powder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-09-24-cloudflare-and-github-pages/" class="md-nav__link">
+        Cloudflare and Github Pages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-09-21-finance-book-list/" class="md-nav__link">
+        Finance Booklist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020-09-21-iem-reviews/" class="md-nav__link">
+        IEM Reviews
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dead-mans-switch/" class="md-nav__link">
+        Dead Man's Switch
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mountaineering/" class="md-nav__link">
+        Mountaineering
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../photography/" class="md-nav__link">
+        Photography
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../piano/" class="md-nav__link">
+        Piano
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resume/" class="md-nav__link">
+        Resume
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-authentication-methods" class="md-nav__link">
+    SSH Authentication Methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certificates" class="md-nav__link">
+    Certificates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-setting-up-ssh-on-the-host" class="md-nav__link">
+    1. Setting up SSH on the host
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-signing-a-clients-ssh-public-key" class="md-nav__link">
+    2. Signing a client's SSH public key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-login" class="md-nav__link">
+    3. Login
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-adding-the-private-key-and-signed-public-key-to-ssh-agent" class="md-nav__link">
+    (Optional) Adding the private key and signed public key to ssh-agent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-host-public-key-verification-over-dns" class="md-nav__link">
+    (Optional) Host Public Key Verification over DNS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-not-host-your-own-ssh-ca" class="md-nav__link">
+    Why not host your own SSH-CA?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="ssh-with-certificates-on-windows">SSH with Certificates on Windows</h1>
+<p>The <a href="https://www.ssh.com/academy/ssh/protocol">Secure Shell Protocol</a> (SSH) allows one to remotely access a terminal interface on a remote machine. In addition, it allows for capabilities such as port tunneling<sup id="fnref:port-tunneling"><a class="footnote-ref" href="#fn:port-tunneling">1</a></sup>, file transfers and screen forwarding.</p>
+<p>The main reasons for setting up SSH access on my machine were to allow me to:</p>
+<ul>
+<li>Access the filesystem remotely and transfer files</li>
+<li><a href="../2022-02-07-vscode-remote-containers-over-ssh/">Develop on VSCode remotely, in Remote-Containers</a></li>
+<li>Tunnel ports to/from the remote machine (e.g., to access local applications only listening on <code>localhost</code>)</li>
+</ul>
+<h2 id="ssh-authentication-methods">SSH Authentication Methods</h2>
+<p>SSH supports <a href="https://datatracker.ietf.org/doc/html/rfc4252#section-5">several authentication methods</a>, but the most common are:</p>
+<ul>
+<li><code>password</code>: Login using the password of the host user. Most common, but vulnerable to password guessing attacks such as brute-force or dictionary-based methods.</li>
+<li><code>publickey</code>: Utilizes <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public key</a> authentication. Effectively resistant<sup id="fnref:ssh-key-comparison"><a class="footnote-ref" href="#fn:ssh-key-comparison">2</a></sup> to any form of password guessing attack. This mode also allows for the use of <strong>certificates</strong>, and is the mode we will be using.</li>
+</ul>
+<h2 id="certificates">Certificates</h2>
+<p><em>What are certificates?</em></p>
+<p>Public key (aka asymmetric) encryption consists of a pair of keys - the <em>private</em> and <em>public</em> key. Any information encrypted with the public key can only be decrypted by the corresponding private key (and vice-versa). Public keys are shared publicly as the name suggests, while the private key is kept secret.</p>
+<p>This can be used to create a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital signature</a>, an electronic variant of the handwritten signature, with similar properties:</p>
+<ul>
+<li><strong>Authentication</strong>: Proves that a message was sent by the signer and no one else.</li>
+<li><strong>Non-repudiation</strong>: Someone who has signed a message, cannot later deny they have done so.</li>
+</ul>
+<p>In addition, a digital signature offers another property which handwritten signatures lack:</p>
+<ul>
+<li><strong>Integrity</strong>: Any alteration to the signed message renders the signature invalid.</li>
+</ul>
+<p>This brings us to the topic of certificates (<a href="https://en.wikipedia.org/wiki/Public_key_certificate">public key certificates</a>). These are electronic documents which prove that the owner's public key has been verified by some authority (the certificate issuer). This lets us trust the public keys of unknown entities, provided we trust the certificate issuer. In fact, this is how website certificates are issued under <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">TLS</a>, the cryptographic protocol powering HTTPS.</p>
+<p><em>SSH Certificates</em></p>
+<p>SSH certificates are essentially public SSH keys signed by some authority's private key, and allow the host to authenticate clients. When a client tries to connect to an SSH host, the client proves its identity by showing the host its public key certificate, which is signed by an authority the host trusts. Unlike <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">TLS</a> however, there are no authorities trusted by default (aka <a href="https://en.wikipedia.org/wiki/Certificate_authority">root certificate authorities</a>). The trusted certificate authority on the host must be set by the user.</p>
+<p>An advantage of using certificates is that all clients with public keys signed by an authority trusted by the host are automatically granted access, and there is no need to add or maintain the client's public keys in the <a href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement#deploying-the-public-key"><code>authorized_keys</code></a> file on the host.</p>
+<h2 id="1-setting-up-ssh-on-the-host">1. Setting up SSH on the host</h2>
+<p>First, ensure that OpenSSH, the open-source implementation of the <a href="https://www.ssh.com/academy/ssh/protocol">SSH</a> protocol and its tools, <a href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse">is installed</a>.</p>
+<p>To check that <code>sshd</code>, the SSH daemon, is running on the host, open a Powershell terminal as an administrator and execute <code>Get-Service sshd</code>. The output should be similar to the following:</p>
+<div class="highlight"><pre><span></span><code>Status   Name               DisplayName
+------   ----               -----------
+Running  sshd               OpenSSH SSH Server
+</code></pre></div>
+<p>Next, we will use <a href="https://man.openbsd.org/ssh-keygen.1"><code>ssh-keygen</code></a> to  generate our server's public-private key pair, which will be used to sign the public keys of clients we want to allow SSH access from. <em>This keypair is different from the host's keypair (the keypair presented to clients), which is usually stored in <code>%ProgramData%\ssh\sshd_config</code>.</em></p>
+<p>Open a terminal and type the following:</p>
+<div class="highlight"><pre><span></span><code>ssh-keygen -f user_ca -t ed25519
+</code></pre></div>
+<ul>
+<li><code>-f</code>: the name of the keypair</li>
+<li><code>-t</code>: the key algorithm, in this case <a href="https://en.wikipedia.org/wiki/EdDSA">EdDSA with Curve25519</a></li>
+</ul>
+<p>The passphrase is used to encrypt the private key, and is optional. You should get the following output:</p>
+<div class="highlight"><pre><span></span><code>Generating public/private ed25519 key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in user_ca.
+Your public key has been saved in user_ca.pub.
+The key fingerprint is:
+SHA256:OxXXnTRmRiD7bxGMgyuU4fz4JTxKcEpGrngbIWpz/ow nick@Desktop-Nick
+The key&#39;s randomart image is:
++--[ED25519 256]--+
+|       . . . .oB |
+|      o o o +.B.o|
+|   . . = *.o.o.+.|
+|  . o = = +oo . .|
+| + o + .S+.* o . |
+|. + . o .o+ + . .|
+|   . .  o. .   o |
+|    +    .    .  |
+|   E o           |
++----[SHA256]-----+
+</code></pre></div>
+<p><code>user_ca</code> contains the <strong>private key</strong> of this pair, and must be kept secret. </p>
+<p>Now, we need to tell our host to trust this public key, and enable public key authentication.</p>
+<p>Open up <code>C:\ProgramData\ssh\sshd_config</code> and make the following changes:</p>
+<ul>
+<li>Set <code>PubkeyAuthentication</code> to <code>yes</code></li>
+<li>Set <code>TrustedUserCAKeys</code> to the location of the <code>user_ca.pub</code> file generated above (note, use the full path to eliminate ambiguity)</li>
+<li>(optional but recommended) Disable password authentication: set <code>PasswordAuthentication</code> to <code>no</code></li>
+</ul>
+<p>Now, the host is ready to accept connections from clients whose public keys were signed by this private key (<code>user_ca</code> above).</p>
+<h2 id="2-signing-a-clients-ssh-public-key">2. Signing a client's SSH public key</h2>
+<p>We'll now sign a client's public key, using <a href="https://man.openbsd.org/ssh-keygen.1"><code>ssh-keygen</code></a>. To make things a bit simpler, we'll generate the client's keypair on the host, sign it, and then return the signed keypair to the client.</p>
+<p>First, we generate a keypair on the host: </p>
+<p><code>ssh-keygen -f client_key -t ed25519</code></p>
+<p>Next, we use <a href="https://man.openbsd.org/ssh-keygen.1"><code>ssh-keygen</code></a> to <strong>sign</strong> the client's public key (<code>client_key.pub</code>), with the private key of the keypair we generated earlier (<code>user_ca</code>). (Note: if you have added the private key to <code>ssh-agent</code>, see <a href="#optional-adding-the-user_ca-key-to-ssh-agent">below</a>.</p>
+<p><code>ssh-keygen -s user_ca -I &lt;client_name&gt; -n &lt;usernames&gt; -V +1d client_key.pub</code></p>
+<ul>
+<li><a href="https://man.openbsd.org/ssh-keygen.1#s"><code>-s</code></a>: Indicates we want to sign a public key, with the provided private key.</li>
+<li><a href="https://man.openbsd.org/ssh-keygen.1#I"><code>-I</code></a>: Key identifier, usually the name of the client. Will appear in logs.</li>
+<li><a href="https://man.openbsd.org/ssh-keygen.1#n"><code>-n</code></a>: Comma-separated list of usernames which the client is allowed to log into the host as. Usernames must already exist on the host. Also known as 'principals'. If this option is omitted, the client will not be able to login.</li>
+<li><a href="https://man.openbsd.org/ssh-keygen.1#V"><code>-V</code></a>: Validity interval of the certificate. If omitted, the certificate will be valid forever.</li>
+</ul>
+<p>Finally, we copy the files <code>client_key</code> (private key), <code>client_key.pub</code> (public key) and <code>client_key-cert.pub</code> (signed public key) to the client. Usually, these files are placed in <code>%UserProfile%\.ssh</code>.</p>
+<h2 id="3-login">3. Login</h2>
+<p>Now, test the SSH login from the client!</p>
+<p><code>ssh you@your.domain.name</code></p>
+<p>You should not be prompted for a password.</p>
+<h2 id="optional-adding-the-private-key-and-signed-public-key-to-ssh-agent">(Optional) Adding the private key and signed public key to <code>ssh-agent</code></h2>
+<p><a href="https://man.openbsd.org/ssh-agent.1"><code>ssh-agent</code></a> is a program which is able to store private keys and the signed public key using the appropriate secure credential storage for the operating system. This presents a more secure alternative than storing the private key unencrypted on the server.</p>
+<p>In order to add keys to the agent, use <a href="https://man.openbsd.org/ssh-add.1"><code>ssh-add</code></a>:</p>
+<p><code>ssh-add &lt;keyfile&gt;</code></p>
+<p><code>&lt;keyfile&gt;</code> is the location of the private key, e.g. <code>user_ca</code>.</p>
+<p>You may now safely delete the private key and the signed public key.</p>
+<p>To check the keys which have been added to the agent, run <code>ssh-add -l</code>.</p>
+<p>From now on, <code>ssh-agent</code> will automatically supply the signed public key and private key in commands such as <code>ssh</code>.</p>
+<p>Note: (On the host) If you added the host's certificate signing private key (e.g. <code>user_ca</code>) to <code>ssh-agent</code>, when you want to sign a client`s public key, you need to use the following command instead:</p>
+<p><code>ssh-keygen -Us user_ca -I &lt;client_name&gt; -n &lt;usernames&gt; -V +1d client_key.pub</code></p>
+<p><a href="https://man.openbsd.org/ssh-keygen.1#U"><code>-U</code></a> indicates the private key should be extracted from <code>ssh-agent</code>.</p>
+<h2 id="optional-host-public-key-verification-over-dns">(Optional) Host Public Key Verification over DNS</h2>
+<p>How does the client authenticate the host the first time round? How does the client know that the public key the host is presenting really is the correct key, and not an attacker's key?</p>
+<p>One way would be to verify the host's key fingerprint manually when connecting the first time. This is known as <a href="https://en.wikipedia.org/wiki/Trust_on_first_use">trust on first use</a>.</p>
+<div class="highlight"><pre><span></span><code># ssh server@server.com
+The authenticity of host &#39;server@server.com (192.168.65.2)&#39; can&#39;t be established.
+ECDSA key fingerprint is SHA256:e3eMAe6IrkZkWfCnYasBJUNRyHDC8SzDI0gLP9wWf1A.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+</code></pre></div>
+<p>However, it's not easy to remember.</p>
+<p>A better way is to add the host key to the DNS record, in a special type of record called <a href="https://en.wikipedia.org/wiki/SSHFP_record">SSHFP</a>.</p>
+<p>We can get the required information to add via <code>ssh-keygen</code>:</p>
+<div class="highlight"><pre><span></span><code>C:\WINDOWS\system32&gt;ssh-keygen -r your.domain.name
+your.domain.name IN SSHFP 4 1 3e35102ba1ef8777b74d257edcef0d6391cb9c19
+your.domain.name IN SSHFP 4 2 f9212b988c5cb2e9027746b13339c6b32d9f1c49183620765476ba76b51ddd31
+</code></pre></div>
+<p>You need to add this information as an <code>SSHFP</code> record via your DNS registrar.</p>
+<p>Finally, on the client, when we connect, we use the following command:</p>
+<p><code>ssh -o "VerifyHostKeyDNS ask" you@your.domain.name</code></p>
+<div class="highlight"><pre><span></span><code>The authenticity of host &#39;your.domain.name (xx.xx.xx.xx)&#39; can&#39;t be established.
+ED25519 key fingerprint is SHA256:+SErmIxcsukCd0axMznGsy2fHEkYNiB2VHa6drUd3TE.
+Matching host key fingerprint found in DNS.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+</code></pre></div>
+<p>Sadly, <a href="https://github.com/PowerShell/Win32-OpenSSH/issues/1841"><strong>the OpenSSH client in Windows does not support <code>VerifyHostKeyDNS</code></strong></a>.</p>
+<h2 id="why-not-host-your-own-ssh-ca">Why not host your own SSH-CA?</h2>
+<p>Prior to my decision to use <code>ssh-keygen</code> as the certificate authority, I considered a number of alternative self-hosted SSH certificate authorities, but rejected them as follows:</p>
+<ul>
+<li><a href="https://www.vaultproject.io/">Vault by HashiCorp</a> - Need to download on both server and client.</li>
+<li><a href="https://www.bastillion.io/">Bastillion</a> - Not certificate based. Also, need to manually upload and download the public keys and configure SSH.</li>
+<li><a href="https://goteleport.com/docs/getting-started/">Teleport</a> - Need to download on both server and client. Teleport Nodes (the server component) are not supported on Windows. The ability to record SSH sessions might be useful if I were to move to Linux.</li>
+<li><a href="https://developers.cloudflare.com/cloudflare-one/tutorials/ssh">Cloudflare Tunnel</a> - Need to download on both server and client. I had some issues setting up SSH certificate login.</li>
+<li><a href="https://smallstep.com/docs/step-ca">Step</a> - Need to download on both server and client. Also, TLS connection to <code>step-ca</code> from a client requires adding its generated root certificate as a trusted certificate<sup id="fnref:leaf-certificates"><a class="footnote-ref" href="#fn:leaf-certificates">3</a></sup>.</li>
+</ul>
+<p>Instead, to streamline the process of generating client certificates, I plan to write a certificate provisioning server which will probably rely on the (already-existing) 2FA login my web app backend uses. This would call <code>ssh-keygen</code> and return the signed public/private key pair.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:port-tunneling">
+<p>You could use this to bypass firewalls, by running a <a href="https://ma.ttias.be/socks-proxy-linux-ssh-bypass-content-filters/">SOCKS proxy</a> over the tunnel.&#160;<a class="footnote-backref" href="#fnref:port-tunneling" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ssh-key-comparison">
+<p>RSA, EdDSA and Ed25519 are <a href="https://goteleport.com/blog/comparing-ssh-keys/">considered secure</a>. DSA (and ECDSA, which uses DSA in a different mathematical group, namely elliptic curves) are susceptible to <a href="https://blog.trailofbits.com/2020/06/11/ecdsa-handle-with-care/">key recovery attacks</a> when the <abbr title="Number Only used oNCE">nonce</abbr> is reused/predictable.&#160;<a class="footnote-backref" href="#fnref:ssh-key-comparison" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:leaf-certificates">
+<p>This is because publicly trusted CAs only issue <a href="https://github.com/smallstep/certificates/discussions/466">leaf certificates</a>, which cannot be used to sign other certificates.&#160;<a class="footnote-backref" href="#fnref:leaf-certificates" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../2022-02-07-vscode-remote-containers-over-ssh/" class="md-footer__link md-footer__link--prev" aria-label="Previous: VSCode Remote Containers over SSH" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              VSCode Remote Containers over SSH
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../2022-02-04-deep-work/" class="md-footer__link md-footer__link--next" aria-label="Next: Deep Work" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Deep Work
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.092fa1f6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e3b2bf44.min.js"></script>
+      
+    
+  </body>
+</html>
