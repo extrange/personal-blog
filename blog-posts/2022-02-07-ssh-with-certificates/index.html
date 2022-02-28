@@ -933,7 +933,7 @@ The key&#39;s randomart image is:
 <ul>
 <li><a href="https://man.openbsd.org/ssh-keygen.1#s"><code>-s</code></a>: Indicates we want to sign a public key, with the provided private key.</li>
 <li><a href="https://man.openbsd.org/ssh-keygen.1#I"><code>-I</code></a>: Key identifier, usually the name of the client. Will appear in logs.</li>
-<li><a href="https://man.openbsd.org/ssh-keygen.1#n"><code>-n</code></a>: Comma-separated list of usernames which the client is allowed to log into the host as. Usernames must already exist on the host. Also known as 'principals'. If this option is omitted, the client will not be able to login.</li>
+<li><a href="https://man.openbsd.org/ssh-keygen.1#n"><code>-n</code></a>: Comma-separated list of usernames (on the host, <strong>not</strong> WSL) which the client is allowed to log into the host as. Usernames must already exist on the host. Also known as 'principals'. If this option is omitted, the client will not be able to login.</li>
 <li><a href="https://man.openbsd.org/ssh-keygen.1#V"><code>-V</code></a>: Validity interval of the certificate. If omitted, the certificate will be valid forever.</li>
 </ul>
 <p>Then, copy the files <code>client_key</code> (private key), <code>client_key.pub</code> (public key) and <code>client_key-cert.pub</code> (signed public key) to the client <sup id="fnref:linux-key-permissions"><a class="footnote-ref" href="#fn:linux-key-permissions">4</a></sup>. Usually, these files are placed in <code>%UserProfile%\.ssh</code>.</p>
