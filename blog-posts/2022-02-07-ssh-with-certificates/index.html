@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-02-07-ssh-with-certificates/">
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.10">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.3">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.d6be258b.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -35,7 +35,7 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ssh-with-certificates-on-windows" class="md-skip">
+        <a href="#setup-ssh-with-certificates-on-windows-and-a-bit-of-linux" class="md-skip">
           Skip to content
         </a>
       
@@ -847,7 +847,8 @@
               
                 
 
-<h1 id="ssh-with-certificates-on-windows">SSH with Certificates on Windows</h1>
+
+<h1 id="setup-ssh-with-certificates-on-windows-and-a-bit-of-linux">Setup SSH with Certificates on Windows (and a bit of Linux)</h1>
 <p>The <a href="https://www.ssh.com/academy/ssh/protocol">Secure Shell Protocol</a> (SSH) allows one to remotely access a terminal interface on a remote machine. In addition, it allows for capabilities such as port tunneling<sup id="fnref:port-tunneling"><a class="footnote-ref" href="#fn:port-tunneling">1</a></sup>, file transfers and screen forwarding.</p>
 <p>The main reasons for setting up SSH access on my machine were to allow me to:</p>
 <ul>
@@ -926,28 +927,36 @@ The key&#39;s randomart image is:
 <p>We'll now sign a client's public key, using <a href="https://man.openbsd.org/ssh-keygen.1"><code>ssh-keygen</code></a>. To make things a bit simpler, we'll generate the client's keypair on the host, sign it, and then return the signed keypair to the client.</p>
 <p>First, we generate a keypair on the host: </p>
 <p><code>ssh-keygen -f client_key -t ed25519</code></p>
-<p>Next, we use <a href="https://man.openbsd.org/ssh-keygen.1"><code>ssh-keygen</code></a> to <strong>sign</strong> the client's public key (<code>client_key.pub</code>), with the private key of the keypair we generated earlier (<code>user_ca</code>). (Note: if you have added the private key to <code>ssh-agent</code>, see <a href="#optional-adding-the-user_ca-key-to-ssh-agent">below</a>.</p>
+<p>Next, we use <a href="https://man.openbsd.org/ssh-keygen.1"><code>ssh-keygen</code></a> to <strong>sign</strong> the client's public key (<code>client_key.pub</code>), with the private key of the keypair we generated earlier (<code>user_ca</code>). (Note: if you have added the private key to <code>ssh-agent</code>, see <a href="#optional-adding-the-private-key-and-signed-public-key-to-ssh-agent">below</a>.</p>
 <p><code>ssh-keygen -s user_ca -I &lt;client_name&gt; -n &lt;usernames&gt; -V +1d client_key.pub</code></p>
+<p>If you get an error about the public key not being found, use the absolute path to the <code>user_ca.pub</code> file instead, or ensure you run the command from the same directory as the <code>user_ca.pub</code> file.</p>
 <ul>
 <li><a href="https://man.openbsd.org/ssh-keygen.1#s"><code>-s</code></a>: Indicates we want to sign a public key, with the provided private key.</li>
 <li><a href="https://man.openbsd.org/ssh-keygen.1#I"><code>-I</code></a>: Key identifier, usually the name of the client. Will appear in logs.</li>
 <li><a href="https://man.openbsd.org/ssh-keygen.1#n"><code>-n</code></a>: Comma-separated list of usernames which the client is allowed to log into the host as. Usernames must already exist on the host. Also known as 'principals'. If this option is omitted, the client will not be able to login.</li>
 <li><a href="https://man.openbsd.org/ssh-keygen.1#V"><code>-V</code></a>: Validity interval of the certificate. If omitted, the certificate will be valid forever.</li>
 </ul>
-<p>Finally, we copy the files <code>client_key</code> (private key), <code>client_key.pub</code> (public key) and <code>client_key-cert.pub</code> (signed public key) to the client. Usually, these files are placed in <code>%UserProfile%\.ssh</code>.</p>
+<p>Then, copy the files <code>client_key</code> (private key), <code>client_key.pub</code> (public key) and <code>client_key-cert.pub</code> (signed public key) to the client <sup id="fnref:linux-key-permissions"><a class="footnote-ref" href="#fn:linux-key-permissions">4</a></sup>. Usually, these files are placed in <code>%UserProfile%\.ssh</code>.</p>
 <h2 id="3-login">3. Login</h2>
 <p>Now, test the SSH login from the client!</p>
-<p><code>ssh you@your.domain.name</code></p>
+<p><code>ssh -i &lt;PATH_TO_KEYFILE&gt; you@your.domain.name</code></p>
+<p>where <code>&lt;PATH_TO_KEYFILE&gt;</code> is the location to the private key, e.g. <code>~\.ssh\client_key</code>.</p>
 <p>You should not be prompted for a password.</p>
+<p>If you don't want to keep having to specify the keyfile, create/edit the <a href="https://linux.die.net/man/5/ssh_config">config</a> file (usually at <code>~/.ssh/config</code>)<sup id="fnref:openssh-config-windows"><a class="footnote-ref" href="#fn:openssh-config-windows">5</a></sup>: </p>
+<div class="highlight"><pre><span></span><code>Host ssh.your-domain.com
+  HostName ssh.your-domain.com
+  User your-username
+  IdentityFile ~/.ssh/your_private_key
+</code></pre></div>
 <h2 id="optional-adding-the-private-key-and-signed-public-key-to-ssh-agent">(Optional) Adding the private key and signed public key to <code>ssh-agent</code></h2>
 <p><a href="https://man.openbsd.org/ssh-agent.1"><code>ssh-agent</code></a> is a program which is able to store private keys and the signed public key using the appropriate secure credential storage for the operating system. This presents a more secure alternative than storing the private key unencrypted on the server.</p>
 <p>In order to add keys to the agent, use <a href="https://man.openbsd.org/ssh-add.1"><code>ssh-add</code></a>:</p>
 <p><code>ssh-add &lt;keyfile&gt;</code></p>
 <p><code>&lt;keyfile&gt;</code> is the location of the private key, e.g. <code>user_ca</code>.</p>
-<p>You may now safely delete the private key and the signed public key.</p>
 <p>To check the keys which have been added to the agent, run <code>ssh-add -l</code>.</p>
-<p>From now on, <code>ssh-agent</code> will automatically supply the signed public key and private key in commands such as <code>ssh</code>.</p>
-<p>Note: (On the host) If you added the host's certificate signing private key (e.g. <code>user_ca</code>) to <code>ssh-agent</code>, when you want to sign a client`s public key, you need to use the following command instead:</p>
+<p>From now on, <code>ssh-agent</code> will automatically supply the signed public key and private key in commands such as <code>ssh</code>.<sup id="fnref:ssh-add-windows"><a class="footnote-ref" href="#fn:ssh-add-windows">6</a></sup></p>
+<p>(Only on Windows) 
+Note: (On the host) If you added the host's certificate signing private key (e.g. <code>user_ca</code>) to <code>ssh-agent</code>, when you want to sign a client`s public key, you need to use the following command instead:</p>
 <p><code>ssh-keygen -Us user_ca -I &lt;client_name&gt; -n &lt;usernames&gt; -V +1d client_key.pub</code></p>
 <p><a href="https://man.openbsd.org/ssh-keygen.1#U"><code>-U</code></a> indicates the private key should be extracted from <code>ssh-agent</code>.</p>
 <h2 id="optional-host-public-key-verification-over-dns">(Optional) Host Public Key Verification over DNS</h2>
@@ -966,7 +975,7 @@ your.domain.name IN SSHFP 4 1 3e35102ba1ef8777b74d257edcef0d6391cb9c19
 your.domain.name IN SSHFP 4 2 f9212b988c5cb2e9027746b13339c6b32d9f1c49183620765476ba76b51ddd31
 </code></pre></div>
 <p>You need to add this information as an <code>SSHFP</code> record via your DNS registrar.</p>
-<p>Finally, on the client, when we connect, we use the following command:</p>
+<p>Finally, on the client, when we connect, we use the following command (non case-sensitive):</p>
 <p><code>ssh -o "VerifyHostKeyDNS ask" you@your.domain.name</code></p>
 <div class="highlight"><pre><span></span><code>The authenticity of host &#39;your.domain.name (xx.xx.xx.xx)&#39; can&#39;t be established.
 ED25519 key fingerprint is SHA256:+SErmIxcsukCd0axMznGsy2fHEkYNiB2VHa6drUd3TE.
@@ -995,6 +1004,15 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 </li>
 <li id="fn:leaf-certificates">
 <p>This is because publicly trusted CAs only issue <a href="https://github.com/smallstep/certificates/discussions/466">leaf certificates</a>, which cannot be used to sign other certificates.&#160;<a class="footnote-backref" href="#fnref:leaf-certificates" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:linux-key-permissions">
+<p>On Linux, the private key must have <code>chmod 600</code> permissions (i.e. no read access to anyone other than the user), otherwise <code>ssh-add</code> will refuse to add the key.&#160;<a class="footnote-backref" href="#fnref:linux-key-permissions" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:openssh-config-windows">
+<p>Unfortunately, Windows <a href="https://superuser.com/questions/1537763/location-of-openssh-configuration-file-on-windows">does not generate</a> the <code>config</code> file automatically on connecting to a host, unlike Linux. You'll have to create it yourself.&#160;<a class="footnote-backref" href="#fnref:openssh-config-windows" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ssh-add-windows">
+<p>On Windows, you may now safely delete the private key and the signed public key, as it is stored encrypted in the <a href="https://github.com/PowerShell/Win32-OpenSSH/issues/1487">registry</a>.&#160;<a class="footnote-backref" href="#fnref:ssh-add-windows" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -1063,10 +1081,10 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.092fa1f6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e3b2bf44.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b88e97c5.min.js"></script>
       
     
   </body>
