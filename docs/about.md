@@ -5,7 +5,7 @@
   <figcaption style="font-size: small;margin-top: 5px">Credits: <a href="https://www.flickr.com/people/23094783@N03">Alex</a> of Ithaca, NY (<a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>)</figcaption>
 </figure>
 
-I work as a doctor in Singapore. I've all sorts of interests and hobbies, from philosophy, photography to programming. What follows is a bit about my life and why I like programming.
+I work as a doctor in Singapore. I've all sorts of interests and hobbies, from philosophy, photography to programming. Personally, [my worldview](blog-posts/2022-03-03-determinism-and-stoicism.md) aligns most closely with Stoicism. What follows is a bit about my life and why I like programming.
 
 ## Writing at the speed of thought
 
