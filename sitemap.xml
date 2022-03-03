@@ -36,12 +36,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://nicholaslyz.com/trips/</loc>
+         <loc>https://nicholaslyz.com/tags/</loc>
          <lastmod>2022-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://nicholaslyz.com/blog-posts/2020-04-22-calculating-return/</loc>
+         <loc>https://nicholaslyz.com/trips/</loc>
          <lastmod>2022-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -91,17 +91,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://nicholaslyz.com/blog-posts/2021-04-22-calculating-return/</loc>
+         <lastmod>2022-03-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://nicholaslyz.com/blog-posts/2021-06-08-which-is-the-best-index-fund-etf/</loc>
          <lastmod>2022-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://nicholaslyz.com/blog-posts/2021-06-20-uselayouteffect/</loc>
-         <lastmod>2022-03-03</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://nicholaslyz.com/blog-posts/2021-06-29-on-envy-and-wealth/</loc>
          <lastmod>2022-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -197,6 +197,11 @@
     </url>
     <url>
          <loc>https://nicholaslyz.com/blog-posts/on-the-measure-of-intelligence/</loc>
+         <lastmod>2022-03-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nicholaslyz.com/tags/</loc>
          <lastmod>2022-03-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
