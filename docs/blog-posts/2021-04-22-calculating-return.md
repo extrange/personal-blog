@@ -1,3 +1,7 @@
+---
+tags:
+  - Finance
+---
 # Calculating Return (work in progress)
 
 Returns. The quintessential word we hear when evaluating a fund, looking at our CPF, or even when buying insurance (ill-advised).

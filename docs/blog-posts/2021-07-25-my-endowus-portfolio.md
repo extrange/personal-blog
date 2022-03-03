@@ -1,3 +1,7 @@
+---
+tags:
+  - Finance
+---
 # My Endowus Portfolio
 
 I recently started an Endowus portfolio ([reasons](2021-07-25-endowus-or-not.md)). Here's the funds I chose and my allocation:

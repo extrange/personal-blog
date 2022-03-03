@@ -1,3 +1,7 @@
+---
+tags:
+  - Finance
+---
 # My Investment Portfolio
 
 This is my current portfolio allocation as of 2/6/21.

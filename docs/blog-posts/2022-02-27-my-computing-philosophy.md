@@ -1,3 +1,7 @@
+---
+tags:
+  - Programming
+---
 # My Computing Philosophy
 
 What do people use a computer for? For me, in order of time spent:

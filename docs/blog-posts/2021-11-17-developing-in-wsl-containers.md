@@ -1,3 +1,7 @@
+---
+tags:
+  - Programming
+---
 # Developing in WSL Containers (Now with GPU support!)
 
 As a programmer there were a lot of version/environment issues I faced while developing with Python, Node and other tools. Some examples:

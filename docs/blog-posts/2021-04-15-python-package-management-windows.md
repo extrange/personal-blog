@@ -1,3 +1,7 @@
+---
+tags:
+  - Programming
+---
 # Python Package Management on Windows
 
 ## **Update 17/11/21**
@@ -8,7 +12,7 @@ I now use [WSL2 containers in VSCode](2021-11-17-developing-in-wsl-containers.md
 
 [`--not-required`][--not-required] ensures only top-level packages are printed.
 
-In addition, I use [compatible version specifiers][compatible-version-specifiers] (aka `~=`, equivalent to `>= V.N, == V.*`), which effectively pin the major version of packages, while allowing for minor/patch versions to be updated automatically, each time the container is rebuilt.
+In addition, I use `>= <MAJOR>.<MINOR>.*` to pin the major and minor version of packages, while allowing for patch versions to be updated automatically each time the container is rebuilt. This prevents surprises during deployment (e.g. missing functionality in minor versions) while allowing bugfix versions to automatically be upgraded without hassle.
 
 ## The State of Python Package Management
 

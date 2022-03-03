@@ -1,3 +1,7 @@
+---
+tags:
+  - Programming
+---
 # Setup SSH with Certificates on Windows (and a bit of Linux)
 
 The [Secure Shell Protocol][ssh] (SSH) allows one to remotely access a terminal interface on a remote machine. In addition, it allows for capabilities such as port tunneling[^port-tunneling], file transfers and screen forwarding.

@@ -1,3 +1,7 @@
+---
+tags:
+  - Programming
+---
 # Cracking PDF Hashes with `hashcat`
 
 Do you have a PDF document lying around somewhere, but it's encrypted and you've forgotten the password to it?

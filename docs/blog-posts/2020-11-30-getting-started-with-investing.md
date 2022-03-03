@@ -1,3 +1,8 @@
+---
+tags:
+  - Finance
+---
+Finance
 # Getting Started with Investing
 
 *Written on 30/11/20*

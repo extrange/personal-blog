@@ -1,3 +1,7 @@
+---
+tags:
+  - Finance
+---
 # To Endowus, Or Not?
 
 [Endowus][endowus] has been making waves in the robo-advisor market in Singapore, hitting $1 billion in assets under management (AUM) recently.

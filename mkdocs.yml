@@ -17,8 +17,8 @@ nav:
   - About Me: about.md
   - Blog Posts:
     - Determinism and Stoicism: blog-posts/2022-03-03-determinism-and-stoicism.md
-    - My Linux Journey:
-      - My Computing Philosophy: blog-posts/2022-02-27-my-computing-philosophy.md
+    - My Computing Philosophy: blog-posts/2022-02-27-my-computing-philosophy.md
+    - Dualbooting Fedora 35 with Win 11: blog-posts/2022-02-26-fedora-win11-dual-boot.md
     - VSCode Remote Containers over SSH: blog-posts/2022-02-07-vscode-remote-containers-over-ssh.md
     - SSH with Certificates: 'blog-posts/2022-02-07-ssh-with-certificates.md'
     - Deep Work: 'blog-posts/2022-02-04-deep-work.md'
@@ -33,7 +33,7 @@ nav:
     - Cracking PDF Hashes with hashcat: 'blog-posts/2021-07-23-cracking-pdf-hashes.md'
     - useLayoutEffect: 'blog-posts/2021-06-20-uselayouteffect.md'
     - The Best Index Fund: 'blog-posts/2021-06-08-which-is-the-best-index-fund-etf.md'
-    - Calculating Return: 'blog-posts/2020-04-22-calculating-return.md'
+    - Calculating Return: 'blog-posts/2021-04-22-calculating-return.md'
     - Python Package Management on Windows: 'blog-posts/2021-04-15-python-package-management-windows.md'
     - Life Insurance: 'blog-posts/2021-03-19-life-insurance.md'
     - My Investment Portfolio: 'blog-posts/2021-01-16-my-investment-portfolio.md'
@@ -48,6 +48,7 @@ nav:
   - Photography: photography.md
   - Piano: piano.md
   - Resume: resume.md
+  - Tags: tags.md
 markdown_extensions:
   - abbr
   - attr_list
@@ -61,6 +62,9 @@ markdown_extensions:
       custom_checkbox: true
   - footnotes
   - pymdownx.snippets
+plugins:
+  - tags:
+      tags_file: tags.md
 extra:
   analytics:
     provider: google

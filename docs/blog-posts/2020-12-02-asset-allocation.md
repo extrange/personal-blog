@@ -1,3 +1,8 @@
+---
+tags:
+  - Finance
+---
+
 # Asset Allocation[^sources]
 
 There are approximately 41,000 listed companies around the world. This number doesn't even begin to include the even larger market of derivatives based on these companies.

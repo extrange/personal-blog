@@ -1,3 +1,7 @@
+---
+tags:
+  - Finance
+---
 # The Best Index Fund (or ETF)
 
 I've been advocating for [broad based, index investing](2020-11-30-getting-started-with-investing.md) if you follow my blog.

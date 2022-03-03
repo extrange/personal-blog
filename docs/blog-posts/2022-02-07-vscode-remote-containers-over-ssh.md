@@ -1,3 +1,7 @@
+---
+tags:
+  - Programming
+---
 # VSCode Remote Containers over SSH
 
 When working remotely with a laptop, sometimes we might want access to more CPU power, RAM or a GPU. [VSCode supports accessing a remote machine][vscode-ssh], and if [Docker][docker] is installed on the remote machine, you can even connect to remote [development containers][devcontainers]. This approach tremendously saves battery life since computation is done on the remote server.

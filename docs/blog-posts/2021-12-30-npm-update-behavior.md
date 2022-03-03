@@ -1,3 +1,7 @@
+---
+tags:
+  - Programming
+---
 # `npm update` does not write updated versions to `package.json`
 
 Update: This issue has been fixed in `npm` [8.3.2](https://github.com/npm/cli/releases/tag/v8.3.2).

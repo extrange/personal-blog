@@ -1,3 +1,7 @@
+---
+tags:
+  - Cooking
+---
 # Crispy Apple Chips
 
 <div style="max-width:500px">

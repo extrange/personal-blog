@@ -1,3 +1,8 @@
+---
+tags:
+  - Finance
+---
+
 <figure>
   <img src="/static/images/stock-bg.jpg" alt="Stock Trading" loading="lazy"/>
   <figcaption>"Lethargy bordering on sloth remains the best investment style. The correct holding period for the stock market is forever." <br>- Burton G. Malkiel</figcaption>

@@ -1,3 +1,7 @@
+---
+tags:
+  - Programming
+---
 # The useLayoutEffect hook
 
 Suppose you have a parent component `A` and a child `B`, and you want to run a `useEffect` hook on mount in the parent first, followed by another `useEffect` hook in the child.

@@ -1,3 +1,7 @@
+---
+tags:
+  - Programming
+---
 # DNS settings for serving Github Pages over Cloudflare
 
 *Written on 24/9/20*

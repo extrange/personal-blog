@@ -8,14 +8,16 @@ At the moment, I'm working on my [todo app](https://app.nicholaslyz.com) and exp
 
 Some of my interests:
 
-- Badminton
-- [Finance & Investing][finance-and-investing]
+- Badminton :badminton:
+- [Cooking](tags.md#Cooking) :stew:
+- [Finance][finance-and-investing] :chart_with_upwards_trend:
 - [Lucid dreaming][lucid-dreaming][^lucid-dreaming]
-- [Mountaineering](mountaineering.md)
-- [Photography](photography.md)
-- [Piano](piano.md)
-- [Skiing][skiing]
-- Zen[^alan-watts] & Philosophy
+- [Mountaineering](mountaineering.md) :mountain:
+- [Photography](photography.md) :frame_with_picture:
+- [Philosophy](tags.md#Philosophy) and Zen[^alan-watts] :person_in_lotus_position:
+- [Piano](piano.md) :musical_keyboard:
+- [Programming](tags.md#Programming) :computer:
+- [Skiing][skiing] :ski:
 
 You can reach me at: 
 

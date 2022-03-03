@@ -1,3 +1,7 @@
+---
+tags:
+  - Insurance
+---
 # Life Insurance
 
 I am a strong proponent of term life insurance.
