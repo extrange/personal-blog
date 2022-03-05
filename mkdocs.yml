@@ -16,6 +16,7 @@ nav:
   - Home: index.md
   - About Me: about.md
   - Blog Posts:
+    - On Happiness: blog-posts/2022-03-05-on-happiness.md
     - Determinism and Stoicism: blog-posts/2022-03-03-determinism-and-stoicism.md
     - My Computing Philosophy: blog-posts/2022-02-27-my-computing-philosophy.md
     - Dualbooting Fedora 35 with Win 11: blog-posts/2022-02-26-fedora-win11-dual-boot.md

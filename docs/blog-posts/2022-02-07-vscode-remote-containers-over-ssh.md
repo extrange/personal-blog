@@ -30,15 +30,16 @@ However, the [lack of support for VSCode Remote-Container and Remote-SSH extensi
 
 A comparison of features:
 
-|                         | `code-server`                       | VSCode Remote-SSH                     |
-|-------------------------|-------------------------------------|---------------------------------------|
-| Security                | Less secure[^http-security]         | As secure as SSH is                   |
-| IP Visibility           | Can be hidden behind Cloudflare     | Public                                |
-| Authentication          | Password or external server[^nginx] | SSH password, 2FA, key or certificate |
-| Client requirements     | Any browser                         | SSH client                            |
-| Access host filesystem  | Yes                                 | Yes                                   |
-| Forward ports from host | Yes                                 | Yes                                   |
-| Full VSCode experience  | No Remote-Containers support        | Yes                                   |
+|  | `code-server` | VSCode Remote-SSH |
+|---|---|---|
+| Security | Less secure[^http-security] | As secure as SSH is |
+| IP Visibility | Can be hidden behind Cloudflare | Public |
+| Authentication | Password or external server[^nginx] | SSH password, 2FA, key or certificate |
+| Client requirements | Any browser | SSH client |
+| Access host filesystem | Yes | Yes |
+| Forward ports from host | Yes | Yes |
+| Full VSCode experience | No Remote-Containers support | Yes |
+| Open Source | Yes | Extension is proprietary |
 
 [^devcontainers]: For the reasons I do this, see [this post](2021-11-17-developing-in-wsl-containers.md).
 [^nginx]: While `nginx` can [proxy websocket connections](https://nginx.org/en/docs/http/websocket.html), it can't terminate them once established.
