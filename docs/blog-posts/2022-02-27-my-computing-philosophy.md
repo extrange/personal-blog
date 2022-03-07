@@ -4,34 +4,74 @@ tags:
 ---
 # My Computing Philosophy
 
-What do people use a computer for? For me, in order of time spent:
+My computing setup is designed to maximize productivity, by following the following principles:
 
-- Web browsing (majority)
-- Programming
-- File management
-- Messaging
-- Gaming
-- Word processing
+- Ergonomicity
+- Remote, secure personal data access
+- Stable open-source environment
 
-I feel that there is not much to be gained by spending time learning the intricaties of each OS's GUI and their respective quirks (Gnome, KDE, Windows Desktop). I think one's time is better invested by developing a server (in Linux), with all the file/web hosting things you want, and then using other devices merely as clients to access that server and its data.
+## Ergonomicity
 
-In essence, a **client-server** model for personal computing[^cloud-privacy].
+Input takes up a majority of our time on the computer, and therefore it is a prime candidate for optimization. In order of importance:
 
-The processing power or storage of the client then becomes irrelevant - any notebook, connected to the server using say `ssh` or some web frontend, will have the same capabilities as any other high-end notebook.
+**Keyboard layout: Dvorak**
 
-This saves money, as well as time spent configuring new devices (since everything is really being done on the server). As a bonus, since processing is [offloaded to the server][vscode-remote-containers] (for programming tasks), battery life is improved. The only configuration I'd do on the client would be:
+![](/static/images/2022-02-27/keyboard.jpg)
 
-- Changing the keyboard layout to Dvorak
-- Setting up Flux or a blue screen filter equivalent
-- Changing the default text editor to Vim, or similar keybindings
+The keyboard is perhaps the most frequently used peripheral, more so than the mouse, and thus choosing an efficient layout is essential. I decided on Dvorak, as it resembles playing the piano - vowels are on the home row of the left hand, while the common consonants are on the right, and this allows for a more natural alternation compared to the Qwerty layout.
 
-I used to spend a lot of time customizing my devices, but now the above is really all I need, the important customizations already stored in the cloud (VSCode, Firefox).
+I remap the ++control++ + ++z++ ++x++ ++c++ ++v++ keys for copy/paste/undo-ing, and ++control++ + ++w++ ++t++ / ++control+shift+t++ for browsing, as their Qwerty locations are more convenient than their Dvorak equivalents.
 
-The important features of the client device that remain are the ergonomic comfort of the keyboard, total weight and the clarity of the display. Processor, hard disk space and memory take a backseat.
+??? note "Configuration for Linux"
+    I use [`keyd`][keyd] on a Dvorak layout with the following config in `/etc/keyd/default.conf`:
 
-## Why not Windows
+    ```conf
+    [ids]
 
-I've been using Windows ever since I started using computers. Recently however, I have been encountering a lot of frustrations in Windows.
+    *
+
+    [control]
+    z = C-/
+    x = C-b
+    c = C-i
+    v = C-.
+    t = C-k
+    w = C-,
+    shift = layer(control_shift)
+
+    [control_shift:C-S]
+    t = C-S-k
+    ```
+
+**Text Editor: Vim/Vim-like**
+
+![](/static/images/2022-02-27/spacevim.jpg)
+
+The program I use most frequently is the text editor, be it for programming or writing documents. Being able to type with just the keyboard, and not having to switch to the mouse for navigation allows me to focus more on what I am typing, and not having to think of reaching for my mouse. As a bonus, learning the Vim keybindings transfers naturally to other programs, such as Vim in Firefox, or the terminal file managers such as `ranger` and `nnn`, both of which feature Vim keybindings.
+
+Besides vanilla Vim, there are also other spin-off projects like [Neovim][neovim] and [SpaceVim][spacevim] which I'm considering learning.
+
+[Here][vim-tutorial] is a great tutorial I'm using to learn Vim.
+
+**Blue Light Filter: Flux/System Default**
+
+Blue light is a major disruptor of our circadian rhythms and as such this is one of the settings I quickly adjust on devices I use. [Flux][flux] is a tool I use on Windows, and for Linux, Gnome already has a night light feature in-built.
+
+## Remote, secure personal data access
+
+Being able to access the contents of your computer anywhere you go is really handy, and it allows for things like remote file management, sharing files with friends and working on your projects anywhere in the world, on any computer.
+
+[SSH access][ssh] is one way to achieve secure access to another computer, and it is a method I currently use in conjunction with text editors such as VSCode and Vim. Additionally, I also deploy a web server with a [web frontend][web-frontend][^cloud-privacy], to manage my tasks, book lists and potentially other loose non-file pieces of content.
+
+Having a web server and the associated frontend allows me to customize how data is displayed in one place, which then looks the same on all my other client devices.
+
+This saves money, as well as time spent configuring new devices (since everything is really being done on the server). As a bonus, since processing is [offloaded to the server][vscode-remote-containers] (for programming tasks), battery life of the device is prolonged.
+
+## Stable, open source environment
+
+![](/static/images/2022-02-27/linux.jpg)
+
+I've been using Windows ever since I started using computers. However, I have been encountering a lot of frustrations in Windows.
 
 - WSL has too many issues (no `systemd`, changing IP address, poor Docker volume mount performance)
 - Potential windows spyware concerns, e.g. Edge requesting for more and more tracking
@@ -40,23 +80,23 @@ I've been using Windows ever since I started using computers. Recently however, 
 - Even in 2022, Windows still lacks a decent package manager[^package-manager], making application updates a pain
 - Powershell, while improving, is still behind Linux shells and utilities
 
-## Why Windows
-On the other hand, here are the reasons why I was using Windows:
+The reasons remaining to use Windows have dwindled:
 
-- Gaming
-- Really obscure, closed source, Windows-only tools
-- Missing/substandard Linux device drivers[^linux-device-drivers]
+- Gaming: With GPU passthrough, playing in a Windows VM is becoming increasingly possible.
+- Really obscure, closed source, Windows-only tools: Again, running them in a VM is possible.
+- Missing/substandard Linux device drivers[^linux-device-drivers]: A bit of a problem for some laptops, but for most desktops this is a non-issue.
 
-## My Decision
-
-On my client device (desktop/laptop), there isn't really much reason for me to use Windows apart from gaming, and so running Windows in either a VM (with GPU passthrough), or in a dualboot configuration (although that might cause more problems), is what I'll be doing.
-
-The next few article in this series will chronicle my journey (and challenges) toward this end goal.
+In view of the above problems, I have decided to move to Linux.
 
 [^cloud-privacy]: Why not just store everything in the cloud? Because I don't trust Google (or Microsoft) with keeping the privacy of my data intact.
 [^package-manager]: [Chocolatey](https://chocolatey.org/) is a good try, however.
 [^linux-device-drivers]: E.g., my laptop's fingerprint reader couldn't be used for login, while it worked fine in Windows 11. Blame it on hardware vendors.
 
-
-
+[flux]: https://justgetflux.com/
+[keyd]: https://github.com/rvaiya/keyd
+[neovim]: https://neovim.io/
+[spacevim]: https://spacevim.org/
+[ssh]: 2022-02-07-ssh-with-certificates.md
+[vim-tutorial]: https://github.com/iggredible/Learn-Vim
 [vscode-remote-containers]: 2022-02-07-vscode-remote-containers-over-ssh.md
+[web-frontend]: https://github.com/extrange/web-app

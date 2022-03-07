@@ -20,7 +20,7 @@ You can now run [powerful transformer models][gpt-j] and more from your laptop!
 
 [`code-server`][code-server] is a fully browser-based implementation of VSCode, and offers nearly the same experience. Compared to SSH, all that is needed is a client with a browser, and there is no need for SSH certificates.
 
-However, the [lack of support for VSCode Remote-Container and Remote-SSH extensions][code-server-remote-extensions] were a deal-breaker for me, since I primarily develop within [development containers][devcontainers][^devcontainers].
+However, the [lack of support for VSCode Remote-Container and Remote-SSH extensions][code-server-remote-extensions][^proprietary-extensions] were a deal-breaker for me, since I primarily develop within [development containers][devcontainers][^devcontainers].
 
 `code-server` can be run in a Docker container too, and addtional `code-server` containers can even be created on-the-fly from within code-server itself. However, the configuration to automatically forward the relevant ports is going to be complicated.
 
@@ -41,6 +41,7 @@ A comparison of features:
 | Full VSCode experience | No Remote-Containers support | Yes |
 | Open Source | Yes | Extension is proprietary |
 
+[^proprietary-extensions]: Sadly, VSCode is [not as open](https://news.ycombinator.com/item?id=24047638) as I used to think.
 [^devcontainers]: For the reasons I do this, see [this post](2021-11-17-developing-in-wsl-containers.md).
 [^nginx]: While `nginx` can [proxy websocket connections](https://nginx.org/en/docs/http/websocket.html), it can't terminate them once established.
 [^http-security]: Web applications have multiple vectors of attack, for example the [OWASP Top Ten](https://owasp.org/www-project-top-ten/).
