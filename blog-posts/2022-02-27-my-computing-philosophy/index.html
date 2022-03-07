@@ -843,6 +843,26 @@
 <p><img alt="" src="/static/images/2022-02-27/keyboard.jpg" /></p>
 <p>The keyboard is perhaps the most frequently used peripheral, more so than the mouse, and thus choosing an efficient layout is essential. I decided on Dvorak, as it resembles playing the piano - vowels are on the home row of the left hand, while the common consonants are on the right, and this allows for a more natural alternation compared to the Qwerty layout.</p>
 <p>I remap the <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-z">Z</kbd></span> <span class="keys"><kbd class="key-x">X</kbd></span> <span class="keys"><kbd class="key-c">C</kbd></span> <span class="keys"><kbd class="key-v">V</kbd></span> keys for copy/paste/undo-ing, and <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-w">W</kbd></span> <span class="keys"><kbd class="key-t">T</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-t">T</kbd></span> for browsing, as their Qwerty locations are more convenient than their Dvorak equivalents.</p>
+<details class="note">
+<summary>Configuration for Linux</summary>
+<p>I use <a href="https://github.com/rvaiya/keyd"><code>keyd</code></a> on a Dvorak layout with the following config in <code>/etc/keyd/default.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[ids]
+
+*
+
+[control]
+z = C-/
+x = C-b
+c = C-i
+v = C-.
+t = C-k
+w = C-,
+shift = layer(control_shift)
+
+[control_shift:C-S]
+t = C-S-k
+</code></pre></div>
+</details>
 <p><strong>Text Editor: Vim/Vim-like</strong></p>
 <p><img alt="" src="/static/images/2022-02-27/spacevim.jpg" /></p>
 <p>The program I use most frequently is the text editor, be it for programming or writing documents. Being able to type with just the keyboard, and not having to switch to the mouse for navigation allows me to focus more on what I am typing, and not having to think of reaching for my mouse. As a bonus, learning the Vim keybindings transfers naturally to other programs, such as Vim in Firefox, or the terminal file managers such as <code>ranger</code> and <code>nnn</code>, both of which feature Vim keybindings.</p>
