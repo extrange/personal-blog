@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-02-07-vscode-remote-containers-over-ssh/">
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.4">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
     
     
       
@@ -831,10 +831,10 @@
 <p>You can now run <a href="https://huggingface.co/EleutherAI/gpt-j-6B">powerful transformer models</a> and more from your laptop!</p>
 <h2 id="why-not-code-server">Why not <code>code-server</code>?</h2>
 <p><a href="https://github.com/coder/code-server"><code>code-server</code></a> is a fully browser-based implementation of VSCode, and offers nearly the same experience. Compared to SSH, all that is needed is a client with a browser, and there is no need for SSH certificates.</p>
-<p>However, the <a href="https://github.com/coder/code-server/issues/1315">lack of support for VSCode Remote-Container and Remote-SSH extensions</a> were a deal-breaker for me, since I primarily develop within <a href="https://code.visualstudio.com/docs/remote/containers">development containers</a><sup id="fnref:devcontainers"><a class="footnote-ref" href="#fn:devcontainers">1</a></sup>.</p>
+<p>However, the <a href="https://github.com/coder/code-server/issues/1315">lack of support for VSCode Remote-Container and Remote-SSH extensions</a><sup id="fnref:proprietary-extensions"><a class="footnote-ref" href="#fn:proprietary-extensions">1</a></sup> were a deal-breaker for me, since I primarily develop within <a href="https://code.visualstudio.com/docs/remote/containers">development containers</a><sup id="fnref:devcontainers"><a class="footnote-ref" href="#fn:devcontainers">2</a></sup>.</p>
 <p><code>code-server</code> can be run in a Docker container too, and addtional <code>code-server</code> containers can even be created on-the-fly from within code-server itself. However, the configuration to automatically forward the relevant ports is going to be complicated.</p>
 <p><strong>Authentication Concerns</strong></p>
-<p><code>code-server</code> uses a websocket stream. While <code>nginx</code> can be setup to <a href="https://nginx.org/en/docs/http/ngx_http_auth_request_module.html">require authentication</a> before initiating the stream, there's no simple way to deauthenticate a websocket stream<sup id="fnref:nginx"><a class="footnote-ref" href="#fn:nginx">2</a></sup> once its established, unlike SSH connections.</p>
+<p><code>code-server</code> uses a websocket stream. While <code>nginx</code> can be setup to <a href="https://nginx.org/en/docs/http/ngx_http_auth_request_module.html">require authentication</a> before initiating the stream, there's no simple way to deauthenticate a websocket stream<sup id="fnref:nginx"><a class="footnote-ref" href="#fn:nginx">3</a></sup> once its established, unlike SSH connections.</p>
 <p>A comparison of features:</p>
 <table>
 <thead>
@@ -847,7 +847,7 @@
 <tbody>
 <tr>
 <td>Security</td>
-<td>Less secure<sup id="fnref:http-security"><a class="footnote-ref" href="#fn:http-security">3</a></sup></td>
+<td>Less secure<sup id="fnref:http-security"><a class="footnote-ref" href="#fn:http-security">4</a></sup></td>
 <td>As secure as SSH is</td>
 </tr>
 <tr>
@@ -857,7 +857,7 @@
 </tr>
 <tr>
 <td>Authentication</td>
-<td>Password or external server<sup id="fnref2:nginx"><a class="footnote-ref" href="#fn:nginx">2</a></sup></td>
+<td>Password or external server<sup id="fnref2:nginx"><a class="footnote-ref" href="#fn:nginx">3</a></sup></td>
 <td>SSH password, 2FA, key or certificate</td>
 </tr>
 <tr>
@@ -890,14 +890,17 @@
 <div class="footnote">
 <hr />
 <ol>
+<li id="fn:proprietary-extensions">
+<p>Sadly, VSCode is <a href="https://news.ycombinator.com/item?id=24047638">not as open</a> as I used to think.&#160;<a class="footnote-backref" href="#fnref:proprietary-extensions" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
 <li id="fn:devcontainers">
-<p>For the reasons I do this, see <a href="../2021-11-17-developing-in-wsl-containers/">this post</a>.&#160;<a class="footnote-backref" href="#fnref:devcontainers" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>For the reasons I do this, see <a href="../2021-11-17-developing-in-wsl-containers/">this post</a>.&#160;<a class="footnote-backref" href="#fnref:devcontainers" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:nginx">
-<p>While <code>nginx</code> can <a href="https://nginx.org/en/docs/http/websocket.html">proxy websocket connections</a>, it can't terminate them once established.&#160;<a class="footnote-backref" href="#fnref:nginx" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nginx" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>While <code>nginx</code> can <a href="https://nginx.org/en/docs/http/websocket.html">proxy websocket connections</a>, it can't terminate them once established.&#160;<a class="footnote-backref" href="#fnref:nginx" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nginx" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:http-security">
-<p>Web applications have multiple vectors of attack, for example the <a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a>.&#160;<a class="footnote-backref" href="#fnref:http-security" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Web applications have multiple vectors of attack, for example the <a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a>.&#160;<a class="footnote-backref" href="#fnref:http-security" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -969,7 +972,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5413a266.min.js"></script>
+      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
       
     
   </body>
