@@ -31,9 +31,9 @@ I've realized several benefits since practicing Stoicism:
 - I feel more in control of my emotions, such as whether to be angry, annoyed, depressed, happy, or cheerful.
 - I am less affected with other people's opinions of me.
 - Guilt (whether from myself or others) affects me much less when making decisions.
-- Most importantly (and paradoxically), I feel freeier - to do, feel and love the things I want and the people important to me. 
+- Most importantly (and paradoxically), I feel freeier - to do the things I want without regret or guilt, to feel good about my life no matter how stormy, and to love the people important to me. 
 
-I hope Stoicism helps you as much as it has helped me, to live life more freely and experience all it has to offer.
+I hope Stoicism helps you as much as it has helped me, to live life fully and experience all it has to offer.
 
 [^genetic-factors]: I feel the strongest reason that we are not in control of our desires is our gender. It is the strongest determinant of our attraction to the opposite sex, and we were not free to make this decision, it having been decided at birth.
 [^fatalism]: Unless it was already determined that an individual would pursue fatalism.
