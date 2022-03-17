@@ -14,9 +14,11 @@ It is very likely that the outcome of most things in the world, including the de
 
 Under a deterministic worldview, being disappointed with, annoyed, or angry with the behavior of others and ourselves is rather meaningless. It is similar to watching a movie - you may feel disappointed or pleased with the storyline, and if you want to blame anyone, it would be the storywriters, not the characters. The characters simply couldn't have acted any other way. The resulting sense of detachment, of viewing the world from a stoic third person view applies to our own talents and shortcomings - our constitution, both mental and physical, is and was not a product of our conscious decision, but rather of our parents, environment and nature, all of which were determined from the get-go.
 
-I am not proposing fatalism - to give up and resign everything to fate. Firstly, practicing fatalism is something extremely difficult to do in itself (try being completely passive and letting life run its course around you for a day). Secondly, and more importantly, being fatalistic is itself a predetermined decision which we are not free to make, and which most of us are not predisposed to choose. We live in a world and a society filled with consequences. Not eating will result in hunger, theft will result in jail, having money will let you buy things, education opens opportunities, and so on. The experience of and knowledge of these consequences indirectly affects our decisions, and for most of us, the resultant consequences of fatalism make it an unpopular decision. The knowledge of determinism by itself does not automatically result in fatalism[^fatalism].
+In fact, even if determinism is false, and things are indetermined, there still remains the principle of causation. Events cause other events, and so long as that is the case, even if the outcome is unpredictable, every event can be viewed as the consequence of other events. In such a case, we would still not be free - even if the future is unpredictable.
 
-# How should we act then, if determinism is true? 
+I am not proposing fatalism - to give up and resign everything to fate. Firstly, practicing fatalism is something extremely difficult to do in itself (try being completely passive and letting life run its course around you for a day). Secondly, and more importantly, being fatalistic is itself a predetermined decision which we are not free to make[^sartre], and which most of us are not predisposed to choose. We live in a world and a society filled with consequences. Not eating will result in hunger, theft will result in jail, having money will let you buy things, education opens opportunities, and so on. The experience of and knowledge of these consequences indirectly affects our decisions, and for most of us, the resultant consequences of fatalism make it an unpopular decision. The knowledge of determinism by itself does not automatically result in fatalism[^fatalism].
+
+# How should we act then?
 
 <figure>
   <img src="/static/images/2022-03-03/marcus_aurelius.jpg" alt="Marcus Aurelius" loading="lazy" style="max-height: 300px"/>
@@ -36,5 +38,6 @@ I've realized several benefits since practicing Stoicism:
 I hope Stoicism helps you as much as it has helped me, to live life fully and experience all it has to offer.
 
 [^genetic-factors]: I feel the strongest reason that we are not in control of our desires is our gender. It is the strongest determinant of our attraction to the opposite sex, and we were not free to make this decision, it having been decided at birth.
+[^sartre]: We are not free, not to be free, as Sartre wrote: *"Man is condemned to be free; because once thrown into the world, he is responsible for everything he does."*
 [^fatalism]: Unless it was already determined that an individual would pursue fatalism.
 [^stoicism]: Some great books are Marcus Aurelius' [Meditations](https://www.goodreads.com/book/show/30659.Meditations), and Epictetus' [Enchiridion](https://www.goodreads.com/book/show/2085705.Discourses_and_Enchiridion).
