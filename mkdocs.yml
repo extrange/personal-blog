@@ -67,6 +67,7 @@ markdown_extensions:
 plugins:
   - tags:
       tags_file: tags.md
+  - search
 extra:
   analytics:
     provider: google
