@@ -16,6 +16,7 @@ nav:
   - Home: index.md
   - About Me: about.md
   - Blog Posts:
+    - Best Practices for Debugging Service Workers: blog-posts/2022-03-24-best-practices-debugging-service-workers.md
     - On Happiness: blog-posts/2022-03-05-on-happiness.md
     - Determinism and Stoicism: blog-posts/2022-03-03-determinism-and-stoicism.md
     - My Computing Philosophy: blog-posts/2022-02-27-my-computing-philosophy.md
