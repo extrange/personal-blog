@@ -90,6 +90,34 @@ That's it. VSCode configures the credential helper automatically for you (by set
         RUN pip --no-cache-dir  install -r requirements.txt
         ```
 
+### [Optional] GPU Passthrough
+
+If you would like to use your Nvidia GPU in a container, you need to ensure:
+
+- The container has the Nvidia GPU drivers installed
+- CUDA is installed in the container
+
+Using a prebuilt image e.g. [`pytorch/pytorch`][pytorch-docker] will include all these requirements.
+
+Once you have done that, check the output of `nvidia-smi`:
+
+```
+Wed Mar 30 12:33:38 2022
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 510.06       Driver Version: 510.06       CUDA Version: 11.6     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ... WDDM  | 00000000:01:00.0  On |                  N/A |
+| 40%   41C    P0    49W / 151W |   2595MiB /  4096MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+```
+
+## Conclusion
+
 And that's it! Start up, rebuild and stop your containers as you like.
 
 <figure>
@@ -100,5 +128,6 @@ And that's it! Start up, rebuild and stop your containers as you like.
 Finally, you can even use [multiple containers with `docker-compose.yml`](https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers) (although for development you'd be likely to be use just one).
 
 [gpu-passthrough]: https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-21h2#gpu-compute-support-for-the-windows-subsystem-for-linux
+[pytorch-docker]: https://hub.docker.com/r/pytorch/pytorch
 [ssh]: https://www.ssh.com/academy/ssh/protocol
 [vscode-remote-containers]: 2022-02-07-vscode-remote-containers-over-ssh.md
