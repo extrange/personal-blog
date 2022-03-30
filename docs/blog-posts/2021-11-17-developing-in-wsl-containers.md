@@ -15,7 +15,7 @@ I thought about this issue while deciding on a [Python packagement system for Wi
 
 ## Docker Containers, in WSL2, in VSCode
 
-In a nutshell, my solution is to use VSCode's [Remote - Containers]() extension, to open a folder in WSL2, and then mount that folder in a [Docker]() container.
+In a nutshell, my solution is to use VSCode's [Remote - Containers][vscode-remote-containers] extension, to open a folder in WSL2, and then mount that folder in a [Docker][docker] container.
 
 This has several benefits:
 
@@ -23,11 +23,9 @@ This has several benefits:
 - **Repeatable builds**, irregardless of the host OS/drivers
 - Host filesystem only contains source code and nothing else
 - [Containers on the host can be accessed remotely over SSH][vscode-remote-containers] - the only tools required on the remote computer are [SSH][ssh] and VSCode
+- [**GPU passthrough**](#optional-gpu-passthrough) is supported since [Windows 10 version 21H2][gpu-passthrough].
 
-Some notes:
-
-- Source code is stored in the WSL distro, and can be viewed natively in Windows Explorer via the network share `\\wsl$`.
-- [**GPU passthrough**][gpu-passthrough] is supported since Windows 10 version 21H2.
+Note that files and source code are stored in the WSL distro, and can be viewed natively in Windows Explorer via the network share `\\wsl$`.
 
 The reason why I use the WSL filesystem, and not a [bind mount](https://docs.docker.com/storage/bind-mounts/) on the Windows filesystem, is for [performance](https://github.com/microsoft/WSL/issues/4197).
 
@@ -127,6 +125,7 @@ And that's it! Start up, rebuild and stop your containers as you like.
 
 Finally, you can even use [multiple containers with `docker-compose.yml`](https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers) (although for development you'd be likely to be use just one).
 
+[docker]: https://www.docker.com/
 [gpu-passthrough]: https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-21h2#gpu-compute-support-for-the-windows-subsystem-for-linux
 [pytorch-docker]: https://hub.docker.com/r/pytorch/pytorch
 [ssh]: https://www.ssh.com/academy/ssh/protocol
