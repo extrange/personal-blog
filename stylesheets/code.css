@@ -1,0 +1,4 @@
+/* Enable wrapping for code blocks */
+code {
+    white-space: pre-wrap;
+}
