@@ -11,6 +11,8 @@ theme:
   features:
     - navigation.instant
     - header.autohide
+extra_css:
+  - stylesheets/code.css
 site_url: https://nicholaslyz.com/
 nav:
   - Home: index.md

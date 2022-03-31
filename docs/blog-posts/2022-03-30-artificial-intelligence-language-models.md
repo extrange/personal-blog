@@ -66,8 +66,7 @@ However, when faced with numbers unlikely to be in the training data, the model 
 Q: What is 123,456,789 + 123,123?
 A: 123,456,789 + 123,123 = 246,580,912 // Actually 123,579,912
 
-Q: What is two thousand point seventy three plus nine hundred and ninety nine
-point sixty seven?
+Q: What is two thousand point seventy three plus nine hundred and ninety nine point sixty seven?
 A: 3073.73 + 999.67 = 4073.40 // Actually 3000.4
 
 Q: What is the square root of 233,570,089?
@@ -84,21 +83,17 @@ While on first glance it appears the model possesses decent knowledge about even
 Q: What will happen if I pour water onto a toaster that is switched off?
 A: If you pour water onto a toaster that is switched off, nothing will happen.
 
-Q: What will happen if I put two magnets with similar poles facing each other
-together?
-A: If you put two magnets with similar poles facing each other together, they
-will repel each other.
+Q: What will happen if I put two magnets with similar poles facing each other together?
+A: If you put two magnets with similar poles facing each other together, they will repel each other.
 ```
 
 ...the model doesn't do as well when confronted with unusual scenarios, which are unlikely to have been in the training data.
 
 ```
 Q: Will my fingers get dirty if I wear a glove and dip my hand into printer ink?
-A: Yes, your fingers will get dirty if you wear a glove and dip your hand into
-printer ink.
+A: Yes, your fingers will get dirty if you wear a glove and dip your hand into printer ink.
 
-Q: If I put a stick of RAM into a cage with a tiger, what will happen to
-the RAM?
+Q: If I put a stick of RAM into a cage with a tiger, what will happen to the RAM?
 A: The RAM will be eaten by the tiger.
 
 // Adversarial example
@@ -117,22 +112,16 @@ Q: What is the next number in this sequence: 9911, 8822, 7733 _?
 A: The next number in this sequence is 6655. // Actually 6644
 
 // Visio-spatial reasoning
-Q: Four objects are in a 2x2 grid. An apple is in front of a glass.
-On the left of the apple is a tomato. Behind the tomato is a lemon.
-What is diagonally opposite the glass?
+Q: Four objects are in a 2x2 grid. An apple is in front of a glass.  On the left of the apple is a tomato. Behind the tomato is a lemon.  What is diagonally opposite the glass?
 A: The lemon is diagonally opposite the glass. // Actually the tomato
 
 // Distractors
-Q: If I pour oil over my friend's car's tyres, then drive my own car
-and make a turn, what will happen?
-A: If you pour oil over your friend's car's tyres and then drive your own car
-and make a turn, you will cause the tyres to slip and the car to skid.
+Q: If I pour oil over my friend's car's tyres, then drive my own car and make a turn, what will happen?
+A: If you pour oil over your friend's car's tyres and then drive your own car and make a turn, you will cause the tyres to slip and the car to skid.
 
 // Logic
-Q: If and only if a bordle squeaks, moodles will comble. If moodles do not
-comble, did a bordle squeak?
-A: This is a logical question that cannot be answered with the information
-given.
+Q: If and only if a bordle squeaks, moodles will comble. If moodles do not comble, did a bordle squeak?
+A: This is a logical question that cannot be answered with the information given.
 ```
 
 ## Interesting Conclusions
