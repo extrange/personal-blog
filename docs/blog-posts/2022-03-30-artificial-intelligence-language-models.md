@@ -21,7 +21,7 @@ For example, when we ask 'If I drop a violin on a bowling ball, which will break
 
 Is it possible that these models, which have only seen text, and not the 'real world', actually understand the question? In this post, I argue that they do not.
 
-## Communication Intent
+## Communication Intent and Internal State
 
 Sentences carry a feature known as communication intent. This can be viewed as the thought, or internal state which the writer possesses, before they convert it into words. The reader of the sentence carries out the opposite process - converting words into the same thought/internal state which the writer of the sentence intended.
 
@@ -42,6 +42,13 @@ It is clear that both the octopus and the person in the Chinese Room do not unde
 ## Where The Models Fail
 
 Now, if our hypothesis above is true, which is that these models do not possess the same thoughts and internal state as humans do when generating language, we can posit several domains where these models should fail.
+
+**Update**
+
+After some research on the internet, there are several other individuals who have also extensively analyzed the abilities and shortcomings of GPT-3:
+
+- [gwern.net][gwern-gpt3-nonfiction]: An extremely thorough analysis of GPT-3's anagramming, logic and even ASCII art capabilities. There is a [sister article][gwern-gpt3-fiction] on GPT-3's creative abilities. An interesting reason for many of GPT-3's failings with anagrams and rhyming poetry appears to have to do with the [byte pair encoding][bpe].
+- [Giving GPT-3 a Turing Test][kevin-lacker-gpt3]: Kevin Lacker has a great writeup on GPT-3's (in)ability to handle common sense, trivia and logic.
 
 ### Arithmetic
 
@@ -135,7 +142,11 @@ So what is required for a model to think like we do? The answer to this question
 
 I personally don't know the answer, and it is exciting to see the progress in this field.
 
+[bpe]: https://www.gwern.net/GPT-3#bpes
+[gwern-gpt3-fiction]: https://www.gwern.net/GPT-3
+[gwern-gpt3-nonfiction]: https://www.gwern.net/GPT-3-nonfiction
 [impressive-feats]: https://www.theverge.com/21346343/gpt-3-explainer-openai-examples-errors-agi-potential
+[kevin-lacker-gpt3]: https://lacker.io/ai/2020/07/06/giving-gpt-3-a-turing-test.html
 [neural-networks-fragile]: https://medium.com/swlh/what-makes-neural-networks-fragile-676fe7cf230a
 
 [^climbing-towards-nlu]: [Bender, E. M., & Koller, A. (2020, July). Climbing towards NLU: On meaning, form, and understanding in the age of data. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (pp. 5185-5198).](https://aclanthology.org/2020.acl-main.463.pdf)
