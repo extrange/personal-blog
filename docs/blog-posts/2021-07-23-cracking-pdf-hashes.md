@@ -18,13 +18,13 @@ Run it with `python pdf2john.py <your-pdf-file>`.
 
 The output should resemble something like this:
 
-```text
+```text linenums="1"
 b'aa.pdf':b'$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6':::::b'D:\\Desktop\\<your PDF file>.pdf'
 ```
 
 We're only interested in the second part (beginning with `$pdf$4...` up till `...69d6`). So, let's copy that out:
 
-```text
+```text linenums="1"
 $pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6
 ```
 
