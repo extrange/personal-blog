@@ -400,8 +400,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-solution" class="md-nav__link">
-    The Solution
+  <a href="#my-schedule" class="md-nav__link">
+    My Schedule
   </a>
   
 </li>
@@ -832,8 +832,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-solution" class="md-nav__link">
-    The Solution
+  <a href="#my-schedule" class="md-nav__link">
+    My Schedule
   </a>
   
 </li>
@@ -866,6 +866,10 @@
 
 
 <h1 id="on-deep-work">On Deep Work</h1>
+<figure>
+  <img src="/static/images/2022-02-04/studying.jpg" alt="Girl Studying" loading="lazy" style="max-height: 500px"/>
+</figure>
+
 <p>I believe that useful work, of lasting value to oneself and others, comes from uninterrupted concentration. Intuitively it makes sense - imaging working on a complex task, requiring you to hold many pieces of information in your mind simultaneously in order to produce a result, something common in knowledge fields. When you are interrupted, such as by an instant message or some other notification, your attention on the main task is lost, some new context is loaded into your memory as necessary to deal with processing the distraction, and by the time you resume the main task, it becomes harder to recall the pieces of information you were holding in your memory earlier.</p>
 <p>In effect, this is similar to the process of running a non-trivial calculation on a computer. First, the computer reads the file from the hard disk into working memory. Next, the processor performs operations in-memory. Finally, the output is written back to the hard disk. For us humans, it's analogous. We start on a task, reading manuals/messages/notes as necessary. As we scan through, we load relevant information into our working memory. Then, we begin to process the data, doing pattern matching, lookups from long-term memory and other manipulations in our working memory as required. Finally, we output the data - either by an action in the physical world such as typing a document, or by storing the result in our long term memory for future use.</p>
 <p>Just like us, computers suck at task switching too. Many programming languages support working on other tasks while waiting for the result of one to complete, a feature known as asynchronous programming<sup id="fnref:async-programming"><a class="footnote-ref" href="#fn:async-programming">1</a></sup>. Imagine calling someone, working on a math problem while waiting for the person to pickup, switching to answer a text on your phone, and then speaking with the person on the phone. That's what a single core is doing most of the time on your computer, handling network, the display and storage one after the other. Interestingly, it turns out that this switching is not free, and in fact incurs a significant penalty (<a href="https://stackoverflow.com/questions/55761652/what-is-the-overhead-of-an-asyncio-task">Javascript</a>, <a href="https://realpython.com/python-gil/">Python</a>). </p>
@@ -876,16 +880,16 @@
 <p>The first reason has to do with one of the largest markets on earth. What do Reddit, Hardwarezone, Facebook, Tiktok, CNA and Straits Times have in common? Advertising. All of them want, and depend on, our attention. Sponsored articles, affiliate marketing, viral posts and promoted content have infiltrated these news sources over time, in increasingly subtle ways. What has not changed is what they aim to do - grab our attention and make us read the text, watch the video - their payload<sup id="fnref:payload"><a class="footnote-ref" href="#fn:payload">4</a></sup>.</p>
 <p>The second reason has to do with innate human desires. All of us want some form of respect and the feeling of companionship. We want to help others, and feel that others care for us. We read something online or hear some juicy gossip, recall that it vaguely fits someone's interest, and send it to them, hoping that it might help them or pique their interest. A large majority of messages in my phone fall in that category. In the old days before the internet we might have collected articles, summarized and consolidated them, and mailed them to a friend. Today, we send them almost as soon as they reach us, something I myself also do.</p>
 <p>Combined together, these channels of information and communication provide us with an unending stream of distraction, and it is all too easy to fall in and get swept by the current, losing our original destination in the process.</p>
-<h2 id="the-solution">The Solution</h2>
+<h2 id="my-schedule">My Schedule</h2>
 <p>The book <a href="https://www.goodreads.com/book/show/25744928-deep-work">Deep Work</a> suggests there are three ways around this quandary, all of which involve setting aside time to work in a quiet area, free from distractions. The first way involves taking a prolonged, continuous period of time off work each year, the second involves setting aside a day or two each week, and the third involves setting aside a scheduled amount of time each day. I think all three have their merits, in part due to the constraints imposed on us by our jobs - it might be hard to take leave on consecutive days, for example.</p>
 <p>The third method is what I currently use. I find myself to be most productive after dinner, so I set aside time most days at night to my projects. I have developed a sort of routine for my day over the years, as follows:</p>
 <ul>
 <li>Just before leaving work, I check through my emails, messages and other channels to make sure there is nothing I haven't attended to.</li>
 <li>For each unattended task/unanswered message I ask myself: Can I respond to this tomorrow? If so, I leave it till the next morning.</li>
-<li>Once I'm satisfied, I set my phone to silent mode. I don't check my phone after this point, unless I get a call.</li>
+<li>Once I'm satisfied, I set my phone to silent mode<sup id="fnref:silent-mode"><a class="footnote-ref" href="#fn:silent-mode">5</a></sup>. I don't check my phone after this point, unless I get a call.</li>
 <li>Depending on my schedule, I exercise.</li>
 <li>After dinner, I begin working on my tasks sequentially.</li>
-<li>The next day at lunch, I set aside some time to respond to queries on my phone, before starting work.</li>
+<li>The next day at lunch, I set aside some time to respond to queries on my phone, before continuing with work.</li>
 </ul>
 <p>When I first began this schedule a few years back, I was worried about the impact to my social life it might cause, especially with regards to instant messaging. Would I appear cold or uninterested? Would it seem like I didn't care? To my surprise, the opposite happened. Instead of having shallow, quick back and forth conversations, I found that putting thought into my replies stimulated their interest and revealed deeper subjects they were interested to talk about, and the conversations became much deeper as a result, sometimes blossoming into side projects. This led me to realize people treasure deep relations much more than simply response time, and it is now a habit of mine to pause and think each time I feel like checking my phone, for I could be actually doing others and myself a disservice by simply replying quickly but shallowly.</p>
 <p>This is an area I am actively exploring, and I appreciate any feedback.</p>
@@ -903,6 +907,9 @@
 </li>
 <li id="fn:payload">
 <p>On execution, your attention is diverted, and your processing capabilities are spent on comprehending the payload, before sending it to others. Analogous to how viruses hijack a cell's internal machinery to make more copies of itself.&#160;<a class="footnote-backref" href="#fnref:payload" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:silent-mode">
+<p>On Android, I use both Bedtime Mode (dims screen with grayscale) and Focus Mode (prevents notifications from certain apps from showing). I find this reduces the cognitive effort required to avoid distractions.&#160;<a class="footnote-backref" href="#fnref:silent-mode" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
