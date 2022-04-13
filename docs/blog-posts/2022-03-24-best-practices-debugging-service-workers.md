@@ -1,3 +1,7 @@
+---
+tags:
+  - Programming
+---
 # Best Practices for Debugging Service Workers
 
 Service Workers are a great way to add offline functionality to your app, as well as speed up subsequent page loads (especially with the app shell model).

@@ -1,3 +1,8 @@
+---
+tags:
+  - Philosophy
+  - Programming
+---
 # Artificial Intelligence, Language Models and Understanding
 
 Every decade, huge advancements are being made in the field of artificial intelligence, and each time we are amazed. In the 1960s we had ELIZA, a convincing human-like chatbot. In the 1980s, the world watched as Deep Blue defeated Garry Kasparov for the first time. In the 2010s, the resurgence of deep learning completely transformed prior approaches in nearly all domains, from images and video, to text and speech.
