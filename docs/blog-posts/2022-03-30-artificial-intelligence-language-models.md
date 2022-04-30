@@ -55,6 +55,11 @@ After some research on the internet, there are several other individuals who hav
 - [gwern.net][gwern-gpt3-nonfiction]: An extremely thorough analysis of GPT-3's anagramming, logic and even ASCII art capabilities. There is a [sister article][gwern-gpt3-fiction] on GPT-3's creative abilities. An interesting reason for many of GPT-3's failings with anagrams and rhyming poetry appears to have to do with the [byte pair encoding][bpe].
 - [Giving GPT-3 a Turing Test][kevin-lacker-gpt3]: Kevin Lacker has a great writeup on GPT-3's (in)ability to handle common sense, trivia and logic.
 
+In addition, there have been several interesting benchmarks developed, seeing as these models have already achieved human level performance on previously challenging datasets such as [SuperGLUE][superglue].
+
+- [HellaSwag][hellaswag] (2019): This utilizes language models to generate adversarial prompts for a sentence completion task, and is aimed to be continuously updated as models improve. It suggests that '*Only once this cycle becomes impossible can we say that the underlying* ***task*** *– as opposed an individual dataset – is solved.*'
+- [Measuring Massive Multitask Language Understanding][multitask-language-understanding] (2021): The authors measure a model's accuracy across 57 different tasks including US history, computer science, algebra, medicine, law and more. What is particularly interesting is how GPT-3's accuracy varies across different fields. For example, it performs well in fields such as psychology and marketing, but performs at the level of random chance for fields such as high school physics, moral scenarios and elementary mathematics. This perhaps further suggests that the models themselves perform well in fields where *memorization* of material is emphasized, rather than actual *deductive reasoning* (which would indicate a real understanding).
+
 ### Arithmetic
 
 The nature of arithmetic requires an understanding of the rules of addition, subtraction, and so on. When we look at a math problem like '3+5=?', we convert these symbols into an internal state, manipulate the numbers, and return the answer. While language models may implicitly discover correlations between numbers, words and answers, they do not actually understand arithmetic, and therefore fail when presented with an out-of-sample example.
@@ -148,10 +153,13 @@ So what is required for a model to think like we do? The answer to this question
 I personally don't know the answer, and it is exciting to see the progress in this field.
 
 [bpe]: https://www.gwern.net/GPT-3#bpes
+[hellaswag]: https://arxiv.org/abs/1905.07830
 [gwern-gpt3-fiction]: https://www.gwern.net/GPT-3
 [gwern-gpt3-nonfiction]: https://www.gwern.net/GPT-3-nonfiction
 [impressive-feats]: https://www.theverge.com/21346343/gpt-3-explainer-openai-examples-errors-agi-potential
 [kevin-lacker-gpt3]: https://lacker.io/ai/2020/07/06/giving-gpt-3-a-turing-test.html
+[multitask-language-understanding]: https://arxiv.org/pdf/2009.03300.pdf
 [neural-networks-fragile]: https://medium.com/swlh/what-makes-neural-networks-fragile-676fe7cf230a
+[superglue]: https://super.gluebenchmark.com/leaderboard
 
 [^climbing-towards-nlu]: [Bender, E. M., & Koller, A. (2020, July). Climbing towards NLU: On meaning, form, and understanding in the age of data. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (pp. 5185-5198).](https://aclanthology.org/2020.acl-main.463.pdf)
