@@ -952,12 +952,12 @@
 
 
 <h1 id="my-self-hosting-journey">My Self-Hosting Journey</h1>
+<p><img alt="" src="../../static/images/2022-05-22/neofetch.jpg" /></p>
 <p>Self-hosting your own services has been catching up in popularity: the <a href="https://www.reddit.com/r/selfhosted/">selfhosted subreddit</a> has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge <a href="https://github.com/awesome-selfhosted/awesome-selfhosted">list</a> here).</p>
 <p>Self-hosting frees you from vendor lock-in. By using open-source alternatives, you gain portability for your data, and you are free to change to another solution anytime. In addition, there is the benefit of learning about server management and the command-line, which in my opinion are portable skills which can be used in any environment, unlike GUIs which are specific for an application.</p>
 <p>In addition, I have been getting increasingly frustrated with Windows due to various <a href="../2022-02-27-my-computing-philosophy/#stable-open-source-environment">issues</a>, and switching to Linux offers one a much needed breath of freedom, customizability and fresh air. Finally, I wanted something which I could keep running 24/7 and not have to pay recurring subscriptions.</p>
 <p>It was with those considerations in mind that I decided to go ahead with my server.</p>
 <h2 id="specifications">Specifications</h2>
-<p><img alt="" src="../../static/images/2022-05-22/neofetch.jpg" /></p>
 <ul>
 <li><strong>CPU</strong>: Intel i5-12400F (6 cores, 12 threads)</li>
 <li><strong>Memory</strong>: Crucial 32GB DDR4 3200Mhz</li>
@@ -968,11 +968,11 @@
 <p>Total cost of the above was SGD $830.</p>
 <h2 id="storage-and-backup">Storage and Backup</h2>
 <p>There is 12TB of file storage available, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives in a software RAID-1 configuration, provided by BtrFS.</p>
-<p>I chose BtrFS over dmraid + ext4 as BtrFS:</p>
+<p>I chose BtrFS over <code>dmraid</code> + ext4 as BtrFS:</p>
 <ul>
 <li>allows for online subvolume resizing/deletion/modification</li>
 <li>supports file checksums in RAID modes<sup id="fnref:bit-rot"><a class="footnote-ref" href="#fn:bit-rot">1</a></sup></li>
-<li>allows for arbitrary drives to be added/removed from the RAID configuration, and <a href="https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices#Adding_new_devices">balance the filesystem automatically</a></li>
+<li>allows for arbitrary drives to be added/removed from the RAID configuration, and <a href="https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices#Adding_new_devices">balance the resulting filesystem automatically</a></li>
 <li>supports lightweight snapshots and sending these snapshots to other devices for backup</li>
 </ul>
 <p>One of the more interesting features of BtrFS is that it allows for RAID-1 with any number of devices, of all different sizes. The resulting available storage is usually <a href="https://btrfs.wiki.kernel.org/index.php/FAQ#How_much_space_do_I_get_with_unequal_devices_in_RAID-1_mode.3F">half the total storage available</a>. This is made possible as the filesystem <a href="https://btrfs.wiki.kernel.org/index.php/SysadminGuide#Data_usage_and_allocation">allocates data in chunks</a>, with each chunk on a RAID-1 setup being duplicated to 2 different drives.</p>
@@ -1068,11 +1068,12 @@ btrfs send -p &lt;path to parent snapshot&gt; <span class="p">|</span> btrfs rec
 </code></pre></div>
 </details>
 <p>The backup drive contains a BtrFS volume on top of a partition<sup id="fnref:cryptsetup-partition"><a class="footnote-ref" href="#fn:cryptsetup-partition">2</a></sup> encrypted with<a href="https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions"><code>cryptsetup</code></a>.</p>
-<p>This storage is accessible locally in my LAN via <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>, which Windows also supports.</p>
+<p>This storage is accessible locally in my LAN via <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>, which Windows also supports<sup id="fnref:nfs-issues"><a class="footnote-ref" href="#fn:nfs-issues">3</a></sup>.</p>
+<p>I use SSHFS to access my storage remotely.</p>
 <h2 id="access">Access</h2>
-<p>SSH access to my server is primarily over 2 methods: certificates/public keys, and password access with 2FA (provided via <a href="https://github.com/google/google-authenticator-libpam">Google Authenticator PAM</a><sup id="fnref:pam-issues"><a class="footnote-ref" href="#fn:pam-issues">3</a></sup>).</p>
+<p>SSH access to my server is primarily over 2 methods: certificates/public keys, and password access with 2FA (provided via <a href="https://github.com/google/google-authenticator-libpam">Google Authenticator PAM</a><sup id="fnref:pam-issues"><a class="footnote-ref" href="#fn:pam-issues">4</a></sup>).</p>
 <h3 id="mobile">Mobile</h3>
-<p>Mobile access is done over <a href="https://termux.com/">Termux</a>, a terminal emulator for Android which features <a href="https://mosh.org/">Mosh</a><sup id="fnref:mosh"><a class="footnote-ref" href="#fn:mosh">4</a></sup> pre-installed.</p>
+<p>Mobile access is done over <a href="https://termux.com/">Termux</a>, a terminal emulator for Android which features <a href="https://mosh.org/">Mosh</a><sup id="fnref:mosh"><a class="footnote-ref" href="#fn:mosh">5</a></sup> pre-installed.</p>
 <h2 id="ui">UI</h2>
 <p>I use <a href="https://github.com/tmux/tmux/wiki">tmux</a>, a terminal multiplexer, which allows me to keep terminal sessions running on the server on connection close (even if by accident), and resume them from another computer. I use a <code>.bashrc</code> config to load <a href="https://github.com/tmux/tmux/wiki">tmux</a> on interactive logins.</p>
 <details class="note">
@@ -1094,11 +1095,14 @@ btrfs send -p &lt;path to parent snapshot&gt; <span class="p">|</span> btrfs rec
 <li id="fn:cryptsetup-partition">
 <p>The reason I do not use <code>cryptsetup</code> (or <code>dmcrypt</code>) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.&#160;<a class="footnote-backref" href="#fnref:cryptsetup-partition" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
+<li id="fn:nfs-issues">
+<p>Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the <a href="https://rotelok.com/enablefix-write-permissions-on-a-nfs-share-mounted-on-windows-10/">fix</a>.&#160;<a class="footnote-backref" href="#fnref:nfs-issues" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
 <li id="fn:pam-issues">
-<p>On Fedora, Google Authenticator PAM has some <a href="https://github.com/google/google-authenticator-libpam/issues/101">issues</a> with SELinux security configurations and so I use a <a href="https://github.com/google/google-authenticator-libpam/issues/101#issuecomment-997533681">workaround</a>.&#160;<a class="footnote-backref" href="#fnref:pam-issues" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>On Fedora, Google Authenticator PAM has some <a href="https://github.com/google/google-authenticator-libpam/issues/101">issues</a> with SELinux security configurations and so I use a <a href="https://github.com/google/google-authenticator-libpam/issues/101#issuecomment-997533681">workaround</a>.&#160;<a class="footnote-backref" href="#fnref:pam-issues" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:mosh">
-<p>Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).&#160;<a class="footnote-backref" href="#fnref:mosh" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).&#160;<a class="footnote-backref" href="#fnref:mosh" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
