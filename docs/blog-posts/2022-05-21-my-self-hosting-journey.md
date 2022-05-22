@@ -1,5 +1,7 @@
 # My Self-Hosting Journey
 
+![](../static/images/2022-05-22/neofetch.jpg)
+
 Self-hosting your own services has been catching up in popularity: the [selfhosted subreddit][selfhosted] has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge [list][awesome-selfhosted] here).
 
 Self-hosting frees you from vendor lock-in. By using open-source alternatives, you gain portability for your data, and you are free to change to another solution anytime. In addition, there is the benefit of learning about server management and the command-line, which in my opinion are portable skills which can be used in any environment, unlike GUIs which are specific for an application.
@@ -10,7 +12,6 @@ It was with those considerations in mind that I decided to go ahead with my serv
 
 ## Specifications
 
-![](../static/images/2022-05-22/neofetch.jpg)
 
 - **CPU**: Intel i5-12400F (6 cores, 12 threads)
 - **Memory**: Crucial 32GB DDR4 3200Mhz
@@ -24,11 +25,11 @@ Total cost of the above was SGD $830.
 
 There is 12TB of file storage available, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives in a software RAID-1 configuration, provided by BtrFS.
 
-I chose BtrFS over dmraid + ext4 as BtrFS:
+I chose BtrFS over `dmraid` + ext4 as BtrFS:
 
 - allows for online subvolume resizing/deletion/modification
 - supports file checksums in RAID modes[^bit-rot]
-- allows for arbitrary drives to be added/removed from the RAID configuration, and [balance the filesystem automatically][btrfs-adding-new-devices]
+- allows for arbitrary drives to be added/removed from the RAID configuration, and [balance the resulting filesystem automatically][btrfs-adding-new-devices]
 - supports lightweight snapshots and sending these snapshots to other devices for backup
 
 One of the more interesting features of BtrFS is that it allows for RAID-1 with any number of devices, of all different sizes. The resulting available storage is usually [half the total storage available][btrfs-storage]. This is made possible as the filesystem [allocates data in chunks][btrfs-data-allocation], with each chunk on a RAID-1 setup being duplicated to 2 different drives.
@@ -137,7 +138,9 @@ Backup is done with the following series of commands:
 
 The backup drive contains a BtrFS volume on top of a partition[^cryptsetup-partition] encrypted with[`cryptsetup`][cryptsetup].
 
-This storage is accessible locally in my LAN via [NFS][nfs], which Windows also supports.
+This storage is accessible locally in my LAN via [NFS][nfs], which Windows also supports[^nfs-issues].
+
+I use SSHFS to access my storage remotely.
 
 ## Access
 
@@ -178,5 +181,6 @@ Finally, I use [Powerline][powerline], a great status plugin showing CPU/memory/
 
 [^bit-rot]: If some bits in one of the drives were to fail (e.g. due to [bit rot](https://en.wikipedia.org/wiki/Bit_rot)), `dmraid` would not know which drive contains the correct data as it operates below the filesystem layer.
 [^cryptsetup-partition]: The reason I do not use `cryptsetup` (or `dmcrypt`) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.
+[^nfs-issues]: Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the [fix](https://rotelok.com/enablefix-write-permissions-on-a-nfs-share-mounted-on-windows-10/).
 [^pam-issues]: On Fedora, Google Authenticator PAM has some [issues](https://github.com/google/google-authenticator-libpam/issues/101) with SELinux security configurations and so I use a [workaround](https://github.com/google/google-authenticator-libpam/issues/101#issuecomment-997533681).
 [^mosh]: Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).
