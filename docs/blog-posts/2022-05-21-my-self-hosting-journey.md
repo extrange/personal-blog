@@ -1,0 +1,182 @@
+# My Self-Hosting Journey
+
+Self-hosting your own services has been catching up in popularity: the [selfhosted subreddit][selfhosted] has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge [list][awesome-selfhosted] here).
+
+Self-hosting frees you from vendor lock-in. By using open-source alternatives, you gain portability for your data, and you are free to change to another solution anytime. In addition, there is the benefit of learning about server management and the command-line, which in my opinion are portable skills which can be used in any environment, unlike GUIs which are specific for an application.
+
+In addition, I have been getting increasingly frustrated with Windows due to various [issues](2022-02-27-my-computing-philosophy.md#stable-open-source-environment), and switching to Linux offers one a much needed breath of freedom, customizability and fresh air. Finally, I wanted something which I could keep running 24/7 and not have to pay recurring subscriptions.
+
+It was with those considerations in mind that I decided to go ahead with my server.
+
+## Specifications
+
+![](../static/images/2022-05-22/neofetch.jpg)
+
+- **CPU**: Intel i5-12400F (6 cores, 12 threads)
+- **Memory**: Crucial 32GB DDR4 3200Mhz
+- **Motherboard**: Gigabyte B660M DS3H DDR4
+- **Boot Drive**: Samsung 500GB 980 NVME M.2
+- **OS**: Fedora Linux (Server Edition)
+
+Total cost of the above was SGD $830.
+
+## Storage and Backup
+
+There is 12TB of file storage available, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives in a software RAID-1 configuration, provided by BtrFS.
+
+I chose BtrFS over dmraid + ext4 as BtrFS:
+
+- allows for online subvolume resizing/deletion/modification
+- supports file checksums in RAID modes[^bit-rot]
+- allows for arbitrary drives to be added/removed from the RAID configuration, and [balance the filesystem automatically][btrfs-adding-new-devices]
+- supports lightweight snapshots and sending these snapshots to other devices for backup
+
+One of the more interesting features of BtrFS is that it allows for RAID-1 with any number of devices, of all different sizes. The resulting available storage is usually [half the total storage available][btrfs-storage]. This is made possible as the filesystem [allocates data in chunks][btrfs-data-allocation], with each chunk on a RAID-1 setup being duplicated to 2 different drives.
+
+Backup is done with the following series of commands:
+
+??? note "Backup Commands"
+
+    ```bash
+    # Create a subvolume snapshot of /mnt/storage
+    # Note: 'snapshots' and 'subvolumes' are synonymous in BtrFS: A snapshot is a copy of a subvolume
+    btrfs subvolume snapshot -r /mnt/storage/ /mnt/storage/snapshot.$(date +%Y-%m-%d)
+
+    # Send that snapshot to the backup device /mnt/sdc1
+    btrfs send /mnt/storage/snapshot.2022-05-18/ | btrfs receive /mnt/sdc1 
+
+    # To instead send an incremental snapshot:
+    # Note: the parent snapshot must be on the receiving drive
+    btrfs send -p <path to parent snapshot> | btrfs receive /mnt/sdc1
+    ```
+
+
+    The parent subvolume UUID must be in one of the receiving drive subvolume's 'Received UUID', in order for the incremental `send` operation to work. See below for an example:
+
+    Target volume with 2 snapshots, `server-2022-05-18` followed by `snapshot.test`:
+    
+    ```hl_lines="3"
+    [root@server sdc1]# btrfs su show /mnt/system-root/server-2022-05-18/server-2022-05-18
+        Name:                   server-2022-05-18
+        UUID:                   2b33e415-046b-a746-a35f-50cdef411a9f
+        Parent UUID:            c8a82094-4270-274b-bd08-77aea3dc0896
+        Received UUID:          -
+        Creation time:          2022-05-18 23:00:24 +0800
+        Subvolume ID:           390
+        Generation:             9646
+        Gen at creation:        9646
+        Parent ID:              5
+        Top level ID:           5
+        Flags:                  readonly
+        Send transid:           0
+        Send time:              2022-05-18 23:00:24 +0800
+        Receive transid:        0
+        Receive time:           -
+        Snapshot(s):
+
+    [root@server sdc1]# btrfs su show /mnt/system-root/snapshot.test/snapshot.test
+        Name:                   snapshot.test
+        UUID:                   8a42b8d1-d145-9249-9e76-e7748dc4aeb5
+        Parent UUID:            c8a82094-4270-274b-bd08-77aea3dc0896
+        Received UUID:          -
+        Creation time:          2022-05-18 23:30:46 +0800
+        Subvolume ID:           391
+        Generation:             9702
+        Gen at creation:        9702
+        Parent ID:              5
+        Top level ID:           5
+        Flags:                  readonly
+        Send transid:           0
+        Send time:              2022-05-18 23:30:46 +0800
+        Receive transid:        0
+        Receive time:           -
+        Snapshot(s):
+    ```
+   
+    Note on the backup drive that the `Received UUID` of the original snapshot is the same as the target volume's original snapshot `server-2022-05-18`.
+   
+    ```hl_lines="5"
+    [root@server sdc1]# btrfs su show /mnt/sdc1/server-2022-05-18/server-2022-05-18
+        Name:                   server-2022-05-18
+        UUID:                   5ed89436-7a3b-5744-9460-cf79ced43e2c
+        Parent UUID:            -
+        Received UUID:          2b33e415-046b-a746-a35f-50cdef411a9f
+        Creation time:          2022-05-18 23:02:47 +0800
+        Subvolume ID:           262
+        Generation:             385
+        Gen at creation:        374
+        Parent ID:              5
+        Top level ID:           5
+        Flags:                  readonly
+        Send transid:           9646
+        Send time:              2022-05-18 23:02:47 +0800
+        Receive transid:        376
+        Receive time:           2022-05-18 23:07:31 +0800
+        Snapshot(s):
+                                snapshot.test
+    
+    [root@server sdc1]# btrfs su show /mnt/sdc1/snapshot.test/snapshot.test
+        Name:                   snapshot.test
+        UUID:                   7fcd7d87-b2a2-eb46-a636-ca62dfd4029f
+        Parent UUID:            5ed89436-7a3b-5744-9460-cf79ced43e2c
+        Received UUID:          8a42b8d1-d145-9249-9e76-e7748dc4aeb5
+        Creation time:          2022-05-18 23:33:08 +0800
+        Subvolume ID:           264
+        Generation:             388
+        Gen at creation:        385
+        Parent ID:              5
+        Top level ID:           5
+        Flags:                  readonly
+        Send transid:           9702
+        Send time:              2022-05-18 23:33:08 +0800
+        Receive transid:        386
+        Receive time:           2022-05-18 23:33:09 +0800
+        Snapshot(s):
+
+    ```
+
+The backup drive contains a BtrFS volume on top of a partition[^cryptsetup-partition] encrypted with[`cryptsetup`][cryptsetup].
+
+This storage is accessible locally in my LAN via [NFS][nfs], which Windows also supports.
+
+## Access
+
+SSH access to my server is primarily over 2 methods: certificates/public keys, and password access with 2FA (provided via [Google Authenticator PAM][google-authenticator-pam][^pam-issues]).
+
+### Mobile
+
+Mobile access is done over [Termux][termux], a terminal emulator for Android which features [Mosh][mosh][^mosh] pre-installed.
+
+## UI
+
+I use [tmux][tmux], a terminal multiplexer, which allows me to keep terminal sessions running on the server on connection close (even if by accident), and resume them from another computer. I use a `.bashrc` config to load [tmux][tmux] on interactive logins.
+
+??? note "`.bashrc` Configuration"
+
+    ```bash
+    # Since tmux also runs .bashrc, we need to check we are not in tmux
+    # Other checks are to make sure these commands only run in interactive shells
+    if [[ $- == *i* ]] && [[ -n $SSH_CONNECTION ]] && [[ -z "$TMUX" ]]; then
+        tmux new-session -A
+    fi
+    ```
+
+Finally, I use [Powerline][powerline], a great status plugin showing CPU/memory/uptime stats, on `bash` and [tmux][tmux].
+
+[btrfs-storage]: https://btrfs.wiki.kernel.org/index.php/FAQ#How_much_space_do_I_get_with_unequal_devices_in_RAID-1_mode.3F
+[btrfs-data-allocation]: https://btrfs.wiki.kernel.org/index.php/SysadminGuide#Data_usage_and_allocation
+[btrfs-adding-new-devices]: https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices#Adding_new_devices
+[selfhosted]: https://www.reddit.com/r/selfhosted/
+[awesome-selfhosted]: https://github.com/awesome-selfhosted/awesome-selfhosted
+[cryptsetup]: https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions
+[nfs]: https://en.wikipedia.org/wiki/Network_File_System
+[google-authenticator-pam]: https://github.com/google/google-authenticator-libpam
+[termux]: https://termux.com/
+[mosh]: https://mosh.org/
+[tmux]: https://github.com/tmux/tmux/wiki
+[powerline]: https://github.com/powerline/powerline
+
+[^bit-rot]: If some bits in one of the drives were to fail (e.g. due to [bit rot](https://en.wikipedia.org/wiki/Bit_rot)), `dmraid` would not know which drive contains the correct data as it operates below the filesystem layer.
+[^cryptsetup-partition]: The reason I do not use `cryptsetup` (or `dmcrypt`) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.
+[^pam-issues]: On Fedora, Google Authenticator PAM has some [issues](https://github.com/google/google-authenticator-libpam/issues/101) with SELinux security configurations and so I use a [workaround](https://github.com/google/google-authenticator-libpam/issues/101#issuecomment-997533681).
+[^mosh]: Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).
