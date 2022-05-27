@@ -997,7 +997,7 @@
 <p>In addition, I have ~ <a href="#storage-and-backup">30TB of storage</a> in a RAID1 configuration assembled from various drives. </p>
 <h2 id="hosted-services">Hosted Services</h2>
 <p>I use <a href="https://github.com/bastienwirtz/homer">Homer</a> to display all the hosted web services on <a href="https://nicholaslyz.com">nicholaslyz.com</a>. Authentication is via <code>nginx</code>'s <a href="http://nginx.org/en/docs/http/ngx_http_auth_request_module.html"><code>auth_request</code></a>.</p>
-<p>All hosted services are in Docker containers with limited permissions to reduce the possible attack surface.</p>
+<p>All hosted services are in Docker containers with limited permissions to reduce the possible attack surface, with logs all redirected to the <code>systemd</code> journal, with the <a href="https://docs.docker.com/config/containers/logging/journald/"><code>journald</code> driver</a>.</p>
 <h2 id="uptime-monitoring">Uptime Monitoring</h2>
 <p>Uptime monitoring is hosted on an offsite VPS with <a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a> at <a href="https://uptime.nicholaslyz.com">uptime.nicholaslyz.com</a>, with notifications via Telegram. This is to allow for redundancy in case my server goes down.</p>
 <h2 id="storage-and-backup">Storage and Backup</h2>
