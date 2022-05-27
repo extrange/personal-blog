@@ -1,6 +1,5 @@
 # My Self-Hosting Journey
 
-![](../static/images/2022-05-22/neofetch.jpg)
 
 Self-hosting your own services has been catching up in popularity: the [selfhosted subreddit][selfhosted] has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge [list][awesome-selfhosted] here).
 
@@ -12,8 +11,9 @@ It was with those considerations in mind that I decided to go ahead with my serv
 
 ## Specifications
 
+![](../static/images/2022-05-22/neofetch.jpg)
 
-- **CPU**: Intel i5-12400F (6 cores, 12 threads)
+- **CPU**: Intel i5-12400F (6 cores, 12 threads, 18M Cache, up to 4.40Ghz)
 - **Memory**: Crucial 32GB DDR4 3200Mhz
 - **Motherboard**: Gigabyte B660M DS3H DDR4
 - **Boot Drive**: Samsung 500GB 980 NVME M.2
@@ -21,9 +21,21 @@ It was with those considerations in mind that I decided to go ahead with my serv
 
 Total cost of the above was SGD $830.
 
+In addition, I have ~ [30TB of storage](#storage-and-backup) in a RAID1 configuration assembled from various drives. 
+
+## Hosted Services
+
+I use [Homer][homer] to display all the hosted web services on [nicholaslyz.com](https://nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request].
+
+All hosted services are in Docker containers with limited permissions to reduce the possible attack surface, with logs all redirected to the `systemd` journal, with the [`journald` driver](https://docs.docker.com/config/containers/logging/journald/).
+
+## Uptime Monitoring
+
+Uptime monitoring is hosted on an offsite VPS with [Uptime Kuma][uptime-kuma] at [uptime.nicholaslyz.com](https://uptime.nicholaslyz.com), with notifications via Telegram. This is to allow for redundancy in case my server goes down.
+
 ## Storage and Backup
 
-There is 12TB of file storage available, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives in a software RAID-1 configuration, provided by BtrFS.
+There is 12TB of file storage available, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 6TB ATA TOSHIBA HDWR160 in a (software) RAID-1 configuration under BtrFS.
 
 I chose BtrFS over `dmraid` + ext4 as BtrFS:
 
@@ -142,15 +154,15 @@ This storage is accessible locally in my LAN via [NFS][nfs], which Windows also 
 
 I use SSHFS to access my storage remotely.
 
-## Access
+## SSH Access
 
 SSH access to my server is primarily over 2 methods: certificates/public keys, and password access with 2FA (provided via [Google Authenticator PAM][google-authenticator-pam][^pam-issues]).
 
 ### Mobile
 
-Mobile access is done over [Termux][termux], a terminal emulator for Android which features [Mosh][mosh][^mosh] pre-installed.
+Mobile SSH access is via [Termux][termux], a terminal emulator for Android which features [Mosh][mosh][^mosh] pre-installed.
 
-## UI
+### Terminal UI
 
 I use [tmux][tmux], a terminal multiplexer, which allows me to keep terminal sessions running on the server on connection close (even if by accident), and resume them from another computer. I use a `.bashrc` config to load [tmux][tmux] on interactive logins.
 
@@ -166,18 +178,21 @@ I use [tmux][tmux], a terminal multiplexer, which allows me to keep terminal ses
 
 Finally, I use [Powerline][powerline], a great status plugin showing CPU/memory/uptime stats, on `bash` and [tmux][tmux].
 
-[btrfs-storage]: https://btrfs.wiki.kernel.org/index.php/FAQ#How_much_space_do_I_get_with_unequal_devices_in_RAID-1_mode.3F
-[btrfs-data-allocation]: https://btrfs.wiki.kernel.org/index.php/SysadminGuide#Data_usage_and_allocation
-[btrfs-adding-new-devices]: https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices#Adding_new_devices
-[selfhosted]: https://www.reddit.com/r/selfhosted/
 [awesome-selfhosted]: https://github.com/awesome-selfhosted/awesome-selfhosted
+[btrfs-adding-new-devices]: https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices#Adding_new_devices
+[btrfs-data-allocation]: https://btrfs.wiki.kernel.org/index.php/SysadminGuide#Data_usage_and_allocation
+[btrfs-storage]: https://btrfs.wiki.kernel.org/index.php/FAQ#How_much_space_do_I_get_with_unequal_devices_in_RAID-1_mode.3F
 [cryptsetup]: https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions
-[nfs]: https://en.wikipedia.org/wiki/Network_File_System
 [google-authenticator-pam]: https://github.com/google/google-authenticator-libpam
-[termux]: https://termux.com/
+[homer]: https://github.com/bastienwirtz/homer
 [mosh]: https://mosh.org/
-[tmux]: https://github.com/tmux/tmux/wiki
+[nfs]: https://en.wikipedia.org/wiki/Network_File_System
+[nginx-auth-request]: http://nginx.org/en/docs/http/ngx_http_auth_request_module.html
 [powerline]: https://github.com/powerline/powerline
+[selfhosted]: https://www.reddit.com/r/selfhosted/
+[termux]: https://termux.com/
+[tmux]: https://github.com/tmux/tmux/wiki
+[uptime-kuma]: https://github.com/louislam/uptime-kuma
 
 [^bit-rot]: If some bits in one of the drives were to fail (e.g. due to [bit rot](https://en.wikipedia.org/wiki/Bit_rot)), `dmraid` would not know which drive contains the correct data as it operates below the filesystem layer.
 [^cryptsetup-partition]: The reason I do not use `cryptsetup` (or `dmcrypt`) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.

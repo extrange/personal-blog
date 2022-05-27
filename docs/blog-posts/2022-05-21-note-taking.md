@@ -19,6 +19,8 @@ I have since decided to move to **Markdown**, the main reasons being:
 - Can be searched easily (e.g. with `grep`)
 - Can be linked to/from each other
 
+![](../static/images/2022-05-21/obsidian.jpg)
+
 The choice of editor I am currently using at present is [Obsidian][obsidian]. In comparison with VSCode, [Obsidian][obsidian]:
 
 - Supports viewing backlinks natively
@@ -27,11 +29,11 @@ The choice of editor I am currently using at present is [Obsidian][obsidian]. In
 
 ## Backup and Access
 
-The folder with my notes is stored on my [server](2022-05-21-my-self-hosting-journey.md), which is itself in a RAID-1 configuration with backup.
+The folder with my notes is stored on my [server](2022-05-22-my-self-hosting-journey.md), which is itself in a RAID-1 configuration with backup.
 
 Remote access is through SFTP with SSH certificates (e.g. via Filesync on Android, or the respective client on the OS).
 
-Local access is over [nfs](2022-05-21-my-self-hosting-journey.md).
+Local access is over [nfs](2022-05-22-my-self-hosting-journey.md#storage-and-backup).
 
 [obsidian]: https://obsidian.md/
 
