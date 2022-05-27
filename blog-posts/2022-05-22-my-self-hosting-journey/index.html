@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-05-21-my-self-hosting-journey/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-05-22-my-self-hosting-journey/">
       
       <link rel="icon" href="/static/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
@@ -295,6 +295,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hosted-services" class="md-nav__link">
+    Hosted Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uptime-monitoring" class="md-nav__link">
+    Uptime Monitoring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#storage-and-backup" class="md-nav__link">
     Storage and Backup
   </a>
@@ -302,11 +316,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#access" class="md-nav__link">
-    Access
+  <a href="#ssh-access" class="md-nav__link">
+    SSH Access
   </a>
   
-    <nav class="md-nav" aria-label="Access">
+    <nav class="md-nav" aria-label="SSH Access">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -316,15 +330,15 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#terminal-ui" class="md-nav__link">
+    Terminal UI
+  </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#ui" class="md-nav__link">
-    UI
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -901,6 +915,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#hosted-services" class="md-nav__link">
+    Hosted Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uptime-monitoring" class="md-nav__link">
+    Uptime Monitoring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#storage-and-backup" class="md-nav__link">
     Storage and Backup
   </a>
@@ -908,11 +936,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#access" class="md-nav__link">
-    Access
+  <a href="#ssh-access" class="md-nav__link">
+    SSH Access
   </a>
   
-    <nav class="md-nav" aria-label="Access">
+    <nav class="md-nav" aria-label="SSH Access">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -922,15 +950,15 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#terminal-ui" class="md-nav__link">
+    Terminal UI
+  </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#ui" class="md-nav__link">
-    UI
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -952,22 +980,28 @@
 
 
 <h1 id="my-self-hosting-journey">My Self-Hosting Journey</h1>
-<p><img alt="" src="../../static/images/2022-05-22/neofetch.jpg" /></p>
 <p>Self-hosting your own services has been catching up in popularity: the <a href="https://www.reddit.com/r/selfhosted/">selfhosted subreddit</a> has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge <a href="https://github.com/awesome-selfhosted/awesome-selfhosted">list</a> here).</p>
 <p>Self-hosting frees you from vendor lock-in. By using open-source alternatives, you gain portability for your data, and you are free to change to another solution anytime. In addition, there is the benefit of learning about server management and the command-line, which in my opinion are portable skills which can be used in any environment, unlike GUIs which are specific for an application.</p>
 <p>In addition, I have been getting increasingly frustrated with Windows due to various <a href="../2022-02-27-my-computing-philosophy/#stable-open-source-environment">issues</a>, and switching to Linux offers one a much needed breath of freedom, customizability and fresh air. Finally, I wanted something which I could keep running 24/7 and not have to pay recurring subscriptions.</p>
 <p>It was with those considerations in mind that I decided to go ahead with my server.</p>
 <h2 id="specifications">Specifications</h2>
+<p><img alt="" src="../../static/images/2022-05-22/neofetch.jpg" /></p>
 <ul>
-<li><strong>CPU</strong>: Intel i5-12400F (6 cores, 12 threads)</li>
+<li><strong>CPU</strong>: Intel i5-12400F (6 cores, 12 threads, 18M Cache, up to 4.40Ghz)</li>
 <li><strong>Memory</strong>: Crucial 32GB DDR4 3200Mhz</li>
 <li><strong>Motherboard</strong>: Gigabyte B660M DS3H DDR4</li>
 <li><strong>Boot Drive</strong>: Samsung 500GB 980 NVME M.2</li>
 <li><strong>OS</strong>: Fedora Linux (Server Edition)</li>
 </ul>
 <p>Total cost of the above was SGD $830.</p>
+<p>In addition, I have ~ <a href="#storage-and-backup">30TB of storage</a> in a RAID1 configuration assembled from various drives. </p>
+<h2 id="hosted-services">Hosted Services</h2>
+<p>I use <a href="https://github.com/bastienwirtz/homer">Homer</a> to display all the hosted web services on <a href="https://nicholaslyz.com">nicholaslyz.com</a>. Authentication is via <code>nginx</code>'s <a href="http://nginx.org/en/docs/http/ngx_http_auth_request_module.html"><code>auth_request</code></a>.</p>
+<p>All hosted services are in Docker containers with limited permissions to reduce the possible attack surface.</p>
+<h2 id="uptime-monitoring">Uptime Monitoring</h2>
+<p>Uptime monitoring is hosted on an offsite VPS with <a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a> at <a href="https://uptime.nicholaslyz.com">uptime.nicholaslyz.com</a>, with notifications via Telegram. This is to allow for redundancy in case my server goes down.</p>
 <h2 id="storage-and-backup">Storage and Backup</h2>
-<p>There is 12TB of file storage available, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives in a software RAID-1 configuration, provided by BtrFS.</p>
+<p>There is 12TB of file storage available, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 6TB ATA TOSHIBA HDWR160 in a (software) RAID-1 configuration under BtrFS.</p>
 <p>I chose BtrFS over <code>dmraid</code> + ext4 as BtrFS:</p>
 <ul>
 <li>allows for online subvolume resizing/deletion/modification</li>
@@ -1070,11 +1104,11 @@ btrfs send -p &lt;path to parent snapshot&gt; <span class="p">|</span> btrfs rec
 <p>The backup drive contains a BtrFS volume on top of a partition<sup id="fnref:cryptsetup-partition"><a class="footnote-ref" href="#fn:cryptsetup-partition">2</a></sup> encrypted with<a href="https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions"><code>cryptsetup</code></a>.</p>
 <p>This storage is accessible locally in my LAN via <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>, which Windows also supports<sup id="fnref:nfs-issues"><a class="footnote-ref" href="#fn:nfs-issues">3</a></sup>.</p>
 <p>I use SSHFS to access my storage remotely.</p>
-<h2 id="access">Access</h2>
+<h2 id="ssh-access">SSH Access</h2>
 <p>SSH access to my server is primarily over 2 methods: certificates/public keys, and password access with 2FA (provided via <a href="https://github.com/google/google-authenticator-libpam">Google Authenticator PAM</a><sup id="fnref:pam-issues"><a class="footnote-ref" href="#fn:pam-issues">4</a></sup>).</p>
 <h3 id="mobile">Mobile</h3>
-<p>Mobile access is done over <a href="https://termux.com/">Termux</a>, a terminal emulator for Android which features <a href="https://mosh.org/">Mosh</a><sup id="fnref:mosh"><a class="footnote-ref" href="#fn:mosh">5</a></sup> pre-installed.</p>
-<h2 id="ui">UI</h2>
+<p>Mobile SSH access is via <a href="https://termux.com/">Termux</a>, a terminal emulator for Android which features <a href="https://mosh.org/">Mosh</a><sup id="fnref:mosh"><a class="footnote-ref" href="#fn:mosh">5</a></sup> pre-installed.</p>
+<h3 id="terminal-ui">Terminal UI</h3>
 <p>I use <a href="https://github.com/tmux/tmux/wiki">tmux</a>, a terminal multiplexer, which allows me to keep terminal sessions running on the server on connection close (even if by accident), and resume them from another computer. I use a <code>.bashrc</code> config to load <a href="https://github.com/tmux/tmux/wiki">tmux</a> on interactive logins.</p>
 <details class="note">
 <summary><code>.bashrc</code> Configuration</summary>
