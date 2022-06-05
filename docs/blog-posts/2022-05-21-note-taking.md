@@ -27,14 +27,24 @@ The choice of editor I am currently using at present is [Obsidian][obsidian]. In
 - Updates links when notes are moved
 - Supports image/video drag and drop[^vscode-drag]
 
+However, Obsidian is not [FOSS][foss], and for that reason, I avoid (as far as possible) using its non-standard Markdown syntax. At present I only use wikilinks and tags.
+
+
 ## Backup and Access
 
 The folder with my notes is stored on my [server](2022-05-22-my-self-hosting-journey.md), which is itself in a RAID-1 configuration with backup.
 
-Remote access is through SFTP with SSH certificates (e.g. via Filesync on Android, or the respective client on the OS).
+[Foam][foam] is a great VSCode extension with backlink, graph view and other cool Markdown features which I host on the web with [code-server][code-server], allowing me to edit my notes anywhere.
+
+I access my notes on my phone via the Obsidian Android app.
+
+With my laptop, I access my notes with SSHFS.
 
 Local access is over [nfs](2022-05-22-my-self-hosting-journey.md#storage-and-backup).
 
+[foss]: https://en.wikipedia.org/wiki/Free_and_open-source_software
+[code-server]: https://github.com/coder/code-server
+[foam]: https://github.com/foambubble/foam
 [obsidian]: https://obsidian.md/
 
 [^vscode-drag]: VSCode generates incorrect links for images when connected to a remote host (all the generated links start with `remote://`)

@@ -1,5 +1,6 @@
 # My Self-Hosting Journey
 
+![](../static/images/2022-05-22/homer.png)
 
 Self-hosting your own services has been catching up in popularity: the [selfhosted subreddit][selfhosted] has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge [list][awesome-selfhosted] here).
 
@@ -7,7 +8,7 @@ Self-hosting frees you from vendor lock-in. By using open-source alternatives, y
 
 In addition, I have been getting increasingly frustrated with Windows due to various [issues](2022-02-27-my-computing-philosophy.md#stable-open-source-environment), and switching to Linux offers one a much needed breath of freedom, customizability and fresh air. Finally, I wanted something which I could keep running 24/7 and not have to pay recurring subscriptions.
 
-It was with those considerations in mind that I decided to go ahead with my server.
+It was with those considerations in mind that I decided to go ahead with self hosting.
 
 ## Specifications
 
@@ -25,13 +26,13 @@ In addition, I have ~ [30TB of storage](#storage-and-backup) in a RAID1 configur
 
 ## Hosted Services
 
-I use [Homer][homer] to display all the hosted web services on [nicholaslyz.com](https://nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request].
+I use [Homer][homer] to display all the hosted web services on [my site](https://home.nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request] to a Django backend.
 
 All hosted services are in Docker containers with limited permissions to reduce the possible attack surface, with logs all redirected to the `systemd` journal, with the [`journald` driver](https://docs.docker.com/config/containers/logging/journald/).
 
 ## Uptime Monitoring
 
-Uptime monitoring is hosted on an offsite VPS with [Uptime Kuma][uptime-kuma] at [uptime.nicholaslyz.com](https://uptime.nicholaslyz.com), with notifications via Telegram. This is to allow for redundancy in case my server goes down.
+Uptime monitoring is hosted on an offsite VPS with [Uptime Kuma][uptime-kuma], on a separate [site](https://uptime.icybat.com), with notifications via Telegram. This is to allow for redundancy in case my server goes down.
 
 ## Storage and Backup
 
