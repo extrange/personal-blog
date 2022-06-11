@@ -1,6 +1,6 @@
 # My Self-Hosting Journey
 
-![](../static/images/2022-05-22/homer.png)
+![](../static/images/2022-05-22/sysmon.jpg)
 
 Self-hosting your own services has been catching up in popularity: the [selfhosted subreddit][selfhosted] has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge [list][awesome-selfhosted] here).
 
@@ -26,7 +26,9 @@ In addition, I have ~ [30TB of storage](#storage-and-backup) in a RAID1 configur
 
 ## Hosted Services
 
-I use [Homer][homer] to display all the hosted web services on [my site](https://home.nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request] to a Django backend.
+![](../static/images/2022-05-22/dashy.jpg)
+
+I use [Dashy][dashy] to display all the hosted web services on [my site](https://home.nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request] to a Django backend.
 
 All hosted services are in Docker containers with limited permissions to reduce the possible attack surface, with logs all redirected to the `systemd` journal, with the [`journald` driver](https://docs.docker.com/config/containers/logging/journald/).
 
@@ -185,7 +187,7 @@ Finally, I use [Powerline][powerline], a great status plugin showing CPU/memory/
 [btrfs-storage]: https://btrfs.wiki.kernel.org/index.php/FAQ#How_much_space_do_I_get_with_unequal_devices_in_RAID-1_mode.3F
 [cryptsetup]: https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions
 [google-authenticator-pam]: https://github.com/google/google-authenticator-libpam
-[homer]: https://github.com/bastienwirtz/homer
+[dashy]: https://github.com/Lissy93/dashy
 [mosh]: https://mosh.org/
 [nfs]: https://en.wikipedia.org/wiki/Network_File_System
 [nginx-auth-request]: http://nginx.org/en/docs/http/ngx_http_auth_request_module.html
