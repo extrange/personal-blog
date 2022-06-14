@@ -39,6 +39,8 @@ nav:
     - To Endowus, Or Not?: 'blog-posts/2021-07-25-endowus-or-not.md'
     - Cracking PDF Hashes with hashcat: 'blog-posts/2021-07-23-cracking-pdf-hashes.md'
     - useLayoutEffect: 'blog-posts/2021-06-20-uselayouteffect.md'
+    - Comparison of ISP Riders: 'blog-posts/2021-06-19-comparison-of-isp-riders.md'
+    - GE TotalCare Rider Comparison: 'blog-posts/2021-06-18-ge-totalcare-comparison.md'
     - The Best Index Fund: 'blog-posts/2021-06-08-which-is-the-best-index-fund-etf.md'
     - Calculating Return: 'blog-posts/2021-04-22-calculating-return.md'
     - Python Package Management on Windows: 'blog-posts/2021-04-15-python-package-management-windows.md'
@@ -56,6 +58,7 @@ nav:
   - Piano: piano.md
   - Resume: resume.md
   - Tags: tags.md
+  
 markdown_extensions:
   - abbr
   - attr_list
@@ -70,11 +73,20 @@ markdown_extensions:
   - footnotes
   - pymdownx.snippets
   - pymdownx.keys
+  - pymdownx.arithmatex:
+      generic: true
+
 plugins:
   - tags:
       tags_file: tags.md
   - search
+
 extra:
   analytics:
     provider: google
     property: G-22SGZWR3ES
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

@@ -1,3 +1,8 @@
+---
+tags:
+  - Programming
+---
+
 # Note-Taking
 
 Few of us could live life without jotting down our thoughts somewhere. Throughout the years we have developed some sort of note-taking system, either cobbled together slowly by ourselves, or something off the shelf.

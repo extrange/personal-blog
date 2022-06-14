@@ -1,3 +1,8 @@
+---
+tags:
+  - Programming
+---
+
 # My Self-Hosting Journey
 
 ![](../static/images/2022-05-22/sysmon.jpg)
