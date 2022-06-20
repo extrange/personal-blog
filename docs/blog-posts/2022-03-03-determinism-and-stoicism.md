@@ -28,6 +28,18 @@ Personally, I follow the Stoic worldview[^stoicism]. I continue to live my life 
 
 > *What happened, happened, and couldn't have happened any other way.* <br/> Morpheus, [The Matrix Reloaded (2003)](https://www.imdb.com/title/tt0234215/characters/nm0000401)
 
+Recently, I completed reading the book [A Guide to the Good Life](https://www.goodreads.com/book/show/5617966-a-guide-to-the-good-life) by William B. Irvine, which summarizes stoic insight from Marcus Aurelius, Seneca, Epictetus and Musonius Rufus. Briefly:
+
+1. Practice **negative visualization** regularly - imagine losing things and people you value most, as well as the loss of your own life
+2. Go further, and engage in **voluntary discomfort** - putting yourself in socially embarrassing situations e.g. dressing poorly, and physical suffering e.g. underdressing for the cold
+3. Realize that fame and fortune are not worth having - it is better if we can lessen our desires for them instead
+4. Tranquility is the goal
+5. Avoid befriending people who's values are corrupt
+6. Things which you have no control over - ignore
+7. Things which you have some control over - internalize your goals (e.g. in playing tennis, to play the best match possible), and not the outcome which you cannot control (e.g. winning the match)
+8. Things which you have complete control over - these are your goals and values. It could be argued that desires are uncontrollable.
+9. Be fatalistic with respect to the past: what has happened to us in the past, and at this very instant, are beyond our control, and so it is foolish to get upset about these things.
+
 I've realized several benefits since practicing Stoicism:
 
 - I feel more in control of my emotions, such as whether to be angry, annoyed, depressed, happy, or cheerful.
