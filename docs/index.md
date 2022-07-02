@@ -4,7 +4,7 @@ Hi there! :wave:
 
 I'm Nicholas and I work as a junior doctor in Singapore.
 
-At the moment, I'm working on my self-hosted [server](blog-posts/2022-05-22-my-self-hosting-journey.md) and exploring [algorithmic trading][ibkr-docker].
+At the moment, I'm working on my self-hosted [server](https://home.nicholaslyz.com) and exploring [algorithmic trading][ibkr-docker].
 
 Some of my interests:
 

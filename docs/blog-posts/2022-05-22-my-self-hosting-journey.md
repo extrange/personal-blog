@@ -5,7 +5,10 @@ tags:
 
 # My Self-Hosting Journey
 
-![](../static/images/2022-05-22/sysmon.jpg)
+<figure>
+  <img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/>
+  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+</figure>
 
 Self-hosting your own services has been catching up in popularity: the [selfhosted subreddit][selfhosted] has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge [list][awesome-selfhosted] here).
 
@@ -27,11 +30,11 @@ It was with those considerations in mind that I decided to go ahead with self ho
 
 Total cost of the above was SGD $830.
 
-In addition, I have ~ [30TB of storage](#storage-and-backup) in a RAID1 configuration assembled from various drives. 
+In addition, I have ~ [30TB of storage](#storage-and-backup) in a RAID1 configuration assembled from various drives.
 
 ## Hosted Services
 
-![](../static/images/2022-05-22/dashy.jpg)
+![](../static/images/2022-05-22/sysmon.jpg)
 
 I use [Dashy][dashy] to display all the hosted web services on [my site](https://home.nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request] to a Django backend.
 
@@ -64,7 +67,7 @@ Backup is done with the following series of commands:
     btrfs subvolume snapshot -r /mnt/storage/ /mnt/storage/snapshot.$(date +%Y-%m-%d)
 
     # Send that snapshot to the backup device /mnt/sdc1
-    btrfs send /mnt/storage/snapshot.2022-05-18/ | btrfs receive /mnt/sdc1 
+    btrfs send /mnt/storage/snapshot.2022-05-18/ | btrfs receive /mnt/sdc1
 
     # To instead send an incremental snapshot:
     # Note: the parent snapshot must be on the receiving drive
@@ -75,7 +78,7 @@ Backup is done with the following series of commands:
     The parent subvolume UUID must be in one of the receiving drive subvolume's 'Received UUID', in order for the incremental `send` operation to work. See below for an example:
 
     Target volume with 2 snapshots, `server-2022-05-18` followed by `snapshot.test`:
-    
+
     ```hl_lines="3"
     [root@server sdc1]# btrfs su show /mnt/system-root/server-2022-05-18/server-2022-05-18
         Name:                   server-2022-05-18
@@ -113,9 +116,9 @@ Backup is done with the following series of commands:
         Receive time:           -
         Snapshot(s):
     ```
-   
+
     Note on the backup drive that the `Received UUID` of the original snapshot is the same as the target volume's original snapshot `server-2022-05-18`.
-   
+
     ```hl_lines="5"
     [root@server sdc1]# btrfs su show /mnt/sdc1/server-2022-05-18/server-2022-05-18
         Name:                   server-2022-05-18
@@ -135,7 +138,7 @@ Backup is done with the following series of commands:
         Receive time:           2022-05-18 23:07:31 +0800
         Snapshot(s):
                                 snapshot.test
-    
+
     [root@server sdc1]# btrfs su show /mnt/sdc1/snapshot.test/snapshot.test
         Name:                   snapshot.test
         UUID:                   7fcd7d87-b2a2-eb46-a636-ca62dfd4029f
