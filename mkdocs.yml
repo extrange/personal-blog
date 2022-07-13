@@ -18,6 +18,7 @@ nav:
   - Home: index.md
   - About Me: about.md
   - Blog Posts:
+    - Windows 11 Gaming VM with GPU Passthrough on Fedora 36: blog-posts/2022-07-10-win11-vm-gpu-passthrough.md
     - Docker GPU Access in Fedora: blog-posts/2022-07-10-docker-gpu-fedora.md
     - My Self-Hosting Journey: blog-posts/2022-05-22-my-self-hosting-journey.md
     - Note-Taking: blog-posts/2022-05-21-note-taking.md
