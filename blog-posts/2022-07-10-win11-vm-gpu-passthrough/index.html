@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2021-03-19-life-insurance/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-07-10-win11-vm-gpu-passthrough/">
       
       <link rel="icon" href="/static/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
     
     
       
-        <title>Life Insurance - Nicholas</title>
+        <title>Windows 11 Gaming VM with GPU Passthrough on Fedora 36 - Nicholas</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#life-insurance" class="md-skip">
+        <a href="#windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Life Insurance
+              Windows 11 Gaming VM with GPU Passthrough on Fedora 36
             
           </span>
         </div>
@@ -253,11 +253,101 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../2022-07-10-win11-vm-gpu-passthrough/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Windows 11 Gaming VM with GPU Passthrough on Fedora 36
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Windows 11 Gaming VM with GPU Passthrough on Fedora 36
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-setup-gpu-passthrough" class="md-nav__link">
+    1. Setup GPU Passthrough
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-install-virtualization-packages" class="md-nav__link">
+    2. Install Virtualization Packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-setup-virt-manager-in-docker" class="md-nav__link">
+    3. Setup virt-manager in Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-install-windows" class="md-nav__link">
+    4. Install Windows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-setup-apache-guacamole-wip" class="md-nav__link">
+    5. Setup Apache Guacamole (WIP)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-optional-setup-nfs-wip" class="md-nav__link">
+    6. (Optional) Setup NFS (WIP)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    Known Issues
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -645,66 +735,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Life Insurance
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../2021-03-19-life-insurance/" class="md-nav__link">
         Life Insurance
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#term-life-offers-the-same-protection-for-a-lower-cost" class="md-nav__link">
-    Term Life offers the same protection for a lower cost
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-arguments-for-whole-life" class="md-nav__link">
-    Common Arguments for Whole Life
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-faq" class="md-nav__link">
-    Other FAQ
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -931,22 +966,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#term-life-offers-the-same-protection-for-a-lower-cost" class="md-nav__link">
-    Term Life offers the same protection for a lower cost
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites:
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-arguments-for-whole-life" class="md-nav__link">
-    Common Arguments for Whole Life
+  <a href="#1-setup-gpu-passthrough" class="md-nav__link">
+    1. Setup GPU Passthrough
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#other-faq" class="md-nav__link">
-    Other FAQ
+  <a href="#2-install-virtualization-packages" class="md-nav__link">
+    2. Install Virtualization Packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-setup-virt-manager-in-docker" class="md-nav__link">
+    3. Setup virt-manager in Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-install-windows" class="md-nav__link">
+    4. Install Windows
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-setup-apache-guacamole-wip" class="md-nav__link">
+    5. Setup Apache Guacamole (WIP)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-optional-setup-nfs-wip" class="md-nav__link">
+    6. (Optional) Setup NFS (WIP)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    Known Issues
   </a>
   
 </li>
@@ -966,129 +1036,132 @@
 
   
 
-  <nav class="md-tags" >
-    
-      
-        <a href="../../tags/#insurance" class="md-tag">
-          Insurance
-        </a>
-      
-    
-  </nav>
 
 
-
-<h1 id="life-insurance">Life Insurance</h1>
-<p>I am a strong proponent of term life insurance.</p>
-<p>In this post, I go against the common wisdom of 'getting your money back'<sup id="fnref:money-back"><a class="footnote-ref" href="#fn:money-back">1</a></sup> and refute common arguments for whole life insurance. <strong>I propose, and defend, my recommendation to buy term life + critical illness coverage.</strong></p>
-<p>Of note, a good comparison of insurance policies can be found on <a href="https://www.comparefirst.sg">comparefirst.sg</a>.</p>
+<h1 id="windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36">Windows 11 Gaming VM with GPU Passthrough on Fedora 36</h1>
 <figure>
-  <a href="/static/images/2021-03-19/comparefirst.jpg"><img src="/static/images/2021-03-19/comparefirst.jpg" alt="comparefirst.sg" loading="lazy"/></a>
-  <figcaption>Finally, I can check premiums without calling 10 agents</figcaption>
+  <img src="/static/images/2022-07-10/demo.jpg" alt="Gaming on a laptop remotely over Nvidia Shield" loading="lazy"/>
+  <figcaption>Gaming on a laptop remotely with Nvidia Shield using mobile data</figcaption>
 </figure>
 
-<p><strong>Update (Apr 2021)</strong>: <a href="https://www.moneyowl.com.sg/pricing/">MoneyOwl</a> is a service which independently assesses policies across insurance companies for you, and rebates you up to 50% of the commission they receive (of what your agent would normally get).</p>
-<h2 id="term-life-offers-the-same-protection-for-a-lower-cost">Term Life offers the same protection for a lower cost</h2>
-<p>This is the single most important reason.</p>
-<p>Let's look at the premiums for a 27-year, male non-smoker, sum assured $300,000<sup id="fnref:source"><a class="footnote-ref" href="#fn:source">2</a></sup>.</p>
-<p>For the sake of comparison:</p>
+<p>After this guide, you will have a Windows 11 headless VM that can be accessed via:</p>
 <ul>
-<li>there is no 'multiplier' component on the whole life (note: a 'multiplier' is essentially term insurance<sup id="fnref:multiplier"><a class="footnote-ref" href="#fn:multiplier">3</a></sup>)</li>
-<li>the premium term for the whole life is until 80, for easier comparison with the term life</li>
-<li>I chose the lower-mid quotes for each on <a href="https://www.comparefirst.sg">comparefirst.sg</a></li>
+<li><a href="https://moonlight-stream.org/">Moonlight</a> (for high performance gaming)</li>
+<li>RDP (for office work)</li>
+<li>Web Browser (via <a href="https://guacamole.apache.org/">Apache Guacamole</a>, no client required)</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Annual Premium</th>
-<th>Premium Term</th>
-<th>Total Premium</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Term Life till 75</td>
-<td>$540</td>
-<td>48</td>
-<td>$25,680</td>
-</tr>
-<tr>
-<td>Whole Life</td>
-<td>$4,761</td>
-<td>52</td>
-<td>$247,572</td>
-</tr>
-</tbody>
-</table>
-<p>The term life is nearly <strong>90%</strong> cheaper than the whole life, for the same coverage. You can invest the extra $221,892 yourself.</p>
-<p>Another interesting effect: With inflation, the premiums you pay later on, actually become cheaper<sup id="fnref:inflation"><a class="footnote-ref" href="#fn:inflation">4</a></sup>. The rational individual should therefore prefer to pay over a longer period of time<sup id="fnref:inflation-adjusted"><a class="footnote-ref" href="#fn:inflation-adjusted">7</a></sup>.</p>
-<p>Also, some term life policies are <em>convertible</em>, meaning you have the guaranteed option to switch to a whole life policy before a certain age (usually 65).</p>
-<h2 id="common-arguments-for-whole-life">Common Arguments for Whole Life</h2>
-<p>Q: <strong>But I will definitely get my money back for the whole life plan!</strong></p>
-<p>A: Yes, but is it really worth paying 10 times more for that privilege? You could have invested in property, or paid for your children's education with the money you have saved. Don't forget - even if you get your money back, it's already worth less because of inflation<sup id="fnref2:inflation"><a class="footnote-ref" href="#fn:inflation">4</a></sup>. $100 now is worth more than $100 in the future.</p>
-<p>Q: <strong>How about the annual bonuses that the insurance company is offering? 3.75% is a lot!</strong></p>
-<p>A: Firstly, the bonuses are <a href="https://www.moneysense.gov.sg/articles/2018/10/understanding-whole-life-insurance">not guaranteed</a>. Secondly, the bonus rates are significantly lower than what you can get from <a href="../2020-12-02-asset-allocation/#historical-returns">broad-based index investing</a> - $100 compounded for 10 years at 3.75% is $144.59, while at 8% (US stock historical return) it is $215.89. You'd be better off buying a term life policy and investing the rest yourself.</p>
-<p>If you don't think you can invest, put it all into CPF. The SA (Special Account) interest of 4%++pa/yr beats nearly all whole life plans in the market. <strong>In fact, just by having $130K in CPF by your early 30s, you could have $1,000,000 in CPF by 65<sup id="fnref:1M65"><a class="footnote-ref" href="#fn:1M65">6</a></sup>.</strong></p>
-<p>Q: <strong>The coverage for term life ends at 75! What happens if I die after that? I get nothing!</strong></p>
-<p>A: This is one of the biggest misconceptions with insurance. <a href="https://www.valueresearchonline.com/stories/9261/do-not-mix-insurance-and-investment">Insurance isn't an investment</a>. It's meant to cover you in the <strong>unlikely</strong> event a major catastrophe befalls you when you're still building up your nest egg, or when you have dependents. Think about it - if insurance were a surefire way to earn money, how would the insurance companies profit? They're not running a charity.</p>
-<p>I chose 75 to be the cover end date for the term policy, as that is when you should be financially independent, and no longer have any dependents or liabilities. Which brings me to...</p>
-<p>Q: <strong>If term insurance is so good, why not I buy it till 100? Isn't that a sure-earn? I only need to pay $200K total for $1M coverage!</strong> </p>
-<p>A: Again, <a href="https://www.valueresearchonline.com/stories/9261/do-not-mix-insurance-and-investment">insurance isn't an investment</a>. While there are some <a href="https://investmentmoats.com/budgeting/insurance/term-life-insurance-savings-plan/">people</a> pushing it, it is important to note that unlike a traditional investment, you:</p>
-<ul>
-<li>cannot 'withdraw' money if you need it</li>
-<li>cannot use the sum assured for collateral (e.g. to buy property)</li>
-<li>have to continually pay premium, or the policy will lapse</li>
-</ul>
-<p>If you want to use it for inheritance, fine<sup id="fnref:life-expectancy-100"><a class="footnote-ref" href="#fn:life-expectancy-100">5</a></sup>. Otherwise, stick to a proper <a href="../2021-01-16-my-investment-portfolio/">investment plan</a>.</p>
-<h2 id="other-faq">Other FAQ</h2>
-<p>Q: <strong>Are there really no benefits to whole life then? Surely it can't be that bad?</strong></p>
-<p>A: A whole life policy can be a way for the less disciplined to set aside money each year. Additionally, if you pay over a shorter premium term e.g. 10/15 years, you do not have to pay anything after, unlike the term life. Also, as you will get the sum assured (plus bonuses) upon death, it can be a way to provide inheritance for your children.</p>
-<p>Of course, the same can be done with term life + an investment strategy.</p>
-<p>Q: <strong>How about critical illness (CI) coverage? Is it worth it?</strong></p>
-<p>A: Yes. CI coverage covers against cancer, stroke, heart attack and other serious diseases<sup id="fnref:ci-definition-2019"><a class="footnote-ref" href="#fn:ci-definition-2019">8</a></sup> which, if they don't kill you outright, can leave you unable to work. Buying a CI rider will accelerate<sup id="fnref:accelerate"><a class="footnote-ref" href="#fn:accelerate">10</a></sup> the sum assured in the event of diagnosis of one of these illnesses, helping to cover you when you are unable to work.</p>
-<p>Note: This is NOT the same as hospitalization insurance (<a href="https://www.moh.gov.sg/cost-financing/healthcare-schemes-subsidies/medishield-life/about-integrated-shield-plans">shield plans</a>). Hospitalization insurance pays for the cost of treatment and surgery. After you leave the hospital, you're on your own. CI coverage is to help defray your living costs due to lack of income.</p>
-<p>Q: <strong>Should I buy Early Critical Illness (ECI) cover?</strong></p>
-<p>A: This is a topic I am currently considering and researching myself. The additional coverage is nice to have considering the standard critical illness definitions are becoming stricter. However, unlike the standard CI definitions, ECI definitions are not standard and vary by insurance company<sup id="fnref:eci-definitions"><a class="footnote-ref" href="#fn:eci-definitions">9</a></sup>. Nontheless, covering a smaller sum, say $200,000 can be an option.</p>
-<p>Q: <strong>How much insurance should I buy?</strong></p>
-<p>A: My personal ideology is to cover approximately 10 years of your income, or $1M, whichever is less. Otherwise, you can go with the traditional methods of calculating your assets and liabilities. It is better to over-buy than under-buy (within reason).</p>
-<p>Q: <strong>Shouldn't I wait until I have dependents before buying insurance?</strong></p>
-<p>A: Premiums are cheaper overall the earlier you buy. For example, for a sum assured of $300,000, if you were to buy term insurance for 50 years (till 75) when you are 25, you would pay $28,425 total in premiums. However, if you were to buy term insurance for 35 years (till 75) when you are 40, you would pay $33,784 total in premiums.</p>
-<div class="footnote">
-<hr />
+<h2 id="prerequisites">Prerequisites:</h2>
 <ol>
-<li id="fn:money-back">
-<p>Wasn't that the main reason you were going to buy whole life insurance? :)&#160;<a class="footnote-backref" href="#fnref:money-back" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<li>
+<p>Ensure you have a CPU with virtualization support (for Intel, this is known as <a href="https://d2pgu9s4sfmw1s.cloudfront.net/UAM/Prod/Done/a062E00001eOlkFQAS/6d0ff26e-78fe-42cf-b29d-0bd57685ca5d?Expires=1657719487&amp;Key-Pair-Id=APKAJKRNIMMSNYXST6UA&amp;Signature=waVppuy971q9Y-W9oM88UqwSMNidyxs6Huu7U0gGw30IWwVXTFPiR~EAMEjMfvECkdaYfSeEFJFvboMCsk82bmK0wG2ec3H-~hoR5JJJEaPvFw3lKvzXSvY87MmMpSDA~PYSVqI0tFaibt1eZBhgqggbQwsdYsqFq4RSRCOjXDJIUA8mZwF9-GtRc2xEZkqUliYoMLSSgfmDLNoC3nGZtFzH~wxPjI~-5zr9lvE1dTxiGMQOtzEM~EYleNZwjHuVmIBmzNuKLxRZtAQDFAApk05ZOw10AZsFqvq~RR5YwUjAuADxEL6TuQXTgXiCSK-qf6hOBUCrlgQu6IWlYtKa2A__"><code>VT-d</code></a>):</p>
+<div class="highlight"><pre><span></span><code>$ lscpu | grep -i virtualization
+Virtualization:                  VT-x
+</code></pre></div>
 </li>
-<li id="fn:source">
-<p><a href="https://comparefirst.sg">comparefirst.sg</a>&#160;<a class="footnote-backref" href="#fnref:source" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<li>
+<p>NVIDIA GPU (for Moonlight streaming)</p>
 </li>
-<li id="fn:multiplier">
-<p>Mathematically speaking, a multiplier component on a whole-life policy is equivalent to purchasing an additional term insurance over the same duration. For example, a $100,000 whole life policy with a 2x multiplier up to 75, is equivalent to buying the basic $100,000 whole life policy and then buying another $100,000 term insurance till 75.&#160;<a class="footnote-backref" href="#fnref:multiplier" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<li>
+<p><code>VT-d</code> should be enabled in your BIOS (refer to the relevant manuals)</p>
 </li>
-<li id="fn:inflation">
-<p>The median inflation rate for Singapore was 1.72%pa from 1961-2021 (<a href="https://www.macrotrends.net/countries/SGP/singapore/inflation-rate-cpi">source</a>). At this rate, $100 now will be worth $84, 10 years in the future.&#160;<a class="footnote-backref" href="#fnref:inflation" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:inflation" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<li>
+<p><a href="https://docs.docker.com/desktop/linux/install/">Docker</a> is installed</p>
 </li>
-<li id="fn:life-expectancy-100">
-<p>Do note there is a 'risk' that you will live beyond 100 and thus not get your payout - <a href="https://www.singstat.gov.sg/-/media/files/publications/population/lifetable18-19.pdf">around 4%</a>, to be exact.&#160;<a class="footnote-backref" href="#fnref:life-expectancy-100" title="Jump back to footnote 5 in the text">&#8617;</a></p>
-</li>
-<li id="fn:1M65">
-<p><a href="https://blog.seedly.sg/1m65-1-million-by-65-cpf/">1M65</a>&#160;<a class="footnote-backref" href="#fnref:1M65" title="Jump back to footnote 6 in the text">&#8617;</a></p>
-</li>
-<li id="fn:inflation-adjusted">
-<p>To be exact, you could calculate the total inflation-adjusted premiums for term and whole life for a more accurate comparison.&#160;<a class="footnote-backref" href="#fnref:inflation-adjusted" title="Jump back to footnote 7 in the text">&#8617;</a></p>
-</li>
-<li id="fn:ci-definition-2019">
-<p>The standard definitions of 37 critical illnesses can be found <a href="https://www.lia.org.sg/industry-guidelines/health-insurance/2019/lia-critical-illness-ci-framework-2019/">here</a>. The definitions have become stricter over time, e.g. a lot of early cancers are excluded, so it helps to buy your policy earlier while you can.&#160;<a class="footnote-backref" href="#fnref:ci-definition-2019" title="Jump back to footnote 8 in the text">&#8617;</a></p>
-</li>
-<li id="fn:eci-definitions">
-<p>For example, under early stage cancer, HSBC covers neuroendocrine tumours and bone marrow malignancies, while Prudential does not.&#160;<a class="footnote-backref" href="#fnref:eci-definitions" title="Jump back to footnote 9 in the text">&#8617;</a></p>
-</li>
-<li id="fn:accelerate">
-<p>The term 'accelerate' means that the sum assured is paid out earlier, based on the terms of the rider. It is in effect 'accelerated'.&#160;<a class="footnote-backref" href="#fnref:accelerate" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<li>
+<p>Windows 11 Pro (for Remote Desktop)</p>
 </li>
 </ol>
-</div>
+<h2 id="1-setup-gpu-passthrough">1. Setup GPU Passthrough</h2>
+<p>Open <code>/etc/default/grub</code> with your editor of choice, and append <code>intel_iommu=on</code> to <code>GRUB_CMDLINE_LINUX</code>:</p>
+<div class="highlight"><pre><span></span><code>GRUB_CMDLINE_LINUX=&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on&quot;  
+</code></pre></div>
+<p>Optionally, you may want to disable <code>os-prober</code> especially if you have Docker installed, as it will attempt to probe containers and create a lot of unnecessary startup entries:</p>
+<div class="highlight"><pre><span></span><code>GRUB_DISABLE_OS_PROBER=true  
+</code></pre></div>
+<p>Save the modified configuration file:</p>
+<div class="highlight"><pre><span></span><code>grub2-mkconfig -o /boot/grub2/grub.cfg
+</code></pre></div>
+<p>Next, create <code>/etc/dracut.conf.d/10-vfio.conf</code> with the following content:</p>
+<div class="highlight"><pre><span></span><code>add_drivers+=&quot; vfio_pci vfio vfio_iommu_type1 vfio_virqfd &quot; 
+</code></pre></div>
+<p>Now reboot, and check that IOMMU is working:</p>
+<div class="highlight"><pre><span></span><code>$ dmesg <span class="p">|</span> grep -i iommu
+<span class="o">[</span>    <span class="m">0</span>.000000<span class="o">]</span> Command line: <span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64 <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d ro <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root <span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet <span class="nv">intel_iommu</span><span class="o">=</span>on
+<span class="o">[</span>    <span class="m">0</span>.133682<span class="o">]</span> Kernel <span class="nb">command</span> line: <span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64 <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d ro <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root <span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet <span class="nv">intel_iommu</span><span class="o">=</span>on
+<span class="hll"><span class="o">[</span>    <span class="m">0</span>.133749<span class="o">]</span> DMAR: IOMMU enabled
+</span><span class="o">[</span>    <span class="m">0</span>.224446<span class="o">]</span> DMAR-IR: IOAPIC id <span class="m">2</span> under DRHD base  0xfed91000 IOMMU <span class="m">0</span>
+<span class="o">[</span>    <span class="m">1</span>.516533<span class="o">]</span> iommu: Default domain type: Translated
+<span class="o">[</span>    <span class="m">1</span>.516533<span class="o">]</span> iommu: DMA domain TLB invalidation policy: lazy mode
+<span class="hll"><span class="o">[</span>    <span class="m">1</span>.560968<span class="o">]</span> pci <span class="m">0000</span>:00:00.0: Adding to iommu group <span class="m">0</span>
+</span><span class="hll"><span class="o">[</span>    <span class="m">1</span>.560977<span class="o">]</span> pci <span class="m">0000</span>:00:01.0: Adding to iommu group <span class="m">1</span>
+</span><span class="hll"><span class="o">[</span>    <span class="m">1</span>.560985<span class="o">]</span> pci <span class="m">0000</span>:00:06.0: Adding to iommu group <span class="m">2</span>
+</span><span class="hll"><span class="o">[</span>    <span class="m">1</span>.560991<span class="o">]</span> pci <span class="m">0000</span>:00:0a.0: Adding to iommu group <span class="m">3</span>
+</span><span class="hll"><span class="o">[</span>    <span class="m">1</span>.561003<span class="o">]</span> pci <span class="m">0000</span>:00:14.0: Adding to iommu group <span class="m">4</span>
+</span></code></pre></div>
+<p>If you do not see the <code>... Adding to iommu group</code> lines, ensure <code>VT-d</code> has been turned on in your BIOS.</p>
+<p>https://www.digitalcitizen.life/install-windows-11-virtual-machine/</p>
+<h2 id="2-install-virtualization-packages">2. Install Virtualization Packages</h2>
+<div class="highlight"><pre><span></span><code># sudo dnf install @virtualization
+</code></pre></div>
+<p>This will install the necessary packages, including <a href="https://libvirt.org/"><code>libvirt</code></a>, an API to manage QEMU/KVM hypervisors.</p>
+<h2 id="3-setup-virt-manager-in-docker">3. Setup <code>virt-manager</code> in Docker</h2>
+<p>We will use <code>virt-manager</code> to manage the <code>libvirtd</code> backend. To make access easier, we will use <a href="https://github.com/m-bers/docker-virt-manager">docker-virt-manager</a>, which exposes <code>virt-manager</code> over a <a href="https://blog.desdelinux.net/en/broadway-ejecuta-aplicaciones-gtk-navegador/">GTK3 Broadway (HTML5) backend</a>.</p>
+<p>Create a <code>docker-compose.yml</code> file with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">virt-manager</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mber5/virt-manager:latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">HOSTS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;[&#39;qemu:///system&#39;]&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:80&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/vm:/vm&quot;</span><span class="w"> </span><span class="c1"># Or wherever you want to store your VM images/virtual harddisks</span><span class="w"></span>
+
+<span class="w">    </span><span class="nt">devices</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/dev/kvm:/dev/kvm&quot;</span><span class="w"></span>
+</code></pre></div>
+<p>Start the container with <code>docker compose up -d</code>.</p>
+<h2 id="4-install-windows">4. Install Windows</h2>
+<p>Now, navigate to <code>http://localhost:8080</code> and you should see the <code>virt-manager</code> interface:</p>
+<p><img alt="" src="/static/images/2022-07-10/docker-virt-manager.gif" /></p>
+<p>Create a new VM, and under <code>Add Hardware &gt; PCI Host Device</code>, add your GPU.</p>
+<p>Under <code>NIC</code>, ensure <code>Host device enpXsX: macvtap</code> is selected.</p>
+<p><img alt="" src="/static/images/2022-07-10/vm-network.jpg" /></p>
+<p>Install Windows 11 (you can get the ISO from <a href="https://www.microsoft.com/software-download/windows11">here</a>).</p>
+<p>You may encounter the error <code>This PC doesn't meet the minimum system requirements to install this version of Windows</code>. You can try this <a href="https://www.digitalcitizen.life/install-windows-11-virtual-machine/">fix</a>, or alternatively:</p>
+<ul>
+<li>Press <span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-f10">F10</kbd></span> to open a command prompt</li>
+<li>Type <code>regedit</code></li>
+<li>Navigate to <code>HKLM\System\Setup\LabConfig</code> (create the key if it doesn't exist)</li>
+<li>Add the following registry values (<code>DWORD (32-bit) Value</code>) with <code>1</code> as the value:<ul>
+<li><code>BypassTPMCheck</code></li>
+<li><code>BypassSecureBootCheck</code></li>
+<li><code>BypassCPUCheck</code> (optional)</li>
+<li><code>BypassRAMCheck</code> (optional)</li>
+</ul>
+</li>
+</ul>
+<p>Once the Windows VM boots, install the NVIDIA drivers, and then ensure that the GPU is detected by the VM.</p>
+<p><img alt="" src="/static/images/2022-07-10/vm-gpu.jpg" /></p>
+<p>Then, open GeForce Experience, and under 'Settings &gt; SHIELD', enable 'Gamestream'.</p>
+<p><img alt="" src="/static/images/2022-07-10/vm-gamestream.jpg" /></p>
+<p>If you want to stream the desktop instead of a game, add <code>C:\Windows\System32\mstsc.exe</code>.</p>
+<p>At this point, download the <a href="https://moonlight-stream.org/">Moonlight</a> client on another computer/device, and verify that you can stream a game/the desktop.</p>
+<p>You can also <a href="https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c#ID0EDD=Windows_11">setup Remote Desktop</a> now.</p>
+<p>Now, you have a working VM with <a href="https://moonlight-stream.org/">Moonlight</a> for gaming, and Remote Desktop for doing work!</p>
+<h2 id="5-setup-apache-guacamole-wip">5. Setup Apache Guacamole (WIP)</h2>
+<p><a href="https://guacamole.apache.org/">Apache Guacamole</a> is a clientless remote desktop gateway, supporting proxying of RDP and VNC protocols over a HTML5 frontend. For this guide, we will use RDP, as it is more efficient than VNC and saves data.</p>
+<h2 id="6-optional-setup-nfs-wip">6. (Optional) Setup NFS (WIP)</h2>
+<p>Write about enabling NFS support - using another host adapter
+Macvtap allows guest to appear on LAN
+Setting up NFS in windows and installing games on demand - must enable 'NFS services...'
+Must also open NFS port in Libvirt zone</p>
+<p>Setup NFS</p>
+<h2 id="known-issues">Known Issues</h2>
+<p><a href="https://moonlight-stream.org/">Moonlight</a> lags when displaying a remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU, and Moonlight can only transfer raw GPU video output, so the desktop is software rendered being transferred via some other protocol.</p>
 
               
             </article>
@@ -1104,7 +1177,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../2021-04-15-python-package-management-windows/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Python Package Management on Windows" rel="prev">
+        <a href="../../about/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About Me" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1113,20 +1186,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Python Package Management on Windows
+              About Me
             </div>
           </div>
         </a>
       
       
         
-        <a href="../2021-01-16-my-investment-portfolio/" class="md-footer__link md-footer__link--next" aria-label="Next: My Investment Portfolio" rel="next">
+        <a href="../2022-07-10-docker-gpu-fedora/" class="md-footer__link md-footer__link--next" aria-label="Next: Docker GPU Access in Fedora" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              My Investment Portfolio
+              Docker GPU Access in Fedora
             </div>
           </div>
           <div class="md-footer__button md-icon">
