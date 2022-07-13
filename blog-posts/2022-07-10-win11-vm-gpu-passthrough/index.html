@@ -344,6 +344,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    Credits
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1021,6 +1028,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    Credits
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1083,6 +1097,9 @@ Virtualization:                  VT-x
 </code></pre></div>
 <p>Next, create <code>/etc/dracut.conf.d/10-vfio.conf</code> with the following content:</p>
 <div class="highlight"><pre><span></span><code>add_drivers+=&quot; vfio_pci vfio vfio_iommu_type1 vfio_virqfd &quot; 
+</code></pre></div>
+<p>You will need to rebuild the initial ramdisk image:</p>
+<div class="highlight"><pre><span></span><code>dracut -fv
 </code></pre></div>
 <p>Now reboot, and check that IOMMU is working:</p>
 <div class="highlight"><pre><span></span><code>$ dmesg <span class="p">|</span> grep -i iommu
@@ -1162,6 +1179,11 @@ Must also open NFS port in Libvirt zone</p>
 <p>Setup NFS</p>
 <h2 id="known-issues">Known Issues</h2>
 <p><a href="https://moonlight-stream.org/">Moonlight</a> lags when displaying a remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU, and Moonlight can only transfer raw GPU video output, so the desktop is software rendered being transferred via some other protocol.</p>
+<h2 id="credits">Credits</h2>
+<ul>
+<li><a href="https://forum.level1techs.com/t/fedora-33-ultimiate-vfio-guide-for-2020-2021-wip/163814">Fedora 33: Ultimiate VFIO Guide for 2020/2021 [WIP]</a></li>
+<li><a href="https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Setting_up_IOMMU">PCI passthrough via OVMF</a></li>
+</ul>
 
               
             </article>
