@@ -324,22 +324,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-setup-apache-guacamole-wip" class="md-nav__link">
-    5. Setup Apache Guacamole (WIP)
+  <a href="#5-setup-apache-guacamole" class="md-nav__link">
+    5. Setup Apache Guacamole
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-optional-setup-nfs-wip" class="md-nav__link">
-    6. (Optional) Setup NFS (WIP)
+  <a href="#6-optional-setup-nfs" class="md-nav__link">
+    6. (Optional) Setup NFS
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-issues" class="md-nav__link">
-    Known Issues
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issuesnotes" class="md-nav__link">
+    Known Issues/Notes
   </a>
   
 </li>
@@ -1008,22 +1015,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-setup-apache-guacamole-wip" class="md-nav__link">
-    5. Setup Apache Guacamole (WIP)
+  <a href="#5-setup-apache-guacamole" class="md-nav__link">
+    5. Setup Apache Guacamole
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-optional-setup-nfs-wip" class="md-nav__link">
-    6. (Optional) Setup NFS (WIP)
+  <a href="#6-optional-setup-nfs" class="md-nav__link">
+    6. (Optional) Setup NFS
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-issues" class="md-nav__link">
-    Known Issues
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issuesnotes" class="md-nav__link">
+    Known Issues/Notes
   </a>
   
 </li>
@@ -1066,12 +1080,12 @@
 </ul>
 <h2 id="prerequisites">Prerequisites:</h2>
 <ol>
-<li>
-<p>Ensure you have a CPU with virtualization support (for Intel, this is known as <a href="https://d2pgu9s4sfmw1s.cloudfront.net/UAM/Prod/Done/a062E00001eOlkFQAS/6d0ff26e-78fe-42cf-b29d-0bd57685ca5d?Expires=1657719487&amp;Key-Pair-Id=APKAJKRNIMMSNYXST6UA&amp;Signature=waVppuy971q9Y-W9oM88UqwSMNidyxs6Huu7U0gGw30IWwVXTFPiR~EAMEjMfvECkdaYfSeEFJFvboMCsk82bmK0wG2ec3H-~hoR5JJJEaPvFw3lKvzXSvY87MmMpSDA~PYSVqI0tFaibt1eZBhgqggbQwsdYsqFq4RSRCOjXDJIUA8mZwF9-GtRc2xEZkqUliYoMLSSgfmDLNoC3nGZtFzH~wxPjI~-5zr9lvE1dTxiGMQOtzEM~EYleNZwjHuVmIBmzNuKLxRZtAQDFAApk05ZOw10AZsFqvq~RR5YwUjAuADxEL6TuQXTgXiCSK-qf6hOBUCrlgQu6IWlYtKa2A__"><code>VT-d</code></a>):</p>
+<li>Ensure you have a CPU with virtualization support (for Intel, this is known as <a href="https://d2pgu9s4sfmw1s.cloudfront.net/UAM/Prod/Done/a062E00001eOlkFQAS/6d0ff26e-78fe-42cf-b29d-0bd57685ca5d?Expires=1657719487&amp;Key-Pair-Id=APKAJKRNIMMSNYXST6UA&amp;Signature=waVppuy971q9Y-W9oM88UqwSMNidyxs6Huu7U0gGw30IWwVXTFPiR~EAMEjMfvECkdaYfSeEFJFvboMCsk82bmK0wG2ec3H-~hoR5JJJEaPvFw3lKvzXSvY87MmMpSDA~PYSVqI0tFaibt1eZBhgqggbQwsdYsqFq4RSRCOjXDJIUA8mZwF9-GtRc2xEZkqUliYoMLSSgfmDLNoC3nGZtFzH~wxPjI~-5zr9lvE1dTxiGMQOtzEM~EYleNZwjHuVmIBmzNuKLxRZtAQDFAApk05ZOw10AZsFqvq~RR5YwUjAuADxEL6TuQXTgXiCSK-qf6hOBUCrlgQu6IWlYtKa2A__"><code>VT-d</code></a>):</li>
+</ol>
 <div class="highlight"><pre><span></span><code>$ lscpu | grep -i virtualization
 Virtualization:                  VT-x
 </code></pre></div>
-</li>
+<ol>
 <li>
 <p>NVIDIA GPU (for Moonlight streaming)</p>
 </li>
@@ -1087,16 +1101,16 @@ Virtualization:                  VT-x
 </ol>
 <h2 id="1-setup-gpu-passthrough">1. Setup GPU Passthrough</h2>
 <p>Open <code>/etc/default/grub</code> with your editor of choice, and append <code>intel_iommu=on</code> to <code>GRUB_CMDLINE_LINUX</code>:</p>
-<div class="highlight"><pre><span></span><code>GRUB_CMDLINE_LINUX=&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on&quot;  
+<div class="highlight"><pre><span></span><code>GRUB_CMDLINE_LINUX=&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on&quot;
 </code></pre></div>
 <p>Optionally, you may want to disable <code>os-prober</code> especially if you have Docker installed, as it will attempt to probe containers and create a lot of unnecessary startup entries:</p>
-<div class="highlight"><pre><span></span><code>GRUB_DISABLE_OS_PROBER=true  
+<div class="highlight"><pre><span></span><code>GRUB_DISABLE_OS_PROBER=true
 </code></pre></div>
 <p>Save the modified configuration file:</p>
 <div class="highlight"><pre><span></span><code>grub2-mkconfig -o /boot/grub2/grub.cfg
 </code></pre></div>
 <p>Next, create <code>/etc/dracut.conf.d/10-vfio.conf</code> with the following content:</p>
-<div class="highlight"><pre><span></span><code>add_drivers+=&quot; vfio_pci vfio vfio_iommu_type1 vfio_virqfd &quot; 
+<div class="highlight"><pre><span></span><code>add_drivers+=&quot; vfio_pci vfio vfio_iommu_type1 vfio_virqfd &quot;
 </code></pre></div>
 <p>You will need to rebuild the initial ramdisk image:</p>
 <div class="highlight"><pre><span></span><code>dracut -fv
@@ -1153,13 +1167,11 @@ Virtualization:                  VT-x
 <li>Press <span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-f10">F10</kbd></span> to open a command prompt</li>
 <li>Type <code>regedit</code></li>
 <li>Navigate to <code>HKLM\System\Setup\LabConfig</code> (create the key if it doesn't exist)</li>
-<li>Add the following registry values (<code>DWORD (32-bit) Value</code>) with <code>1</code> as the value:<ul>
+<li>Add the following registry values (<code>DWORD (32-bit) Value</code>) with <code>1</code> as the value:</li>
 <li><code>BypassTPMCheck</code></li>
 <li><code>BypassSecureBootCheck</code></li>
 <li><code>BypassCPUCheck</code> (optional)</li>
 <li><code>BypassRAMCheck</code> (optional)</li>
-</ul>
-</li>
 </ul>
 <p>Once the Windows VM boots, install the NVIDIA drivers, and then ensure that the GPU is detected by the VM.</p>
 <p><img alt="" src="/static/images/2022-07-10/vm-gpu.jpg" /></p>
@@ -1169,16 +1181,46 @@ Virtualization:                  VT-x
 <p>At this point, download the <a href="https://moonlight-stream.org/">Moonlight</a> client on another computer/device, and verify that you can stream a game/the desktop.</p>
 <p>You can also <a href="https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c#ID0EDD=Windows_11">setup Remote Desktop</a> now.</p>
 <p>Now, you have a working VM with <a href="https://moonlight-stream.org/">Moonlight</a> for gaming, and Remote Desktop for doing work!</p>
-<h2 id="5-setup-apache-guacamole-wip">5. Setup Apache Guacamole (WIP)</h2>
+<h2 id="5-setup-apache-guacamole">5. Setup Apache Guacamole</h2>
+<figure>
+  <img src="/static/images/2022-07-10/guacamole.jpg" alt="Accessing a Windows VM over a browser with Apache Guacamole" loading="lazy"/>
+  <figcaption>Accessing a Windows VM over a browser with Apache Guacamole</figcaption>
+</figure>
+
 <p><a href="https://guacamole.apache.org/">Apache Guacamole</a> is a clientless remote desktop gateway, supporting proxying of RDP and VNC protocols over a HTML5 frontend. For this guide, we will use RDP, as it is more efficient than VNC and saves data.</p>
-<h2 id="6-optional-setup-nfs-wip">6. (Optional) Setup NFS (WIP)</h2>
-<p>Write about enabling NFS support - using another host adapter
-Macvtap allows guest to appear on LAN
-Setting up NFS in windows and installing games on demand - must enable 'NFS services...'
-Must also open NFS port in Libvirt zone</p>
-<p>Setup NFS</p>
-<h2 id="known-issues">Known Issues</h2>
-<p><a href="https://moonlight-stream.org/">Moonlight</a> lags when displaying a remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU, and Moonlight can only transfer raw GPU video output, so the desktop is software rendered being transferred via some other protocol.</p>
+<p>Of note, Guacamole also supports SSH connections to a remote server, displaying the terminal in the web browser. However, the current version (<code>1.4.0</code>) of the Apache Guacamole Server Docker <a href="https://github.com/apache/guacamole-server">image</a> only supports connecting via <code>ssh-rsa</code> and <code>ssh-dss</code>, both of which have been <a href="https://www.openssh.com/txt/release-8.8">deprecated since OpenSSH 8.8</a> (<a href="https://www.mail-archive.com/issues@guacamole.apache.org/msg06190.html">JIRA issue</a>) due to security issues (SHA-1 is no longer considered secure). One workaround would be to enable <code>ssh-rsa</code> in <code>sshd</code>, however this is suboptimal. As a result, I have decided to use [SSHwifty][sshwifty] instead as an SSH web proxy.</p>
+<p>To setup Apache Guacamole, follow the instructions <a href="https://guacamole.apache.org/doc/gug/guacamole-docker.html">here</a>.</p>
+<p>Some notes:</p>
+<ul>
+<li>I have decided to use the <code>mysql</code> backend instead, as the <code>postgres</code> backend has <a href="https://lists.apache.org/thread/mp6gfxtxwhnnk215crcjbt0106w03o7l">authentication problems</a> (slated to be fixed in <code>1.5.0</code>).</li>
+<li>If you are using a reverse proxy with authentication (e.g. Nginx with <code>auth_request</code>), you can use <a href="https://guacamole.apache.org/doc/gug/guacamole-docker.html#header-authentication">header authentication</a> to avoid having to login into Guacamole.</li>
+<li>To change the password of the default <code>guacadmin</code> user, it is necessary to create another user account with admin rights.</li>
+<li>For RDP, ensure <code>Ignore server certificate</code> is checked, otherwise Guacamole will refuse to connect.</li>
+</ul>
+<h2 id="6-optional-setup-nfs">6. (Optional) Setup NFS</h2>
+<p>Network File System (NFS) is a handy way to share files on a Linux host with the Windows VM(s), so I have also set that up.</p>
+<p>Some notes:</p>
+<ul>
+<li>If you are using a <code>macvtap</code> interface (to allow the guest to receive its own IP address on the network), it is <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap">not possible</a> to connect to the host due to how <code>macvtap</code> works. You will need to create a <code>NAT</code> connection (e.g. <code>Virtual Network 'Default' : NAT</code>) to connect to the host, via a separate subnet.</li>
+<li>Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">Enable-WindowsOptionalFeature</span> <span class="n">-FeatureName</span> <span class="n">ServicesForNFS-ClientOnly</span><span class="p">,</span> <span class="n">ClientForNFS-Infrastructure</span> <span class="n">-Online</span> <span class="n">-NoRestart</span>
+</code></pre></div>
+<ul>
+<li>For Fedora: You must also open the NFS ports (TCP/UDP <code>111</code>, <code>2049</code> and <code>20048</code>) in the <code>Libvirt</code> zone.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>And that's it! You now have a fully featured cloud gaming machine, with web browser access, accessible anywhere in the world.</p>
+<h2 id="known-issuesnotes">Known Issues/Notes</h2>
+<ul>
+<li><a href="https://moonlight-stream.org/">Moonlight</a> lags when displaying a remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU, and Moonlight can only transfer raw GPU video output, so the desktop is software rendered being transferred via some other protocol.</li>
+<li>The streaming resolution of Moonlight is <strong>not</strong> what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.</li>
+<li>Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.</li>
+<li>If you connect your GPU to a monitor during boot, the BIOS may claim part of the GPU memory, preventing it from being allocated to the VM. To resolve this, remove any HDMI/DP connections from the GPU and reboot the host.</li>
+<li>Connection speed: Moonlight &gt; RDP &gt; Guacamole &gt; <code>virt-manager</code></li>
+<li>Types of VM network connections compared:
+  <img alt="" src="/static/images/2022-07-10/vm-networking.png" /></li>
+</ul>
 <h2 id="credits">Credits</h2>
 <ul>
 <li><a href="https://forum.level1techs.com/t/fedora-33-ultimiate-vfio-guide-for-2020-2021-wip/163814">Fedora 33: Ultimiate VFIO Guide for 2020/2021 [WIP]</a></li>
