@@ -70,12 +70,12 @@ Backup is done with the following series of commands:
     btrfs send /mnt/storage/snapshot.2022-05-18/ | btrfs receive /mnt/sdc1
 
     # To instead send an incremental snapshot:
-    # Note: the parent snapshot must be on the receiving drive
-    btrfs send -p <path to parent snapshot> | btrfs receive /mnt/sdc1
+    # Note: the parent snapshot must exist on the receiving drive
+    btrfs send -p <path to parent snapshot on sending drive> <subvol> | btrfs receive /mnt/sdc1
     ```
 
 
-    The parent subvolume UUID must be in one of the receiving drive subvolume's 'Received UUID', in order for the incremental `send` operation to work. See below for an example:
+    The UUID of the parent subvolume (in the sending drive) must be in one of the receiving drive subvolume's 'Received UUID', in order for the incremental `send` operation to work. See below for an example:
 
     Target volume with 2 snapshots, `server-2022-05-18` followed by `snapshot.test`:
 
@@ -85,36 +85,12 @@ Backup is done with the following series of commands:
         UUID:                   2b33e415-046b-a746-a35f-50cdef411a9f
         Parent UUID:            c8a82094-4270-274b-bd08-77aea3dc0896
         Received UUID:          -
-        Creation time:          2022-05-18 23:00:24 +0800
-        Subvolume ID:           390
-        Generation:             9646
-        Gen at creation:        9646
-        Parent ID:              5
-        Top level ID:           5
-        Flags:                  readonly
-        Send transid:           0
-        Send time:              2022-05-18 23:00:24 +0800
-        Receive transid:        0
-        Receive time:           -
-        Snapshot(s):
 
     [root@server sdc1]# btrfs su show /mnt/system-root/snapshot.test/snapshot.test
         Name:                   snapshot.test
         UUID:                   8a42b8d1-d145-9249-9e76-e7748dc4aeb5
         Parent UUID:            c8a82094-4270-274b-bd08-77aea3dc0896
         Received UUID:          -
-        Creation time:          2022-05-18 23:30:46 +0800
-        Subvolume ID:           391
-        Generation:             9702
-        Gen at creation:        9702
-        Parent ID:              5
-        Top level ID:           5
-        Flags:                  readonly
-        Send transid:           0
-        Send time:              2022-05-18 23:30:46 +0800
-        Receive transid:        0
-        Receive time:           -
-        Snapshot(s):
     ```
 
     Note on the backup drive that the `Received UUID` of the original snapshot is the same as the target volume's original snapshot `server-2022-05-18`.
@@ -125,39 +101,15 @@ Backup is done with the following series of commands:
         UUID:                   5ed89436-7a3b-5744-9460-cf79ced43e2c
         Parent UUID:            -
         Received UUID:          2b33e415-046b-a746-a35f-50cdef411a9f
-        Creation time:          2022-05-18 23:02:47 +0800
-        Subvolume ID:           262
-        Generation:             385
-        Gen at creation:        374
-        Parent ID:              5
-        Top level ID:           5
-        Flags:                  readonly
-        Send transid:           9646
-        Send time:              2022-05-18 23:02:47 +0800
-        Receive transid:        376
-        Receive time:           2022-05-18 23:07:31 +0800
-        Snapshot(s):
-                                snapshot.test
 
     [root@server sdc1]# btrfs su show /mnt/sdc1/snapshot.test/snapshot.test
         Name:                   snapshot.test
         UUID:                   7fcd7d87-b2a2-eb46-a636-ca62dfd4029f
         Parent UUID:            5ed89436-7a3b-5744-9460-cf79ced43e2c
         Received UUID:          8a42b8d1-d145-9249-9e76-e7748dc4aeb5
-        Creation time:          2022-05-18 23:33:08 +0800
-        Subvolume ID:           264
-        Generation:             388
-        Gen at creation:        385
-        Parent ID:              5
-        Top level ID:           5
-        Flags:                  readonly
-        Send transid:           9702
-        Send time:              2022-05-18 23:33:08 +0800
-        Receive transid:        386
-        Receive time:           2022-05-18 23:33:09 +0800
-        Snapshot(s):
-
     ```
+    
+    Note: The `Received UUID` **does not change** when a snapshot is snapshot-ed again.
 
 The backup drive contains a BtrFS volume on top of a partition[^cryptsetup-partition] encrypted with[`cryptsetup`][cryptsetup].
 
@@ -167,7 +119,9 @@ I use SSHFS to access my storage remotely.
 
 ## SSH Access
 
-SSH access to my server is primarily over 2 methods: certificates/public keys, and password access with 2FA (provided via [Google Authenticator PAM][google-authenticator-pam][^pam-issues]).
+SSH access to my server is available via public keys, password access with 2FA (provided via [Google Authenticator PAM][google-authenticator-pam][^pam-issues]) and Web terminal access via [Apache Guacamole](./2022-07-10-win11-vm-gpu-passthrough.md#5-setup-apache-guacamole).
+
+I previously used [SSH with certificates](./2022-02-07-ssh-with-certificates.md), however it does not allow me to revoke access as easily as public keys.
 
 ### Mobile
 

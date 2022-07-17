@@ -15,10 +15,10 @@ After this guide, you will have a Windows 11 headless VM that can be accessed vi
 
 1. Ensure you have a CPU with virtualization support (for Intel, this is known as [`VT-d`][vt-d]):
 
-    ```
-    $ lscpu | grep -i virtualization
-    Virtualization:                  VT-x
-    ```
+   ```
+   $ lscpu | grep -i virtualization
+   Virtualization:                  VT-x
+   ```
 
 2. NVIDIA GPU (for Moonlight streaming)
 
@@ -33,13 +33,13 @@ After this guide, you will have a Windows 11 headless VM that can be accessed vi
 Open `/etc/default/grub` with your editor of choice, and append `intel_iommu=on` to `GRUB_CMDLINE_LINUX`:
 
 ```
-GRUB_CMDLINE_LINUX="resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on"  
+GRUB_CMDLINE_LINUX="resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on"
 ```
 
 Optionally, you may want to disable `os-prober` especially if you have Docker installed, as it will attempt to probe containers and create a lot of unnecessary startup entries:
 
 ```
-GRUB_DISABLE_OS_PROBER=true  
+GRUB_DISABLE_OS_PROBER=true
 ```
 
 Save the modified configuration file:
@@ -51,7 +51,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 Next, create `/etc/dracut.conf.d/10-vfio.conf` with the following content:
 
 ```
-add_drivers+=" vfio_pci vfio vfio_iommu_type1 vfio_virqfd " 
+add_drivers+=" vfio_pci vfio vfio_iommu_type1 vfio_virqfd "
 ```
 
 You will need to rebuild the initial ramdisk image:
@@ -115,7 +115,6 @@ services:
 
 Start the container with `docker compose up -d`.
 
-
 ## 4. Install Windows
 
 Now, navigate to `http://localhost:8080` and you should see the `virt-manager` interface:
@@ -132,14 +131,14 @@ Install Windows 11 (you can get the ISO from [here](https://www.microsoft.com/so
 
 You may encounter the error `This PC doesn't meet the minimum system requirements to install this version of Windows`. You can try this [fix](https://www.digitalcitizen.life/install-windows-11-virtual-machine/), or alternatively:
 
-  - Press ++shift+f10++ to open a command prompt
-  - Type `regedit`
-  - Navigate to `HKLM\System\Setup\LabConfig` (create the key if it doesn't exist)
-  - Add the following registry values (`DWORD (32-bit) Value`) with `1` as the value:
-    - `BypassTPMCheck`
-    - `BypassSecureBootCheck`
-    - `BypassCPUCheck` (optional)
-    - `BypassRAMCheck` (optional)
+- Press ++shift+f10++ to open a command prompt
+- Type `regedit`
+- Navigate to `HKLM\System\Setup\LabConfig` (create the key if it doesn't exist)
+- Add the following registry values (`DWORD (32-bit) Value`) with `1` as the value:
+  - `BypassTPMCheck`
+  - `BypassSecureBootCheck`
+  - `BypassCPUCheck` (optional)
+  - `BypassRAMCheck` (optional)
 
 Once the Windows VM boots, install the NVIDIA drivers, and then ensure that the GPU is detected by the VM.
 
@@ -157,26 +156,54 @@ You can also [setup Remote Desktop](https://support.microsoft.com/en-us/windows/
 
 Now, you have a working VM with [Moonlight][moonlight] for gaming, and Remote Desktop for doing work!
 
-## 5. Setup Apache Guacamole (WIP)
+## 5. Setup Apache Guacamole
+
+<figure>
+  <img src="/static/images/2022-07-10/guacamole.jpg" alt="Accessing a Windows VM over a browser with Apache Guacamole" loading="lazy"/>
+  <figcaption>Accessing a Windows VM over a browser with Apache Guacamole</figcaption>
+</figure>
 
 [Apache Guacamole][apache-guacamole] is a clientless remote desktop gateway, supporting proxying of RDP and VNC protocols over a HTML5 frontend. For this guide, we will use RDP, as it is more efficient than VNC and saves data.
 
+Of note, Guacamole also supports SSH connections to a remote server, displaying the terminal in the web browser. However, the current version (`1.4.0`) of the Apache Guacamole Server Docker [image](https://github.com/apache/guacamole-server) only supports connecting via `ssh-rsa` and `ssh-dss`, both of which have been [deprecated since OpenSSH 8.8][openssh-8.8] ([JIRA issue][guacamole-ssh]) due to security issues (SHA-1 is no longer considered secure). One workaround would be to enable `ssh-rsa` in `sshd`, however this is suboptimal. As a result, I have decided to use [SSHwifty][sshwifty] instead as an SSH web proxy.
 
+To setup Apache Guacamole, follow the instructions [here][apache-guacamole-docker].
 
+Some notes:
 
-## 6. (Optional) Setup NFS (WIP)
+- I have decided to use the `mysql` backend instead, as the `postgres` backend has [authentication problems][guacamole-postgresql] (slated to be fixed in `1.5.0`).
+- If you are using a reverse proxy with authentication (e.g. Nginx with `auth_request`), you can use [header authentication][guacamole-header-auth] to avoid having to login into Guacamole.
+- To change the password of the default `guacadmin` user, it is necessary to create another user account with admin rights.
+- For RDP, ensure `Ignore server certificate` is checked, otherwise Guacamole will refuse to connect.
 
+## 6. (Optional) Setup NFS
 
-Write about enabling NFS support - using another host adapter
-Macvtap allows guest to appear on LAN
-Setting up NFS in windows and installing games on demand - must enable 'NFS services...'
-Must also open NFS port in Libvirt zone
+Network File System (NFS) is a handy way to share files on a Linux host with the Windows VM(s), so I have also set that up.
 
-Setup NFS
+Some notes:
 
-## Known Issues
+- If you are using a `macvtap` interface (to allow the guest to receive its own IP address on the network), it is [not possible][macvtap] to connect to the host due to how `macvtap` works. You will need to create a `NAT` connection (e.g. `Virtual Network 'Default' : NAT`) to connect to the host, via a separate subnet.
+- Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:
 
-[Moonlight][moonlight] lags when displaying a remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU, and Moonlight can only transfer raw GPU video output, so the desktop is software rendered being transferred via some other protocol.
+  ```powershell
+  Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
+  ```
+
+- For Fedora: You must also open the NFS ports (TCP/UDP `111`, `2049` and `20048`) in the `Libvirt` zone.
+
+## Conclusion
+
+And that's it! You now have a fully featured cloud gaming machine, with web browser access, accessible anywhere in the world.
+
+## Known Issues/Notes
+
+- [Moonlight][moonlight] lags when displaying a remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU, and Moonlight can only transfer raw GPU video output, so the desktop is software rendered being transferred via some other protocol.
+- The streaming resolution of Moonlight is **not** what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.
+- Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.
+- If you connect your GPU to a monitor during boot, the BIOS may claim part of the GPU memory, preventing it from being allocated to the VM. To resolve this, remove any HDMI/DP connections from the GPU and reboot the host.
+- Connection speed: Moonlight > RDP > Guacamole > `virt-manager`
+- Types of VM network connections compared:
+  ![](/static/images/2022-07-10/vm-networking.png)
 
 ## Credits
 
@@ -186,3 +213,10 @@ Setup NFS
 [vt-d]: https://d2pgu9s4sfmw1s.cloudfront.net/UAM/Prod/Done/a062E00001eOlkFQAS/6d0ff26e-78fe-42cf-b29d-0bd57685ca5d?Expires=1657719487&Key-Pair-Id=APKAJKRNIMMSNYXST6UA&Signature=waVppuy971q9Y-W9oM88UqwSMNidyxs6Huu7U0gGw30IWwVXTFPiR~EAMEjMfvECkdaYfSeEFJFvboMCsk82bmK0wG2ec3H-~hoR5JJJEaPvFw3lKvzXSvY87MmMpSDA~PYSVqI0tFaibt1eZBhgqggbQwsdYsqFq4RSRCOjXDJIUA8mZwF9-GtRc2xEZkqUliYoMLSSgfmDLNoC3nGZtFzH~wxPjI~-5zr9lvE1dTxiGMQOtzEM~EYleNZwjHuVmIBmzNuKLxRZtAQDFAApk05ZOw10AZsFqvq~RR5YwUjAuADxEL6TuQXTgXiCSK-qf6hOBUCrlgQu6IWlYtKa2A__
 [moonlight]: https://moonlight-stream.org/
 [apache-guacamole]: https://guacamole.apache.org/
+[guacamole-ssh]: https://www.mail-archive.com/issues@guacamole.apache.org/msg06190.html
+[openssh-8.8]: https://www.openssh.com/txt/release-8.8
+[ssh-wifty]: https://github.com/nirui/sshwifty
+[apache-guacamole-docker]: https://guacamole.apache.org/doc/gug/guacamole-docker.html
+[guacamole-header-auth]: https://guacamole.apache.org/doc/gug/guacamole-docker.html#header-authentication
+[guacamole-postgresql]: https://lists.apache.org/thread/mp6gfxtxwhnnk215crcjbt0106w03o7l
+[macvtap]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap
