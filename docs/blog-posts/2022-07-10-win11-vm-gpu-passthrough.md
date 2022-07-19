@@ -7,18 +7,18 @@
 
 After this guide, you will have a Windows 11 headless VM that can be accessed via:
 
-- [Moonlight][moonlight] (for high performance gaming)
-- RDP (for office work)
-- Web Browser (via [Apache Guacamole][apache-guacamole], no client required)
+-   [Moonlight][moonlight] (for high performance gaming)
+-   RDP (for office work)
+-   Web Browser (via [Apache Guacamole][apache-guacamole], no client required)
 
 ## Prerequisites:
 
 1. Ensure you have a CPU with virtualization support (for Intel, this is known as [`VT-d`][vt-d]):
 
-   ```
-   $ lscpu | grep -i virtualization
-   Virtualization:                  VT-x
-   ```
+    ```
+    $ lscpu | grep -i virtualization
+    Virtualization:                  VT-x
+    ```
 
 2. NVIDIA GPU (for Moonlight streaming)
 
@@ -97,25 +97,25 @@ Create a `docker-compose.yml` file with the following content:
 
 ```yaml
 services:
-  virt-manager:
-    image: mber5/virt-manager:latest
-    restart: always
-    environment:
-      HOSTS: "['qemu:///system']"
-    ports:
-      - "8080:80"
+    virt-manager:
+        image: mber5/virt-manager:latest
+        restart: always
+        environment:
+            HOSTS: "['qemu:///system']"
+        ports:
+            - "8080:80"
 
-    volumes:
-      - "/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock"
-      - "/vm:/vm" # Or wherever you want to store your VM images/virtual harddisks
+        volumes:
+            - "/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock"
+            - "/vm:/vm" # Or wherever you want to store your VM images/virtual harddisks
 
-    devices:
-      - "/dev/kvm:/dev/kvm"
+        devices:
+            - "/dev/kvm:/dev/kvm"
 ```
 
 Start the container with `docker compose up -d`.
 
-## 4. Install Windows
+## 4. Install Windows and Setup Moonlight Streaming
 
 Now, navigate to `http://localhost:8080` and you should see the `virt-manager` interface:
 
@@ -123,24 +123,26 @@ Now, navigate to `http://localhost:8080` and you should see the `virt-manager` i
 
 Create a new VM, and under `Add Hardware > PCI Host Device`, add your GPU.
 
-Under `NIC`, ensure `Host device enpXsX: macvtap` is selected.
+Under `NIC`, ensure `Host device enpXsX: macvtap` is selected.[^vm-nic]
 
 ![](/static/images/2022-07-10/vm-network.jpg)
 
 Install Windows 11 (you can get the ISO from [here](https://www.microsoft.com/software-download/windows11)).
 
-You may encounter the error `This PC doesn't meet the minimum system requirements to install this version of Windows`. You can try this [fix](https://www.digitalcitizen.life/install-windows-11-virtual-machine/), or alternatively:
+??? help "Error: This PC doesn't meet the minimum system requirements to install this version of Windows"
 
-- Press ++shift+f10++ to open a command prompt
-- Type `regedit`
-- Navigate to `HKLM\System\Setup\LabConfig` (create the key if it doesn't exist)
-- Add the following registry values (`DWORD (32-bit) Value`) with `1` as the value:
-  - `BypassTPMCheck`
-  - `BypassSecureBootCheck`
-  - `BypassCPUCheck` (optional)
-  - `BypassRAMCheck` (optional)
+    You may encounter the error `This PC doesn't meet the minimum system requirements to install this version of Windows`. You can try this [fix](https://www.digitalcitizen.life/install-windows-11-virtual-machine/), or alternatively:
 
-Once the Windows VM boots, install the NVIDIA drivers, and then ensure that the GPU is detected by the VM.
+    -   Press ++shift+f10++ to open a command prompt
+    -   Type `regedit`
+    -   Navigate to `HKLM\System\Setup\LabConfig` (create the key if it doesn't exist)
+    -   Add the following registry values (`DWORD (32-bit) Value`) with `1` as the value:
+        -   `BypassTPMCheck`
+        -   `BypassSecureBootCheck`
+        -   `BypassCPUCheck` (optional)
+        -   `BypassRAMCheck` (optional)
+
+    Once the Windows VM boots, install the NVIDIA drivers, and then ensure that the GPU is detected by the VM.
 
 ![](/static/images/2022-07-10/vm-gpu.jpg)
 
@@ -171,10 +173,10 @@ To setup Apache Guacamole, follow the instructions [here][apache-guacamole-docke
 
 Some notes:
 
-- I have decided to use the `mysql` backend instead, as the `postgres` backend has [authentication problems][guacamole-postgresql] (slated to be fixed in `1.5.0`).
-- If you are using a reverse proxy with authentication (e.g. Nginx with `auth_request`), you can use [header authentication][guacamole-header-auth] to avoid having to login into Guacamole.
-- To change the password of the default `guacadmin` user, it is necessary to create another user account with admin rights.
-- For RDP, ensure `Ignore server certificate` is checked, otherwise Guacamole will refuse to connect.
+-   I have decided to use the `mysql` backend instead, as the `postgres` backend has [authentication problems][guacamole-postgresql] (slated to be fixed in `1.5.0`).
+-   If you are using a reverse proxy with authentication (e.g. Nginx with `auth_request`), you can use [header authentication][guacamole-header-auth] to avoid having to login into Guacamole.
+-   To change the password of the default `guacadmin` user, it is necessary to create another user account with admin rights.
+-   For RDP, ensure `Ignore server certificate` is checked, otherwise Guacamole will refuse to connect.
 
 ## 6. (Optional) Setup NFS
 
@@ -182,14 +184,14 @@ Network File System (NFS) is a handy way to share files on a Linux host with the
 
 Some notes:
 
-- If you are using a `macvtap` interface (to allow the guest to receive its own IP address on the network), it is [not possible][macvtap] to connect to the host due to how `macvtap` works. You will need to create a `NAT` connection (e.g. `Virtual Network 'Default' : NAT`) to connect to the host, via a separate subnet.
-- Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:
+-   If you are using a `macvtap` interface (to allow the guest to receive its own IP address on the network), it is [not possible][macvtap] to connect to the host due to how `macvtap` works. You will need to create a `NAT` connection (e.g. `Virtual Network 'Default' : NAT`) to connect to the host, via a separate subnet.
+-   Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:
 
-  ```powershell
-  Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
-  ```
+    ```powershell
+    Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
+    ```
 
-- For Fedora: You must also open the NFS ports (TCP/UDP `111`, `2049` and `20048`) in the `Libvirt` zone.
+-   For Fedora: You must also open the NFS ports (TCP/UDP `111`, `2049` and `20048`) in the `Libvirt` zone.
 
 ## Conclusion
 
@@ -197,18 +199,34 @@ And that's it! You now have a fully featured cloud gaming machine, with web brow
 
 ## Known Issues/Notes
 
-- [Moonlight][moonlight] lags when displaying a remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU, and Moonlight can only transfer raw GPU video output, so the desktop is software rendered being transferred via some other protocol.
-- The streaming resolution of Moonlight is **not** what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.
-- Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.
-- If you connect your GPU to a monitor during boot, the BIOS may claim part of the GPU memory, preventing it from being allocated to the VM. To resolve this, remove any HDMI/DP connections from the GPU and reboot the host.
-- Connection speed: Moonlight > RDP > Guacamole > `virt-manager`
-- Types of VM network connections compared:
-  ![](/static/images/2022-07-10/vm-networking.png)
+Moonlight:
+
+-   [Moonlight][moonlight] lags when displaying a remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU, and Moonlight can only transfer raw GPU video output, so the desktop is software rendered being transferred via some other protocol.
+-   Moonlight requires that the server machine (whether VM or physical) be **unlocked**, and that there are **no Remote Desktop Connections** ongoing.
+-   The streaming resolution of Moonlight is **not** what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.
+
+QEMU/`virt-manager`:
+
+-   Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.
+-   If you connect your GPU to a monitor during boot, the BIOS may claim part of the GPU memory, preventing it from being allocated to the VM. To resolve this, remove any HDMI/DP connections from the GPU and reboot the host.
+-   `virt-manager`/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in `virt-manager`) must first be closed.
+-   Types of VM network connections compared:
+    ![](/static/images/2022-07-10/vm-networking.png)
+
+Apache Guacamole:
+
+-   For RDP, 'Support audio in console' must be **unchecked** for sound to work.
+
+Misc:
+
+-   Connection speed: Moonlight > RDP > Guacamole > `virt-manager`
 
 ## Credits
 
-- [Fedora 33: Ultimiate VFIO Guide for 2020/2021 [WIP]](https://forum.level1techs.com/t/fedora-33-ultimiate-vfio-guide-for-2020-2021-wip/163814)
-- [PCI passthrough via OVMF](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Setting_up_IOMMU)
+-   [Fedora 33: Ultimiate VFIO Guide for 2020/2021 [WIP]](https://forum.level1techs.com/t/fedora-33-ultimiate-vfio-guide-for-2020-2021-wip/163814)
+-   [PCI passthrough via OVMF](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Setting_up_IOMMU)
+
+[^vm-nic]: This is necessary to ensure that the VM gets an IP address on the LAN, so that you can connect to it with Moonlight.
 
 [vt-d]: https://d2pgu9s4sfmw1s.cloudfront.net/UAM/Prod/Done/a062E00001eOlkFQAS/6d0ff26e-78fe-42cf-b29d-0bd57685ca5d?Expires=1657719487&Key-Pair-Id=APKAJKRNIMMSNYXST6UA&Signature=waVppuy971q9Y-W9oM88UqwSMNidyxs6Huu7U0gGw30IWwVXTFPiR~EAMEjMfvECkdaYfSeEFJFvboMCsk82bmK0wG2ec3H-~hoR5JJJEaPvFw3lKvzXSvY87MmMpSDA~PYSVqI0tFaibt1eZBhgqggbQwsdYsqFq4RSRCOjXDJIUA8mZwF9-GtRc2xEZkqUliYoMLSSgfmDLNoC3nGZtFzH~wxPjI~-5zr9lvE1dTxiGMQOtzEM~EYleNZwjHuVmIBmzNuKLxRZtAQDFAApk05ZOw10AZsFqvq~RR5YwUjAuADxEL6TuQXTgXiCSK-qf6hOBUCrlgQu6IWlYtKa2A__
 [moonlight]: https://moonlight-stream.org/

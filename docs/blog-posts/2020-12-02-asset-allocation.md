@@ -90,6 +90,8 @@ This effect is stronger the more negatively correlated the investments are[^nega
 
 This is why it isn't a good idea to put 100% of your portfolio in a single asset class (e.g. stocks).
 
+**Diversification gets even stranger** - in fact, just rebalancing a portfolio consisting of two uncorrelated assets with **zero** expected return can [generate positive return][shannons-demon]. This is due to the process of rebalancing reducing a factor known as 'volatility drag'.
+
 In short - **diversification increases return, and reduces volatility plus risk**, all of which are desirable characteristics of a portfolio.
 
 ## Historical Returns
@@ -184,6 +186,8 @@ You can see my [asset allocation](2021-01-16-my-investment-portfolio.md) here fo
 The earlier you start, the faster the magic of compound interest can begin. *The road goes ever on and on*[^lotr], and so shall your journey into the world of investing. Nothing worthwhile is ever easy. 
 
 I hope you enjoyed reading this article as much as I did writing it. Do drop me a [mail](mailto:me@nicholaslyz.com) if you have questions!
+
+[shannons-demon]: https://www.richmondquant.com/news/2021/9/21/shannons-demon-amp-how-portfolio-returns-can-be-created-out-of-thin-air
 
 [^sources]: Much of the material here is adapted from my readings of:
 
