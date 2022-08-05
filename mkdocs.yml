@@ -18,6 +18,8 @@ nav:
   - Home: index.md
   - About Me: about.md
   - Blog Posts:
+    - My Experience at a 10 Day Meditation Retreat: blog-posts/2022-08-05-vipassana-meditation-retreat.md
+    - My Diet: blog-posts/2022-08-01-my-diet.md
     - Android VM in a Browser: blog-posts/2022-07-18-android-vm-browser.md
     - Windows 11 Gaming VM with GPU Passthrough on Fedora 36: blog-posts/2022-07-10-win11-vm-gpu-passthrough.md
     - Docker GPU Access in Fedora: blog-posts/2022-07-10-docker-gpu-fedora.md
