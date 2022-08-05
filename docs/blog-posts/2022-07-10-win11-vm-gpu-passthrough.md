@@ -191,33 +191,57 @@ Some notes:
     Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
     ```
 
+-   To fix slow NFS access speeds on Windows, try this [fix][slow-nfs-fix].
 -   For Fedora: You must also open the NFS ports (TCP/UDP `111`, `2049` and `20048`) in the `Libvirt` zone.
+
+## (Optional) Moonlight: Fix low FPS on desktop and certain games
+
+[Moonlight][moonlight] runs at 30fps or less when displaying the remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU and natively running at a lower FPS. Moonlight is transferring this output when the GPU is not being utilized, for example with the desktop or certain 2D games.
+
+To fix this, you will need to get an HDMI dummy plug.
+
+-   Plug the HDMI dummy plug into the graphics card output.
+-   In `virt-manager`, ensure that the 'Video' is set to `Virtio`
+-   In the Windows VM, ensure that displays are set to mirror each other.
+-   You might need to reboot the VM after.
+
+You should now be getting 60fps when streaming the bare desktop.
 
 ## Conclusion
 
 And that's it! You now have a fully featured cloud gaming machine, with web browser access, accessible anywhere in the world.
 
-## Known Issues/Notes
+## Known Issues/Notes/Fixes
 
-Moonlight:
+### Moonlight
 
--   [Moonlight][moonlight] lags when displaying a remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU, and Moonlight can only transfer raw GPU video output, so the desktop is software rendered being transferred via some other protocol.
 -   Moonlight requires that the server machine (whether VM or physical) be **unlocked**, and that there are **no Remote Desktop Connections** ongoing.
--   The streaming resolution of Moonlight is **not** what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.
 
-QEMU/`virt-manager`:
+    -   After an RDP session, the main desktop is locked. To fix this, create a batch file with the following content, and run it **with administrator rights** to disconnect the RDP and unlock the main desktop:
+
+        ```
+        Powershell -Command "tscon rdp-tcp#0 /DEST:console"
+        ```
+
+-   The streaming resolution of Moonlight is **not** what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.
+-   Some useful shortcuts:
+    -   Minimize window: ++ctrl+alt+shift+d++
+    -   Show stats overlay: ++ctrl+alt+shift+s++
+
+### QEMU/`virt-manager`
 
 -   Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.
 -   If you connect your GPU to a monitor during boot, the BIOS may claim part of the GPU memory, preventing it from being allocated to the VM. To resolve this, remove any HDMI/DP connections from the GPU and reboot the host.
 -   `virt-manager`/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in `virt-manager`) must first be closed.
+-   Windows XP only: In `virt-manager`, the NIC device model must be `rtl8139`, and the sound card model as `AC97` in order for drivers to be installed.
 -   Types of VM network connections compared:
     ![](/static/images/2022-07-10/vm-networking.png)
 
-Apache Guacamole:
+### Apache Guacamole
 
 -   For RDP, 'Support audio in console' must be **unchecked** for sound to work.
 
-Misc:
+### Misc
 
 -   Connection speed: Moonlight > RDP > Guacamole > `virt-manager`
 
@@ -238,3 +262,4 @@ Misc:
 [guacamole-header-auth]: https://guacamole.apache.org/doc/gug/guacamole-docker.html#header-authentication
 [guacamole-postgresql]: https://lists.apache.org/thread/mp6gfxtxwhnnk215crcjbt0106w03o7l
 [macvtap]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap
+[slow-nfs-fix]: https://docs.oracle.com/en-us/iaas/Content/File/Troubleshooting/winNFSerror53.htm
