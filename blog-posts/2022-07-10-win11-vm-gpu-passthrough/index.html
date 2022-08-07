@@ -380,8 +380,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-moonlight-fix-low-fps-on-desktop-and-certain-games" class="md-nav__link">
-    (Optional) Moonlight: Fix low FPS on desktop and certain games
+  <a href="#moonlight-fix-low-fps-on-desktop-and-certain-games" class="md-nav__link">
+    Moonlight: Fix low FPS on desktop and certain games
   </a>
   
 </li>
@@ -1112,8 +1112,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-moonlight-fix-low-fps-on-desktop-and-certain-games" class="md-nav__link">
-    (Optional) Moonlight: Fix low FPS on desktop and certain games
+  <a href="#moonlight-fix-low-fps-on-desktop-and-certain-games" class="md-nav__link">
+    Moonlight: Fix low FPS on desktop and certain games
   </a>
   
 </li>
@@ -1224,9 +1224,15 @@ Virtualization:                  VT-x
 </li>
 </ol>
 <h2 id="1-setup-gpu-passthrough">1. Setup GPU Passthrough</h2>
-<p>Open <code>/etc/default/grub</code> with your editor of choice, and append <code>intel_iommu=on</code> to <code>GRUB_CMDLINE_LINUX</code>:</p>
-<div class="highlight"><pre><span></span><code>GRUB_CMDLINE_LINUX=&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on&quot;
+<p>Open <code>/etc/default/grub</code> with your editor of choice, and append <code>intel_iommu=on</code> as well as <code>initcall_blacklist=sysfb_init</code> to <code>GRUB_CMDLINE_LINUX</code>:</p>
+<div class="highlight"><pre><span></span><code>GRUB_CMDLINE_LINUX=&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on initcall_blacklist=sysfb_init&quot;
 </code></pre></div>
+<details class="note">
+<summary>What is the purpose of <code>initcall_blacklist=sysfb_init</code>?</summary>
+<p>Even with the <code>vfio-pci</code> drivers utilized, the kernel appears to reserve portions of memory in the GPU which causes errors visible in <code>dmesg</code> as <code>[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]</code>.</p>
+<p>The culprits for my system appeared to be <code>simplefb</code> and <code>bootfb</code>.</p>
+<p>Adding the above kernel parameter fixes the issue.</p>
+</details>
 <p>Optionally, you may want to disable <code>os-prober</code> especially if you have Docker installed, as it will attempt to probe containers and create a lot of unnecessary startup entries:</p>
 <div class="highlight"><pre><span></span><code>GRUB_DISABLE_OS_PROBER=true
 </code></pre></div>
@@ -1341,14 +1347,20 @@ Virtualization:                  VT-x
 </li>
 <li>For Fedora: You must also open the NFS ports (TCP/UDP <code>111</code>, <code>2049</code> and <code>20048</code>) in the <code>Libvirt</code> zone.</li>
 </ul>
-<h2 id="optional-moonlight-fix-low-fps-on-desktop-and-certain-games">(Optional) Moonlight: Fix low FPS on desktop and certain games</h2>
+<h2 id="moonlight-fix-low-fps-on-desktop-and-certain-games">Moonlight: Fix low FPS on desktop and certain games</h2>
 <p><a href="https://moonlight-stream.org/">Moonlight</a> runs at 30fps or less when displaying the remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU and natively running at a lower FPS. Moonlight is transferring this output when the GPU is not being utilized, for example with the desktop or certain 2D games.</p>
 <p>To fix this, you will need to get an HDMI dummy plug.</p>
 <ul>
 <li>Plug the HDMI dummy plug into the graphics card output.</li>
-<li>In <code>virt-manager</code>, ensure that the 'Video' is set to <code>Virtio</code></li>
-<li>In the Windows VM, ensure that displays are set to mirror each other.</li>
-<li>You might need to reboot the VM after.</li>
+<li>
+<p>In the Windows VM, ensure that displays are set to mirror each other.</p>
+<ul>
+<li>You might need to play around with the displays a bit, to ensure that Moonlight is streaming the display from the GPU output, and not that of the VM.</li>
+</ul>
+</li>
+<li>
+<p>You might need to reboot the VM after.</p>
+</li>
 </ul>
 <p>You should now be getting 60fps when streaming the bare desktop.</p>
 <h2 id="conclusion">Conclusion</h2>
@@ -1374,15 +1386,26 @@ Virtualization:                  VT-x
 <li>Show stats overlay: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-s">S</kbd></span></li>
 </ul>
 </li>
+<li>Moonlight not filling screen:<ul>
+<li><a href="https://github.com/moonlight-stream/moonlight-android/issues/588">Use the Nvidia control panel to change the screen resolution.</a></li>
+</ul>
+</li>
 </ul>
 <h3 id="qemuvirt-manager">QEMU/<code>virt-manager</code></h3>
 <ul>
 <li>Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.</li>
-<li>If you connect your GPU to a monitor during boot, the BIOS may claim part of the GPU memory, preventing it from being allocated to the VM. To resolve this, remove any HDMI/DP connections from the GPU and reboot the host.</li>
+<li>VM hangs/pauses, and in <code>dmesg</code> you see <code>[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]</code> and similar errors:<ul>
+<li>Ensure that the <a href="https://forum.proxmox.com/threads/problem-with-gpu-passthrough.55918/post-478351"><code>initcall_blacklist=sysfb_init</code></a> kernel parameter has been added to <code>grub.cfg</code>.</li>
+</ul>
+</li>
 <li><code>virt-manager</code>/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in <code>virt-manager</code>) must first be closed.</li>
 <li>Windows XP only: In <code>virt-manager</code>, the NIC device model must be <code>rtl8139</code>, and the sound card model as <code>AC97</code> in order for drivers to be installed.</li>
 <li>Types of VM network connections compared:
     <img alt="" src="/static/images/2022-07-10/vm-networking.png" /></li>
+<li>Nvidia Geforce Experience says 'Unsupported CPU':<ul>
+<li>Change the CPU model in <code>virt-manager</code> (in the XML) to <code>host-passthrough</code>.</li>
+</ul>
+</li>
 </ul>
 <h3 id="apache-guacamole">Apache Guacamole</h3>
 <ul>
