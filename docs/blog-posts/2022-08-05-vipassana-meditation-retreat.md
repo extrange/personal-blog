@@ -13,7 +13,7 @@ Notable, these are some of the rules observed throughout the course:
 -   No use of phones or electronic devices
 -   No reading or writing materials
 -   10 hours of seated meditation daily, for the 10 days (i.e. 100 hours of meditation in total)
--   No meat - the food provided was vegan.
+-   No meat - the food provided was vegetarian.
 -   Male and female accommodation was separate, and no communication or interaction between the sexes was allowed
 
 Additionally:
@@ -210,7 +210,7 @@ Each experience we receive from the six sense doors: vision, smell, touch, sound
 
 The technique trains awareness to both, and encourages the conscious mind to see both pain and pleasure as the same thing. This ability extends to the actual experiences of craving and aversion in our daily lives, allowing us to become equanimous to both of them.
 
-With prolonged exposure, it is possible to develop detachment from bodily sensations and even thoughts, towards a state of [ego death][ego-death], where 'one' (if that still makes sense in this state) no longer views their body, its sensations, thoughts, desires and fears as their own, but rather from a third person point of view. In such a state, there is no reason to crave or avoid anything - there is pure indifference to everything.
+With prolonged exposure, it is possible to develop detachment from bodily sensations and even thoughts, towards a state of [ego death][ego-death], where 'one' (if that still makes sense in this state) no longer views their body, its `sensations, thoughts, desires and fears as their own, but rather from a third person point of view. In such a state, there is no reason to crave or avoid anything - there is pure indifference to everything.
 
 ### Is it really free? Can I not pay anything?
 
@@ -281,6 +281,12 @@ Some days I was able to sit still and be equanimous to pain for longer periods t
 
     - This is in the same category as distractions - with a recent memory of a sensual experience, this will keep cropping up in the mind, and affect one's ability to concentrate on observing sensations. I suppose this is why some of the Sila (moral rules) involve abstaining from sensual pleasures like sex, alcohol and drugs.
 
+**Conjectures regarding the ultimate origination of _sankharas_**
+
+I believe our innate responses to stimuli, internal or external, arise from the ego, which is possibly an evolved construct of the mind, with the purpose of ensuring our continued survival and reproduction in the world. We are therefore carrying this piece of 'evolutionary baggage' around as we go, and meditation somewhat frees us from this.
+
+A fellow meditator I spoke to, who thinks similarly, recommends [_Sapiens_][sapiens] by Yuval Noah Harari for further reading.
+
 [dhamma.org]: https://www.dhamma.org/en-US/index
 [saleng]: https://malaya.dhamma.org/malaya/locations/johor.shtml
 [goenka]: https://en.wikipedia.org/wiki/S._N._Goenka
@@ -294,7 +300,8 @@ Some days I was able to sit still and be equanimous to pain for longer periods t
 [sankharas]: https://en.wikipedia.org/wiki/Sa%E1%B9%85kh%C4%81ra
 [zen-retreat]: https://www.rinzaiji.org/programs/
 [ego-death]: https://en.wikipedia.org/wiki/Ego_death
-[yiqin]: https://nicholaslyz.com/blog-posts/2022-08-05-vipassana-meditation-retreat/
+[yiqin]: https://medium.com/@Holistic.Counselling/vipassana-i-did-nothing-but-meditate-for-10-days-so-you-can-too-part-1-3d75ede17231
 [tedx-talk]: https://www.youtube.com/watch?v=ixu4Kd5R1DI
+[sapiens]: https://www.goodreads.com/book/show/23692271-sapiens
 
 [^zen-books]: I have read works by Alan Watts (The Way of Zen, The Book on the Taboo against Knowing Who You Are) and Shunryu Suzuki (Zen Mind, Beginner's Mind).

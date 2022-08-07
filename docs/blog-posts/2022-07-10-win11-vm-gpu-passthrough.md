@@ -30,11 +30,19 @@ After this guide, you will have a Windows 11 headless VM that can be accessed vi
 
 ## 1. Setup GPU Passthrough
 
-Open `/etc/default/grub` with your editor of choice, and append `intel_iommu=on` to `GRUB_CMDLINE_LINUX`:
+Open `/etc/default/grub` with your editor of choice, and append `intel_iommu=on` as well as `initcall_blacklist=sysfb_init` to `GRUB_CMDLINE_LINUX`:
 
 ```
-GRUB_CMDLINE_LINUX="resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on"
+GRUB_CMDLINE_LINUX="resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on initcall_blacklist=sysfb_init"
 ```
+
+??? note "What is the purpose of `initcall_blacklist=sysfb_init`?"
+
+    Even with the `vfio-pci` drivers utilized, the kernel appears to reserve portions of memory in the GPU which causes errors visible in `dmesg` as `[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]`.
+
+    The culprits for my system appeared to be `simplefb` and `bootfb`.
+
+    Adding the above kernel parameter fixes the issue.
 
 Optionally, you may want to disable `os-prober` especially if you have Docker installed, as it will attempt to probe containers and create a lot of unnecessary startup entries:
 
@@ -194,15 +202,17 @@ Some notes:
 -   To fix slow NFS access speeds on Windows, try this [fix][slow-nfs-fix].
 -   For Fedora: You must also open the NFS ports (TCP/UDP `111`, `2049` and `20048`) in the `Libvirt` zone.
 
-## (Optional) Moonlight: Fix low FPS on desktop and certain games
+## Moonlight: Fix low FPS on desktop and certain games
 
 [Moonlight][moonlight] runs at 30fps or less when displaying the remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU and natively running at a lower FPS. Moonlight is transferring this output when the GPU is not being utilized, for example with the desktop or certain 2D games.
 
 To fix this, you will need to get an HDMI dummy plug.
 
 -   Plug the HDMI dummy plug into the graphics card output.
--   In `virt-manager`, ensure that the 'Video' is set to `Virtio`
 -   In the Windows VM, ensure that displays are set to mirror each other.
+
+    -   You might need to play around with the displays a bit, to ensure that Moonlight is streaming the display from the GPU output, and not that of the VM.
+
 -   You might need to reboot the VM after.
 
 You should now be getting 60fps when streaming the bare desktop.
@@ -227,15 +237,20 @@ And that's it! You now have a fully featured cloud gaming machine, with web brow
 -   Some useful shortcuts:
     -   Minimize window: ++ctrl+alt+shift+d++
     -   Show stats overlay: ++ctrl+alt+shift+s++
+-   Moonlight not filling screen:
+    -   [Use the Nvidia control panel to change the screen resolution.][moonlight-fix]
 
 ### QEMU/`virt-manager`
 
 -   Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.
--   If you connect your GPU to a monitor during boot, the BIOS may claim part of the GPU memory, preventing it from being allocated to the VM. To resolve this, remove any HDMI/DP connections from the GPU and reboot the host.
+-   VM hangs/pauses, and in `dmesg` you see `[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]` and similar errors:
+    -   Ensure that the [`initcall_blacklist=sysfb_init`][gpu-fix] kernel parameter has been added to `grub.cfg`.
 -   `virt-manager`/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in `virt-manager`) must first be closed.
 -   Windows XP only: In `virt-manager`, the NIC device model must be `rtl8139`, and the sound card model as `AC97` in order for drivers to be installed.
 -   Types of VM network connections compared:
     ![](/static/images/2022-07-10/vm-networking.png)
+-   Nvidia Geforce Experience says 'Unsupported CPU':
+    -   Change the CPU model in `virt-manager` (in the XML) to `host-passthrough`.
 
 ### Apache Guacamole
 
@@ -263,3 +278,5 @@ And that's it! You now have a fully featured cloud gaming machine, with web brow
 [guacamole-postgresql]: https://lists.apache.org/thread/mp6gfxtxwhnnk215crcjbt0106w03o7l
 [macvtap]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap
 [slow-nfs-fix]: https://docs.oracle.com/en-us/iaas/Content/File/Troubleshooting/winNFSerror53.htm
+[gpu-fix]: https://forum.proxmox.com/threads/problem-with-gpu-passthrough.55918/post-478351
+[moonlight-fix]: https://github.com/moonlight-stream/moonlight-android/issues/588
