@@ -10,9 +10,9 @@ I am, however, more interested in the implications resulting from the idea that 
 
 ![](/static/images/2022-08-11/evolution.jpg)
 
-This extends to our raw perception (_qualia_) itself. The experience of seeing blue as blue, for example, is completely arbitrary - why doesn't blue look green? Or take temperature as an example - why does ice feel cold? More broadly, why are our eyes biased to an [extremely narrow portion][visible-spectrum] of the electromagnetic spectrum, or why can't we see infrared?
+This extends to our raw perception (_qualia_) itself. The experience of seeing blue as blue, for example, is _completely arbitrary_ - why doesn't blue look green? Or take temperature as an example - why does ice feel cold? More broadly, why are our eyes biased to an [extremely narrow portion][visible-spectrum] of the electromagnetic spectrum, or why can't we see infrared? Bats are able to echolocate their prey via sonar, but it is not something that we can readily imagine, let alone experience[^nagel]. Electric eels are able to locate prey via sensing changes in the electrical gradient, and again we cannot imagine how this must feel like for the eel.
 
-Taken even further, Huffman's argument posits that there is **no objective reality** out there. Chairs, tables, rocks etcetera do not really exist - our perceptions lie to us, manipulate reality in ways such that we act to survive and reproduce. To put it simply, over years of evolution, it is easier for us to perceive a tiger as how we currently see it, large and fear-inducing, so that we make the appropriate action for our survival (by running away), rather actually seeing the tiger as it is. There may not even be three dimensions in the world we live in - our senses could have filtered out the extra dimensions, because from the evolutionary point of view, there is no added [fitness][fitness] to perceiving them.
+Huffman's argument further posits that there is **no objective reality**. Chairs, tables, rocks etcetera do not really exist - our perceptions lie to us, manipulate reality in ways such that we act to survive and reproduce. To put it simply, over years of evolution, it is easier for us to perceive a tiger as how we currently see it, large and fear-inducing, so that we make the appropriate action for our survival (by running away), rather actually seeing the tiger as it is. There may not even be three dimensions in the world we live in - our senses could have filtered out the extra dimensions, because from the evolutionary point of view, there is no added [fitness][fitness] to perceiving them.
 
 To go even further out, **our thoughts can be viewed as a form of perception, namely mental perception, and therefore also susceptible to distortion**. We already see this from our desires - we generally find others of the opposite gender attractive, and this preference is not free for us to decide, having been [programmed by our genes][selfish-gene] from the get-go. This distortion could potentially apply to our thoughts on moral and ethical issues, our likes and dislikes, what we perceive as good or bad, and so on. In light of this, are our thoughts even ours?
 
@@ -40,7 +40,6 @@ Logic may be more real than anything we can perceive in this world.
 
 ![](/static/images/2022-08-11/matrix.jpg)
 
-
 ## Notes and Additional Reading
 
 There are several critiques of Hoffman's theory - you can read one of them [here][critique].
@@ -51,6 +50,7 @@ Another interesting argument I read online arguing for objective reality goes as
 
 [This][obscurantism] is a humorous critique of oft-abused terms (think _quantumly connected_, _non-locality_) in the psychological field of consciousness.
 
+[^nagel]: This is covered in his 1974 paper, [_What Is It Like to be a Bat_?](https://warwick.ac.uk/fac/cross_fac/iatl/study/ugmodules/humananimalstudies/lectures/32/nagel_bat.pdf)
 [^ego-death]: Ironically, with logic and the realization that the ego exists, certain [meditation techniques][zen] and [drugs][drugs] have been utilized with the intent of [dissolving it][ego-death].
 
 [book]: https://www.goodreads.com/book/show/41817484-the-case-against-reality
