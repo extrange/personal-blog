@@ -161,6 +161,6 @@ Finally, I use [Powerline][powerline], a great status plugin showing CPU/memory/
 
 [^bit-rot]: If some bits in one of the drives were to fail (e.g. due to [bit rot](https://en.wikipedia.org/wiki/Bit_rot)), `dmraid` would not know which drive contains the correct data as it operates below the filesystem layer.
 [^cryptsetup-partition]: The reason I do not use `cryptsetup` (or `dmcrypt`) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.
-[^nfs-issues]: Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the [fix](https://rotelok.com/enablefix-write-permissions-on-a-nfs-share-mounted-on-windows-10/).
+[^nfs-issues]: Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the [fix](https://unix.stackexchange.com/questions/276292/need-permission-for-windows-client-to-access-linux-nfs).
 [^pam-issues]: On Fedora, Google Authenticator PAM has some [issues](https://github.com/google/google-authenticator-libpam/issues/101) with SELinux security configurations and so I use a [workaround](https://github.com/google/google-authenticator-libpam/issues/101#issuecomment-997533681).
 [^mosh]: Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).

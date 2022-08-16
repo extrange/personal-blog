@@ -3,6 +3,11 @@ Last updated 8/11/20
 Most of these are taken on my Canon 700D with the [Tokina f/2.8 11-16mm lens](https://tokinalens.com/product/at_x_116_pro_dx_ii/). Post-processing is done in Lightroom and Photoshop.
 
 <figure>
+  <img src="/static/images/photography/2022-08-14-phuket-beach.jpg" alt="Phuket, 2022" loading="lazy"/>
+  <figcaption>Phuket, 2022<figcaption/>
+</figure>
+
+<figure>
   <img src="/static/images/photography/2019-12-18-taiwan-sunset-road.jpg" alt="Qingjing Farm, Taiwan, 2019" loading="lazy"/>
   <figcaption>Qingjing Farm, Taiwan, 2019</figcaption>
 </figure>
@@ -62,7 +67,6 @@ Most of these are taken on my Canon 700D with the [Tokina f/2.8 11-16mm lens](ht
   <figcaption>Poon Hill, Nepal, 2014</figcaption>
 </figure>
 
-
 ![](static/images/photography/2021-11-25-lightning.jpg){: loading=lazy}
 
 ![](static/images/photography/2015-12-19-kilimanjaro-mouse.jpg){: loading=lazy }
@@ -82,4 +86,3 @@ Most of these are taken on my Canon 700D with the [Tokina f/2.8 11-16mm lens](ht
 ![](static/images/photography/2015-05-13-switzerland-lauterbrunnen-snail.jpg){: loading=lazy }
 
 ![](static/images/photography/2016-05-30-sunset3.jpg){: loading=lazy }
-
