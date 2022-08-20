@@ -1,8 +1,8 @@
 # Windows 11 Gaming VM with GPU Passthrough on Fedora 36
 
 <figure>
-  <img src="/static/images/2022-07-10/demo.jpg" alt="Gaming on a laptop remotely over Nvidia Shield" loading="lazy"/>
-  <figcaption>Gaming on a laptop remotely with Nvidia Shield using mobile data</figcaption>
+  <img src="/static/images/2022-07-10/demo.jpg" alt="Gaming on a laptop remotely over Nvidia Gamestream" loading="lazy"/>
+  <figcaption>Gaming on a laptop remotely with Nvidia Gamestream using mobile data</figcaption>
 </figure>
 
 After this guide, you will have a Windows 11 headless VM that can be accessed via:
@@ -256,6 +256,31 @@ And that's it! You now have a fully featured cloud gaming machine, with web brow
 
 -   For RDP, 'Support audio in console' must be **unchecked** for sound to work.
 
+### Steam Link
+
+[Steam Link][steam-link] is another solution for low latency desktop streaming, which is also available cross-platform. One advantage compared to [Moonlight][moonlight] is that it works without a GPU installed (it uses `libx264` on the CPU). While the performance using a GPU (using [NVENC][nvenc]) is roughly equivalent to Moonlight at the same bitrate, performance without a GPU leaves a lot to be desired, in terms of encoding time and therefore latency.
+
+<figure>
+  <img src="/static/images/2022-07-10/steamlink.jpg" alt="Steam Link without GPU" loading="lazy"/>
+  <figcaption>Steam Link using <code>libx264</code> (CPU) encoding. <br/>Note the encoding latency of 130ms (game: Hearthstone)</figcaption>
+</figure>
+
+Gaming (even light) is therefore not possible without a GPU. Even for non-gaming tasks, there is little reason not to use Remote Desktop/Apache Guacamole instead, which have much lower network bandwidth requirements.
+
+Steam Link also appears to render the cursor client-side, compared to Moonlight which renders the cursor on the server. This introduces some visible screen artifacts, as can be seen in the comparison images when the cursor is click-dragged rapidly (the desktop lags behind the cursor for Steam Link).
+
+<figure>
+  <img src="/static/images/2022-07-10/steamlink-cursor.jpg" alt="Steam Link" loading="lazy"/>
+  <figcaption>Steam Link</figcaption>
+</figure>
+
+<figure>
+  <img src="/static/images/2022-07-10/moonlight-cursor.jpg" alt="Moonlight" loading="lazy"/>
+  <figcaption>Moonlight</figcaption>
+</figure>
+
+One advantage of Steam Link however is that no port forwarding appears to be required, while Moonlight sometimes has issues with UDP port 47999 when on mobile data (from my experience).
+
 ### Misc
 
 -   Connection speed: Moonlight > RDP > Guacamole > `virt-manager`
@@ -280,3 +305,5 @@ And that's it! You now have a fully featured cloud gaming machine, with web brow
 [slow-nfs-fix]: https://docs.oracle.com/en-us/iaas/Content/File/Troubleshooting/winNFSerror53.htm
 [gpu-fix]: https://forum.proxmox.com/threads/problem-with-gpu-passthrough.55918/post-478351
 [moonlight-fix]: https://github.com/moonlight-stream/moonlight-android/issues/588
+[steam-link]: https://store.steampowered.com/remoteplay#anywhere
+[nvenc]: https://en.wikipedia.org/wiki/Nvidia_NVENC

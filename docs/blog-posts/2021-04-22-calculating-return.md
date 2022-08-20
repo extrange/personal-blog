@@ -28,7 +28,7 @@ Formula
 
 ## Money - Weighted Rate of Return (MWRR)
 
-Also known as the Internal Rate of Return.
+Also known as the Annualized Internal Rate of Return.
 
 Formula
 
@@ -38,6 +38,14 @@ Formula
 - does not require portfolio valuations at each calculation point
 
 https://oldschoolvalue-files.s3.amazonaws.com/premium/portfolio-performance-calculation-IB.pdf
+
+---
+Consider taking more information from the Endowus Portfolio page
+---
+
+## Modified Dietz Rate of Return
+
+## Simple Return
 
 ## Forex
 Forex can also erode one's gains. Take the following for example: (include forex example from Finance and Investing here)
