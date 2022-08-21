@@ -1449,6 +1449,18 @@ Virtualization:                  VT-x
 </figure>
 
 <p>Gaming (even light) is therefore not possible without a GPU. Even for non-gaming tasks, there is little reason not to use Remote Desktop/Apache Guacamole instead, which have much lower network bandwidth requirements.</p>
+<p>Steam Link also appears to render the cursor client-side, compared to Moonlight which renders the cursor on the server. This introduces some visible screen artifacts, as can be seen in the comparison images when the cursor is click-dragged rapidly (the desktop lags behind the cursor for Steam Link).</p>
+<figure>
+  <img src="/static/images/2022-07-10/steamlink-cursor.jpg" alt="Steam Link" loading="lazy"/>
+  <figcaption>Steam Link</figcaption>
+</figure>
+
+<figure>
+  <img src="/static/images/2022-07-10/moonlight-cursor.jpg" alt="Moonlight" loading="lazy"/>
+  <figcaption>Moonlight</figcaption>
+</figure>
+
+<p>One advantage of Steam Link however is that no port forwarding appears to be required, while Moonlight sometimes has issues with UDP port 47999 when on mobile data (from my experience).</p>
 <h3 id="misc">Misc</h3>
 <ul>
 <li>Connection speed: Moonlight &gt; RDP &gt; Guacamole &gt; <code>virt-manager</code></li>
