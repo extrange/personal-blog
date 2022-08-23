@@ -1,3 +1,8 @@
+---
+tags:
+  - Programming
+---
+
 # Windows 11 Gaming VM with GPU Passthrough on Fedora 36
 
 <figure>

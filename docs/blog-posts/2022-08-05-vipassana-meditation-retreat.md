@@ -1,3 +1,8 @@
+---
+tags:
+  - Philosophy
+---
+
 # My Experience at a 10 Day Vipassana Meditation Retreat
 
 <figure>
@@ -5,9 +10,9 @@
   <figcaption>Entrance of the meditation center at Saleng Eco Farm</figcaption>
 </figure>
 
-From the 20th to 31st of July 2022, I signed up for a [10-day meditation retreat][dhamma.org] at [Saleng Eco Farm, Johor][saleng], conducted by a Vipassana Meditation Center following the teachings of [S. N. Goenka][goenka].
+From the 20th to 31st of July 2022, I signed up for a [10-day meditation retreat][dhamma.org] at [Saleng Eco Farm, Johor][saleng], conducted by a Vipassana Meditation Center following the teachings of [S. N. Goenka][goenka] (which are in turn derived from Buddhism[^buddhism]).
 
-Notable, these are some of the rules observed throughout the course:
+Notably, these are some of the rules observed throughout the course:
 
 -   No speaking, gesturing, or otherwise communicating with anyone other than the teacher (and even then, at designated times)
 -   No use of phones or electronic devices
@@ -304,4 +309,5 @@ A fellow meditator I spoke to, who thinks similarly, recommends [_Sapiens_][sapi
 [tedx-talk]: https://www.youtube.com/watch?v=ixu4Kd5R1DI
 [sapiens]: https://www.goodreads.com/book/show/23692271-sapiens
 
+[^buddhism]: Buddhism may be considered a religion, but I prefer to view it as a psychological school of thought.
 [^zen-books]: I have read works by Alan Watts (The Way of Zen, The Book on the Taboo against Knowing Who You Are) and Shunryu Suzuki (Zen Mind, Beginner's Mind).

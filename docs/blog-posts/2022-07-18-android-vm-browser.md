@@ -1,3 +1,8 @@
+---
+tags:
+  - Programming
+---
+
 # Android VM in a Browser (via Apache Guacamole)
 
 ![](/static/images/2022-07-18/android-vm.jpg)

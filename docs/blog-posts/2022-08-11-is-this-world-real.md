@@ -1,3 +1,8 @@
+---
+tags:
+  - Philosophy
+---
+
 # Is This World Real? On Realism
 
 ![](/static/images/2022-08-11/lens.jpg)
