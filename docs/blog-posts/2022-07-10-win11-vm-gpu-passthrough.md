@@ -1,6 +1,6 @@
 ---
 tags:
-  - Programming
+    - Programming
 ---
 
 # Windows 11 Gaming VM with GPU Passthrough on Fedora 36
@@ -10,11 +10,11 @@ tags:
   <figcaption>Gaming on a laptop remotely with Nvidia Gamestream using mobile data</figcaption>
 </figure>
 
-After this guide, you will have a Windows 11 headless VM that can be accessed via:
+After completing this guide, you will have a Windows 11 headless VM that can be accessed via:
 
--   [Moonlight][moonlight] (for high performance gaming)
--   RDP (for office work)
--   Web Browser (via [Apache Guacamole][apache-guacamole], no client required)
+-   [Moonlight][moonlight]/[Steam Link][steam-link] for high performance gaming
+-   RDP for less demanding tasks
+-   RDP over a web browser (via [Apache Guacamole][apache-guacamole])
 
 ## Prerequisites:
 
@@ -31,13 +31,15 @@ After this guide, you will have a Windows 11 headless VM that can be accessed vi
 
 4. [Docker](https://docs.docker.com/desktop/linux/install/) is installed
 
-5. Windows 11 Pro (for Remote Desktop)
+5. Windows 11 Pro license (required for Remote Desktop)
 
 ## 1. Setup GPU Passthrough
 
+**Enable IOMMU**
+
 Open `/etc/default/grub` with your editor of choice, and append `intel_iommu=on` as well as `initcall_blacklist=sysfb_init` to `GRUB_CMDLINE_LINUX`:
 
-```
+```bash
 GRUB_CMDLINE_LINUX="resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on initcall_blacklist=sysfb_init"
 ```
 
@@ -57,20 +59,46 @@ GRUB_DISABLE_OS_PROBER=true
 
 Save the modified configuration file:
 
-```
+```bash
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
-Next, create `/etc/dracut.conf.d/10-vfio.conf` with the following content:
+**Configure `vfio-pci` module to load on boot**
 
-```
+Create the following files with the content as shown (you will need superuser privileges):
+
+```bash
+#/etc/dracut.conf.d/10-vfio.conf
 add_drivers+=" vfio_pci vfio vfio_iommu_type1 vfio_virqfd "
+
+#/etc/modules-load.d/vfio-pci.conf
+vfio-pci
+
+#/etc/modprobe.d/vfio.conf
+options vfio-pci ids=<GPU-PCI-ID>
 ```
 
-You will need to rebuild the initial ramdisk image:
+Where `<GPU-PCI-ID>` is the id `xxxx:xxxx` as shown by the output of `lspci -nn`, for example:
+
+```
+[root@server ~]# lspci -nn | grep -i vga
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1070 Ti] [10de:1b82] (rev a1)
+```
+
+You will need to rebuild the initial ramdisk (`initrd`) image after modifying the above files:
 
 ```
 dracut -fv
+```
+
+Check that the generated ramdisk contains output similar to the following using `lsinitrd`:
+
+```
+[root@server ~]# lsinitrd | grep -i vfio
+-rw-r--r--   1 root     root           31 Mar 30 16:53 etc/modprobe.d/vfio.conf
+-rw-r--r--   1 root     root            9 Mar 30 16:53 etc/modules-load.d/vfio-pci.conf
+drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-200.fc36.x86_64/kernel/drivers/vfio
+<truncated>
 ```
 
 Now reboot, and check that IOMMU is working:
@@ -91,8 +119,6 @@ $ dmesg | grep -i iommu
 ```
 
 If you do not see the `... Adding to iommu group` lines, ensure `VT-d` has been turned on in your BIOS.
-
-https://www.digitalcitizen.life/install-windows-11-virtual-machine/
 
 ## 2. Install Virtualization Packages
 
@@ -207,7 +233,7 @@ Some notes:
 -   To fix slow NFS access speeds on Windows, try this [fix][slow-nfs-fix].
 -   For Fedora: You must also open the NFS ports (TCP/UDP `111`, `2049` and `20048`) in the `Libvirt` zone.
 
-## Moonlight: Fix low FPS on desktop and certain games
+## 7. (Optional) Fix low FPS on desktop and certain games
 
 [Moonlight][moonlight] runs at 30fps or less when displaying the remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU and natively running at a lower FPS. Moonlight is transferring this output when the GPU is not being utilized, for example with the desktop or certain 2D games.
 
@@ -227,6 +253,25 @@ You should now be getting 60fps when streaming the bare desktop.
 And that's it! You now have a fully featured cloud gaming machine, with web browser access, accessible anywhere in the world.
 
 ## Known Issues/Notes/Fixes
+
+### Disabling VFIO
+
+Sometimes, you may want to disable VFIO or GPU passthrough, for example when you want to [use the GPU in the host](2022-07-10-docker-gpu-fedora.md).
+
+To disable GPU passthrough:
+
+-   Remove the file `/etc/dracut.conf.d/10-vfio.conf`.
+-   Add the following lines to `GRUB_CMDLINE_LINUX` in `/etc/default/grub`:
+
+    ```
+    rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
+    ```
+
+-   Regenerate `grub.cfg` with `grub2-mkconfig -o /boot/grub2/grub.cfg`.
+-   Regenerate the `initramfs` with `dracut -fv`.
+-   Reboot.
+
+To re-enable GPU passthrough, reverse the steps above.
 
 ### Moonlight
 
