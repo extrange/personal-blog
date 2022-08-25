@@ -396,8 +396,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#moonlight-fix-low-fps-on-desktop-and-certain-games" class="md-nav__link">
-    Moonlight: Fix low FPS on desktop and certain games
+  <a href="#7-optional-fix-low-fps-on-desktop-and-certain-games" class="md-nav__link">
+    7. (Optional) Fix low FPS on desktop and certain games
   </a>
   
 </li>
@@ -416,6 +416,13 @@
   
     <nav class="md-nav" aria-label="Known Issues/Notes/Fixes">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disabling-vfio" class="md-nav__link">
+    Disabling VFIO
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#moonlight" class="md-nav__link">
@@ -1135,8 +1142,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#moonlight-fix-low-fps-on-desktop-and-certain-games" class="md-nav__link">
-    Moonlight: Fix low FPS on desktop and certain games
+  <a href="#7-optional-fix-low-fps-on-desktop-and-certain-games" class="md-nav__link">
+    7. (Optional) Fix low FPS on desktop and certain games
   </a>
   
 </li>
@@ -1155,6 +1162,13 @@
   
     <nav class="md-nav" aria-label="Known Issues/Notes/Fixes">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disabling-vfio" class="md-nav__link">
+    Disabling VFIO
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#moonlight" class="md-nav__link">
@@ -1236,11 +1250,11 @@
   <figcaption>Gaming on a laptop remotely with Nvidia Gamestream using mobile data</figcaption>
 </figure>
 
-<p>After this guide, you will have a Windows 11 headless VM that can be accessed via:</p>
+<p>After completing this guide, you will have a Windows 11 headless VM that can be accessed via:</p>
 <ul>
-<li><a href="https://moonlight-stream.org/">Moonlight</a> (for high performance gaming)</li>
-<li>RDP (for office work)</li>
-<li>Web Browser (via <a href="https://guacamole.apache.org/">Apache Guacamole</a>, no client required)</li>
+<li><a href="https://moonlight-stream.org/">Moonlight</a>/<a href="https://store.steampowered.com/remoteplay#anywhere">Steam Link</a> for high performance gaming</li>
+<li>RDP for less demanding tasks</li>
+<li>RDP over a web browser (via <a href="https://guacamole.apache.org/">Apache Guacamole</a>)</li>
 </ul>
 <h2 id="prerequisites">Prerequisites:</h2>
 <ol>
@@ -1260,12 +1274,13 @@ Virtualization:                  VT-x
 <p><a href="https://docs.docker.com/desktop/linux/install/">Docker</a> is installed</p>
 </li>
 <li>
-<p>Windows 11 Pro (for Remote Desktop)</p>
+<p>Windows 11 Pro license (required for Remote Desktop)</p>
 </li>
 </ol>
 <h2 id="1-setup-gpu-passthrough">1. Setup GPU Passthrough</h2>
+<p><strong>Enable IOMMU</strong></p>
 <p>Open <code>/etc/default/grub</code> with your editor of choice, and append <code>intel_iommu=on</code> as well as <code>initcall_blacklist=sysfb_init</code> to <code>GRUB_CMDLINE_LINUX</code>:</p>
-<div class="highlight"><pre><span></span><code>GRUB_CMDLINE_LINUX=&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on initcall_blacklist=sysfb_init&quot;
+<div class="highlight"><pre><span></span><code><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on initcall_blacklist=sysfb_init&quot;</span>
 </code></pre></div>
 <details class="note">
 <summary>What is the purpose of <code>initcall_blacklist=sysfb_init</code>?</summary>
@@ -1279,11 +1294,30 @@ Virtualization:                  VT-x
 <p>Save the modified configuration file:</p>
 <div class="highlight"><pre><span></span><code>grub2-mkconfig -o /boot/grub2/grub.cfg
 </code></pre></div>
-<p>Next, create <code>/etc/dracut.conf.d/10-vfio.conf</code> with the following content:</p>
-<div class="highlight"><pre><span></span><code>add_drivers+=&quot; vfio_pci vfio vfio_iommu_type1 vfio_virqfd &quot;
+<p><strong>Configure <code>vfio-pci</code> module to load on boot</strong></p>
+<p>Create the following files with the content as shown (you will need superuser privileges):</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#/etc/dracut.conf.d/10-vfio.conf</span>
+<span class="nv">add_drivers</span><span class="o">+=</span><span class="s2">&quot; vfio_pci vfio vfio_iommu_type1 vfio_virqfd &quot;</span>
+
+<span class="c1">#/etc/modules-load.d/vfio-pci.conf</span>
+vfio-pci
+
+<span class="c1">#/etc/modprobe.d/vfio.conf</span>
+options vfio-pci <span class="nv">ids</span><span class="o">=</span>&lt;GPU-PCI-ID&gt;
 </code></pre></div>
-<p>You will need to rebuild the initial ramdisk image:</p>
+<p>Where <code>&lt;GPU-PCI-ID&gt;</code> is the id <code>xxxx:xxxx</code> as shown by the output of <code>lspci -nn</code>, for example:</p>
+<div class="highlight"><pre><span></span><code>[root@server ~]# lspci -nn | grep -i vga
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1070 Ti] [10de:1b82] (rev a1)
+</code></pre></div>
+<p>You will need to rebuild the initial ramdisk (<code>initrd</code>) image after modifying the above files:</p>
 <div class="highlight"><pre><span></span><code>dracut -fv
+</code></pre></div>
+<p>Check that the generated ramdisk contains output similar to the following using <code>lsinitrd</code>:</p>
+<div class="highlight"><pre><span></span><code>[root@server ~]# lsinitrd | grep -i vfio
+-rw-r--r--   1 root     root           31 Mar 30 16:53 etc/modprobe.d/vfio.conf
+-rw-r--r--   1 root     root            9 Mar 30 16:53 etc/modules-load.d/vfio-pci.conf
+drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-200.fc36.x86_64/kernel/drivers/vfio
+&lt;truncated&gt;
 </code></pre></div>
 <p>Now reboot, and check that IOMMU is working:</p>
 <div class="highlight"><pre><span></span><code>$ dmesg <span class="p">|</span> grep -i iommu
@@ -1300,7 +1334,6 @@ Virtualization:                  VT-x
 </span><span class="hll"><span class="o">[</span>    <span class="m">1</span>.561003<span class="o">]</span> pci <span class="m">0000</span>:00:14.0: Adding to iommu group <span class="m">4</span>
 </span></code></pre></div>
 <p>If you do not see the <code>... Adding to iommu group</code> lines, ensure <code>VT-d</code> has been turned on in your BIOS.</p>
-<p>https://www.digitalcitizen.life/install-windows-11-virtual-machine/</p>
 <h2 id="2-install-virtualization-packages">2. Install Virtualization Packages</h2>
 <div class="highlight"><pre><span></span><code># sudo dnf install @virtualization
 </code></pre></div>
@@ -1387,7 +1420,7 @@ Virtualization:                  VT-x
 </li>
 <li>For Fedora: You must also open the NFS ports (TCP/UDP <code>111</code>, <code>2049</code> and <code>20048</code>) in the <code>Libvirt</code> zone.</li>
 </ul>
-<h2 id="moonlight-fix-low-fps-on-desktop-and-certain-games">Moonlight: Fix low FPS on desktop and certain games</h2>
+<h2 id="7-optional-fix-low-fps-on-desktop-and-certain-games">7. (Optional) Fix low FPS on desktop and certain games</h2>
 <p><a href="https://moonlight-stream.org/">Moonlight</a> runs at 30fps or less when displaying the remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU and natively running at a lower FPS. Moonlight is transferring this output when the GPU is not being utilized, for example with the desktop or certain 2D games.</p>
 <p>To fix this, you will need to get an HDMI dummy plug.</p>
 <ul>
@@ -1406,6 +1439,23 @@ Virtualization:                  VT-x
 <h2 id="conclusion">Conclusion</h2>
 <p>And that's it! You now have a fully featured cloud gaming machine, with web browser access, accessible anywhere in the world.</p>
 <h2 id="known-issuesnotesfixes">Known Issues/Notes/Fixes</h2>
+<h3 id="disabling-vfio">Disabling VFIO</h3>
+<p>Sometimes, you may want to disable VFIO or GPU passthrough, for example when you want to <a href="../2022-07-10-docker-gpu-fedora/">use the GPU in the host</a>.</p>
+<p>To disable GPU passthrough:</p>
+<ul>
+<li>Remove the file <code>/etc/dracut.conf.d/10-vfio.conf</code>.</li>
+<li>
+<p>Add the following lines to <code>GRUB_CMDLINE_LINUX</code> in <code>/etc/default/grub</code>:</p>
+<div class="highlight"><pre><span></span><code>rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
+</code></pre></div>
+</li>
+<li>
+<p>Regenerate <code>grub.cfg</code> with <code>grub2-mkconfig -o /boot/grub2/grub.cfg</code>.</p>
+</li>
+<li>Regenerate the <code>initramfs</code> with <code>dracut -fv</code>.</li>
+<li>Reboot.</li>
+</ul>
+<p>To re-enable GPU passthrough, reverse the steps above.</p>
 <h3 id="moonlight">Moonlight</h3>
 <ul>
 <li>
