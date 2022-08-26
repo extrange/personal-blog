@@ -91,6 +91,11 @@ extra:
   analytics:
     provider: google
     property: G-22SGZWR3ES
+  social:
+    - icon: material/github
+      link: https://github.com/extrange/
+    - icon: material/email
+      link: mailto:me@nicholaslyz.com
 
 extra_javascript:
   - javascripts/mathjax.js

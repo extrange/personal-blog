@@ -1,5 +1,3 @@
-Last updated 8/11/20
-
 Most of these are taken on my Canon 700D with the [Tokina f/2.8 11-16mm lens](https://tokinalens.com/product/at_x_116_pro_dx_ii/). Post-processing is done in Lightroom and Photoshop.
 
 <figure>

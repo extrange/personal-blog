@@ -5,29 +5,31 @@
   <figcaption style="font-size: small;margin-top: 5px">Credits: <a href="https://www.flickr.com/people/23094783@N03">Alex</a> of Ithaca, NY (<a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>)</figcaption>
 </figure>
 
-[My worldview](blog-posts/2022-03-03-determinism-and-stoicism.md) aligns most closely with Stoicism. 
+My interests include [computing](#computing), [nutrition](#nutrition), [spirituality](#spirituality) and [sports](#sports).
 
-## Writing at the speed of thought
+## Computing
 
-I used to dream about building a device which could record your thoughts.
+**Projects and My Setup**
 
-Suppose you were out on a run, and an idea popped into your head. It would be quite inconvenient to stop, take out your phone or pen, and jot down your thoughts - the act of recording interrupts the flow.
+I enjoy programming as well as tinkering with computer hardware and servers. I run a [server in my home][server], on which I self-host services such as [virtual machines][vm], file storage/sharing, torrents, an administrative interface and more.
 
-Imagine instead that you could just think, say 'I want to visit so-and-so', and a pocket-sized device, carried by you, would dutifully record that thought verbatim. It could also add tags, such as a category, much like a note-taking app.
+I primarily work on full stack applications, mainly in React with Javascript/Typescript, with Django as the backend. I am also exploring [algorithmic trading][ibkr-docker].
 
-This device wouldn't be limited by your writing speed or rate of speech. The barrier would lie not in the device, but in the user - the speed of their thought, the ultimate barrier.
+I run [Fedora][fedora] on both my [server][server] and personal computers.
 
-Unfortunately, as of the time I am writing this, no such technology exists. The fastest way we can record our thoughts now is by speech recognition technology, since we speak faster than we type. The accuracy is improving steadily. However,unlike typing, speaking offers less in the way of privacy (barring subvocalization).
+The field of Natural Language Processing and in particular, the latest developments in [transformer models][huggingface-models] continue to fascinate me, in part because research in this field seems to be gaining almost human-like abilities and intelligence. I have [written][language-models] some of my thoughts on whether these models possess intelligence, as well as other interesting conclusions.
 
-I like typing my thoughts out, especially on a pretty editor with a nice, monospaced font, such as VSCode with JetBrains Mono, which is my current setup. I type in Dvorak as there's more alternation between the left and right hands compared to QWERTY. There's something sublimely satisfying, seeing paragraphs of evenly spaced text fill a blank editor screen, with the squiggles of the autocorrect flashing now and then.
+I type in the Dvorak keyboard layout, and use Vim or its keybindings, mainly for [ergonomicity][ergonomics].
+
+**The Joys of Coding**
 
 On some days, the rain and thunder might be pouring outside, while I fix and commit code, taking care to write each subroutine and function as elegantly as possible, with no unnecessary load on the computer. This strive towards perfection annoyed even myself initially, as I often got stuck on a particular feature for days. However, it soon began to feel sort of like a meditative process, almost Zen-like, where the goal was not in the resolution of the issue, but rather in the journey itself, and the numerous libraries I picked up along the way.
 
-To me, coding is about building things and fixing those very same structures. Unlike in the real world, however, one can build anything imaginable in code. Any form of control or automation so desired is attainable, limited only by the laws of logic. Writing a program is like maintaining a garden.
+To me, coding is about building and fixing structures. Unlike in the real world, however, one can build anything imaginable in code. Any form of control or automation so desired is attainable, limited only by the laws of logic.
 
 The collaborative process in coding is unique to the field. We write programs to automate menial tasks. Later on, we release them to the public domain, where other people build larger programs on top of them, and in turn release them. This eventually culminates in large but polished libraries such as React and Django, or refinements to the languages themselves such as ES6. When you `import React from 'react'`, destructure a variable with `...` or `debounce` a function, you are calling upon the work of thousands of people who have developed these facilities, sometimes to solve the very same problem you are facing, and almost instantaneously. It is almost as if you are coding with the world at large.
 
-## My Journey
+**My Computing Journey**
 
 I started out by reading books about computer hacking. Long ago, I borrowed a book on computer security (it was a thick book with a picture of a chessboard). I read about NMAP, TCP/IP, exploits on the IIS server (CodeRed), Windows LANMAN...though I didn't understand much then, I knew I really wanted to learn more about computers.
 
@@ -53,3 +55,36 @@ I briefly read about x86 assembly and reverse engineering. I was inspired by the
 In high school I played mostly with the Windows OS and its internals. I had fun with bruteforcing Windows passwords with tools like L0phtCrack/Cain and Abel. It was also my introduction to the world of cryptography, spurred further by allegations that the US government was decrypting internet communications and had the capability to decrypt 128-bit AES.
 
 I've written a program to search for image duplicates via convolutional neural networks and cosine similarity in Keras. I've also reversed engineered my house DVR using Wireshark and the sockets library in Python.
+
+## Nutrition
+
+In recent years I have become much more conscious of what I eat, in part due to my medical background as well as from discussions with my colleagues. I believe a healthy diet not only affects the body, but the mind and its clarity as well.
+
+[My diet][my-diet] has been varying over the years, but it is mainly a combination of complex carbohydrates, protein sources, fibre and healthy fat.
+
+For variation, I maintain some [interesting recipes][cooking] I have tried over the years.
+
+## Spirituality
+
+[My worldview](blog-posts/2022-03-03-determinism-and-stoicism.md) aligns most closely with Stoicism, and I am exploring Vipassana and Zen.
+
+I attended a [10 day meditation retreat][meditation-retreat] in July 2022.
+
+## Sports
+
+I primarily gym and run, and play badminton. I strive to go [mountaineering](mountaineering) or hiking overseas once a year - the experience of raw nature at her best and worst is unforgettable.
+
+Recently, I have found [skiing][skiing] to be quite enjoyable.
+
+[server]: blog-posts/2022-05-22-my-self-hosting-journey.md
+[vm]: blog-posts/2022-07-10-win11-vm-gpu-passthrough.md
+[fedora]: https://getfedora.org/
+[language-models]: blog-posts/2022-03-30-artificial-intelligence-language-models.md
+[huggingface-models]: https://huggingface.co/models
+[ergonomics]: blog-posts/2022-02-27-my-computing-philosophy.md#ergonomicity
+[my-diet]: blog-posts/2022-08-01-my-diet.md
+[cooking]: tags.md#Cooking
+[meditation-retreat]: blog-posts/2022-08-05-vipassana-meditation-retreat.md
+[mountaineering]: mountaineering.md
+[skiing]: blog-posts/2021-12-25-skiing-switzerland.md
+[ibkr-docker]: https://github.com/extrange/ibkr-docker

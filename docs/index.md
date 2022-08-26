@@ -1,20 +1,26 @@
+---
+hide:
+  - footer
+---
+
 <img style="max-width: min(30vw, 150px);float:left; margin-right: 18px" src="/static/images/profile.jpg" alt="Profile"/>
 
 Hi there! :wave:
 
 I'm Nicholas and I work as a junior doctor in Singapore.
 
-At the moment, I'm working on my self-hosted [server](https://home.nicholaslyz.com) and exploring [algorithmic trading][ibkr-docker].
+You can read more about me [here](about.md).
 
 Some of my interests:
 
 - Badminton :badminton:
-- [Cooking](tags.md#Cooking) :stew:
+- [Cooking and Nutrition](tags.md#Cooking) :stew:
 - [Finance][finance-and-investing] :chart_with_upwards_trend:
 - [Lucid dreaming][lucid-dreaming][^lucid-dreaming]
+- [Meditation and Zen](blog-posts/2022-08-05-vipassana-meditation-retreat.md)[^alan-watts] :person_in_lotus_position:
 - [Mountaineering](mountaineering.md) :mountain:
 - [Photography](photography.md) :frame_with_picture:
-- [Philosophy](tags.md#Philosophy) and Zen[^alan-watts] :person_in_lotus_position:
+- [Philosophy](tags.md#Philosophy) 
 - [Piano](piano.md) :musical_keyboard:
 - [Programming](tags.md#Programming) :computer:
 - [Skiing][skiing] :ski:
@@ -51,6 +57,5 @@ You can reach me at:
 [^lucid-dreaming]: Think being able to travel anywhere in the world whenever you sleep. Or speak to anyone, living or dead, knowing that it's your subconscious replying you.
 
 [finance-and-investing]: blog-posts/2020-11-30-getting-started-with-investing.md
-[ibkr-docker]: https://github.com/extrange/ibkr-docker
-[lucid-dreaming]: (https://www.reddit.com/r/LucidDreaming/comments/73ih3x/start_here_beginner_guides_faqs_and_resources/)
+[lucid-dreaming]: https://www.reddit.com/r/LucidDreaming/comments/73ih3x/start_here_beginner_guides_faqs_and_resources/
 [skiing]: blog-posts/2021-12-25-skiing-switzerland.md
