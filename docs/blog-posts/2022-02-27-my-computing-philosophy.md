@@ -82,7 +82,7 @@ I've been using Windows ever since I started using computers. However, I have be
 
 The reasons remaining to use Windows have dwindled:
 
-- Gaming: With GPU passthrough, playing in a Windows VM is becoming increasingly possible.
+- Gaming: It is possible to [play on a Windows VM (with GPU passthrough) over the internet](2022-07-10-win11-vm-gpu-passthrough.md).
 - Really obscure, closed source, Windows-only tools: Again, running them in a VM is possible.
 - Missing/substandard Linux device drivers[^linux-device-drivers]: A bit of a problem for some laptops, but for most desktops this is a non-issue.
 

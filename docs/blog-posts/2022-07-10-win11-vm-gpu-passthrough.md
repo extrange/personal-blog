@@ -260,7 +260,7 @@ Sometimes, you may want to disable VFIO or GPU passthrough, for example when you
 
 To disable GPU passthrough:
 
--   Remove the file `/etc/dracut.conf.d/10-vfio.conf`.
+-   Remove/comment out the file `/etc/modules-load.d/vfio-pci.conf`.
 -   Add the following lines to `GRUB_CMDLINE_LINUX` in `/etc/default/grub`:
 
     ```
