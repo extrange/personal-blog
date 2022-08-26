@@ -1443,7 +1443,7 @@ drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-2
 <p>Sometimes, you may want to disable VFIO or GPU passthrough, for example when you want to <a href="../2022-07-10-docker-gpu-fedora/">use the GPU in the host</a>.</p>
 <p>To disable GPU passthrough:</p>
 <ul>
-<li>Remove the file <code>/etc/dracut.conf.d/10-vfio.conf</code>.</li>
+<li>Remove/comment out the file <code>/etc/modules-load.d/vfio-pci.conf</code>.</li>
 <li>
 <p>Add the following lines to <code>GRUB_CMDLINE_LINUX</code> in <code>/etc/default/grub</code>:</p>
 <div class="highlight"><pre><span></span><code>rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
