@@ -217,21 +217,77 @@ Some notes:
 -   To change the password of the default `guacadmin` user, it is necessary to create another user account with admin rights.
 -   For RDP, ensure `Ignore server certificate` is checked, otherwise Guacamole will refuse to connect.
 
-## 6. (Optional) Setup NFS
+## 6. (Optional) Setup NFS/SAMBA
 
-Network File System (NFS) is a handy way to share files on a Linux host with the Windows VM(s), so I have also set that up.
+Network File System (NFS) is a handy way to share files on a Linux host with other Linux clients. For sharing files with Windows clients, SAMBA is the better option (much less delay on opening).
 
-Some notes:
+**Note**: If you are using a `macvtap` interface (to allow the guest to receive its own IP address on the network), it is [not possible][macvtap] to connect to the host due to how `macvtap` works. You will need to create a `NAT` connection (e.g. `Virtual Network 'Default' : NAT`) to connect to the host, via a separate subnet.
 
--   If you are using a `macvtap` interface (to allow the guest to receive its own IP address on the network), it is [not possible][macvtap] to connect to the host due to how `macvtap` works. You will need to create a `NAT` connection (e.g. `Virtual Network 'Default' : NAT`) to connect to the host, via a separate subnet.
--   Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:
+**NFS**
+
+Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:
 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
     ```
 
--   To fix slow NFS access speeds on Windows, try this [fix][slow-nfs-fix].
+This [fix][slow-nfs-fix] _may_ speed up NFS access on Windows (although I strongly recommend using SAMBA).
+
 -   For Fedora: You must also open the NFS ports (TCP/UDP `111`, `2049` and `20048`) in the `Libvirt` zone.
+
+**SAMBA**
+
+[SAMBA][samba] is much faster than NFS for Windows guests.
+
+To setup Samba:
+
+1. Install Samba on Linux:
+
+    ```bash
+    sudo dnf install samba samba-common
+    ```
+
+2. Set the correct SELinux contexts for the directories you wish to share (in this example `/mnt/storage`):
+
+    ```bash
+    sudo chcon -R -t samba_share_t /mnt/storage
+    ```
+
+    ??? warning "SSH and SELinux"
+
+        If you are executing the above command on your `home` directory, be careful to restore SELinux contexts for the `.ssh` directory:
+
+        ```bash
+        sudo restorecon -r .ssh
+        ```
+
+        Otherwise, `sshd` will be **denied access** to `authorized_keys` and you will lose login via SSH!
+
+3. Add the following to `/etc/samba/smb.conf`:
+
+    ```config
+    [storage]
+        path = /mnt/storage
+        public = yes
+        guest ok = yes
+        writable = yes
+        browseable = yes
+    ```
+
+    This will create a share named `storage`, accessible without login or passwords. **Only do this on a secure LAN!**
+
+4. (For Fedora) Open the required ports in the `libvirt` zone (for the Windows guest), and in the `Public` zone for other computers on the network:
+
+    - TCP `139`, `445`
+    - UDP `137`, `138`
+
+5. Restart the `smb` and `nmb` daemons:
+
+    ```bash
+    sudo systemctl enable --now smb nmb
+    ```
+
+You should now have access to the Samba share on the Windows guest, by hitting ++win+r++ and entering the IP address of the host.
 
 ## 7. (Optional) Fix low FPS on desktop and certain games
 
@@ -297,10 +353,15 @@ To re-enable GPU passthrough, reverse the steps above.
     -   Ensure that the [`initcall_blacklist=sysfb_init`][gpu-fix] kernel parameter has been added to `grub.cfg`.
 -   `virt-manager`/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in `virt-manager`) must first be closed.
 -   Windows XP only: In `virt-manager`, the NIC device model must be `rtl8139`, and the sound card model as `AC97` in order for drivers to be installed.
--   Types of VM network connections compared:
-    ![](/static/images/2022-07-10/vm-networking.png)
 -   Nvidia Geforce Experience says 'Unsupported CPU':
     -   Change the CPU model in `virt-manager` (in the XML) to `host-passthrough`.
+-   Passthrough-ed USB devices, when disconnected, prevent VM from booting
+    -   Add [`startupPolicy="optional"`][usb-devices] to the `<source>` tag in the XML for the passthrough-ed USB device
+-   [Useful VM performance tuning options][vm-tuning]
+    -   For example, setting multiple sockets with each having 1 CPU and 1 core is more efficient.
+-   [`libvirt` domain XML documentation][libvirt-xml]
+-   Types of VM network connections compared:
+    ![](/static/images/2022-07-10/vm-networking.png)
 
 ### Apache Guacamole
 
@@ -333,7 +394,7 @@ One advantage of Steam Link however is that no port forwarding appears to be req
 
 ### Misc
 
--   Connection speed: Moonlight > RDP > Guacamole > `virt-manager`
+-   Connection speed: Moonlight == Steam Link > RDP > Guacamole > `virt-manager`
 
 ## Credits
 
@@ -357,3 +418,8 @@ One advantage of Steam Link however is that no port forwarding appears to be req
 [moonlight-fix]: https://github.com/moonlight-stream/moonlight-android/issues/588
 [steam-link]: https://store.steampowered.com/remoteplay#anywhere
 [nvenc]: https://en.wikipedia.org/wiki/Nvidia_NVENC
+[usb-devices]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-manipulating_the_domain_xml-devices#sect-Host_physical_machine_device_assignment-USB_PCI_devices
+[chcon]: https://fedoraproject.org/wiki/SELinux/samba
+[vm-tuning]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/virtualization_tuning_and_optimization_guide/index
+[libvirt-xml]: https://libvirt.org/formatdomain.html
+[samba]: https://www.samba.org/
