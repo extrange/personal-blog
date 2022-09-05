@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-07-10-win11-vm-gpu-passthrough/">
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
     
     
       
@@ -54,7 +54,7 @@
   
 
 
-  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-22SGZWR3ES"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){n("config","G-22SGZWR3ES",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-22SGZWR3ES",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-22SGZWR3ES"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-22SGZWR3ES",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-22SGZWR3ES",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
@@ -389,8 +389,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-optional-setup-nfs" class="md-nav__link">
-    6. (Optional) Setup NFS
+  <a href="#6-optional-setup-nfssamba" class="md-nav__link">
+    6. (Optional) Setup NFS/SAMBA
   </a>
   
 </li>
@@ -1135,8 +1135,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-optional-setup-nfs" class="md-nav__link">
-    6. (Optional) Setup NFS
+  <a href="#6-optional-setup-nfssamba" class="md-nav__link">
+    6. (Optional) Setup NFS/SAMBA
   </a>
   
 </li>
@@ -1405,21 +1405,65 @@ drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-2
 <li>To change the password of the default <code>guacadmin</code> user, it is necessary to create another user account with admin rights.</li>
 <li>For RDP, ensure <code>Ignore server certificate</code> is checked, otherwise Guacamole will refuse to connect.</li>
 </ul>
-<h2 id="6-optional-setup-nfs">6. (Optional) Setup NFS</h2>
-<p>Network File System (NFS) is a handy way to share files on a Linux host with the Windows VM(s), so I have also set that up.</p>
-<p>Some notes:</p>
-<ul>
-<li>If you are using a <code>macvtap</code> interface (to allow the guest to receive its own IP address on the network), it is <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap">not possible</a> to connect to the host due to how <code>macvtap</code> works. You will need to create a <code>NAT</code> connection (e.g. <code>Virtual Network 'Default' : NAT</code>) to connect to the host, via a separate subnet.</li>
-<li>
+<h2 id="6-optional-setup-nfssamba">6. (Optional) Setup NFS/SAMBA</h2>
+<p>Network File System (NFS) is a handy way to share files on a Linux host with other Linux clients. For sharing files with Windows clients, SAMBA is the better option (much less delay on opening).</p>
+<p><strong>Note</strong>: If you are using a <code>macvtap</code> interface (to allow the guest to receive its own IP address on the network), it is <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap">not possible</a> to connect to the host due to how <code>macvtap</code> works. You will need to create a <code>NAT</code> connection (e.g. <code>Virtual Network 'Default' : NAT</code>) to connect to the host, via a separate subnet.</p>
+<p><strong>NFS</strong></p>
 <p>Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">Enable-WindowsOptionalFeature</span> <span class="n">-FeatureName</span> <span class="n">ServicesForNFS-ClientOnly</span><span class="p">,</span> <span class="n">ClientForNFS-Infrastructure</span> <span class="n">-Online</span> <span class="n">-NoRestart</span>
+<pre><code>```powershell
+Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
+```
+</code></pre>
+<p>This <a href="https://docs.oracle.com/en-us/iaas/Content/File/Troubleshooting/winNFSerror53.htm">fix</a> <em>may</em> speed up NFS access on Windows (although I strongly recommend using SAMBA).</p>
+<ul>
+<li>For Fedora: You must also open the NFS ports (TCP/UDP <code>111</code>, <code>2049</code> and <code>20048</code>) in the <code>Libvirt</code> zone.</li>
+</ul>
+<p><strong>SAMBA</strong></p>
+<p><a href="https://www.samba.org/">SAMBA</a> is much faster than NFS for Windows guests.</p>
+<p>To setup Samba:</p>
+<ol>
+<li>
+<p>Install Samba on Linux:</p>
+<div class="highlight"><pre><span></span><code>sudo dnf install samba samba-common
 </code></pre></div>
 </li>
 <li>
-<p>To fix slow NFS access speeds on Windows, try this <a href="https://docs.oracle.com/en-us/iaas/Content/File/Troubleshooting/winNFSerror53.htm">fix</a>.</p>
+<p>Set the correct SELinux contexts for the directories you wish to share (in this example <code>/mnt/storage</code>):</p>
+<div class="highlight"><pre><span></span><code>sudo chcon -R -t samba_share_t /mnt/storage
+</code></pre></div>
+<details class="warning">
+<summary>SSH and SELinux</summary>
+<p>If you are executing the above command on your <code>home</code> directory, be careful to restore SELinux contexts for the <code>.ssh</code> directory:</p>
+<div class="highlight"><pre><span></span><code>sudo restorecon -r .ssh
+</code></pre></div>
+<p>Otherwise, <code>sshd</code> will be <strong>denied access</strong> to <code>authorized_keys</code> and you will lose login via SSH!</p>
+</details>
 </li>
-<li>For Fedora: You must also open the NFS ports (TCP/UDP <code>111</code>, <code>2049</code> and <code>20048</code>) in the <code>Libvirt</code> zone.</li>
+<li>
+<p>Add the following to <code>/etc/samba/smb.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[storage]
+    path = /mnt/storage
+    public = yes
+    guest ok = yes
+    writable = yes
+    browseable = yes
+</code></pre></div>
+<p>This will create a share named <code>storage</code>, accessible without login or passwords. <strong>Only do this on a secure LAN!</strong></p>
+</li>
+<li>
+<p>(For Fedora) Open the required ports in the <code>libvirt</code> zone (for the Windows guest), and in the <code>Public</code> zone for other computers on the network:</p>
+<ul>
+<li>TCP <code>139</code>, <code>445</code></li>
+<li>UDP <code>137</code>, <code>138</code></li>
 </ul>
+</li>
+<li>
+<p>Restart the <code>smb</code> and <code>nmb</code> daemons:</p>
+<div class="highlight"><pre><span></span><code>sudo systemctl <span class="nb">enable</span> --now smb nmb
+</code></pre></div>
+</li>
+</ol>
+<p>You should now have access to the Samba share on the Windows guest, by hitting <span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-r">R</kbd></span> and entering the IP address of the host.</p>
 <h2 id="7-optional-fix-low-fps-on-desktop-and-certain-games">7. (Optional) Fix low FPS on desktop and certain games</h2>
 <p><a href="https://moonlight-stream.org/">Moonlight</a> runs at 30fps or less when displaying the remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU and natively running at a lower FPS. Moonlight is transferring this output when the GPU is not being utilized, for example with the desktop or certain 2D games.</p>
 <p>To fix this, you will need to get an HDMI dummy plug.</p>
@@ -1490,12 +1534,21 @@ drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-2
 </li>
 <li><code>virt-manager</code>/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in <code>virt-manager</code>) must first be closed.</li>
 <li>Windows XP only: In <code>virt-manager</code>, the NIC device model must be <code>rtl8139</code>, and the sound card model as <code>AC97</code> in order for drivers to be installed.</li>
-<li>Types of VM network connections compared:
-    <img alt="" src="/static/images/2022-07-10/vm-networking.png" /></li>
 <li>Nvidia Geforce Experience says 'Unsupported CPU':<ul>
 <li>Change the CPU model in <code>virt-manager</code> (in the XML) to <code>host-passthrough</code>.</li>
 </ul>
 </li>
+<li>Passthrough-ed USB devices, when disconnected, prevent VM from booting<ul>
+<li>Add <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-manipulating_the_domain_xml-devices#sect-Host_physical_machine_device_assignment-USB_PCI_devices"><code>startupPolicy="optional"</code></a> to the <code>&lt;source&gt;</code> tag in the XML for the passthrough-ed USB device</li>
+</ul>
+</li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/virtualization_tuning_and_optimization_guide/index">Useful VM performance tuning options</a><ul>
+<li>For example, setting multiple sockets with each having 1 CPU and 1 core is more efficient.</li>
+</ul>
+</li>
+<li><a href="https://libvirt.org/formatdomain.html"><code>libvirt</code> domain XML documentation</a></li>
+<li>Types of VM network connections compared:
+    <img alt="" src="/static/images/2022-07-10/vm-networking.png" /></li>
 </ul>
 <h3 id="apache-guacamole">Apache Guacamole</h3>
 <ul>
@@ -1523,7 +1576,7 @@ drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-2
 <p>One advantage of Steam Link however is that no port forwarding appears to be required, while Moonlight sometimes has issues with UDP port 47999 when on mobile data (from my experience).</p>
 <h3 id="misc">Misc</h3>
 <ul>
-<li>Connection speed: Moonlight &gt; RDP &gt; Guacamole &gt; <code>virt-manager</code></li>
+<li>Connection speed: Moonlight == Steam Link &gt; RDP &gt; Guacamole &gt; <code>virt-manager</code></li>
 </ul>
 <h2 id="credits">Credits</h2>
 <ul>
