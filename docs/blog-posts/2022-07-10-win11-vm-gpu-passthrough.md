@@ -191,6 +191,12 @@ Then, open GeForce Experience, and under 'Settings > SHIELD', enable 'Gamestream
 
 If you want to stream the desktop instead of a game, add `C:\Windows\System32\mstsc.exe`.
 
+??? note "Port Forwarding"
+
+    Moonlight requires [certain ports][moonlight-ports] to be forwarded on your router, in order for the PC to be accessible over the internet. 
+
+    However, sometimes port forwarding may not work due to your ISP blocking ports or other issues. In which case, a good alternative is to use a peer-to-peer virtual network solution such as [ZeroTier][zerotier] (free), which utilizes [UDP hole punching][udp-hole-punching] and other technologies to connect to hosts behind firewalls.
+
 At this point, download the [Moonlight][moonlight] client on another computer/device, and verify that you can stream a game/the desktop.
 
 You can also [setup Remote Desktop](https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c#ID0EDD=Windows_11) now.
@@ -394,7 +400,7 @@ One advantage of Steam Link however is that no port forwarding appears to be req
 
 ### Misc
 
--   Connection speed: Moonlight == Steam Link > RDP > Guacamole > `virt-manager`
+-   Connection speed: Moonlight > Steam Link >> RDP > Guacamole > `virt-manager`
 
 ## Credits
 
@@ -423,3 +429,6 @@ One advantage of Steam Link however is that no port forwarding appears to be req
 [vm-tuning]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/virtualization_tuning_and_optimization_guide/index
 [libvirt-xml]: https://libvirt.org/formatdomain.html
 [samba]: https://www.samba.org/
+[moonlight-ports]: https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#manual-port-forwarding-advanced
+[zerotier]: https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#zerotier
+[udp-hole-punching]: https://en.wikipedia.org/wiki/UDP_hole_punching
