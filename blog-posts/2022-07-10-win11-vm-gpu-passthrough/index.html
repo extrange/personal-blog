@@ -1386,6 +1386,11 @@ drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-2
 <p>Then, open GeForce Experience, and under 'Settings &gt; SHIELD', enable 'Gamestream'.</p>
 <p><img alt="" src="/static/images/2022-07-10/vm-gamestream.jpg" /></p>
 <p>If you want to stream the desktop instead of a game, add <code>C:\Windows\System32\mstsc.exe</code>.</p>
+<details class="note">
+<summary>Port Forwarding</summary>
+<p>Moonlight requires <a href="https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#manual-port-forwarding-advanced">certain ports</a> to be forwarded on your router, in order for the PC to be accessible over the internet. </p>
+<p>However, sometimes port forwarding may not work due to your ISP blocking ports or other issues. In which case, a good alternative is to use a peer-to-peer virtual network solution such as <a href="https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#zerotier">ZeroTier</a> (free), which utilizes <a href="https://en.wikipedia.org/wiki/UDP_hole_punching">UDP hole punching</a> and other technologies to connect to hosts behind firewalls.</p>
+</details>
 <p>At this point, download the <a href="https://moonlight-stream.org/">Moonlight</a> client on another computer/device, and verify that you can stream a game/the desktop.</p>
 <p>You can also <a href="https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c#ID0EDD=Windows_11">setup Remote Desktop</a> now.</p>
 <p>Now, you have a working VM with <a href="https://moonlight-stream.org/">Moonlight</a> for gaming, and Remote Desktop for doing work!</p>
