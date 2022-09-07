@@ -10,7 +10,7 @@ tags:
   <figcaption>Gaming on a laptop remotely with Nvidia Gamestream using mobile data</figcaption>
 </figure>
 
-After completing this guide, you will have a Windows 11 headless VM that can be accessed via:
+After completing this guide, you will have a Windows 11 **headless** virtual machine that can be accessed via:
 
 -   [Moonlight][moonlight]/[Steam Link][steam-link] for high performance gaming
 -   RDP for less demanding tasks
@@ -162,11 +162,17 @@ Now, navigate to `http://localhost:8080` and you should see the `virt-manager` i
 
 Create a new VM, and under `Add Hardware > PCI Host Device`, add your GPU.
 
-Under `NIC`, ensure `Host device enpXsX: macvtap` is selected.[^vm-nic]
+??? note "Giving the VM an IP address on the LAN"
 
-![](/static/images/2022-07-10/vm-network.jpg)
+    If you would like your VM also have its own IP address on the LAN (e.g. to play multiplayer games with peers on the same subnet), you can add a [`macvtap`][macvtap] interface now, in addition to the standard bridge network between guest and host.
 
-Install Windows 11 (you can get the ISO from [here](https://www.microsoft.com/software-download/windows11)).
+    To do this, add another `NIC` and ensure `Host device enpXsX: macvtap` is selected.
+
+    ![](/static/images/2022-07-10/vm-network.jpg)
+
+    If you just want to be able to access the VM over the internet, you can use a peer-to-peer VPN as shown [below](#5-setup-overlay-mesh-network-aka-peer-to-peer-vpn).
+
+Next, install Windows 11 (you can get the ISO from [here](https://www.microsoft.com/software-download/windows11)).
 
 ??? help "Error: This PC doesn't meet the minimum system requirements to install this version of Windows"
 
@@ -189,21 +195,42 @@ Then, open GeForce Experience, and under 'Settings > SHIELD', enable 'Gamestream
 
 ![](/static/images/2022-07-10/vm-gamestream.jpg)
 
-If you want to stream the desktop instead of a game, add `C:\Windows\System32\mstsc.exe`.
+??? note "Streaming the whole desktop"
 
-??? note "Port Forwarding"
+    If you want to stream the desktop instead of a game, add `C:\Windows\System32\mstsc.exe`.
+
+## 5. Setup Overlay Mesh Network (aka Peer-to-Peer VPN)
+
+We will now setup a peer-to-peer VPN, which will let us access Moonlight both within the LAN and from the internet, without worrying about port forwarding or firewall configurations.
+
+??? note "Rationale"
 
     Moonlight requires [certain ports][moonlight-ports] to be forwarded on your router, in order for the PC to be accessible over the internet. 
 
-    However, sometimes port forwarding may not work due to your ISP blocking ports or other issues. In which case, a good alternative is to use a peer-to-peer virtual network solution such as [ZeroTier][zerotier] (free), which utilizes [UDP hole punching][udp-hole-punching] and other technologies to connect to hosts behind firewalls.
+    However, in our current setup, the VM is not directly accessible from the internet or even the LAN, because the [default network][default-network][^default-network] it is connected to is not assigned an IP address on the LAN, so there is no way to port forward the required ports.
 
-At this point, download the [Moonlight][moonlight] client on another computer/device, and verify that you can stream a game/the desktop.
+    One way is to give the VM its own IP address on the network via a [`macvtap`][macvtap] interface, as [shown above](#4-install-windows-and-setup-moonlight-streaming).
+
+    However, sometimes port forwarding may not work due to [NATs][nat], your ISP blocking ports, or firewalls.
+    
+    Therefore, a better solution is to use a peer-to-peer VPN provider, which utilize [NAT traversal][nat-traversal] techniques such as [UDP hole punching][udp-hole-punching] to connect to hosts behind NATs/firewalls.
+
+    - [ZeroTier][zerotier]: partially open-source, freemium
+    - [Tailscale][tailscale]: partially open-source, freemium
+    - [Nebula][nebula]: open-source
+    - [Netmaker][netmaker]: open-source, [claims to be the fastest][netmaker-claim]
+
+    Overhead is minimal, as these tools connect directly if possible, using a relay only as a backup.
+
+[ZeroTier][zerotier] is one such solution, and you can follow the [guide from the Moonlight docs][zerotier-guide].
+
+After setting up the peer-to-peer VPN of your choice, download the [Moonlight][moonlight] client on another computer/device, and verify that streaming works.
 
 You can also [setup Remote Desktop](https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c#ID0EDD=Windows_11) now.
 
-Now, you have a working VM with [Moonlight][moonlight] for gaming, and Remote Desktop for doing work!
+Now, you have a working VM with [Moonlight][moonlight] for gaming, and Remote Desktop (slower, but much less data usage) for doing work!
 
-## 5. Setup Apache Guacamole
+## 6. Setup Apache Guacamole
 
 <figure>
   <img src="/static/images/2022-07-10/guacamole.jpg" alt="Accessing a Windows VM over a browser with Apache Guacamole" loading="lazy"/>
@@ -216,18 +243,18 @@ Of note, Guacamole also supports SSH connections to a remote server, displaying 
 
 To setup Apache Guacamole, follow the instructions [here][apache-guacamole-docker].
 
-Some notes:
+??? note "Notes"
 
--   I have decided to use the `mysql` backend instead, as the `postgres` backend has [authentication problems][guacamole-postgresql] (slated to be fixed in `1.5.0`).
--   If you are using a reverse proxy with authentication (e.g. Nginx with `auth_request`), you can use [header authentication][guacamole-header-auth] to avoid having to login into Guacamole.
--   To change the password of the default `guacadmin` user, it is necessary to create another user account with admin rights.
--   For RDP, ensure `Ignore server certificate` is checked, otherwise Guacamole will refuse to connect.
+    -   I have decided to use the `mysql` backend instead, as the `postgres` backend has [authentication problems][guacamole-postgresql] (slated to be fixed in `1.5.0`).
+    -   If you are using a reverse proxy with authentication (e.g. Nginx with `auth_request`), you can use [header authentication][guacamole-header-auth] to avoid having to login into Guacamole.
+    -   To change the password of the default `guacadmin` user, it is necessary to create another user account with admin rights.
+    -   For RDP, ensure `Ignore server certificate` is checked, otherwise Guacamole will refuse to connect.
 
-## 6. (Optional) Setup NFS/SAMBA
+## 7. (Optional) Setup NFS/SAMBA
 
 Network File System (NFS) is a handy way to share files on a Linux host with other Linux clients. For sharing files with Windows clients, SAMBA is the better option (much less delay on opening).
 
-**Note**: If you are using a `macvtap` interface (to allow the guest to receive its own IP address on the network), it is [not possible][macvtap] to connect to the host due to how `macvtap` works. You will need to create a `NAT` connection (e.g. `Virtual Network 'Default' : NAT`) to connect to the host, via a separate subnet.
+**Note**: If you are using a `macvtap` interface (to allow the guest to receive its own IP address on the network), it is [not possible][macvtap-issues] to connect to the host due to how `macvtap` works. You will need to create a `NAT` connection (e.g. `Virtual Network 'Default' : NAT`) to connect to the host, via a separate subnet.
 
 **NFS**
 
@@ -295,11 +322,11 @@ To setup Samba:
 
 You should now have access to the Samba share on the Windows guest, by hitting ++win+r++ and entering the IP address of the host.
 
-## 7. (Optional) Fix low FPS on desktop and certain games
+## 8. (Optional) Fix low FPS on desktop and certain games
 
 [Moonlight][moonlight] runs at 30fps or less when displaying the remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU and natively running at a lower FPS. Moonlight is transferring this output when the GPU is not being utilized, for example with the desktop or certain 2D games.
 
-To fix this, you will need to get an HDMI dummy plug.
+To fix this, you will need to get an **HDMI dummy plug**.
 
 -   Plug the HDMI dummy plug into the graphics card output.
 -   In the Windows VM, ensure that displays are set to mirror each other.
@@ -308,17 +335,18 @@ To fix this, you will need to get an HDMI dummy plug.
 
 -   You might need to reboot the VM after.
 
-You should now be getting 60fps when streaming the bare desktop.
+You should now be getting ~60fps when streaming the bare desktop.
+
 
 ## Conclusion
 
-And that's it! You now have a fully featured cloud gaming machine, with web browser access, accessible anywhere in the world.
+And that's it! You now have a fully featured cloud gaming machine, accessible anywhere in the world.
 
 ## Known Issues/Notes/Fixes
 
 ### Disabling VFIO
 
-Sometimes, you may want to disable VFIO or GPU passthrough, for example when you want to [use the GPU in the host](2022-07-10-docker-gpu-fedora.md).
+At times you may want to disable VFIO or GPU passthrough, for example when you want to [use the GPU in the host](2022-07-10-docker-gpu-fedora.md).
 
 To disable GPU passthrough:
 
@@ -335,7 +363,7 @@ To disable GPU passthrough:
 
 To re-enable GPU passthrough, reverse the steps above.
 
-### Moonlight
+### Moonlight-specific Issues
 
 -   Moonlight requires that the server machine (whether VM or physical) be **unlocked**, and that there are **no Remote Desktop Connections** ongoing.
 
@@ -347,8 +375,10 @@ To re-enable GPU passthrough, reverse the steps above.
 
 -   The streaming resolution of Moonlight is **not** what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.
 -   Some useful shortcuts:
+    -   Quit moonlight: ++ctrl+alt+shift+q++
     -   Minimize window: ++ctrl+alt+shift+d++
     -   Show stats overlay: ++ctrl+alt+shift+s++
+    -   Paste text from host: ++ctrl+alt+shift+v++
 -   Moonlight not filling screen:
     -   [Use the Nvidia control panel to change the screen resolution.][moonlight-fix]
 
@@ -360,14 +390,15 @@ To re-enable GPU passthrough, reverse the steps above.
 -   `virt-manager`/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in `virt-manager`) must first be closed.
 -   Windows XP only: In `virt-manager`, the NIC device model must be `rtl8139`, and the sound card model as `AC97` in order for drivers to be installed.
 -   Nvidia Geforce Experience says 'Unsupported CPU':
-    -   Change the CPU model in `virt-manager` (in the XML) to `host-passthrough`.
--   Passthrough-ed USB devices, when disconnected, prevent VM from booting
+    -   Change the CPU model in `virt-manager` (in the XML) to `host-model` ([preferred][cpu-model]) or `host-passthrough`.
+-   Passthrough-ed USB devices, when disconnected, prevent the VM from booting
     -   Add [`startupPolicy="optional"`][usb-devices] to the `<source>` tag in the XML for the passthrough-ed USB device
 -   [Useful VM performance tuning options][vm-tuning]
     -   For example, setting multiple sockets with each having 1 CPU and 1 core is more efficient.
--   [`libvirt` domain XML documentation][libvirt-xml]
 -   Types of VM network connections compared:
     ![](/static/images/2022-07-10/vm-networking.png)
+    
+For more information on the `libvirt` domain XML, check out the [documentation][libvirt-xml].
 
 ### Apache Guacamole
 
@@ -407,18 +438,18 @@ One advantage of Steam Link however is that no port forwarding appears to be req
 -   [Fedora 33: Ultimiate VFIO Guide for 2020/2021 [WIP]](https://forum.level1techs.com/t/fedora-33-ultimiate-vfio-guide-for-2020-2021-wip/163814)
 -   [PCI passthrough via OVMF](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Setting_up_IOMMU)
 
-[^vm-nic]: This is necessary to ensure that the VM gets an IP address on the LAN, so that you can connect to it with Moonlight.
+[^default-network]: The default network (which you can view with `sudo virsh net-dumpxml default`) is configured with [`forward mode='nat'`][libvirt-network-connectivity], which allows outbound communication for guests, but not inbound communications (unless you configure computers on the LAN to use your host as a NAT).
 
 [vt-d]: https://d2pgu9s4sfmw1s.cloudfront.net/UAM/Prod/Done/a062E00001eOlkFQAS/6d0ff26e-78fe-42cf-b29d-0bd57685ca5d?Expires=1657719487&Key-Pair-Id=APKAJKRNIMMSNYXST6UA&Signature=waVppuy971q9Y-W9oM88UqwSMNidyxs6Huu7U0gGw30IWwVXTFPiR~EAMEjMfvECkdaYfSeEFJFvboMCsk82bmK0wG2ec3H-~hoR5JJJEaPvFw3lKvzXSvY87MmMpSDA~PYSVqI0tFaibt1eZBhgqggbQwsdYsqFq4RSRCOjXDJIUA8mZwF9-GtRc2xEZkqUliYoMLSSgfmDLNoC3nGZtFzH~wxPjI~-5zr9lvE1dTxiGMQOtzEM~EYleNZwjHuVmIBmzNuKLxRZtAQDFAApk05ZOw10AZsFqvq~RR5YwUjAuADxEL6TuQXTgXiCSK-qf6hOBUCrlgQu6IWlYtKa2A__
 [moonlight]: https://moonlight-stream.org/
 [apache-guacamole]: https://guacamole.apache.org/
 [guacamole-ssh]: https://www.mail-archive.com/issues@guacamole.apache.org/msg06190.html
 [openssh-8.8]: https://www.openssh.com/txt/release-8.8
-[ssh-wifty]: https://github.com/nirui/sshwifty
+[sshwifty]: https://github.com/nirui/sshwifty
 [apache-guacamole-docker]: https://guacamole.apache.org/doc/gug/guacamole-docker.html
 [guacamole-header-auth]: https://guacamole.apache.org/doc/gug/guacamole-docker.html#header-authentication
 [guacamole-postgresql]: https://lists.apache.org/thread/mp6gfxtxwhnnk215crcjbt0106w03o7l
-[macvtap]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap
+[macvtap-issues]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap
 [slow-nfs-fix]: https://docs.oracle.com/en-us/iaas/Content/File/Troubleshooting/winNFSerror53.htm
 [gpu-fix]: https://forum.proxmox.com/threads/problem-with-gpu-passthrough.55918/post-478351
 [moonlight-fix]: https://github.com/moonlight-stream/moonlight-android/issues/588
@@ -430,5 +461,16 @@ One advantage of Steam Link however is that no port forwarding appears to be req
 [libvirt-xml]: https://libvirt.org/formatdomain.html
 [samba]: https://www.samba.org/
 [moonlight-ports]: https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#manual-port-forwarding-advanced
-[zerotier]: https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#zerotier
+[zerotier-guide]: https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#zerotier
+[zerotier]: https://www.zerotier.com/
 [udp-hole-punching]: https://en.wikipedia.org/wiki/UDP_hole_punching
+[nat]: https://en.wikipedia.org/wiki/Network_address_translation
+[tailscale]: https://tailscale.com/
+[nat-traversal]: https://tailscale.com/blog/how-nat-traversal-works/
+[macvtap]: https://virt.kernelnewbies.org/MacVTap
+[cpu-model]: https://libvirt.org/formatdomain.html#cpu-model-and-topology
+[default-network]: https://libvirt.org/formatnetwork.html#nat-based-network
+[libvirt-network-connectivity]: https://libvirt.org/formatnetwork.html#connectivity
+[nebula]: https://github.com/slackhq/nebula
+[netmaker]: https://github.com/gravitl/netmaker/
+[netmaker-claim]: https://medium.com/netmaker/battle-of-the-vpns-which-one-is-fastest-speed-test-21ddc9cd50db
