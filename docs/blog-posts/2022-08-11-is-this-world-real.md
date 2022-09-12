@@ -37,7 +37,9 @@ By logic, I am referring to our deductive ability, our capabilities to reason, w
 
 Our mental manipulations of the world of logic maintain their consistency across observers, and it is hard to imagine a possible world in which reason and/or mathematics are not consistent (is it possible to imagine a world where 1 + 1 = 3?). While I will leave the question of whether numbers and other mathematical constructs exist or are discovered to [philosophers][philosophy-math], I am compelled to suspect that regardless of whether we perceive the physical and mental world as it is or not, the world of logic and reason is immune to any sort of manipulation by our sense organs, brains, or in some other form by evolution.
 
-In fact, logic is what allows us to theorize that our senses are deceiving us in the first place. Even if, say, an evil demon were manipulating all of our reality, with logic, we can break free from its grasp (as Descartes did with his [_cogito, ergo sum_][cogito]).
+There is a nice fictional example of how logic is used to discern dream from reality. In Stanislaw Lem's [_Solaris_][solaris], the main character experiences a series of bizarre events and begins to suspect he is dreaming. He conducts the following test: He asks a supercomputer for the answer to a difficult math question and keeps the answer. He then calculates the answer himself manually, and then compares the two. If they are equal, he surmises he is not dreaming, since there is no way his brain could have calculated the answer as fast as the supercomputer[^solaris].
+
+Logic is what allows us to theorize that our senses are deceiving us in the first place. Even if, say, an evil demon were manipulating all of our reality, with logic, we can break free from its grasp (as Descartes did with his [_cogito, ergo sum_][cogito]).
 
 How did we obtain logic? Dawkins has an [answer][selfish-gene]. As evolution progressed, we initially gained the ability to form mental models about the world to escape from predators and find food. Later, we gained memory and the ability to learn. The [ego][ego] developed later[^ego-death], and represented the ability of the organism to include itself into its mental model of the world, instead of merely reacting passively. Intellect and with it, logic, must then have developed, culminating in Homo sapiens becoming the dominant species on this planet.
 
@@ -56,6 +58,7 @@ Another interesting argument I read online arguing for objective reality goes as
 [This][obscurantism] is a humorous critique of oft-abused terms (think _quantumly connected_, _non-locality_) in the psychological field of consciousness.
 
 [^nagel]: This is covered in his 1974 paper, [_What Is It Like to be a Bat_?](https://warwick.ac.uk/fac/cross_fac/iatl/study/ugmodules/humananimalstudies/lectures/32/nagel_bat.pdf)
+[^solaris]: This procedure assumes that 1. his memory is reliable, 2. his conscious thought processes run at the same speed as his unconscious, and 3. he was free to decide the question he asks the supercomputer.
 [^ego-death]: Ironically, with logic and the realization that the ego exists, certain [meditation techniques][zen] and [drugs][drugs] have been utilized with the intent of [dissolving it][ego-death].
 
 [book]: https://www.goodreads.com/book/show/41817484-the-case-against-reality
@@ -75,3 +78,4 @@ Another interesting argument I read online arguing for objective reality goes as
 [summary]: https://www.scientificamerican.com/article/did-humans-evolve-to-see-things-as-they-really-are/
 [visible-spectrum]: https://en.wikipedia.org/wiki/Visible_spectrum
 [zen]: https://www.sotozen.com/eng/practice/zazen/advice/fukanzanzeng.html
+[solaris]: https://www.goodreads.com/book/show/95558.Solaris

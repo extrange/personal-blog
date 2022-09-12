@@ -305,6 +305,7 @@ To setup Samba:
         guest ok = yes
         writable = yes
         browseable = yes
+        acl allow execute always = yes
     ```
 
     This will create a share named `storage`, accessible without login or passwords. **Only do this on a secure LAN!**
