@@ -205,14 +205,14 @@ We will now setup a peer-to-peer VPN, which will let us access Moonlight both wi
 
 ??? note "Rationale"
 
-    Moonlight requires [certain ports][moonlight-ports] to be forwarded on your router, in order for the PC to be accessible over the internet. 
+    Moonlight requires [certain ports][moonlight-ports] to be forwarded on your router, in order for the PC to be accessible over the internet.
 
     However, in our current setup, the VM is not directly accessible from the internet or even the LAN, because the [default network][default-network][^default-network] it is connected to is not assigned an IP address on the LAN, so there is no way to port forward the required ports.
 
     One way is to give the VM its own IP address on the network via a [`macvtap`][macvtap] interface, as [shown above](#4-install-windows-and-setup-moonlight-streaming).
 
     However, sometimes port forwarding may not work due to [NATs][nat], your ISP blocking ports, or firewalls.
-    
+
     Therefore, a better solution is to use a peer-to-peer VPN provider, which utilize [NAT traversal][nat-traversal] techniques such as [UDP hole punching][udp-hole-punching] to connect to hosts behind NATs/firewalls.
 
     - [ZeroTier][zerotier]: partially open-source, freemium
@@ -274,13 +274,13 @@ This [fix][slow-nfs-fix] _may_ speed up NFS access on Windows (although I strong
 
 To setup Samba:
 
-1. Install Samba on Linux:
+1.  Install Samba on Linux:
 
     ```bash
     sudo dnf install samba samba-common
     ```
 
-2. Set the correct SELinux contexts for the directories you wish to share (in this example `/mnt/storage`):
+2.  Set the correct SELinux contexts for the directories you wish to share (in this example `/mnt/storage`):
 
     ```bash
     sudo chcon -R -t samba_share_t /mnt/storage
@@ -296,7 +296,7 @@ To setup Samba:
 
         Otherwise, `sshd` will be **denied access** to `authorized_keys` and you will lose login via SSH!
 
-3. Add the following to `/etc/samba/smb.conf`:
+3.  Add the following to `/etc/samba/smb.conf`:
 
     ```config
     [storage]
@@ -310,12 +310,12 @@ To setup Samba:
 
     This will create a share named `storage`, accessible without login or passwords. **Only do this on a secure LAN!**
 
-4. (For Fedora) Open the required ports in the `libvirt` zone (for the Windows guest), and in the `Public` zone for other computers on the network:
+4.  (For Fedora) Open the required ports in the `libvirt` zone (for the Windows guest), and in the `Public` zone for other computers on the network:
 
     - TCP `139`, `445`
     - UDP `137`, `138`
 
-5. Restart the `smb` and `nmb` daemons:
+5.  Restart the `smb` and `nmb` daemons:
 
     ```bash
     sudo systemctl enable --now smb nmb
@@ -337,7 +337,6 @@ To fix this, you will need to get an **HDMI dummy plug**.
 -   You might need to reboot the VM after.
 
 You should now be getting ~60fps when streaming the bare desktop.
-
 
 ## Conclusion
 
@@ -382,6 +381,7 @@ To re-enable GPU passthrough, reverse the steps above.
     -   Paste text from host: ++ctrl+alt+shift+v++
 -   Moonlight not filling screen:
     -   [Use the Nvidia control panel to change the screen resolution.][moonlight-fix]
+-   Intermittent black screen: [Disable hardware-accelerated GPU scheduling][gpu-scheduling]
 
 ### QEMU/`virt-manager`
 
@@ -398,7 +398,7 @@ To re-enable GPU passthrough, reverse the steps above.
     -   For example, setting multiple sockets with each having 1 CPU and 1 core is more efficient.
 -   Types of VM network connections compared:
     ![](/static/images/2022-07-10/vm-networking.png)
-    
+
 For more information on the `libvirt` domain XML, check out the [documentation][libvirt-xml].
 
 ### Apache Guacamole
@@ -475,3 +475,4 @@ One advantage of Steam Link however is that no port forwarding appears to be req
 [nebula]: https://github.com/slackhq/nebula
 [netmaker]: https://github.com/gravitl/netmaker/
 [netmaker-claim]: https://medium.com/netmaker/battle-of-the-vpns-which-one-is-fastest-speed-test-21ddc9cd50db
+[gpu-scheduling]: https://github.com/moonlight-stream/nvidia-gamestream-issues/issues/27
