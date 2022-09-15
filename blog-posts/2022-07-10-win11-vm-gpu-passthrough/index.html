@@ -1560,42 +1560,71 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <li>
 <p>The streaming resolution of Moonlight is <strong>not</strong> what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.</p>
 </li>
-<li>Some useful shortcuts:<ul>
+<li>
+<p>Some useful shortcuts:</p>
+<ul>
 <li>Quit moonlight: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-q">Q</kbd></span></li>
 <li>Minimize window: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-d">D</kbd></span></li>
 <li>Show stats overlay: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-s">S</kbd></span></li>
 <li>Paste text from host: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-v">V</kbd></span></li>
+<li>Toggle mouse and keyboard capture: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-z">Z</kbd></span></li>
 </ul>
 </li>
-<li>Moonlight not filling screen:<ul>
+<li>
+<p>Moonlight not filling screen:</p>
+<ul>
 <li><a href="https://github.com/moonlight-stream/moonlight-android/issues/588">Use the Nvidia control panel to change the screen resolution.</a></li>
 </ul>
 </li>
-<li>Intermittent black screen: <a href="https://github.com/moonlight-stream/nvidia-gamestream-issues/issues/27">Disable hardware-accelerated GPU scheduling</a></li>
+<li>
+<p>Intermittent black screen: <a href="https://github.com/moonlight-stream/nvidia-gamestream-issues/issues/27">Disable hardware-accelerated GPU scheduling</a></p>
+</li>
 </ul>
 <h3 id="qemuvirt-manager">QEMU/<code>virt-manager</code></h3>
 <ul>
-<li>Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.</li>
-<li>VM hangs/pauses, and in <code>dmesg</code> you see <code>[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]</code> and similar errors:<ul>
+<li>
+<p>Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.</p>
+</li>
+<li>
+<p>VM hangs/pauses, and in <code>dmesg</code> you see <code>[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]</code> and similar errors:</p>
+<ul>
 <li>Ensure that the <a href="https://forum.proxmox.com/threads/problem-with-gpu-passthrough.55918/post-478351"><code>initcall_blacklist=sysfb_init</code></a> kernel parameter has been added to <code>grub.cfg</code>.</li>
 </ul>
 </li>
-<li><code>virt-manager</code>/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in <code>virt-manager</code>) must first be closed.</li>
-<li>Windows XP only: In <code>virt-manager</code>, the NIC device model must be <code>rtl8139</code>, and the sound card model as <code>AC97</code> in order for drivers to be installed.</li>
-<li>Nvidia Geforce Experience says 'Unsupported CPU':<ul>
+<li>
+<p><code>virt-manager</code>/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in <code>virt-manager</code>) must first be closed.</p>
+</li>
+<li>
+<p>Windows XP only: In <code>virt-manager</code>, the NIC device model must be <code>rtl8139</code>, and the sound card model as <code>AC97</code> in order for drivers to be installed.</p>
+</li>
+<li>
+<p>Nvidia Geforce Experience says 'Unsupported CPU':</p>
+<ul>
 <li>Change the CPU model in <code>virt-manager</code> (in the XML) to <code>host-model</code> (<a href="https://libvirt.org/formatdomain.html#cpu-model-and-topology">preferred</a>) or <code>host-passthrough</code>.</li>
 </ul>
 </li>
-<li>Passthrough-ed USB devices, when disconnected, prevent the VM from booting<ul>
+<li>
+<p>Passthrough-ed USB devices, when disconnected, prevent the VM from booting</p>
+<ul>
 <li>Add <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-manipulating_the_domain_xml-devices#sect-Host_physical_machine_device_assignment-USB_PCI_devices"><code>startupPolicy="optional"</code></a> to the <code>&lt;source&gt;</code> tag in the XML for the passthrough-ed USB device</li>
 </ul>
 </li>
-<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/virtualization_tuning_and_optimization_guide/index">Useful VM performance tuning options</a><ul>
+<li>
+<p>Low FPS when display is set to 'Duplicate these displays':</p>
+<ul>
+<li>Change display settings to 'Extend these displays' instead. I suspect when displays are duplicated, the GPU works extra to render frames on both monitors, causing the FPS drop.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/virtualization_tuning_and_optimization_guide/index">Useful VM performance tuning options</a></p>
+<ul>
 <li>For example, setting multiple sockets with each having 1 CPU and 1 core is more efficient.</li>
 </ul>
 </li>
-<li>Types of VM network connections compared:
-    <img alt="" src="/static/images/2022-07-10/vm-networking.png" /></li>
+<li>
+<p>Types of VM network connections compared:
+    <img alt="" src="/static/images/2022-07-10/vm-networking.png" /></p>
+</li>
 </ul>
 <p>For more information on the <code>libvirt</code> domain XML, check out the <a href="https://libvirt.org/formatdomain.html">documentation</a>.</p>
 <h3 id="apache-guacamole">Apache Guacamole</h3>
