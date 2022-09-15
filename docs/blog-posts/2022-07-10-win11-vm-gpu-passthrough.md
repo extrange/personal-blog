@@ -312,8 +312,8 @@ To setup Samba:
 
 4.  (For Fedora) Open the required ports in the `libvirt` zone (for the Windows guest), and in the `Public` zone for other computers on the network:
 
-    - TCP `139`, `445`
-    - UDP `137`, `138`
+    -   TCP `139`, `445`
+    -   UDP `137`, `138`
 
 5.  Restart the `smb` and `nmb` daemons:
 
@@ -374,28 +374,49 @@ To re-enable GPU passthrough, reverse the steps above.
         ```
 
 -   The streaming resolution of Moonlight is **not** what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.
+
 -   Some useful shortcuts:
+
     -   Quit moonlight: ++ctrl+alt+shift+q++
     -   Minimize window: ++ctrl+alt+shift+d++
     -   Show stats overlay: ++ctrl+alt+shift+s++
     -   Paste text from host: ++ctrl+alt+shift+v++
+    -   Toggle mouse and keyboard capture: ++ctrl+alt+shift+z++
+
 -   Moonlight not filling screen:
+
     -   [Use the Nvidia control panel to change the screen resolution.][moonlight-fix]
+
 -   Intermittent black screen: [Disable hardware-accelerated GPU scheduling][gpu-scheduling]
 
 ### QEMU/`virt-manager`
 
 -   Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.
+
 -   VM hangs/pauses, and in `dmesg` you see `[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]` and similar errors:
+
     -   Ensure that the [`initcall_blacklist=sysfb_init`][gpu-fix] kernel parameter has been added to `grub.cfg`.
+
 -   `virt-manager`/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in `virt-manager`) must first be closed.
+
 -   Windows XP only: In `virt-manager`, the NIC device model must be `rtl8139`, and the sound card model as `AC97` in order for drivers to be installed.
+
 -   Nvidia Geforce Experience says 'Unsupported CPU':
+
     -   Change the CPU model in `virt-manager` (in the XML) to `host-model` ([preferred][cpu-model]) or `host-passthrough`.
+
 -   Passthrough-ed USB devices, when disconnected, prevent the VM from booting
+
     -   Add [`startupPolicy="optional"`][usb-devices] to the `<source>` tag in the XML for the passthrough-ed USB device
+
+-   Low FPS when display is set to 'Duplicate these displays':
+
+    -   Change display settings to 'Extend these displays' instead. I suspect when displays are duplicated, the GPU works extra to render frames on both monitors, causing the FPS drop.
+
 -   [Useful VM performance tuning options][vm-tuning]
+
     -   For example, setting multiple sockets with each having 1 CPU and 1 core is more efficient.
+
 -   Types of VM network connections compared:
     ![](/static/images/2022-07-10/vm-networking.png)
 
