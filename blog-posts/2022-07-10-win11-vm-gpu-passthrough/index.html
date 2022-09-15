@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-07-10-win11-vm-gpu-passthrough/">
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.4">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6b80c2a2.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2e8b5541.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -30,6 +30,7 @@
         
       
       
+
     
     
     
@@ -60,6 +61,7 @@
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
 
+    
     
     
   </head>
@@ -136,7 +138,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -1239,18 +1241,18 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-               
-                
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                 
+                  
   
 
   <nav class="md-tags" >
     
       
-        <a href="../../tags/#programming" class="md-tag">
-          Programming
-        </a>
+      
+        <a href="../../tags/#programming" class="md-tag">Programming</a>
       
     
   </nav>
@@ -1412,7 +1414,7 @@ drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-2
 <p>We will now setup a peer-to-peer VPN, which will let us access Moonlight both within the LAN and from the internet, without worrying about port forwarding or firewall configurations.</p>
 <details class="note">
 <summary>Rationale</summary>
-<p>Moonlight requires <a href="https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#manual-port-forwarding-advanced">certain ports</a> to be forwarded on your router, in order for the PC to be accessible over the internet. </p>
+<p>Moonlight requires <a href="https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#manual-port-forwarding-advanced">certain ports</a> to be forwarded on your router, in order for the PC to be accessible over the internet.</p>
 <p>However, in our current setup, the VM is not directly accessible from the internet or even the LAN, because the <a href="https://libvirt.org/formatnetwork.html#nat-based-network">default network</a><sup id="fnref:default-network"><a class="footnote-ref" href="#fn:default-network">1</a></sup> it is connected to is not assigned an IP address on the LAN, so there is no way to port forward the required ports.</p>
 <p>One way is to give the VM its own IP address on the network via a <a href="https://virt.kernelnewbies.org/MacVTap"><code>macvtap</code></a> interface, as <a href="#4-install-windows-and-setup-moonlight-streaming">shown above</a>.</p>
 <p>However, sometimes port forwarding may not work due to <a href="https://en.wikipedia.org/wiki/Network_address_translation">NATs</a>, your ISP blocking ports, or firewalls.</p>
@@ -1569,6 +1571,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <li><a href="https://github.com/moonlight-stream/moonlight-android/issues/588">Use the Nvidia control panel to change the screen resolution.</a></li>
 </ul>
 </li>
+<li>Intermittent black screen: <a href="https://github.com/moonlight-stream/nvidia-gamestream-issues/issues/27">Disable hardware-accelerated GPU scheduling</a></li>
 </ul>
 <h3 id="qemuvirt-manager">QEMU/<code>virt-manager</code></h3>
 <ul>
@@ -1643,7 +1646,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 
 
 
-              
+                
 
 <!-- Giscus -->
 <h2 id="__comments">Comments</h2>
@@ -1693,9 +1696,10 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
   });
 </script>
 
-            </article>
-            
-          </div>
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
@@ -1781,7 +1785,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2ab50757.min.js"></script>
+      <script src="../../assets/javascripts/bundle.48f2be22.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
