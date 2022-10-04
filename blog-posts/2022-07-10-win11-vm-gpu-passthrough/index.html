@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2022-07-10-win11-vm-gpu-passthrough/">
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2e8b5541.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1532,7 +1532,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <p>At times you may want to disable VFIO or GPU passthrough, for example when you want to <a href="../2022-07-10-docker-gpu-fedora/">use the GPU in the host</a>.</p>
 <p>To disable GPU passthrough:</p>
 <ul>
-<li>Remove/comment out the file <code>/etc/modules-load.d/vfio-pci.conf</code>.</li>
+<li>Rename the file <code>/etc/modprobe.d/vfio-pci.conf</code> to <code>/etc/modprobe.d/vfio-pci.conf.bak</code>.</li>
 <li>
 <p>Add the following lines to <code>GRUB_CMDLINE_LINUX</code> in <code>/etc/default/grub</code>:</p>
 <div class="highlight"><pre><span></span><code>rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
@@ -1811,10 +1811,10 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.48f2be22.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
