@@ -1095,10 +1095,11 @@
     }
 }
 EOF
-sudo pkill -SIGHUP dockerd
 </code></pre></div>
-<p>Optionally, to make all containers use the NVIDIA runtime by default:</p>
-<p>Add the following to <code>/etc/docker/daemon.json</code>:</p>
+<p>Tell <code>dockerd</code> to reload configuration:</p>
+<div class="highlight"><pre><span></span><code>sudo pkill -SIGHUP dockerd
+</code></pre></div>
+<p><em>(Optional)</em> To make all containers use the NVIDIA runtime by default, add the following to <code>/etc/docker/daemon.json</code>:</p>
 <div class="highlight"><pre><span></span><code>&quot;default-runtime&quot;: &quot;nvidia&quot;
 </code></pre></div>
 <h2 id="5-finally-test-gpu-access-in-docker-with-either">5. Finally, test GPU access in Docker with either:</h2>
