@@ -1,6 +1,6 @@
 ---
 tags:
-  - Programming
+    - Programming
 ---
 
 # Docker Containers with GPU access in Fedora
@@ -9,8 +9,8 @@ This guide will let you use a NVIDIA GPU in a Docker container (e.g. for Tensorf
 
 Prerequisites:
 
-- Docker must be installed.
-- You have a NVIDIA GPU.
+-   Docker must be installed.
+-   You have a NVIDIA GPU.
 
 ## 1. Install NVIDIA drivers from the RPM Fusion repository[^rpmfusion]:
 
@@ -47,12 +47,15 @@ sudo tee /etc/docker/daemon.json <<EOF
     }
 }
 EOF
+```
+
+Tell `dockerd` to reload configuration:
+
+```
 sudo pkill -SIGHUP dockerd
 ```
 
-Optionally, to make all containers use the NVIDIA runtime by default:
-
-Add the following to `/etc/docker/daemon.json`:
+_(Optional)_ To make all containers use the NVIDIA runtime by default, add the following to `/etc/docker/daemon.json`:
 
 ```
 "default-runtime": "nvidia"
@@ -72,5 +75,17 @@ docker run --runtime=nvidia --gpus all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody
 
 And that's it!
 
+**Note on VSCode**
+
+If you are using VSCode [Remote Containers][remote-containers], you will need to add
+
+```
+"runArgs": ["--gpus","all"]
+```
+
+to your `devcontainer.json`. For some reason, `--runtime=nvidia` does not work.
+
 [^rpmfusion]: Enable the RPM Fusion repositories in Fedora [here.](https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/#proc_enabling-the-rpmfusion-repositories-using-command-line-utilities_enabling-the-rpmfusion-repositories)
 [^nvidia-repo]: While there is no official Fedora support for `nvidia-container-runtime`, the Centos 7 repository [seems to work](https://github.com/NVIDIA/nvidia-docker/issues/553#issuecomment-381075335).
+
+[remote-containers]: https://code.visualstudio.com/docs/remote/containers
