@@ -1109,6 +1109,11 @@ EOF
 <div class="highlight"><pre><span></span><code>docker run --runtime=nvidia --gpus all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark -numbodies=512000
 </code></pre></div>
 <p>And that's it!</p>
+<p><strong>Note on VSCode</strong></p>
+<p>If you are using VSCode <a href="https://code.visualstudio.com/docs/remote/containers">Remote Containers</a>, you will need to add</p>
+<div class="highlight"><pre><span></span><code>&quot;runArgs&quot;: [&quot;--gpus&quot;,&quot;all&quot;]
+</code></pre></div>
+<p>to your <code>devcontainer.json</code>. For some reason, <code>--runtime=nvidia</code> does not work.</p>
 <div class="footnote">
 <hr />
 <ol>
