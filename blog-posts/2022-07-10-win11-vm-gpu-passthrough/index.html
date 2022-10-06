@@ -1533,6 +1533,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <p>To disable GPU passthrough:</p>
 <ul>
 <li>Rename the file <code>/etc/modprobe.d/vfio-pci.conf</code> to <code>/etc/modprobe.d/vfio-pci.conf.bak</code>.</li>
+<li>Rename the file <code>/etc/modules-load.d/vfio-pci.conf</code> to <code>/etc/modules-load.d/vfio-pci.conf.bak</code>.</li>
 <li>
 <p>Add the following lines to <code>GRUB_CMDLINE_LINUX</code> in <code>/etc/default/grub</code>:</p>
 <div class="highlight"><pre><span></span><code>rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
