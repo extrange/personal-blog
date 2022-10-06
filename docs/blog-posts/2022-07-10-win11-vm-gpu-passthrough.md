@@ -351,6 +351,7 @@ At times you may want to disable VFIO or GPU passthrough, for example when you w
 To disable GPU passthrough:
 
 -   Rename the file `/etc/modprobe.d/vfio-pci.conf` to `/etc/modprobe.d/vfio-pci.conf.bak`.
+-   Rename the file `/etc/modules-load.d/vfio-pci.conf` to `/etc/modules-load.d/vfio-pci.conf.bak`.
 -   Add the following lines to `GRUB_CMDLINE_LINUX` in `/etc/default/grub`:
 
     ```
