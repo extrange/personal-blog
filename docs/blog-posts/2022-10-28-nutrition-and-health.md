@@ -39,7 +39,7 @@ Boiling vegetables [causes some degree of water-soluble nutrient loss][boiling-n
 
 However, boiling is much faster, especially with a pressure cooker. To compensate for the loss, you can drink the water the vegetables are cooked in (especially so with a pressure cooker, where much less water is used than with boiling).
 
-Soaking beans beforehand also reduces [lectins][lectins], an antinutrient which interferes with the absorption of minerals.
+Soaking beans beforehand can reduce the amount of [lectins][lectins], an antinutrient which interferes with the absorption of minerals. However, it turns out [soaking beans isn't really necessary][soaking-beans] when it comes to flatulence, taste or nutrition (in fact, unsoaked beans taste better).
 
 Of note: food in contact with the water in the pressure cooker appears to cook faster, than food simply exposed to the steam.
 
@@ -190,3 +190,4 @@ However, there is some [concern][green-tea-catechins] that excessive consumption
 [vitamin-d-mortality]: https://pubmed.ncbi.nlm.nih.gov/24690623/
 [my-diet]: 2022-08-01-my-diet.md
 [lectins]: https://www.hsph.harvard.edu/nutritionsource/anti-nutrients/lectins/
+[soaking-beans]: https://www.epicurious.com/expert-advice/soaking-salting-dried-bean-myths-article
