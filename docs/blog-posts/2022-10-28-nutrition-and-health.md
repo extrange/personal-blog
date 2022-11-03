@@ -15,11 +15,13 @@ This page is continually updated as more studies and information develop.
 
 An LDL (bad cholesterol) level of less than 1.55mmol/L [reverses atherosclerosis][ldl].
 
-### Intermittent Fasting
+### Timing/Intermittent Fasting
 
 It is thought that not just the total intake, but the _timing_ of consumed calories, plays an important role in weight loss and metabolic health.
 
 [This NEJM review article][nejm-if] ([fulltext][nejm-if-fulltext]), published in 2019, showed that intermittent fasting, defined as either time-restricted eating (TRE), alternate day fasting (ADF) or 5:2 intermittent fasting, has broad spectrum benefits including glucose regulation, stress resistance and inflammation suppression, independent from weight loss. Some purported benefits went even beyond metabolism, such as increased neuroplasticity and longevity. Muscle mass was shown to be retained despite fasting daily for 16 hours while undergoing resistance training.
+
+[This study][morning-loaded-calories] found that while there was no difference in weight loss/daily energy expenditure between morning-loaded and evening-loaded diets, there was less subjective hunger in the morning-loaded diet, which could contribute to weight loss in the long term via appetite suppression.
 
 A [review article][if-comparison] comparing the various types of fasting (ADF, TRE, and the 5:2 diet) showed that ADF and the 5:2 diet had better weight loss and cholesterol lowering effects than TRE.
 
@@ -191,3 +193,4 @@ However, there is some [concern][green-tea-catechins] that excessive consumption
 [my-diet]: 2022-08-01-my-diet.md
 [lectins]: https://www.hsph.harvard.edu/nutritionsource/anti-nutrients/lectins/
 [soaking-beans]: https://www.epicurious.com/expert-advice/soaking-salting-dried-bean-myths-article
+[morning-loaded-calories]: https://www.sciencedirect.com/science/article/pii/S1550413122003448 
