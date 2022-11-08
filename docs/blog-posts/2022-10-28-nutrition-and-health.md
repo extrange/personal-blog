@@ -84,6 +84,8 @@ An intake of red meat above 500g/week is associated with an [increased risk][red
 
 [Fish and eggs][satiety-healthline] appear to be more filling compared to chicken protein.
 
+Whey protein is a great source, however there are concerns about [contamination][protein-contamination] with heavy metals, and so I limit my total intake from this source.
+
 The key principles are:
 
 -   Consume more protein as a total percentage of caloric intake.
@@ -194,3 +196,4 @@ However, there is some [concern][green-tea-catechins] that excessive consumption
 [lectins]: https://www.hsph.harvard.edu/nutritionsource/anti-nutrients/lectins/
 [soaking-beans]: https://www.epicurious.com/expert-advice/soaking-salting-dried-bean-myths-article
 [morning-loaded-calories]: https://www.sciencedirect.com/science/article/pii/S1550413122003448 
+[protein-contamination]: https://cleanlabelproject.org/blog-post/new-study-of-protein-powders-from-clean-label-project-finds-elevated-levels-of-heavy-metals-and-bpa-in-53-leading-brands/
