@@ -3,11 +3,10 @@ theme:
   name: material
   palette:
     scheme: slate
-    primary: cyan
+    primary: indigo
     accent: yellow
   favicon: '/static/images/favicon.png'
-  icon:
-    logo: material/home
+  logo: 'static/images/favicon.png'
   features:
     - navigation.instant
     - header.autohide
@@ -88,6 +87,7 @@ plugins:
   - tags:
       tags_file: tags.md
   - search
+  - social
 
 extra:
   analytics:
