@@ -18,6 +18,7 @@ nav:
   - Home: index.md
   - About Me: about.md
   - Blog Posts:
+    - 'PhotoPrism: A Google Photos Replacement': blog-posts/2022-11-26-photoprism-google-photos.md
     - Nutrition and Health: blog-posts/2022-10-28-nutrition-and-health.md
     - Is This World Real? On Realism: blog-posts/2022-08-11-is-this-world-real.md
     - My Experience at a 10 Day Meditation Retreat: blog-posts/2022-08-05-vipassana-meditation-retreat.md
