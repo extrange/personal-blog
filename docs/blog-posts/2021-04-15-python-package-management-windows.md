@@ -8,7 +8,7 @@ tags:
 
 I now use [WSL2 containers in VSCode](2021-11-17-developing-in-wsl-containers.md). Additionally, I use `requirements.txt` files generated with:
 
- `pip list format=freeze --not-required`
+ `pip list --format freeze --not-required`
 
 [`--not-required`][--not-required] ensures only top-level packages are printed.
 
