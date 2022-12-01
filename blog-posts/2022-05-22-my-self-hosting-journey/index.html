@@ -19,10 +19,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
         
           
           
@@ -1195,9 +1195,21 @@
 <li>supports lightweight snapshots and sending these snapshots to other devices for backup</li>
 </ul>
 <p>One of the more interesting features of BtrFS is that it allows for RAID-1 with any number of devices, of all different sizes. The resulting available storage is usually <a href="https://btrfs.wiki.kernel.org/index.php/FAQ#How_much_space_do_I_get_with_unequal_devices_in_RAID-1_mode.3F">half the total storage available</a>. This is made possible as the filesystem <a href="https://btrfs.wiki.kernel.org/index.php/SysadminGuide#Data_usage_and_allocation">allocates data in chunks</a>, with each chunk on a RAID-1 setup being duplicated to 2 different drives.</p>
-<p>Backup is done with the following series of commands:</p>
+<p><a href="https://github.com/digint/btrbk"><code>btrbk</code></a> is a great utility which I utilize for backups. It allows for automatic snapshot creation, backups to multiple destinations (including SSH), incrementals backups as well as utilities to calculate accurate snapshot space usage.</p>
+<p>I use <code>btrbk</code> to make hourly rolling snapshots, preserving snapshots:</p>
+<ul>
+<li>every hour for the last 24 hours</li>
+<li>every day for the past 7 days</li>
+<li>every week for the past 4 weeks</li>
+<li>every month for the past 12 months</li>
+<li>every year for the past 3 years</li>
+</ul>
+<p>This allows me to fallback to any state in the past.</p>
+<p>I manually run the <code>archive</code> command to send snapshots over to an external drive every 6 months. </p>
+<p><em>Note: there is an issue with <a href="https://github.com/digint/btrbk/issues/339#issuecomment-1332137961"><code>btrbk</code> not sending snapshots without direct parent-child uuid link when using <code>resume</code></a>. To get around this, I use <code>archive</code> initially to copy snapshots over to the external drive.</em></p>
 <details class="note">
-<summary>Backup Commands</summary>
+<summary>Backup commands previously used</summary>
+<p>Prior to <code>btrbk</code>, here were the backup commands I used.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a subvolume snapshot of /mnt/storage</span>
 <span class="c1"># Note: &#39;snapshots&#39; and &#39;subvolumes&#39; are synonymous in BtrFS: A snapshot is a copy of a subvolume</span>
 btrfs subvolume snapshot -r /mnt/storage/ /mnt/storage/snapshot.<span class="k">$(</span>date +%Y-%m-%d<span class="k">)</span>
@@ -1424,7 +1436,7 @@ btrfs send -p &lt;path to parent snapshot on sending drive&gt; &lt;subvol&gt; <s
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
@@ -1432,6 +1444,7 @@ btrfs send -p &lt;path to parent snapshot on sending drive&gt; &lt;subvol&gt; <s
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
+    
     
   </body>
 </html>
