@@ -57,9 +57,25 @@ I chose BtrFS over `dmraid` + ext4 as BtrFS:
 
 One of the more interesting features of BtrFS is that it allows for RAID-1 with any number of devices, of all different sizes. The resulting available storage is usually [half the total storage available][btrfs-storage]. This is made possible as the filesystem [allocates data in chunks][btrfs-data-allocation], with each chunk on a RAID-1 setup being duplicated to 2 different drives.
 
-Backup is done with the following series of commands:
+[`btrbk`][btrbk] is a great utility which I utilize for backups. It allows for automatic snapshot creation, backups to multiple destinations (including SSH), incrementals backups as well as utilities to calculate accurate snapshot space usage.
 
-??? note "Backup Commands"
+I use `btrbk` to make hourly rolling snapshots, preserving snapshots:
+
+- every hour for the last 24 hours
+- every day for the past 7 days
+- every week for the past 4 weeks
+- every month for the past 12 months
+- every year for the past 3 years
+
+This allows me to fallback to any state in the past.
+
+I manually run the `archive` command to send snapshots over to an external drive every 6 months. 
+
+_Note: there is an issue with [`btrbk` not sending snapshots without direct parent-child uuid link when using `resume`][btrbk-issue]. To get around this, I use `archive` initially to copy snapshots over to the external drive._
+
+??? note "Backup commands previously used"
+
+    Prior to `btrbk`, here were the backup commands I used.
 
     ```bash
     # Create a subvolume snapshot of /mnt/storage
@@ -158,6 +174,8 @@ Finally, I use [Powerline][powerline], a great status plugin showing CPU/memory/
 [termux]: https://termux.com/
 [tmux]: https://github.com/tmux/tmux/wiki
 [uptime-kuma]: https://github.com/louislam/uptime-kuma
+[btrbk-issue]: https://github.com/digint/btrbk/issues/339#issuecomment-1332137961
+[btrbk]: https://github.com/digint/btrbk
 
 [^bit-rot]: If some bits in one of the drives were to fail (e.g. due to [bit rot](https://en.wikipedia.org/wiki/Bit_rot)), `dmraid` would not know which drive contains the correct data as it operates below the filesystem layer.
 [^cryptsetup-partition]: The reason I do not use `cryptsetup` (or `dmcrypt`) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.
