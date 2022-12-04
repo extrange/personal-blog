@@ -1,6 +1,6 @@
 ---
 tags:
-  - Programming
+    - Programming
 ---
 
 # My Self-Hosting Journey
@@ -22,11 +22,11 @@ It was with those considerations in mind that I decided to go ahead with self ho
 
 ![](../static/images/2022-05-22/neofetch.jpg)
 
-- **CPU**: Intel i5-12400F (6 cores, 12 threads, 18M Cache, up to 4.40Ghz)
-- **Memory**: Crucial 32GB DDR4 3200Mhz
-- **Motherboard**: Gigabyte B660M DS3H DDR4
-- **Boot Drive**: Samsung 500GB 980 NVME M.2
-- **OS**: Fedora Linux (Server Edition)
+-   **CPU**: Intel i5-12400F (6 cores, 12 threads, 18M Cache, up to 4.40Ghz)
+-   **Memory**: Crucial 32GB DDR4 3200Mhz
+-   **Motherboard**: Gigabyte B660M DS3H DDR4
+-   **Boot Drive**: Samsung 500GB 980 NVME M.2
+-   **OS**: Fedora Linux (Server Edition)
 
 Total cost of the above was SGD $830.
 
@@ -46,32 +46,36 @@ Uptime monitoring is hosted on an offsite VPS with [Uptime Kuma][uptime-kuma], o
 
 ## Storage and Backup
 
-There is 12TB of file storage available, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 6TB ATA TOSHIBA HDWR160 in a (software) RAID-1 configuration under BtrFS.
+As of 2022 Dec, I have 32TB of raw storage, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 8TB ATA WDC WD80EAZZ-00B8TB (all non-SMR drives[^smr]) in a (software) BtrFS RAID-1 configuration, corresponding to approximately 16TB of usable storage.
+
+I use SSHFS to access my storage remotely. This storage is accessible locally in my LAN via [NFS][nfs], which Windows also supports[^nfs-issues].
 
 I chose BtrFS over `dmraid` + ext4 as BtrFS:
 
-- allows for online subvolume resizing/deletion/modification
-- supports file checksums in RAID modes[^bit-rot]
-- allows for arbitrary drives to be added/removed from the RAID configuration, and [balance the resulting filesystem automatically][btrfs-adding-new-devices]
-- supports lightweight snapshots and sending these snapshots to other devices for backup
+-   allows for online subvolume resizing/deletion/modification
+-   supports file checksums in RAID modes[^bit-rot]
+-   allows for **arbitrary drives to be added/removed** from the RAID configuration, and [balance the resulting filesystem automatically][btrfs-adding-new-devices]
+-   supports lightweight snapshots and sending these snapshots to other devices for backup
 
-One of the more interesting features of BtrFS is that it allows for RAID-1 with any number of devices, of all different sizes. The resulting available storage is usually [half the total storage available][btrfs-storage]. This is made possible as the filesystem [allocates data in chunks][btrfs-data-allocation], with each chunk on a RAID-1 setup being duplicated to 2 different drives.
+BtrFS also allows for RAID-1 with any number of devices, of all different sizes. The resulting available storage is usually [half the total storage available][btrfs-storage]. This is made possible as the filesystem [allocates data in chunks][btrfs-data-allocation], with each chunk on a RAID-1 setup being duplicated to 2 different drives.
+
+**Snapshots**
 
 [`btrbk`][btrbk] is a great utility which I utilize for backups. It allows for automatic snapshot creation, backups to multiple destinations (including SSH), incrementals backups as well as utilities to calculate accurate snapshot space usage.
 
-I use `btrbk` to make hourly rolling snapshots, preserving snapshots:
+I use `btrbk` together with [`systemd.timer`][systemd.timer] to make hourly rolling snapshots, preserving snapshots:
 
-- every hour for the last 24 hours
-- every day for the past 7 days
-- every week for the past 4 weeks
-- every month for the past 12 months
-- every year for the past 3 years
+-   every hour for the last 24 hours
+-   every day for the past 7 days
+-   every week for the past 4 weeks
+-   every month for the past 12 months
+-   every year for the past 3 years
 
 This allows me to fallback to any state in the past.
 
-I manually run the `archive` command to send snapshots over to an external drive every 6 months. 
+I manually run the `archive` command[^btrbk-issue] to send snapshots over to an external drive every 6 months.
 
-_Note: there is an issue with [`btrbk` not sending snapshots without direct parent-child uuid link when using `resume`][btrbk-issue]. To get around this, I use `archive` initially to copy snapshots over to the external drive._
+The backup drive is encrypted with AES-256 (via [`cryptsetup`][cryptsetup][^cryptsetup-partition]).
 
 ??? note "Backup commands previously used"
 
@@ -124,14 +128,12 @@ _Note: there is an issue with [`btrbk` not sending snapshots without direct pare
         Parent UUID:            5ed89436-7a3b-5744-9460-cf79ced43e2c
         Received UUID:          8a42b8d1-d145-9249-9e76-e7748dc4aeb5
     ```
-    
+
     Note: The `Received UUID` **does not change** when a snapshot is snapshot-ed again.
 
-The backup drive contains a BtrFS volume on top of a partition[^cryptsetup-partition] encrypted with[`cryptsetup`][cryptsetup].
+**Maintenance**
 
-This storage is accessible locally in my LAN via [NFS][nfs], which Windows also supports[^nfs-issues].
-
-I use SSHFS to access my storage remotely.
+I run [`btrfs scrub`][btrfs-scrub] monthly.
 
 ## SSH Access
 
@@ -160,24 +162,29 @@ I use [tmux][tmux], a terminal multiplexer, which allows me to keep terminal ses
 Finally, I use [Powerline][powerline], a great status plugin showing CPU/memory/uptime stats, on `bash` and [tmux][tmux].
 
 [awesome-selfhosted]: https://github.com/awesome-selfhosted/awesome-selfhosted
+[btrbk-issue]: https://github.com/digint/btrbk/issues/339#issuecomment-1332137961
+[btrbk]: https://github.com/digint/btrbk
 [btrfs-adding-new-devices]: https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices#Adding_new_devices
 [btrfs-data-allocation]: https://btrfs.wiki.kernel.org/index.php/SysadminGuide#Data_usage_and_allocation
+[btrfs-scrub]: https://btrfs.readthedocs.io/en/latest/btrfs-scrub.html
 [btrfs-storage]: https://btrfs.wiki.kernel.org/index.php/FAQ#How_much_space_do_I_get_with_unequal_devices_in_RAID-1_mode.3F
 [cryptsetup]: https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions
-[google-authenticator-pam]: https://github.com/google/google-authenticator-libpam
 [dashy]: https://github.com/Lissy93/dashy
+[google-authenticator-pam]: https://github.com/google/google-authenticator-libpam
 [mosh]: https://mosh.org/
 [nfs]: https://en.wikipedia.org/wiki/Network_File_System
 [nginx-auth-request]: http://nginx.org/en/docs/http/ngx_http_auth_request_module.html
 [powerline]: https://github.com/powerline/powerline
 [selfhosted]: https://www.reddit.com/r/selfhosted/
+[smr]: https://www.reddit.com/r/DataHoarder/comments/o5bmcu/comment/h2nfiwq/
+[systemd.timer]: https://opensource.com/article/20/7/systemd-timers
 [termux]: https://termux.com/
 [tmux]: https://github.com/tmux/tmux/wiki
 [uptime-kuma]: https://github.com/louislam/uptime-kuma
-[btrbk-issue]: https://github.com/digint/btrbk/issues/339#issuecomment-1332137961
-[btrbk]: https://github.com/digint/btrbk
 
+[^smr]: SMR drives have a much greater [write penalty][smr] compared to CMR/PMR drives.
 [^bit-rot]: If some bits in one of the drives were to fail (e.g. due to [bit rot](https://en.wikipedia.org/wiki/Bit_rot)), `dmraid` would not know which drive contains the correct data as it operates below the filesystem layer.
+[^btrbk-issue]: There is an issue with [`btrbk` not sending snapshots without direct parent-child uuid link when using `resume`][btrbk-issue]. To get around this, I use `archive` initially to copy snapshots over to the external drive.
 [^cryptsetup-partition]: The reason I do not use `cryptsetup` (or `dmcrypt`) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.
 [^nfs-issues]: Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the [fix](https://unix.stackexchange.com/questions/276292/need-permission-for-windows-client-to-access-linux-nfs).
 [^pam-issues]: On Fedora, Google Authenticator PAM has some [issues](https://github.com/google/google-authenticator-libpam/issues/101) with SELinux security configurations and so I use a [workaround](https://github.com/google/google-authenticator-libpam/issues/101#issuecomment-997533681).
