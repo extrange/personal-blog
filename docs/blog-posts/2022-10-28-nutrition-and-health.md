@@ -63,6 +63,8 @@ Interestingly, **potatoes** are the most satieting (despite being very high in G
 
 I prefer complex grains and legumes/lentils over processed alternatives like white rice, and avoid added sugar.
 
+There is some ongoing [research][sweeteners] which suggests that artificial sweeteners such as sucralose, aspartame and acesulfame-K may adversely affect gut microbiota, metabolic health and sweetness preferences.
+
 Legumes/lentils are a great source of complex carbohydrates as well as protein and other minerals.
 
 Resources:
@@ -197,3 +199,4 @@ However, there is some [concern][green-tea-catechins] that excessive consumption
 [soaking-beans]: https://www.epicurious.com/expert-advice/soaking-salting-dried-bean-myths-article
 [morning-loaded-calories]: https://www.sciencedirect.com/science/article/pii/S1550413122003448 
 [protein-contamination]: https://cleanlabelproject.org/blog-post/new-study-of-protein-powders-from-clean-label-project-finds-elevated-levels-of-heavy-metals-and-bpa-in-53-leading-brands/
+[sweeteners]: https://www.theguardian.com/lifeandstyle/2022/dec/08/artificial-sweeteners-price-of-sugar-free-are-they-as-harmless-as-we-thought
