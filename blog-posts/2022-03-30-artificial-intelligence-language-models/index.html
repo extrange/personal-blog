@@ -283,6 +283,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../2022-12-27-on-the-measure-of-intelligence/" class="md-nav__link">
+        On The Measure of Intelligence
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2022-12-16-japan-tomamu-skiing.md" class="md-nav__link">
+        Skiing at Mt Tomamu, Japan
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../2022-11-26-photoprism-google-photos/" class="md-nav__link">
         PhotoPrism: A Google Photos Replacement
       </a>
@@ -1155,6 +1183,7 @@
   <figcaption>Emerson AI, a GPT-3 based chatbot</figcaption>
 </figure>
 
+<p><em>Update: I discuss more on the measure of intelligence in <a href="../2022-12-27-on-the-measure-of-intelligence/">this post</a>.</em></p>
 <p>Every decade, huge advancements are being made in the field of artificial intelligence, and each time we are amazed. In the 1960s we had ELIZA, a convincing human-like chatbot. In the 1980s, the world watched as Deep Blue defeated Garry Kasparov for the first time. In the 2010s, the resurgence of deep learning completely transformed prior approaches in nearly all domains, from images and video, to text and speech.</p>
 <p>One field in particular has been widely viewed as holding promise for artificial general intelligence, and with that, understanding. This is the field of language modeling, and includes models such as <a href="https://en.wikipedia.org/wiki/GPT-3">GPT-3</a>, <a href="https://blog.google/technology/ai/lamda/">LaMDA</a> and <a href="https://ai.googleblog.com/2022/04/pathways-language-model-palm-scaling-to.html">PaLM</a>.</p>
 <p>Some of the <a href="https://www.theverge.com/21346343/gpt-3-explainer-openai-examples-errors-agi-potential">impressive feats</a> that these models are capable of include:</p>
@@ -1261,7 +1290,12 @@ A: This is a logical question that cannot be answered with the information given
 <li>Machine translation may not actually require an understanding of either the source or target sentence, given that current language models perform very well even when trained on monolingual corpora (Benden &amp; Koller, 2020<sup id="fnref3:climbing-towards-nlu"><a class="footnote-ref" href="#fn:climbing-towards-nlu">3</a></sup>).</li>
 <li>Likewise, reading comprehension, for example the kind tested in schools, may also not require an actual understanding of the text.</li>
 </ul>
-<p>*What is required for a model to think like we do?**</p>
+<p>Since the release of <a href="https://openai.com/blog/chatgpt/">ChatGPT</a>, there have been interesting insights circulating online:</p>
+<ul>
+<li><em>Applying a concept to an example is a lot easier than sorting a list of digits. Sorting requires superlinear processing on the input. If you're not doing something like step-by-step, there is necessarily a length of list where this fails, because transformers can only do a constant amount of work per token generated. In comparison, the performance of applying a concept is a lot harder to quantify, but doesn't seem obviously superlinear on input.</em> (comment from <a href="https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the/comment/11113962">astralcodexten</a>)</li>
+<li>Suggestion that verifying solutions from LLMs might be easier than coming up with a solution oneself (discussion on <a href="https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the/comment/11109450">astralcodexten</a>)</li>
+</ul>
+<p><strong>What is required for a model to think like we do?</strong></p>
 <p>The answer to this question is probably the holy grail of artificial general intelligence. Some have posited that it is <a href="https://medium.com/swlh/what-makes-neural-networks-fragile-676fe7cf230a">motivation</a>, while others think it lies with adding perceptual data to corpora<sup id="fnref2:climbing-towards-nlu"><a class="footnote-ref" href="#fn:climbing-towards-nlu">3</a></sup>.</p>
 <p>Others think that <em>compositionality</em>, the property that the meaning of the whole is and can be derived from meanings of the parts, is something <a href="https://compositionalintelligence.github.io/pdfs/Marcus.pdf">missing in current large language models (LLMs)</a> like <a href="https://en.wikipedia.org/wiki/GPT-3">GPT-3</a> and others. He argues that:</p>
 <ul>
