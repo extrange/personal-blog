@@ -18,6 +18,8 @@ nav:
   - Home: index.md
   - About Me: about.md
   - Blog Posts:
+    - 'On The Measure of Intelligence': blog-posts/2022-12-27-on-the-measure-of-intelligence.md
+    - 'Skiing at Mt Tomamu, Japan': blog-posts/2022-12-16-japan-tomamu-skiing.md
     - 'PhotoPrism: A Google Photos Replacement': blog-posts/2022-11-26-photoprism-google-photos.md
     - Nutrition and Health: blog-posts/2022-10-28-nutrition-and-health.md
     - Is This World Real? On Realism: blog-posts/2022-08-11-is-this-world-real.md

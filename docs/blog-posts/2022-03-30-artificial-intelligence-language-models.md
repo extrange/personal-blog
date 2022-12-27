@@ -11,6 +11,8 @@ tags:
   <figcaption>Emerson AI, a GPT-3 based chatbot</figcaption>
 </figure>
 
+_Update: I discuss more on the measure of intelligence in [this post](2022-12-27-on-the-measure-of-intelligence.md)._
+
 Every decade, huge advancements are being made in the field of artificial intelligence, and each time we are amazed. In the 1960s we had ELIZA, a convincing human-like chatbot. In the 1980s, the world watched as Deep Blue defeated Garry Kasparov for the first time. In the 2010s, the resurgence of deep learning completely transformed prior approaches in nearly all domains, from images and video, to text and speech.
 
 One field in particular has been widely viewed as holding promise for artificial general intelligence, and with that, understanding. This is the field of language modeling, and includes models such as [GPT-3][gpt3], [LaMDA][lamda] and [PaLM][palm].
@@ -154,7 +156,12 @@ Despite the failings of the models above, there are some interesting conclusions
 -   Machine translation may not actually require an understanding of either the source or target sentence, given that current language models perform very well even when trained on monolingual corpora (Benden & Koller, 2020[^climbing-towards-nlu]).
 -   Likewise, reading comprehension, for example the kind tested in schools, may also not require an actual understanding of the text.
 
-\*What is required for a model to think like we do?\*\*
+Since the release of [ChatGPT][chatgpt], there have been interesting insights circulating online:
+
+-   _Applying a concept to an example is a lot easier than sorting a list of digits. Sorting requires superlinear processing on the input. If you're not doing something like step-by-step, there is necessarily a length of list where this fails, because transformers can only do a constant amount of work per token generated. In comparison, the performance of applying a concept is a lot harder to quantify, but doesn't seem obviously superlinear on input._ (comment from [astralcodexten](https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the/comment/11113962))
+-   Suggestion that verifying solutions from LLMs might be easier than coming up with a solution oneself (discussion on [astralcodexten](https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the/comment/11109450))
+
+**What is required for a model to think like we do?**
 
 The answer to this question is probably the holy grail of artificial general intelligence. Some have posited that it is [motivation][neural-networks-fragile], while others think it lies with adding perceptual data to corpora[^climbing-towards-nlu].
 
@@ -175,6 +182,7 @@ I don't know what the answer is, but I suspect that models that think like us sh
 [^representation]: The question of whether current models possess an _internal state_ or _representation_ that is similar to what humans have is explored in [this workshop][workshop] on compositionality in AI. Some methods of exploring internal state include behavioral approaches, such as by questioning the model, in the same way one would test a child's understanding of a concept, and reductivist approaches such as identifying which parts of a model are responsible for shape, color and so on.
 [^climbing-towards-nlu]: [Bender, E. M., & Koller, A. (2020, July). Climbing towards NLU: On meaning, form, and understanding in the age of data. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics (pp. 5185-5198).](https://aclanthology.org/2020.acl-main.463.pdf)
 
+[chatgpt]: https://openai.com/blog/chatgpt/
 [bpe]: https://www.gwern.net/GPT-3#bpes
 [gary-marcus-slides]: https://compositionalintelligence.github.io/pdfs/Marcus.pdf
 [gary-marcus]: https://garymarcus.substack.com/p/nonsense-on-stilts
