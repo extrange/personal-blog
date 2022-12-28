@@ -1,7 +1,7 @@
 # On The Measure Of Intelligence
 
 <figure>
-  <img src="/static/images/2022-12-27/chatgpt.jpg" alt="ChatGPT solving a math problem" loading="lazy" style="max-width: 400px"/>
+  <div style="max-width: 400px"><img src="/static/images/2022-12-27/chatgpt.jpg" alt="ChatGPT solving a math problem" loading="lazy"/></div>
   <figcaption>ChatGPT solving a math problem</figcaption>
 </figure>
 
@@ -56,7 +56,7 @@ Intelligence is not demonstrated by the performance of the output program (a ski
 This is clear when we take as an example a static program which hard-codes a human-designed solution, such as a chatbot designed to answer each possible query via if/else statements. We do not expect this program to be intelligent, or generalize to other tasks beyond the specifications.
 
 <figure>
-  <img src="/static/images/2022-12-27/chatbot-fail.jpg" alt="Chatbot fails to understand user intent" loading="lazy" style="max-width: 500px"/>
+  <div style="max-width: 400px"><img src="/static/images/2022-12-27/chatbot-fail.jpg" alt="Chatbot fails to understand user intent" loading="lazy"/></div>
   <figcaption>Chatbot fails to understand user intent</figcaption>
 </figure>
 
