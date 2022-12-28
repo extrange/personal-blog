@@ -20,13 +20,23 @@ Current intelligence systems are brittle, data-intensive and fail to generalize 
 
 ### The AI Effect
 
-Every time progress toward AI is made, we shift goalposts. Whenever a machine is made which can beat humans at checkers, chess, or DotA 2, there are no shortage of critics who argue that what is being shown is not intelligence. Similarly, when we understand how a machine does something intelligent, it ceases to be regarded as intelligent. However, if a human were to become exceptionally good at say, chess or DotA 2, we would safely assume they are intelligent. This has been dubbed the _AI Effect_.
+<figure>
+  <img src="/static/images/2022-12-27/openai5.jpg" alt="OpenAI Five" loading="lazy"/>
+  <figcaption>OpenAI Five</figcaption>
+</figure>
+
+Every time progress toward AI is made, we shift goalposts. Whenever a machine is made which can beat humans at checkers, chess, or DotA 2, there are no shortage of critics who argue that what is being shown is not intelligence. Similarly, when we understand how a machine does something intelligent, it ceases to be regarded as intelligent. However, if a human were to become exceptionally good at say, chess or [DotA 2][openai5], we would safely assume they are intelligent. This has been dubbed the _AI Effect_.
 
 > _Even though such machines might do some things as well as we do them, or perhaps even better, they would inevitably fail in others, which would reveal they were acting not through understanding, but only from the disposition of their organs._<br/>Rene Descartes, 1637
 
 Francois suggests that there is an anthropocentric assumption at play here. As humans, we are only able to display high skill at a task if we able to _acquire skills efficiently in general_, which is actually what intelligence is. The AI Effect is therefore the result of conflating _skill_ (the artifact, or crystallized form of intelligence, in the form of a program), with _intelligence_ (the property displayed by the researchers in creating such a program, and what people are really looking for).
 
 ### Psychometric Testing
+
+<figure>
+  <img src="/static/images/2022-12-27/ravenmatrices.jpg" alt="Raven's Progressive Matrices" loading="lazy"/>
+  <figcaption>Raven's Progressive Matrices, used in psychometric testing</figcaption>
+</figure>
 
 The field of [psychometric testing][psychometric-testing] has provided several principles regarding measuring intelligence. One of them is that _abilities_ are measured, rather than task-specific skills. An ability is an abstract construct as opposed to a directly measurable, objective property of an individual mind, such as a score on a specific test. Such abilities may include reading, writing, or mathematics. Abilities form the basis of skill across a wide range of tasks, including tasks which were previously unknown to both the system and developer. Such abilities are measured using broad batteries of test tak rather than any single task, and the tasks are previously unknown to the test-taker. This approach is highly relevant to AI evaluation.
 
@@ -85,6 +95,11 @@ This question is important, because if universal intelligence exists, and human 
 Humans have historically had a poor track record when attributing intelligence to complex information-processing agents, such as humans from other cultures, animals (dolphins, great apes, etc.) or collective entities such as markets and companies. We only reluctantly open up the possibility that systems different from ourselves may be "intelligent" if they display relatable human-like behaviors that we associate with intelligent, such as tool or language use; behaviors that have high intrinsic complexity and high adaptability but that are not directly relatable (such as octopus camouflage) are not perceived as intelligent.
 
 While human intelligence may appear broad, it is still highly specialized, for there are many tasks which our intellect is not adapted for. One example of that of tasks requiring large working memory, such as multiplying 10-digit numbers. Another example is that of inverting certain NP-hard problems, such as finding the longest path in the Euclidean Traveling Salesman Problem. We are also (generally) unable to handle shape-packing puzzles in 4D or higher.
+
+<figure>
+  <img src="/static/images/2022-12-27/rotating-tessaract.gif" alt="A rotating tessaract" loading="lazy"/>
+  <figcaption>A rotating tessaract (a 4-dimensional cube)</figcaption>
+</figure>
 
 General intelligence is therefore not a binary property, but a spectrum, tied to the scope of application, the degree of efficiency with which the system translates its priors and experience into new skils over the scope considered, and the degree of generalization difficulty represented by different points in the scope considered.
 
@@ -220,3 +235,4 @@ The rate of progress in the field of AI continues to accelerate, and it is certa
 [paper]: https://arxiv.org/abs/1911.01547
 [psychometric-testing]: https://en.wikipedia.org/wiki/Intelligence_quotient
 [turing-test]: https://en.wikipedia.org/wiki/Turing_test
+[openai5]: https://openai.com/five/
