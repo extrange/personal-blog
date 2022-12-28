@@ -1289,12 +1289,22 @@
 <h2 id="part-1-context-and-history">Part 1: Context and History</h2>
 <p>Current intelligence systems are brittle, data-intensive and fail to generalize across tasks. This is because <a href="#problems-with-current-benchmarks">we do not have a clear goal definition and/or benchmark for intelligence</a> of which to guide research against. Common-sense definitions such as the <a href="https://en.wikipedia.org/wiki/Turing_test">Turing Test</a> are not objective (in fact, the Turing Test was meant as an argumentative device in a philosophical discussion, not as a literal measure of intelligence), and cannot serve as a reliable benchmark in measuring our progress toward AI. In order to progress further, we need to develop measures of intelligence that are precise, quantitative and in particular, human-like. </p>
 <h3 id="the-ai-effect">The AI Effect</h3>
-<p>Every time progress toward AI is made, we shift goalposts. Whenever a machine is made which can beat humans at checkers, chess, or DotA 2, there are no shortage of critics who argue that what is being shown is not intelligence. Similarly, when we understand how a machine does something intelligent, it ceases to be regarded as intelligent. However, if a human were to become exceptionally good at say, chess or DotA 2, we would safely assume they are intelligent. This has been dubbed the <em>AI Effect</em>.</p>
+<figure>
+  <img src="/static/images/2022-12-27/openai5.jpg" alt="OpenAI Five" loading="lazy"/>
+  <figcaption>OpenAI Five</figcaption>
+</figure>
+
+<p>Every time progress toward AI is made, we shift goalposts. Whenever a machine is made which can beat humans at checkers, chess, or DotA 2, there are no shortage of critics who argue that what is being shown is not intelligence. Similarly, when we understand how a machine does something intelligent, it ceases to be regarded as intelligent. However, if a human were to become exceptionally good at say, chess or <a href="https://openai.com/five/">DotA 2</a>, we would safely assume they are intelligent. This has been dubbed the <em>AI Effect</em>.</p>
 <blockquote>
 <p><em>Even though such machines might do some things as well as we do them, or perhaps even better, they would inevitably fail in others, which would reveal they were acting not through understanding, but only from the disposition of their organs.</em><br/>Rene Descartes, 1637</p>
 </blockquote>
 <p>Francois suggests that there is an anthropocentric assumption at play here. As humans, we are only able to display high skill at a task if we able to <em>acquire skills efficiently in general</em>, which is actually what intelligence is. The AI Effect is therefore the result of conflating <em>skill</em> (the artifact, or crystallized form of intelligence, in the form of a program), with <em>intelligence</em> (the property displayed by the researchers in creating such a program, and what people are really looking for).</p>
 <h3 id="psychometric-testing">Psychometric Testing</h3>
+<figure>
+  <img src="/static/images/2022-12-27/ravenmatrices.jpg" alt="Raven's Progressive Matrices" loading="lazy"/>
+  <figcaption>Raven's Progressive Matrices, used in psychometric testing</figcaption>
+</figure>
+
 <p>The field of <a href="https://en.wikipedia.org/wiki/Intelligence_quotient">psychometric testing</a> has provided several principles regarding measuring intelligence. One of them is that <em>abilities</em> are measured, rather than task-specific skills. An ability is an abstract construct as opposed to a directly measurable, objective property of an individual mind, such as a score on a specific test. Such abilities may include reading, writing, or mathematics. Abilities form the basis of skill across a wide range of tasks, including tasks which were previously unknown to both the system and developer. Such abilities are measured using broad batteries of test tak rather than any single task, and the tasks are previously unknown to the test-taker. This approach is highly relevant to AI evaluation.</p>
 <p>However, certain aspects of psychometric testing, having been designed with an anthropocentric bias, should be discarded. For example, the exact number and taxonomy of human cognitive abilities, being unknown, should not be used as a template for artificial cognitive architectures (at most, as a guide). Additionally, certain abilities measured by psychometric tests, such as reading and writing, are in reality multi-purpose skills acquired from experience, and should not be tested.</p>
 <h3 id="problems-with-current-benchmarks">Problems with current benchmarks</h3>
@@ -1331,6 +1341,11 @@
 <p><img alt="Alt text" src="../../static/images/2022-12-27/intelligence-hierachy.jpg" /></p>
 <p>Humans have historically had a poor track record when attributing intelligence to complex information-processing agents, such as humans from other cultures, animals (dolphins, great apes, etc.) or collective entities such as markets and companies. We only reluctantly open up the possibility that systems different from ourselves may be "intelligent" if they display relatable human-like behaviors that we associate with intelligent, such as tool or language use; behaviors that have high intrinsic complexity and high adaptability but that are not directly relatable (such as octopus camouflage) are not perceived as intelligent.</p>
 <p>While human intelligence may appear broad, it is still highly specialized, for there are many tasks which our intellect is not adapted for. One example of that of tasks requiring large working memory, such as multiplying 10-digit numbers. Another example is that of inverting certain NP-hard problems, such as finding the longest path in the Euclidean Traveling Salesman Problem. We are also (generally) unable to handle shape-packing puzzles in 4D or higher.</p>
+<figure>
+  <img src="/static/images/2022-12-27/rotating-tessaract.gif" alt="A rotating tessaract" loading="lazy"/>
+  <figcaption>A rotating tessaract (a 4-dimensional cube)</figcaption>
+</figure>
+
 <p>General intelligence is therefore not a binary property, but a spectrum, tied to the scope of application, the degree of efficiency with which the system translates its priors and experience into new skils over the scope considered, and the degree of generalization difficulty represented by different points in the scope considered.</p>
 <p>The value of one scope of application over another is entirely subjective; we would not be interested in a system whose scope of application had no intersection with our own.</p>
 <p>Therefore, it is conceptually unsound to set "artificial general intelligence" in an absolute sense (i.e. "universal intelligence") as a goal. One must start from a target scope (e.g. human-like), and seek to achieve a well-defined intelligence threshold within this scope. There still exists the possibility of building systems with higher generalization power than humans.</p>
