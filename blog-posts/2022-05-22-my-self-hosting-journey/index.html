@@ -283,6 +283,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../2023-01-11-self-hosted-vpn/" class="md-nav__link">
+        Self Hosted VPN with Tailscale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../2022-12-27-on-the-measure-of-intelligence/" class="md-nav__link">
         On The Measure of Intelligence
       </a>
@@ -1242,14 +1256,14 @@
 <p>Prior to <code>btrbk</code>, here were the backup commands I used.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create a subvolume snapshot of /mnt/storage</span>
 <span class="c1"># Note: &#39;snapshots&#39; and &#39;subvolumes&#39; are synonymous in BtrFS: A snapshot is a copy of a subvolume</span>
-btrfs subvolume snapshot -r /mnt/storage/ /mnt/storage/snapshot.<span class="k">$(</span>date +%Y-%m-%d<span class="k">)</span>
+btrfs<span class="w"> </span>subvolume<span class="w"> </span>snapshot<span class="w"> </span>-r<span class="w"> </span>/mnt/storage/<span class="w"> </span>/mnt/storage/snapshot.<span class="k">$(</span>date<span class="w"> </span>+%Y-%m-%d<span class="k">)</span>
 
 <span class="c1"># Send that snapshot to the backup device /mnt/sdc1</span>
-btrfs send /mnt/storage/snapshot.2022-05-18/ <span class="p">|</span> btrfs receive /mnt/sdc1
+btrfs<span class="w"> </span>send<span class="w"> </span>/mnt/storage/snapshot.2022-05-18/<span class="w"> </span><span class="p">|</span><span class="w"> </span>btrfs<span class="w"> </span>receive<span class="w"> </span>/mnt/sdc1
 
 <span class="c1"># To instead send an incremental snapshot:</span>
 <span class="c1"># Note: the parent snapshot must exist on the receiving drive</span>
-btrfs send -p &lt;path to parent snapshot on sending drive&gt; &lt;subvol&gt; <span class="p">|</span> btrfs receive /mnt/sdc1
+btrfs<span class="w"> </span>send<span class="w"> </span>-p<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>parent<span class="w"> </span>snapshot<span class="w"> </span>on<span class="w"> </span>sending<span class="w"> </span>drive&gt;<span class="w"> </span>&lt;subvol&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>btrfs<span class="w"> </span>receive<span class="w"> </span>/mnt/sdc1
 </code></pre></div>
 <p>The UUID of the parent subvolume (in the sending drive) must be in one of the receiving drive subvolume's 'Received UUID', in order for the incremental <code>send</code> operation to work. See below for an example:</p>
 <p>Target volume with 2 snapshots, <code>server-2022-05-18</code> followed by <code>snapshot.test</code>:</p>
@@ -1293,8 +1307,8 @@ btrfs send -p &lt;path to parent snapshot on sending drive&gt; &lt;subvol&gt; <s
 <summary><code>.bashrc</code> Configuration</summary>
 <div class="highlight"><pre><span></span><code><span class="c1"># Since tmux also runs .bashrc, we need to check we are not in tmux</span>
 <span class="c1"># Other checks are to make sure these commands only run in interactive shells</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$-</span> <span class="o">==</span> *i* <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> -n <span class="nv">$SSH_CONNECTION</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> -z <span class="s2">&quot;</span><span class="nv">$TMUX</span><span class="s2">&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    tmux new-session -A
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$-</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*i*<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$SSH_CONNECTION</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TMUX</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>tmux<span class="w"> </span>new-session<span class="w"> </span>-A
 <span class="k">fi</span>
 </code></pre></div>
 </details>

@@ -283,6 +283,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../2023-01-11-self-hosted-vpn/" class="md-nav__link">
+        Self Hosted VPN with Tailscale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../2022-12-27-on-the-measure-of-intelligence/" class="md-nav__link">
         On The Measure of Intelligence
       </a>
@@ -1119,11 +1133,11 @@
 <p>Then, enable the 'Display VNC' device in QEMU, choosing an appropriate unused port.</p>
 <p>Finally, in Apache Guacamole, setup a VNC connection to the server (via <code>host.docker.internal</code>) on the port you chose earlier.</p>
 <p>Note that you will need to add the following to your <code>docker-compose.yml</code> in order for the host to be accessible via <code>host.docker.internal</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">guacd</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guacamole/guacd</span><span class="w"></span>
-<span class="hll"><span class="w">        </span><span class="nt">extra_hosts</span><span class="p">:</span><span class="w"></span>
-</span><span class="hll"><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;host.docker.internal:host-gataeway&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">guacd</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">guacamole/guacd</span>
+<span class="hll"><span class="w">        </span><span class="nt">extra_hosts</span><span class="p">:</span>
+</span><span class="hll"><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;host.docker.internal:host-gataeway&quot;</span>
 </span></code></pre></div>
 <h2 id="notes">Notes</h2>
 <ul>

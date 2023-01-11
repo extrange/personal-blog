@@ -283,6 +283,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../2023-01-11-self-hosted-vpn/" class="md-nav__link">
+        Self Hosted VPN with Tailscale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../2022-12-27-on-the-measure-of-intelligence/" class="md-nav__link">
         On The Measure of Intelligence
       </a>
@@ -1388,7 +1402,7 @@ Virtualization:                  VT-x
 <div class="highlight"><pre><span></span><code>GRUB_DISABLE_OS_PROBER=true
 </code></pre></div>
 <p>Save the modified configuration file:</p>
-<div class="highlight"><pre><span></span><code>grub2-mkconfig -o /boot/grub2/grub.cfg
+<div class="highlight"><pre><span></span><code>grub2-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub2/grub.cfg
 </code></pre></div>
 <p><strong>Configure <code>vfio-pci</code> module to load on boot</strong></p>
 <p>Create the following files with the content as shown (you will need superuser privileges):</p>
@@ -1399,7 +1413,7 @@ Virtualization:                  VT-x
 vfio-pci
 
 <span class="c1">#/etc/modprobe.d/vfio.conf</span>
-options vfio-pci <span class="nv">ids</span><span class="o">=</span>&lt;GPU-PCI-ID&gt;
+options<span class="w"> </span>vfio-pci<span class="w"> </span><span class="nv">ids</span><span class="o">=</span>&lt;GPU-PCI-ID&gt;
 </code></pre></div>
 <p>Where <code>&lt;GPU-PCI-ID&gt;</code> is the id <code>xxxx:xxxx</code> as shown by the output of <code>lspci -nn</code>, for example:</p>
 <div class="highlight"><pre><span></span><code>[root@server ~]# lspci -nn | grep -i vga
@@ -1416,18 +1430,18 @@ drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-2
 &lt;truncated&gt;
 </code></pre></div>
 <p>Now reboot, and check that IOMMU is working:</p>
-<div class="highlight"><pre><span></span><code>$ dmesg <span class="p">|</span> grep -i iommu
-<span class="o">[</span>    <span class="m">0</span>.000000<span class="o">]</span> Command line: <span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64 <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d ro <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root <span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet <span class="nv">intel_iommu</span><span class="o">=</span>on
-<span class="o">[</span>    <span class="m">0</span>.133682<span class="o">]</span> Kernel <span class="nb">command</span> line: <span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64 <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d ro <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root <span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet <span class="nv">intel_iommu</span><span class="o">=</span>on
-<span class="hll"><span class="o">[</span>    <span class="m">0</span>.133749<span class="o">]</span> DMAR: IOMMU enabled
-</span><span class="o">[</span>    <span class="m">0</span>.224446<span class="o">]</span> DMAR-IR: IOAPIC id <span class="m">2</span> under DRHD base  0xfed91000 IOMMU <span class="m">0</span>
-<span class="o">[</span>    <span class="m">1</span>.516533<span class="o">]</span> iommu: Default domain type: Translated
-<span class="o">[</span>    <span class="m">1</span>.516533<span class="o">]</span> iommu: DMA domain TLB invalidation policy: lazy mode
-<span class="hll"><span class="o">[</span>    <span class="m">1</span>.560968<span class="o">]</span> pci <span class="m">0000</span>:00:00.0: Adding to iommu group <span class="m">0</span>
-</span><span class="hll"><span class="o">[</span>    <span class="m">1</span>.560977<span class="o">]</span> pci <span class="m">0000</span>:00:01.0: Adding to iommu group <span class="m">1</span>
-</span><span class="hll"><span class="o">[</span>    <span class="m">1</span>.560985<span class="o">]</span> pci <span class="m">0000</span>:00:06.0: Adding to iommu group <span class="m">2</span>
-</span><span class="hll"><span class="o">[</span>    <span class="m">1</span>.560991<span class="o">]</span> pci <span class="m">0000</span>:00:0a.0: Adding to iommu group <span class="m">3</span>
-</span><span class="hll"><span class="o">[</span>    <span class="m">1</span>.561003<span class="o">]</span> pci <span class="m">0000</span>:00:14.0: Adding to iommu group <span class="m">4</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>iommu
+<span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Command<span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span><span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763<span class="w"> </span>rhgb<span class="w"> </span>quiet<span class="w"> </span><span class="nv">intel_iommu</span><span class="o">=</span>on
+<span class="o">[</span><span class="w">    </span><span class="m">0</span>.133682<span class="o">]</span><span class="w"> </span>Kernel<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span><span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763<span class="w"> </span>rhgb<span class="w"> </span>quiet<span class="w"> </span><span class="nv">intel_iommu</span><span class="o">=</span>on
+<span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">0</span>.133749<span class="o">]</span><span class="w"> </span>DMAR:<span class="w"> </span>IOMMU<span class="w"> </span>enabled
+</span><span class="o">[</span><span class="w">    </span><span class="m">0</span>.224446<span class="o">]</span><span class="w"> </span>DMAR-IR:<span class="w"> </span>IOAPIC<span class="w"> </span>id<span class="w"> </span><span class="m">2</span><span class="w"> </span>under<span class="w"> </span>DRHD<span class="w"> </span>base<span class="w">  </span>0xfed91000<span class="w"> </span>IOMMU<span class="w"> </span><span class="m">0</span>
+<span class="o">[</span><span class="w">    </span><span class="m">1</span>.516533<span class="o">]</span><span class="w"> </span>iommu:<span class="w"> </span>Default<span class="w"> </span>domain<span class="w"> </span>type:<span class="w"> </span>Translated
+<span class="o">[</span><span class="w">    </span><span class="m">1</span>.516533<span class="o">]</span><span class="w"> </span>iommu:<span class="w"> </span>DMA<span class="w"> </span>domain<span class="w"> </span>TLB<span class="w"> </span>invalidation<span class="w"> </span>policy:<span class="w"> </span>lazy<span class="w"> </span>mode
+<span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560968<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:00.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">0</span>
+</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560977<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:01.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">1</span>
+</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560985<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:06.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">2</span>
+</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560991<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:0a.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">3</span>
+</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.561003<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:14.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">4</span>
 </span></code></pre></div>
 <p>If you do not see the <code>... Adding to iommu group</code> lines, ensure <code>VT-d</code> has been turned on in your BIOS.</p>
 <h2 id="2-install-virtualization-packages">2. Install Virtualization Packages</h2>
@@ -1437,21 +1451,21 @@ drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-2
 <h2 id="3-setup-virt-manager-in-docker">3. Setup <code>virt-manager</code> in Docker</h2>
 <p>We will use <code>virt-manager</code> to manage the <code>libvirtd</code> backend. To make access easier, we will use <a href="https://github.com/m-bers/docker-virt-manager">docker-virt-manager</a>, which exposes <code>virt-manager</code> over a <a href="https://blog.desdelinux.net/en/broadway-ejecuta-aplicaciones-gtk-navegador/">GTK3 Broadway (HTML5) backend</a>.</p>
 <p>Create a <code>docker-compose.yml</code> file with the following content:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">virt-manager</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mber5/virt-manager:latest</span><span class="w"></span>
-<span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
-<span class="w">        </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="nt">HOSTS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;[&#39;qemu:///system&#39;]&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:80&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">virt-manager</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mber5/virt-manager:latest</span>
+<span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+<span class="w">        </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">HOSTS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;[&#39;qemu:///system&#39;]&quot;</span>
+<span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:80&quot;</span>
 
-<span class="w">        </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/vm:/vm&quot;</span><span class="w"> </span><span class="c1"># Or wherever you want to store your VM images/virtual harddisks</span><span class="w"></span>
+<span class="w">        </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock&quot;</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/vm:/vm&quot;</span><span class="w"> </span><span class="c1"># Or wherever you want to store your VM images/virtual harddisks</span>
 
-<span class="w">        </span><span class="nt">devices</span><span class="p">:</span><span class="w"></span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/dev/kvm:/dev/kvm&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/dev/kvm:/dev/kvm&quot;</span>
 </code></pre></div>
 <p>Start the container with <code>docker compose up -d</code>.</p>
 <h2 id="4-install-windows-and-setup-moonlight-streaming">4. Install Windows and Setup Moonlight Streaming</h2>
@@ -1548,17 +1562,17 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <ol>
 <li>
 <p>Install Samba on Linux:</p>
-<div class="highlight"><pre><span></span><code>sudo dnf install samba samba-common
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-common
 </code></pre></div>
 </li>
 <li>
 <p>Set the correct SELinux contexts for the directories you wish to share (in this example <code>/mnt/storage</code>):</p>
-<div class="highlight"><pre><span></span><code>sudo chcon -R -t samba_share_t /mnt/storage
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </span>-t<span class="w"> </span>samba_share_t<span class="w"> </span>/mnt/storage
 </code></pre></div>
 <details class="warning">
 <summary>SSH and SELinux</summary>
 <p>If you are executing the above command on your <code>home</code> directory, be careful to restore SELinux contexts for the <code>.ssh</code> directory:</p>
-<div class="highlight"><pre><span></span><code>sudo restorecon -r .ssh
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>restorecon<span class="w"> </span>-r<span class="w"> </span>.ssh
 </code></pre></div>
 <p>Otherwise, <code>sshd</code> will be <strong>denied access</strong> to <code>authorized_keys</code> and you will lose login via SSH!</p>
 </details>
@@ -1584,7 +1598,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 </li>
 <li>
 <p>Restart the <code>smb</code> and <code>nmb</code> daemons:</p>
-<div class="highlight"><pre><span></span><code>sudo systemctl <span class="nb">enable</span> --now smb nmb
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>smb<span class="w"> </span>nmb
 </code></pre></div>
 </li>
 </ol>

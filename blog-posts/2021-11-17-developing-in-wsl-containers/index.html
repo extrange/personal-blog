@@ -283,6 +283,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../2023-01-11-self-hosted-vpn/" class="md-nav__link">
+        Self Hosted VPN with Tailscale
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../2022-12-27-on-the-measure-of-intelligence/" class="md-nav__link">
         On The Measure of Intelligence
       </a>
@@ -1284,8 +1298,8 @@
 <li>Notes:<ul>
 <li>You can modify the <code>.devcontainer/Dockerfile</code> to your liking - e.g. if you want to add Java to a Python image, install package dependencies during build, etc</li>
 <li>If you want to install requirements automatically e.g. with <code>pip</code>, you can either uncomment that particular line in the <code>Dockerfile</code> (if it exists) or write your own e.g.:
-    <div class="highlight"><pre><span></span><code><span class="k">COPY</span><span class="w"> </span>requirements.txt /tmp/requirements.txt
-<span class="k">RUN</span><span class="w"> </span>pip --no-cache-dir  install -r requirements.txt
+    <div class="highlight"><pre><span></span><code><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>/tmp/requirements.txt
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>--no-cache-dir<span class="w">  </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div></li>
 </ul>
 </li>
