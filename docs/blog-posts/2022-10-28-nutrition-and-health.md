@@ -13,7 +13,7 @@ This page is continually updated as more studies and information develop.
 
 > _The optimal diet consists of grains, legumes, vegetables, and fruit, with <10%-15% of its calories coming from fat._ <br/> [Resolving the Coronary Artery Disease Epidemic through Plant-Based Nutrition, Preventive Cardiology, 2001][resolving-cade]
 
-An LDL (bad cholesterol) level of less than 1.55mmol/L [reverses atherosclerosis][ldl].
+An LDL (bad cholesterol) level of less than 1.55mmol/L [reverses atherosclerosis][ldl]. Eating a very-low calorie diet (600-800kcal a day), such as in the [Newcastle Diet][newcastle-diet-paper] \[PDF\], can also potentially [reverse diabetes][newcastle-diet].
 
 ### Timing/Intermittent Fasting
 
@@ -27,7 +27,7 @@ A [review article][if-comparison] comparing the various types of fasting (ADF, T
 
 This [article from 2018][if-timing] found that an earlier eating window (i.e. 6 hour eating window, with dinner before 3pm) had better cardiometabolic beneficts as compared to a later eating window.
 
-However, in 2022, an [NEJM article][nejm-if2] comparing weight loss and metabolic risk factors between time-restricted eating and plain old caloric restriction, showed no significant difference in both groups.
+However, in 2022, an [NEJM article][nejm-if2] comparing weight loss and metabolic risk factors between time-restricted eating and plain old caloric restriction, showed no significant difference in both groups. Another study showed that [eating one meal a day was associated with increased all-cause mortality][one-meal-a-day]. Until the evidence is more conclusive, however, I still believe the benefits of IF outweigh the negatives.
 
 The key principles appear to be:
 
@@ -200,3 +200,6 @@ However, there is some [concern][green-tea-catechins] that excessive consumption
 [morning-loaded-calories]: https://www.sciencedirect.com/science/article/pii/S1550413122003448 
 [protein-contamination]: https://cleanlabelproject.org/blog-post/new-study-of-protein-powders-from-clean-label-project-finds-elevated-levels-of-heavy-metals-and-bpa-in-53-leading-brands/
 [sweeteners]: https://www.theguardian.com/lifeandstyle/2022/dec/08/artificial-sweeteners-price-of-sugar-free-are-they-as-harmless-as-we-thought
+[one-meal-a-day]: https://www.sciencedirect.com/science/article/abs/pii/S2212267222008747
+[newcastle-diet-paper]: https://www.ncl.ac.uk/media/wwwnclacuk/newcastlemagneticresonancecentre/files/201809%20Sample%20Recipes%20&%20meal%20plans.pdf
+[newcastle-diet]: https://www.diabetes.co.uk/news/2017/dec/newcastle-diet-achieves-type-2-diabetes-remission-after-one-year-of-direct-trial-98030767.html
