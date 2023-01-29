@@ -133,7 +133,7 @@ The backup drive is encrypted with AES-256 (via [`cryptsetup`][cryptsetup][^cryp
 
 **Maintenance**
 
-I run [`btrfs scrub`][btrfs-scrub] monthly.
+I run [`btrfs scrub`][btrfs-scrub] monthly via a `systemd.timer`.
 
 ## SSH Access
 
