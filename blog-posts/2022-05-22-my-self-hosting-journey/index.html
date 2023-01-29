@@ -1295,7 +1295,7 @@ btrfs<span class="w"> </span>send<span class="w"> </span>-p<span class="w"> </sp
 <p>Note: The <code>Received UUID</code> <strong>does not change</strong> when a snapshot is snapshot-ed again.</p>
 </details>
 <p><strong>Maintenance</strong></p>
-<p>I run <a href="https://btrfs.readthedocs.io/en/latest/btrfs-scrub.html"><code>btrfs scrub</code></a> monthly.</p>
+<p>I run <a href="https://btrfs.readthedocs.io/en/latest/btrfs-scrub.html"><code>btrfs scrub</code></a> monthly via a <code>systemd.timer</code>.</p>
 <h2 id="ssh-access">SSH Access</h2>
 <p>SSH access to my server is available via public keys, password access with 2FA (provided via <a href="https://github.com/google/google-authenticator-libpam">Google Authenticator PAM</a><sup id="fnref:pam-issues"><a class="footnote-ref" href="#fn:pam-issues">6</a></sup>) and Web terminal access via <a href="../2022-07-10-win11-vm-gpu-passthrough/#5-setup-apache-guacamole">Apache Guacamole</a>.</p>
 <p>I previously used <a href="../2022-02-07-ssh-with-certificates/">SSH with certificates</a>, however it does not allow me to revoke access as easily as public keys.</p>
