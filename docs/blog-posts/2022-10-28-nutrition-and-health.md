@@ -161,11 +161,43 @@ Pangasius (cream dory, vietnamese catfish) may be a [safe option][pangasius].
 
 Creatine has been shown to [improve exercise performance][creatine] together with other benefits, and has been shown to be safe. Physiqnomics [recommends][physiqnomics-creatine] a daily intake of 5g (in the monohydrate form).
 
-### Green Tea
+### Tea
+
+![](/static/images/2022-10-28/tea.jpg)
+
+**Health Effects**
 
 Green tea has been shown to lower cholesterol to an extent. 
 
 However, there is some [concern][green-tea-catechins] that excessive consumption of catechins, such as in matcha powder, could cause liver damage (elevated serum transaminases).
+
+**Caffeine content**
+
+All values per cup.
+
+- White tea: 13mg
+- Green tea: 35mg
+- Oolong tea: 40mg
+- Black tea: 55mg
+- Matcha tea: 80mg
+
+In comparison, coffee contains 100-200mg of caffeine. In general, the more the tea leaves are roasted/fermented/processed, the higher the caffeine content.
+
+### L-Theanine
+
+[L-Theanine][theanine] is a naturally occuring amino acid, found in tea leaves (in particular, those grown in shade, such as the [gyokuro][gyokuro] variety).
+
+This compound is psychoactive and its effects range from [improving sleep][toolkit-for-sleep] to [inducing relaxation and learning ability][theanine-relaxation]. It is not a sedative and does not [cause drowsiness][theanine-examine].
+
+[Studies][theanine-studies] appear to show some cognitive benefit, although the evidence is not conclusive. Some users find it helps with meditation ([reddit][theanine-meditation-reddit]), while others have mixed results ([1][theanine-reddit-mixed], [2][theanine-reddit-mixed2], [3][theanine-reddit-mixed3]) and even [withdrawal][theanine-withdrawal].
+
+L-Theanine appears to be [safe][theanine-safety] even at high doses and does not appear to be carcinogenic.
+
+L-Theanine content is higher in unfermented teas, although a [study][theanine-tea-content] examining L-theanine content in various teas found a large variability in levels amongst different processing methods (white, green, oolong and black). In general, levels in tea range from 2-25mg/cup.
+
+L-Theanine is also available in supplement form (commonly at 100 and 200mg doses).
+
+I have yet to examine the effects of L-theanine, but it is a promising nootropic for improving sleep, relaxation and possibly focus.
 
 [beans-chart]: https://missvickie.com/pressure-cooking-dried-bean-time-chart/
 [boiling-nutrients]: https://www.healthline.com/nutrition/cooking-nutrient-content
@@ -203,3 +235,16 @@ However, there is some [concern][green-tea-catechins] that excessive consumption
 [one-meal-a-day]: https://www.sciencedirect.com/science/article/abs/pii/S2212267222008747
 [newcastle-diet-paper]: https://www.ncl.ac.uk/media/wwwnclacuk/newcastlemagneticresonancecentre/files/201809%20Sample%20Recipes%20&%20meal%20plans.pdf
 [newcastle-diet]: https://www.diabetes.co.uk/news/2017/dec/newcastle-diet-achieves-type-2-diabetes-remission-after-one-year-of-direct-trial-98030767.html
+[toolkit-for-sleep]: https://hubermanlab.com/toolkit-for-sleep/
+[theanine]: https://en.wikipedia.org/wiki/Theanine
+[gyokuro]: https://en.wikipedia.org/wiki/Gyokuro
+[theanine-relaxation]: ../static/images/2022-10-28/theanine-paper.pdf
+[theanine-examine]: https://examine.com/supplements/theanine/
+[theanine-studies]: https://examine.com/supplements/theanine/#examine-database
+[theanine-meditation-reddit]: https://www.reddit.com/r/Meditation/comments/ah03nx/ltheanine_the_meditation_pill/
+[theanine-reddit-mixed]: https://www.reddit.com/r/Supplements/comments/abp5f6/ltheanine_my_honest_review/
+[theanine-reddit-mixed2]: https://www.reddit.com/r/Nootropics/comments/s4mzt6/what_can_and_cant_ltheanine_do/
+[theanine-reddit-mixed3]: https://www.reddit.com/r/Nootropics/comments/1pzq7a/ltheanine_the_only_nootropic_i_have_faith_in/
+[theanine-withdrawal]: https://www.reddit.com/r/StackAdvice/comments/w0napu/is_it_possible_to_have_withdrawals_from_ltheanine/
+[theanine-safety]: https://examine.com/supplements/theanine/research/#LQVz3Qb-safety-and-toxicology
+[theanine-tea-content]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4787341/
