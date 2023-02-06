@@ -337,6 +337,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#notes-regarding-playlist-sync" class="md-nav__link">
+    Notes regarding playlist sync
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1119,6 +1126,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#notes-regarding-playlist-sync" class="md-nav__link">
+    Notes regarding playlist sync
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1161,11 +1175,69 @@
 <h2 id="beets"><a href="https://beets.io/">Beets</a></h2>
 <p>I use the <a href="https://beets.io/">Beets</a> CLI tool for tagging music and organizing. It supports fingerprinting audio files and looking up tag information from multiple sources.</p>
 <p>I currently run Beets with several plugins in Docker.</p>
+<h2 id="notes-regarding-playlist-sync">Notes regarding playlist sync</h2>
+<p>At present, files which are renamed are removed from their playlists in Navidrome. This makes renaming/editing files with <code>beets</code> tricky, since there is nothing Navidrome can track to identify a file throughout renames/tag changes.</p>
+<p>Initially I thought of using flexible attributes (non-standard tags), however they are <a href="https://github.com/beetbox/beets/issues/565#issuecomment-36511576">not written</a> into file metadata (they are only stored in <code>beets</code>' library), and are therefore not visible in Navidrome.</p>
+<p>After exploring various options, here is a comparison between using different sources of truth for playlists:</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Navidrome</th>
+<th>.m3u playlist files</th>
+<th>Tags + Smart Playlists (either Navidrome or in <code>beets</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File rename/metadata change</td>
+<td>Need to re-add those files to Navidrome's playlists if they were in any</td>
+<td>Navidrome should automatically sync updates to playlist files</td>
+<td>Navidrome updates automatically</td>
+</tr>
+<tr>
+<td>Adding/removing playlist items</td>
+<td>Can be done in Navidrome/clients</td>
+<td>Manually edit playlist file, cannot be done from Navidrome/clients</td>
+<td>Tags must be manually updated (via <code>beets</code>)</td>
+</tr>
+<tr>
+<td>Advantages</td>
+<td>Can use <code>ffmpeg -i &lt;filename&gt; hash -</code> to hash audio data (excluding metadata)</td>
+<td><code>beets</code> can automatically update playlist files on library change<br><br>Can be version controlled</td>
+<td>Simple</td>
+</tr>
+</tbody>
+</table>
+<p>I rejected the first option (using Navidrome as the source of truth) as identifying which of the modified files are in Navidrome's playlists is a time-consuming task.</p>
+<p>The decision between the second option (using playlist files) and the third option (using tags in files) came down to which method I preferred using to update playlist items: editing the playlist file, or editing file tags.</p>
+<p>I decided on the third option, using tags in files with Navidrome <a href="https://github.com/navidrome/navidrome/issues/1417">Smart Playlists</a> for the following reasons:</p>
+<ul>
+<li>Smart Playlists in Navidrome are read-only, so there is no danger of accidentally editing the playlist in Navidrome, versus importing a playlist file</li>
+<li>Editing tags is more convenient, and allows querying all playlists a song is in/vice versa, versus maintaining a playlist file</li>
+</ul>
+<p>I use <code>beets</code><sup id="fnref:beet-info"><a class="footnote-ref" href="#fn:beet-info">2</a></sup> to modify the ID3 field <code>comments</code><sup id="fnref:beet-naming"><a class="footnote-ref" href="#fn:beet-naming">3</a></sup> to store the names of playlists the file is in: e.g.:</p>
+<div class="highlight"><pre><span></span><code>comments: toprated relaxing
+</code></pre></div>
+<p>Subsequently in Navidrome, I have a <a href="https://github.com/navidrome/navidrome/issues/1417">smart playlist</a> for each playlist, e.g. for <code>Top Rated.nsp</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;all&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="nt">&quot;contains&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;toprated&quot;</span><span class="p">}}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The playlists are then visible in Navidrome and automatically updated as new files are added.</p>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:issue">
 <p>Navidrome does not yet support per-format transcoding options (i.e. if you turn on transcoding for a client, Navidrome will transcode all files, irregardless of format, to the specified format. See this <a href="https://github.com/navidrome/navidrome/issues/351">issue</a>.&#160;<a class="footnote-backref" href="#fnref:issue" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:beet-info">
+<p>You can use <code>beet info &lt;query&gt;</code> to output metadata which is stored <strong>in the file</strong> (as opposed to <a href="https://github.com/beetbox/beets/issues/565#issuecomment-36511576">flexible attributes</a>, which are stored in <code>beets</code>' database and not visible to Navidrome).&#160;<a class="footnote-backref" href="#fnref:beet-info" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:beet-naming">
+<p>Strangely, <code>beets</code> uses the field name <code>comments</code> to refer to the actual <code>comment</code> field (which is a canonical fieldname and which Navidrome uses). I haven't yet figured out the reason why.&#160;<a class="footnote-backref" href="#fnref:beet-naming" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
