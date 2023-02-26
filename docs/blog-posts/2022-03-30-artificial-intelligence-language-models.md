@@ -116,12 +116,15 @@ A: If you put two magnets with similar poles facing each other together, they wi
 ...the model doesn't do as well when confronted with unusual scenarios, which are unlikely to have been in the training data.
 
 ```
+// Update 26/2/23: ChatGPT can solve this
 Q: Will my fingers get dirty if I wear a glove and dip my hand into printer ink?
 A: Yes, your fingers will get dirty if you wear a glove and dip your hand into printer ink.
 
+// Update 26/2/23: ChatGPT can solve this
 Q: If I put a stick of RAM into a cage with a tiger, what will happen to the RAM?
 A: The RAM will be eaten by the tiger.
 
+// Update 26/2/23: ChatGPT can solve this
 // Adversarial example
 Q: Why do apples grow in the sky?
 A: Apples grow in the sky because they are trees and trees grow in the sky.
@@ -133,10 +136,12 @@ The last bastion of human intellect amidst the automation of our other higher fu
 
 ```
 // Pattern recognition
+// Update 26/2/23: ChatGPT can solve this
 Q: What is the next number in this sequence: 9911, 8822, 7733 _?
 A: The next number in this sequence is 6655. // Actually 6644
 
 // Visio-spatial reasoning
+// Update 26/2/23: ChatGPT can solve this
 Q: Four objects are in a 2x2 grid. An apple is in front of a glass.  On the left of the apple is a tomato. Behind the tomato is a lemon.  What is diagonally opposite the glass?
 A: The lemon is diagonally opposite the glass. // Actually the tomato
 
@@ -147,6 +152,21 @@ A: If you pour oil over your friend's car's tyres and then drive your own car an
 // Logic
 Q: If and only if a bordle squeaks, moodles will comble. If moodles do not comble, did a bordle squeak?
 A: This is a logical question that cannot be answered with the information given.
+
+//Sequences
+Q:  
+  Make a mathematical equation using the numbers in order, for example:
+  2215: 2x2+1=5
+  8216: 8x2=16
+
+  9125:
+  7216:
+  1829:
+
+A:
+  9125: 9 - 1 + 2 = 5
+  7216: 7 x 2 = 1 + 6
+  1829: 1 + 8 = 2 x 9
 ```
 
 ## Interesting Conclusions
