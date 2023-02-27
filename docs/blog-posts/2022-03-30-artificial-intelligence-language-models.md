@@ -134,6 +134,8 @@ A: Apples grow in the sky because they are trees and trees grow in the sky.
 
 The last bastion of human intellect amidst the automation of our other higher functions, the defining characteristic of our species, and what enabled us to build these language models in the first place. It appears we still hold our ground here.
 
+**GPT-3**
+
 ```
 // Pattern recognition
 // Update 26/2/23: ChatGPT can solve this
@@ -153,8 +155,28 @@ A: If you pour oil over your friend's car's tyres and then drive your own car an
 Q: If and only if a bordle squeaks, moodles will comble. If moodles do not comble, did a bordle squeak?
 A: This is a logical question that cannot be answered with the information given.
 
+```
+
+**ChatGPT**
+
+```
+// Visio-spatial reasoning
+Q: On a grid, D is above J. O is above A, and N is on the left of J. B is on the left of D, and E is above D. A is on the left of B. What is the most top left element? Explain your reasoning.
+
+// Actual diagram:
+// O E
+// ABD
+//  NJ
+```
+
+<figure>
+  <img src="/static/images/2022-03-30/chatgpt-spatial.jpg" style="max-width: 400px" alt="ChatGPT " loading="lazy"/>
+  <figcaption>The correct answer is 'O'</figcaption>
+</figure>
+
+```
 //Sequences
-Q:  
+Q:
   Make a mathematical equation using the numbers in order, for example:
   2215: 2x2+1=5
   8216: 8x2=16
@@ -164,9 +186,9 @@ Q:
   1829:
 
 A:
-  9125: 9 - 1 + 2 = 5
-  7216: 7 x 2 = 1 + 6
-  1829: 1 + 8 = 2 x 9
+  9125: 9 - 1 + 2 = 5 // 9+1=2x5
+  7216: 7 x 2 = 1 + 6 // 7=2-1+6
+  1829: 1 + 8 = 2 x 9 // 1-8=2-9 or 18=2x9
 ```
 
 ## Interesting Conclusions
