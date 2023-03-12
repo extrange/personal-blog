@@ -73,6 +73,7 @@ Resources:
 -   [Glycemic Indices for even more foods][gi-table]
 -   [Nutritional comparison of various legumes][legumes-chart]
 -   [Beans soaking/pressure cooking time chart][beans-chart]
+-   [Lentils and their Hindi names][lentils]
 
 ## Protein
 
@@ -248,3 +249,4 @@ I have yet to examine the effects of L-theanine, but it is a promising nootropic
 [theanine-withdrawal]: https://www.reddit.com/r/StackAdvice/comments/w0napu/is_it_possible_to_have_withdrawals_from_ltheanine/
 [theanine-safety]: https://examine.com/supplements/theanine/research/#LQVz3Qb-safety-and-toxicology
 [theanine-tea-content]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4787341/
+[lentils]: https://www.myweekendkitchen.in/types-of-lentils-pulses-english-hindi/
