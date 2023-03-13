@@ -337,6 +337,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-the-exit-node" class="md-nav__link">
+    Using the Exit Node
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1091,6 +1098,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-the-exit-node" class="md-nav__link">
+    Using the Exit Node
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1123,6 +1137,13 @@
 sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>tailscaled
 </code></pre></div>
 <p>This will prevent the firewall from blocking incoming connections from your devices.</p>
+<h2 id="using-the-exit-node">Using the Exit Node</h2>
+<p>To use the exit node, do:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tailscale<span class="w"> </span>up<span class="w"> </span>--exit-node<span class="o">=</span>&lt;<span class="nb">exit</span><span class="w"> </span>node<span class="w"> </span>ip&gt;
+</code></pre></div>
+<p>Optionally, to access devices on the LAN in the VPN (disabled by default): do:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tailscale<span class="w"> </span>up<span class="w"> </span>--exit-node<span class="o">=</span>&lt;<span class="nb">exit</span><span class="w"> </span>node<span class="w"> </span>ip&gt;<span class="w"> </span>--exit-node-allow-lan-access<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
 
 
   
