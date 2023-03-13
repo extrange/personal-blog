@@ -25,6 +25,20 @@ sudo systemctl restart tailscaled
 
 This will prevent the firewall from blocking incoming connections from your devices.
 
+## Using the Exit Node
+
+To use the exit node, do:
+
+```bash
+sudo tailscale up --exit-node=<exit node ip>
+```
+
+Optionally, to access devices on the LAN in the VPN (disabled by default): do:
+
+```bash
+sudo tailscale up --exit-node=<exit node ip> --exit-node-allow-lan-access=true
+```
+
 [zones]: https://firewalld.org/documentation/zone/predefined-zones.html
 [server]: 2022-05-22-my-self-hosting-journey.md
 [wireguard]: https://www.wireguard.com/
