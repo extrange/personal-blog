@@ -1,3 +1,8 @@
+---
+tags:
+  - Programming
+---
+
 # Photoprism - A Google Photos Replacement
 
 My Google Photos account ran out of storage recently (since 2021 June, Google has [stopped providing free storage for photos in High Quality][google-photos]), and I was looking for a self-hosted, open source replacement, with similar features to Google Photos (fast gallery view, facial recognition, object detection).

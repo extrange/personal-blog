@@ -1,3 +1,8 @@
+---
+tags:
+  - Philosophy
+---
+
 # On The Measure Of Intelligence
 
 <figure>

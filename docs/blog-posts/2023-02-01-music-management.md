@@ -1,3 +1,8 @@
+---
+tags:
+  - Programming
+---
+
 # Music Management with Navidrome, DSub and Beets
 
 Previously on Windows, I was using [MediaMonkey][mediamonkey] to manage my music. It offered wireless syncing (over LAN) for the associated Android client, and worked well.

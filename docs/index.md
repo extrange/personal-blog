@@ -5,27 +5,21 @@ hide:
 
 <img style="max-width: min(30vw, 150px);float:left; margin-right: 18px" src="/static/images/profile.jpg" alt="Profile"/>
 
-Hi there! :wave:
-
-I'm Nicholas and I work as a junior doctor in Singapore.
-
-You can read more about me [here](about.md).
-
-Some of my interests:
+My personal blog.
 
 - Badminton :badminton:
-- [Cooking and Nutrition](tags.md#Cooking) :stew:
+- [Cooking and Nutrition](tags.md#cooking) :stew:
 - [Finance][finance-and-investing] :chart_with_upwards_trend:
-- [Lucid dreaming][lucid-dreaming][^lucid-dreaming]
+- [Lucid dreaming][lucid-dreaming]
 - [Meditation and Zen](blog-posts/2022-08-05-vipassana-meditation-retreat.md)[^alan-watts] :person_in_lotus_position:
 - [Mountaineering](mountaineering.md) :mountain:
 - [Photography](photography.md) :frame_with_picture:
-- [Philosophy](tags.md#Philosophy) 
+- [Philosophy](tags.md#philosophy) 
 - [Piano](piano.md) :musical_keyboard:
-- [Programming](tags.md#Programming) :computer:
+- [Programming](tags.md#programming) :computer:
 - [Skiing][skiing] :ski:
 
-You can reach me at: 
+Read more about me [here](about.md).
 
 - :material-email: [Email](mailto:me@nicholaslyz.com) 
 - :material-github: [Github](https://github.com/extrange/)
@@ -43,7 +37,6 @@ You can reach me at:
 ![](static/images/badges/react.svg)
 ![](static/images/badges/django.svg)
 ![](static/images/badges/material-ui.svg)
-![](static/images/badges/jupyter.svg)
 ![](static/images/badges/pandas.svg)
 
 ## Software
@@ -54,7 +47,6 @@ You can reach me at:
 > *It is impossible to live without failing at something, unless you live so cautiously that you might as well not have lived at all - in which case, you fail by default.* <br/> J. K. Rowling
 
 [^alan-watts]: I'm a big fan of Alan Watts, an American who was deeply involved in the promotion of Japanese Zen to the world. His [videos](https://www.youtube.com/watch?v=khOaAHK7efc) and [writings](https://www.goodreads.com/book/show/514210.The_Way_of_Zen) are frank, witty and hint at the beauty of his thought.
-[^lucid-dreaming]: Think being able to travel anywhere in the world whenever you sleep. Or speak to anyone, living or dead, knowing that it's your subconscious replying you.
 
 [finance-and-investing]: blog-posts/2020-11-30-getting-started-with-investing.md
 [lucid-dreaming]: https://www.reddit.com/r/LucidDreaming/comments/73ih3x/start_here_beginner_guides_faqs_and_resources/

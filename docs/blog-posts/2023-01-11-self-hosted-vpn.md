@@ -1,3 +1,8 @@
+---
+tags:
+  - Programming
+---
+
 # Self Hosted VPN with Tailscale
 
 Having your own VPN can be useful for bypassing geo-restrictions and censorship, as your IP address is that of the exit node. Your traffic is also encrypted and this protects you against sniffing attacks when using public WiFi.
