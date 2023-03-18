@@ -42,7 +42,7 @@ Most of these are taken on my Canon 700D with the [Tokina f/2.8 11-16mm lens](ht
 
 <figure>
     <img src="/static/images/photography/2016-06-29-hokkaido-shiretoko-stars.jpg" alt="Shiretoko, Nagasaki, 2016" loading="lazy"/>
-  <figcaption>Shiretoko Harbor, Nagasaki, 2016</figcaption>
+  <figcaption>Shiretoko Harbor, Hokkaido, 2016</figcaption>
 </figure>
 
 <figure>
