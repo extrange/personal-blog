@@ -43,6 +43,14 @@ I remap the ++control++ + ++z++ ++x++ ++c++ ++v++ keys for copy/paste/undo-ing, 
     t = C-S-k
     ```
 
+**Window Manager: Tiling** (currently Pop!_OS Shell)
+
+![](/static/images/2022-02-27/pop-shell.jpg)
+
+A tiling window manager ([i3][i3] being the most popular example) arranges windows in a non-overlapping, grid-like pattern. This allows for more efficient use of screen space, as well as less mouse-keyboard switching.
+
+Currently, I use [Pop!_OS Shell][pop-shell], which is a GNOME extension. I plan to switch to [Sway][sway] in the future.
+
 **Text Editor: Vim/Vim-like**
 
 ![](/static/images/2022-02-27/spacevim.jpg)
@@ -100,3 +108,6 @@ In view of the above problems, I have decided to move to Linux.
 [vim-tutorial]: https://github.com/iggredible/Learn-Vim
 [vscode-remote-containers]: 2022-02-07-vscode-remote-containers-over-ssh.md
 [web-frontend]: https://github.com/extrange/web-app
+[pop-shell]: https://github.com/pop-os/shell
+[i3]: https://i3wm.org/
+[sway]: https://swaywm.org/
