@@ -98,12 +98,13 @@ The key principles are:
 
 ### Protein Source Comparison
 
-Meat is assumed to have ~20% protein (of raw weight). Whey protein isolates/concentrates are assumed to be 90% protein.
+Meat is assumed to have ~20% protein (of raw weight). Whey protein isolates/concentrates are assumed to be 90% protein. Tau Kwa is assumed to have 13.1% of protein by weight.
 
 Tofu (tau kwa), whey protein and frozen chicken breasts are among the most value-for-money sources.
 
 | Date       | Type                                           | Cost                                    | Cost/100g protein |
-| ---------- | ---------------------------------------------- | --------------------------------------- | ----------------- |
+|------------|------------------------------------------------|-----------------------------------------|-------------------|
+| 2023-06-14 | Sadia frozen chicken breasts                   | \$15.90/2kg                             | \$3.98            |
 | 2022-08-18 | Baiye Tofu (pressed tofu)                      | \$2.50/250g                             | \$4.14            |
 | 2022-07-12 | Pan Royal Frozen Saba Fillet                   | \$9.50/750g                             | \$6.33            |
 | 2022-07-12 | Pan Royal Frozen Toman Slices                  | \$7/500g                                | \$7.00            |
