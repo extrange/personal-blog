@@ -1127,14 +1127,18 @@
 <p><img alt="" src="/static/images/2022-11-26/pwa.jpg" /></p>
 <h2 id="mobile-sync">Mobile Sync</h2>
 <p>Photoprism suggests using <a href="https://www.photosync-app.com/home.html">PhotoSync</a>, an app available on Android and iOS. However, the WebDAV sync feature, essential to work with PhotoPrism, is a <a href="https://play.google.com/store/apps/details?id=com.touchbyte.photosync.fullfeatured&amp;hl=en&amp;gl=US">paid</a> feature.</p>
-<p>Fortunately, <a href="https://www.tacit.dk/foldersync">FolderSync</a>, another Android app, offers WebDAV sync. In fact, it also offers sync over many protocols, such as SSH, Google Drive, SFTP, SMB and more. In addition, it is highly customizable, and you can set schedules, sync rules (e.g. only when charging), frequency, files to exclude and so on.</p>
-<p>If you are using <a href="https://www.tacit.dk/foldersync">FolderSync</a>, you can sync your phone's camera folder (sometimes called <code>DCIM</code>) to PhotoPrism's <a href="https://docs.photoprism.app/user-guide/sync/webdav/#connect-to-a-webdav-server"><code>import</code> folder</a>, using <a href="https://docs.photoprism.app/user-guide/sync/webdav">WebDAV sync</a>, which also triggers the PhotoPrism import process (which adds photos to your library and organizes them) automatically.</p>
-<p>If you want the files on your phone to be deleted after syncing:</p>
-<ul>
-<li>In FolderSync, ensure that <a href="https://foldersync.io/docs/help/folderpairsettings/#advanced-one-way-sync-options"><strong>Move files to target folder</strong></a> is checked, and <a href="https://foldersync.io/docs/help/folderpairsettings/#advanced"><strong>Use temp-file scheme</strong></a> is unchecked.</li>
-<li>In PhotoPrism under Library &gt; Import, ensure <strong>Move Files</strong> is checked.</li>
-</ul>
-<p>With these settings, whenever FolderSync syncs, photos in your phone are deleted and uploaded to PhotoPrism, freeing up space.</p>
+<p><a href="https://syncthing.net/">Syncthing</a> is a free, open source continuous file synchronization program, with a reliable <a href="https://docs.syncthing.net/users/syncing.html?highlight=conflict#conflicting-changes">conflict resolution algorithm</a>. It offers <a href="https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid&amp;hl=en&amp;gl=US">Android</a> and iOS versions as well.</p>
+<p>You can sync your phone's camera folder (sometimes called <code>DCIM</code>) to PhotoPrism's <a href="https://docs.photoprism.app/user-guide/sync/webdav/#connect-to-a-webdav-server"><code>import</code> folder</a> using Syncthing.</p>
+<p>Then, you can use <a href="https://dl.photoprism.org/docker/scheduler/">this <code>docker compose.yml</code></a> to setup <a href="https://github.com/mcuadros/ofelia">Ofelia</a>, a job scheduler for Docker, to trigger the PhotoPrism import process (which adds photos to your library and organizes them).</p>
+<p>This can be done with the following <code>config.ini</code> for Ofelia:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[job-exec &quot;photoprism import&quot;]</span>
+<span class="c1">## See schedule syntax at https://pkg.go.dev/github.com/robfig/cron</span>
+<span class="na">schedule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@daily</span>
+<span class="na">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">photoprism</span>
+<span class="na">command</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s">photoprism import</span>
+<span class="na">no-overlap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</code></pre></div>
+<p>By using the <a href="https://docs.syncthing.net/v1.23.5/users/foldertypes#send-receive-folder">Send &amp; Receive Folder</a> type in Syncthing, whenever an import is performed by Photoprism, the imported photos in your phone are automatically deleted, freeing up space</p>
 
 
   
