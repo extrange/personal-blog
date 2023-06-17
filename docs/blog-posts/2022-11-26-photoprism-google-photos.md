@@ -21,16 +21,24 @@ PhotoPrism can also be installed on mobile devices as a [Progressive Web App][pw
 
 Photoprism suggests using [PhotoSync][photosync], an app available on Android and iOS. However, the WebDAV sync feature, essential to work with PhotoPrism, is a [paid][photosync-paid] feature.
 
-Fortunately, [FolderSync][foldersync], another Android app, offers WebDAV sync. In fact, it also offers sync over many protocols, such as SSH, Google Drive, SFTP, SMB and more. In addition, it is highly customizable, and you can set schedules, sync rules (e.g. only when charging), frequency, files to exclude and so on.
+[Syncthing][syncthing] is a free, open source continuous file synchronization program, with a reliable [conflict resolution algorithm][conflicts]. It offers [Android][syncthing-android] and iOS versions as well.
 
-If you are using [FolderSync][foldersync], you can sync your phone's camera folder (sometimes called `DCIM`) to PhotoPrism's [`import` folder][photoprism-import], using [WebDAV sync][photoprism-webdav], which also triggers the PhotoPrism import process (which adds photos to your library and organizes them) automatically.
+You can sync your phone's camera folder (sometimes called `DCIM`) to PhotoPrism's [`import` folder][photoprism-import] using Syncthing.
 
-If you want the files on your phone to be deleted after syncing:
+Then, you can use [this `docker compose.yml`][compose] to setup [Ofelia][ofelia], a job scheduler for Docker, to trigger the PhotoPrism import process (which adds photos to your library and organizes them).
 
-- In FolderSync, ensure that [**Move files to target folder**][move-files-target-folder] is checked, and [**Use temp-file scheme**][temp-file-scheme] is unchecked.
-- In PhotoPrism under Library > Import, ensure **Move Files** is checked.
+This can be done with the following `config.ini` for Ofelia:
 
-With these settings, whenever FolderSync syncs, photos in your phone are deleted and uploaded to PhotoPrism, freeing up space.
+```ini
+[job-exec "photoprism import"]
+## See schedule syntax at https://pkg.go.dev/github.com/robfig/cron
+schedule = @daily
+container = photoprism
+command =  photoprism import
+no-overlap = true
+```
+
+By using the [Send & Receive Folder][send-receive-folder] type in Syncthing, whenever an import is performed by Photoprism, the imported photos in your phone are automatically deleted, freeing up space
 
 [google-photos]: https://support.google.com/photos/answer/10100180?hl=en
 [photoprism]: https://photoprism.app/
@@ -45,3 +53,9 @@ With these settings, whenever FolderSync syncs, photos in your phone are deleted
 [temp-file-scheme]: https://foldersync.io/docs/help/folderpairsettings/#advanced
 [photoprism-webdav]: https://docs.photoprism.app/user-guide/sync/webdav
 [pwa]: https://docs.photoprism.app/user-guide/pwa/
+[syncthing]: https://syncthing.net/
+[conflicts]: https://docs.syncthing.net/users/syncing.html?highlight=conflict#conflicting-changes
+[syncthing-android]: https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid&hl=en&gl=US
+[compose]: https://dl.photoprism.org/docker/scheduler/
+[ofelia]: https://github.com/mcuadros/ofelia
+[send-receive-folder]: https://docs.syncthing.net/v1.23.5/users/foldertypes#send-receive-folder
