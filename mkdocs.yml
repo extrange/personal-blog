@@ -18,6 +18,8 @@ nav:
   - Home: index.md
   - About Me: about.md
   - Blog Posts:
+    - On Attractiveness: blog-posts/2023-07-19-attractiveness.md
+    - My Camping Setup & Routine: blog-posts/2023-07-10-camping-gear.md
     - Setting up the Mikrotik hAP ac² with Singel Fibre: blog-posts/2023-06-24-mikrotik-singtel-setup.md
     - Music Management with Navidrome and DSub: blog-posts/2023-02-01-music-management.md
     - 'Self Hosted VPN with Tailscale': blog-posts/2023-01-11-self-hosted-vpn.md
