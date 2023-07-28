@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog-posts/2023-06-24-mikrotik-singtel-setup/">
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-8.5.10">
     
     
       
@@ -1415,10 +1415,10 @@ You can read more about the terminal commands [here][console].
 </code></pre></div>
 <p>To complete the NAT hairpin setup and maintain SSH access internally on the LAN, run the following:</p>
 <div class="highlight"><pre><span></span><code># This enables hairpinning
-&gt; chain=srcnat action=masquerade src-address=192.168.88.0/24 dst-address=192.168.88.0/24 place-before=0
+&gt; ip firewall nat add chain=srcnat action=masquerade src-address=192.168.88.0/24 dst-address=192.168.88.0/24
 
 # This allows clients on the LAN to still be able to SSH to the router
-&gt; chain=dstnat to-addresses=192.168.88.1 to-ports=22 protocol=tcp dst-address=192.168.88.1 dst-port=22 place-before=1
+&gt; ip firewall nat add chain=dstnat to-addresses=192.168.88.1 to-ports=22 protocol=tcp dst-address=192.168.88.1 dst-port=22
 </code></pre></div>
 <p>At this juncture, your device should have internet access.</p>
 <h2 id="advanced-configuration">Advanced Configuration</h2>
