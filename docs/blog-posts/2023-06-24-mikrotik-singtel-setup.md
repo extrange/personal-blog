@@ -118,10 +118,10 @@ To complete the NAT hairpin setup and maintain SSH access internally on the LAN,
 
 ```
 # This enables hairpinning
-> chain=srcnat action=masquerade src-address=192.168.88.0/24 dst-address=192.168.88.0/24 place-before=0
+> ip firewall nat add chain=srcnat action=masquerade src-address=192.168.88.0/24 dst-address=192.168.88.0/24
 
 # This allows clients on the LAN to still be able to SSH to the router
-> chain=dstnat to-addresses=192.168.88.1 to-ports=22 protocol=tcp dst-address=192.168.88.1 dst-port=22 place-before=1
+> ip firewall nat add chain=dstnat to-addresses=192.168.88.1 to-ports=22 protocol=tcp dst-address=192.168.88.1 dst-port=22
 ```
 
 At this juncture, your device should have internet access.
