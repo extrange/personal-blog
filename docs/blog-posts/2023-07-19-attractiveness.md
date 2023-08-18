@@ -35,9 +35,9 @@ Everything is great! You can now rank individual attractiveness on a linear scal
 
 This however, depends on the following assumptions, which are not always true:
 
-- The weights $w_i$ we assign to each property, are the same from person to person.
-- Certain properties are correlated, and the score of a property can actually influence the weight of that or other properties. For example, if you like music, you may give a professional pianist a higher weight in $P_music$.
-- People actually (consciously or not) rate other people using such a model
+-   The weights $w_i$ we assign to each property, are the same from person to person.
+-   Certain properties are correlated, and the score of a property can actually influence the weight of that or other properties. For example, if you like music, you may give a professional pianist a higher weight in $P_{music}$.
+-   People actually (consciously or not) rate other people using such a model.
 
 If any of these assumptions don't hold, then the property of transitivity may not hold.
 
@@ -46,10 +46,13 @@ If any of these assumptions don't hold, then the property of transitivity may no
 The principle of strong connectedness states that for any two elements, either one is greater than or equal to the other, or they are equal. This suggests a clearly defined hierarchy of attractiveness. Mathematically, for persons A and B, either of the following must be true:
 
 $$
-\begin{align*}
+\begin{equation*}
 A \le B
+\quad
+{or}
+\quad
 A = B
-\end{align*}
+\end{equation*}
 $$
 
 However, attractiveness may more closely resembles a partial order - an ordering where it is not always possible to compare two elements.
