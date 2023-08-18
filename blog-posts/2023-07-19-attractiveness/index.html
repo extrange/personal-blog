@@ -1205,17 +1205,20 @@
 <p>This however, depends on the following assumptions, which are not always true:</p>
 <ul>
 <li>The weights <span class="arithmatex">\(w_i\)</span> we assign to each property, are the same from person to person.</li>
-<li>Certain properties are correlated, and the score of a property can actually influence the weight of that or other properties. For example, if you like music, you may give a professional pianist a higher weight in <span class="arithmatex">\(P_music\)</span>.</li>
-<li>People actually (consciously or not) rate other people using such a model</li>
+<li>Certain properties are correlated, and the score of a property can actually influence the weight of that or other properties. For example, if you like music, you may give a professional pianist a higher weight in <span class="arithmatex">\(P_{music}\)</span>.</li>
+<li>People actually (consciously or not) rate other people using such a model.</li>
 </ul>
 <p>If any of these assumptions don't hold, then the property of transitivity may not hold.</p>
 <h2 id="strongly-connectedness">Strongly Connectedness</h2>
 <p>The principle of strong connectedness states that for any two elements, either one is greater than or equal to the other, or they are equal. This suggests a clearly defined hierarchy of attractiveness. Mathematically, for persons A and B, either of the following must be true:</p>
 <div class="arithmatex">\[
-\begin{align*}
+\begin{equation*}
 A \le B
+\quad
+{or}
+\quad
 A = B
-\end{align*}
+\end{equation*}
 \]</div>
 <p>However, attractiveness may more closely resembles a partial order - an ordering where it is not always possible to compare two elements.</p>
 <p>Take for example, Person A, who scores <span class="arithmatex">\(0.80\)</span>, and Person B, who scores <span class="arithmatex">\(0.79\)</span>. Is Person B really ranked lower than Person A? Depending on your mood, and various other factors, they could rank equal or even higher than Person A.</p>
