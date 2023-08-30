@@ -1,3 +1,3 @@
-mkdocs-material==8.*
+mkdocs-material==9.*
 pillow
 cairosvg
