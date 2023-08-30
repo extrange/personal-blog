@@ -158,7 +158,7 @@ Start the container with `docker compose up -d`.
 
 Now, navigate to `http://localhost:8080` and you should see the `virt-manager` interface:
 
-![](/static/images/2022-07-10/docker-virt-manager.gif)
+![](../static/images/2022-07-10/docker-virt-manager.gif)
 
 Create a new VM, and under `Add Hardware > PCI Host Device`, add your GPU.
 
@@ -168,7 +168,7 @@ Create a new VM, and under `Add Hardware > PCI Host Device`, add your GPU.
 
     To do this, add another `NIC` and ensure `Host device enpXsX: macvtap` is selected.
 
-    ![](/static/images/2022-07-10/vm-network.jpg)
+    ![](../static/images/2022-07-10/vm-network.jpg)
 
     If you just want to be able to access the VM over the internet, you can use a peer-to-peer VPN as shown [below](#5-setup-overlay-mesh-network-aka-peer-to-peer-vpn).
 
@@ -189,11 +189,11 @@ Next, install Windows 11 (you can get the ISO from [here](https://www.microsoft.
 
     Once the Windows VM boots, install the NVIDIA drivers, and then ensure that the GPU is detected by the VM.
 
-![](/static/images/2022-07-10/vm-gpu.jpg)
+![](../static/images/2022-07-10/vm-gpu.jpg)
 
 Then, open GeForce Experience, and under 'Settings > SHIELD', enable 'Gamestream'.
 
-![](/static/images/2022-07-10/vm-gamestream.jpg)
+![](../static/images/2022-07-10/vm-gamestream.jpg)
 
 ??? note "Streaming the whole desktop"
 
@@ -419,7 +419,7 @@ To re-enable GPU passthrough, reverse the steps above.
     -   For example, setting multiple sockets with each having 1 CPU and 1 core is more efficient.
 
 -   Types of VM network connections compared:
-    ![](/static/images/2022-07-10/vm-networking.png)
+    ![](../static/images/2022-07-10/vm-networking.png)
 
 For more information on the `libvirt` domain XML, check out the [documentation][libvirt-xml].
 

@@ -7,7 +7,7 @@ Stuff I use, arranged by language/OS. Inspired by this [article](https://news.yc
 - [diskcache][diskcache]: Python disk-backed cache, Django compatible, faster than Redis and Memcached
 - [FastAPI][fast-api]: High performance backend framework based on OpenAPI, JSON Schema and Python types via [Pydantic][pydantic]
 - [rich][rich]: rich terminal formatting
-- [textual][textual]: CSS/HTML/React inspired reactive, responsive terminal UIs ([demo](/static/images/2021-12-17/textual.gif))
+- [textual][textual]: CSS/HTML/React inspired reactive, responsive terminal UIs ([demo](../static/images/2021-12-17/textual.gif))
 - [tqdm][tqdm]: intuitive progress bars for Python
     - Also with support for sending realtime updates to [Telegram][tqdm-telegram]
 - [Typer][Typer]: Alternative to `argparser` using Python types

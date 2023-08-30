@@ -7,7 +7,7 @@ Finance
 
 *Written on 30/11/20*
 
-![](/static/images/2020-11-30/nick-chong-N__BnvQ_w18-unsplash.jpg)
+![](../static/images/2020-11-30/nick-chong-N__BnvQ_w18-unsplash.jpg)
 
 In this post, I give a brief introduction to the world of investments. Do check out my [other post on asset allocation](2020-12-02-asset-allocation.md) - i.e. exactly what assets to buy and why.
 
@@ -44,7 +44,7 @@ Investors can be classified into one of 4 groups[^4-quadrants]:
 
 I'm strongly for 4. And this is because:
 
-- The average investor performs worse than inflation.[^JPM] ![](/static/images/2020-11-30/individual-investor-chart.png)
+- The average investor performs worse than inflation.[^JPM] ![](../static/images/2020-11-30/individual-investor-chart.png)
 - The professionals don't fare well either. Mutual funds, run by quants on Wall Street, do no better - 7.53% vs the Russell 3000 Index (a broad market index)'s 8.42% return, compared over 20 years.[^random-walk]
 - The market is very nearly [***efficient***](https://en.wikipedia.org/wiki/Efficient-market_hypothesis). New information is reflected almost instantaneously in stock prices. If people believe a stock to be worth $100 tomorrow, it will be worth $100 today. There is very little chance you can buy or sell before the whole market beats you to it.
 - Commissions and taxes. These may seem small, but for the active trader trying to beat the market it can add up.[^enough]

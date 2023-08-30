@@ -56,7 +56,7 @@ The VTL flight back was rather uneventful and my ART was checked at the departur
 
 Overall, I found the facilities and skiing to be enjoyable. I plan to attempt skiing somewhere closer to home next - perhaps in Japan[^japan], when flights resume.
 
-![](/static/images/2021-12-25/myself.jpg)
+![](../static/images/2021-12-25/myself.jpg)
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jf9H_3SalP0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

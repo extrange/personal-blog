@@ -32,11 +32,11 @@ First, a BIOS supervisor password must be set. Make it something simple so you d
 
 Next, **add the `shimx64.efi`[^shimx64] file as trusted for executing** (it's the `Select an UEFI file as trusted for executing` option in the screenshot below). You can find this file under `HDD0/EFI/fedora/shimx64.efi`.
 
-![](/static/images/2022-02-26/security.jpg)
+![](../static/images/2022-02-26/security.jpg)
 
 Now, Fedora will appear as an option in the boot menu, and this setting will overwrite that of `efibootmgr`.
 
-![](/static/images/2022-02-26/boot.jpg)
+![](../static/images/2022-02-26/boot.jpg)
 
 [^efibootmgr]: A utility to [manipulate the EFI boot manager](https://linux.die.net/man/8/efibootmgr)
 [^shimx64]: The reason for choosing `shimx64.efi` over `grubx64.efi` is that the former [allows booting](https://askubuntu.com/questions/342365/what-is-the-difference-between-grubx64-and-shimx64) on computers with Secure Boot active.

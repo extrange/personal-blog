@@ -72,7 +72,7 @@ I attended a [10 day meditation retreat][meditation-retreat] in July 2022.
 
 ## Sports
 
-I primarily gym and run, and play badminton. I strive to go [mountaineering](mountaineering) or hiking overseas once a year - the experience of raw nature at her best and worst is unforgettable.
+I primarily gym and run, and play badminton. I strive to go [mountaineering](mountaineering.md) or hiking overseas once a year - the experience of raw nature at her best and worst is unforgettable.
 
 Recently, I have found [skiing][skiing] to be quite enjoyable.
 

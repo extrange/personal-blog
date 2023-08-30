@@ -16,7 +16,7 @@ Input takes up a majority of our time on the computer, and therefore it is a pri
 
 **Keyboard layout: Dvorak**
 
-![](/static/images/2022-02-27/keyboard.jpg)
+![](../static/images/2022-02-27/keyboard.jpg)
 
 The keyboard is perhaps the most frequently used peripheral, more so than the mouse, and thus choosing an efficient layout is essential. I decided on Dvorak, as it resembles playing the piano - vowels are on the home row of the left hand, while the common consonants are on the right, and this allows for a more natural alternation compared to the Qwerty layout.
 
@@ -45,7 +45,7 @@ I remap the ++control++ + ++z++ ++x++ ++c++ ++v++ keys for copy/paste/undo-ing, 
 
 **Window Manager: Tiling** (currently Pop!_OS Shell)
 
-![](/static/images/2022-02-27/pop-shell.jpg)
+![](../static/images/2022-02-27/pop-shell.jpg)
 
 A tiling window manager ([i3][i3] being the most popular example) arranges windows in a non-overlapping, grid-like pattern. This allows for more efficient use of screen space, as well as less mouse-keyboard switching.
 
@@ -53,7 +53,7 @@ Currently, I use [Pop!_OS Shell][pop-shell], which is a GNOME extension. I plan 
 
 **Text Editor: Vim/Vim-like**
 
-![](/static/images/2022-02-27/spacevim.jpg)
+![](../static/images/2022-02-27/spacevim.jpg)
 
 The program I use most frequently is the text editor, be it for programming or writing documents. Being able to type with just the keyboard, and not having to switch to the mouse for navigation allows me to focus more on what I am typing, and not having to think of reaching for my mouse. As a bonus, learning the Vim keybindings transfers naturally to other programs, such as Vim in Firefox, or the terminal file managers such as `ranger` and `nnn`, both of which feature Vim keybindings.
 
@@ -77,7 +77,7 @@ This saves money, as well as time spent configuring new devices (since everythin
 
 ## Stable, open source environment
 
-![](/static/images/2022-02-27/linux.jpg)
+![](../static/images/2022-02-27/linux.jpg)
 
 I've been using Windows ever since I started using computers. However, I have been encountering a lot of frustrations in Windows.
 

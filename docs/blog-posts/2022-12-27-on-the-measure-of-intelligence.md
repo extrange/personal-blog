@@ -150,7 +150,7 @@ If you consider two systems that start from a similar set of knowledge priors, a
 
 The paper then considers a setup, in which an intelligent system generates a skill program to interact with a task. The system receives a learning curriculum and receives feedback during the training phase.
 
-![](/static/images/2022-12-27/information-system.jpg)
+![](../static/images/2022-12-27/information-system.jpg)
 
 Algorithmic Information Theory, in particular the notion of Algorithmic Complexity ([Kolmogorov Complexity][kolmogorov-complexity]), is used to define and quantify the Generalization Difficulty of a task. The Generalization Difficulty of a task is the one in which the evaluation-time behavior needs to differ significantly from the simplest possible optimal training-time behavior, in order to achieve sufficient skill. Put another way, generalization requires to reinterpret the task when new data arrives (e.g. at evaluation time). This implies the need to store representations of past data that would be seemingly useless from the perspective of the past, but which may prove useful in the future.
 
@@ -165,7 +165,7 @@ There are some observations which result from the above formalism:
 - Skill is not possessed by an intelligent system, it is a property of the output artifact of the process of intelligence (a skill program).
 - A better curriculum space will lead to greater realized skill (on average) and to greater expressed intelligence (greater skill-acquisition efficiency).
 
-![](/static/images/2022-12-27/information-conversion.jpg)
+![](../static/images/2022-12-27/information-conversion.jpg)
 
 ### Practical Implications
 
@@ -190,8 +190,8 @@ Finally, it shows the importance of taking into account generalization difficult
 
 ## Part 3: A benchmark proposal: the ARC dataset
 
-![](/static/images/2022-12-27/arc-1.jpg)
-![](/static/images/2022-12-27/object-bouncing.jpg)
+![](../static/images/2022-12-27/arc-1.jpg)
+![](../static/images/2022-12-27/object-bouncing.jpg)
 
 Here, the [Abstraction and Reasoning Corpus (ARC)][arc], resembling Raven's Progressive Matrices, is introduced, with the following goals:
 
@@ -210,18 +210,18 @@ The priors assumed by ARC are as follows:
 
 - Objectness priors
 
-![](/static/images/2022-12-27/object-persistence.jpg)
-![](/static/images/2022-12-27/object-contact.jpg)
+![](../static/images/2022-12-27/object-persistence.jpg)
+![](../static/images/2022-12-27/object-contact.jpg)
 
 - Goal-directedness
 
 - Numbers and counting
 
-![](/static/images/2022-12-27/object-counting.jpg)
+![](../static/images/2022-12-27/object-counting.jpg)
 
 - Basic geometry and topology
 
-![](/static/images/2022-12-27/object-symmetry.jpg)
+![](../static/images/2022-12-27/object-symmetry.jpg)
 
 ARC is best perhaps understood as a Program Synthesis benchmark, a subfield of AI interested in the generation of programs that satisfy a high-level specification, often provided in the form of pairs of example inputs and outputs for the program.
 

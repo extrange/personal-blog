@@ -19,7 +19,7 @@ To answer this question, we need to understand **volatility**, **risk** and **di
 
 Intuitively, volatility can be thought of as how much a stock or bond moves during a period (the [standard deviation](https://www.ivolatility.com/help/2.html)). Here's a simple visualization.
 
-![](/static/images/2020-12-02/chart.jpg)
+![](../static/images/2020-12-02/chart.jpg)
 
 In the chart above (the S&P 500), the average volatility prior to Mar 2020 hovered around 13%[^vix]. This shot up to a high of **75%** during the Coronavirus crisis.
 
@@ -70,7 +70,7 @@ Here's an example.
 
 Investments A and B are two hypothetical assets. They have a simple average return of 10% p.a., but they are both volatile, returning 40% p.a. and -20% p.a. in alternating years. They are also *perfectly negatively correlated*, meaning that when asset A is rising, asset B is falling and vice versa.
 
-![](/static/images/2020-12-02/investment-a-b.jpg)
+![](../static/images/2020-12-02/investment-a-b.jpg)
 
 After 10 years, the total return is 76%.
 
@@ -78,7 +78,7 @@ Now let's introduce investment AB, which is a portfolio consisting of 50% invest
 
 What do you think the return will be?
 
-![](/static/images/2020-12-02/investment-a-b-ab.jpg)
+![](../static/images/2020-12-02/investment-a-b-ab.jpg)
 
 **After 10 years, the total return of the combined portfolio is 159%.** This is higher than the constituents.
 
@@ -125,7 +125,7 @@ Should we invest everything in small company stocks then?
 
 No! As mentioned in [Diversification](2020-12-02-asset-allocation.md#diversification), it is important to review the correlations between assets.
 
-![](/static/images/2020-12-02/correlation.jpg)
+![](../static/images/2020-12-02/correlation.jpg)
 
 In this chart[^correlation-source], a correlation of 1.00 indicates perfectly positive correlation (meaning that when one asset rises, so does the other and vice versa.) and -1.00 indicates perfectly negative correlation
 
@@ -147,7 +147,7 @@ Now, we know we have to own equities, bonds, commodities and real estate for the
 
 The full answer is mathematically involved. We shall explore it briefly.
 
-![](/static/images/2020-12-02/efficient-frontier.jpg)
+![](../static/images/2020-12-02/efficient-frontier.jpg)
 
 The chart above[^efficient-frontier-source] plots return against volatility for a porfolio consisting of stocks and bonds[^efficient-frontier].
 

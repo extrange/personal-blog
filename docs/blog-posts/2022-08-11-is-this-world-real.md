@@ -5,7 +5,7 @@ tags:
 
 # Is This World Real? On Realism
 
-![](/static/images/2022-08-11/lens.jpg)
+![](../static/images/2022-08-11/lens.jpg)
 
 I recently watched a [discussion][discussion] involving Donald Huffman, in which he argues that the world as we perceive it is not its true form - our senses are heavily colored by evolutionary adaptations to ensure our survival and reproduction. The analogy he provides is that what we perceive is akin to the icons on a computer desktop, bearing no resemblance to the actual forms which are magnetic charges on a spinning disk. This is similar to the argument he puts forth in his book, [_The Case Against Reality_][book], as well as a [summary][summary] online.
 
@@ -13,7 +13,7 @@ He then goes on to suggest a form of [constitutive panpsychism][panpsychism] - t
 
 I am, however, more interested in the implications resulting from the idea that our perception is unreliable and/or biased toward evolutionary drives. There are several instances in reality which point to this - we find bright light glaring, extremes of temperature unbearable, a sunrise pretty, ripe fruits more attractive than unripe fruits and so on, despite the fact that all these examples are purely arbitrary patterns and intensities of light and heat.
 
-![](/static/images/2022-08-11/evolution.jpg)
+![](../static/images/2022-08-11/evolution.jpg)
 
 This extends to our raw perception (_qualia_) itself. The experience of seeing blue as blue, for example, is _completely arbitrary_ - why doesn't blue look green? Or take temperature as an example - why does ice feel cold? More broadly, why are our eyes biased to an [extremely narrow portion][visible-spectrum] of the electromagnetic spectrum, or why can't we see infrared? Bats are able to echolocate their prey via sonar, but it is not something that we can readily imagine, let alone experience[^nagel]. Electric eels are able to locate prey via sensing changes in the electrical gradient, and again we cannot imagine how this must feel like for the eel.
 
@@ -21,7 +21,7 @@ Huffman's argument further posits that there is **no objective reality**. Chairs
 
 To go even further out, **our thoughts can be viewed as a form of perception, namely mental perception, and therefore also susceptible to distortion**. We already see this from our desires - we generally find others of the opposite gender attractive, and this preference is not free for us to decide, having been [programmed by our genes][selfish-gene] from the get-go. This distortion could potentially apply to our thoughts on moral and ethical issues, our likes and dislikes, what we perceive as good or bad, and so on. In light of this, are our thoughts even ours?
 
-![](/static/images/2022-08-11/brain.jpg)
+![](../static/images/2022-08-11/brain.jpg)
 
 ## The Impasse and Resolution
 
@@ -31,7 +31,7 @@ I believe that there is one such anchor remaining, and this anchor will continue
 
 This final anchor is **logic**.
 
-![](/static/images/2022-08-11/math.jpg)
+![](../static/images/2022-08-11/math.jpg)
 
 By logic, I am referring to our deductive ability, our capabilities to reason, weigh, evaluate and theorize. This is most evident in mathematics, where we are able to manipulate symbols to yet more symbols, and discover facts about these symbols which were not known previously to us.
 
@@ -45,7 +45,7 @@ How did we obtain logic? Dawkins has an [answer][selfish-gene]. As evolution pro
 
 Logic may be more real than anything we can perceive in this world.
 
-![](/static/images/2022-08-11/matrix.jpg)
+![](../static/images/2022-08-11/matrix.jpg)
 
 ## Notes and Additional Reading
 
@@ -53,7 +53,7 @@ There are several critiques of Hoffman's theory - you can read one of them [here
 
 Another interesting argument I read online arguing for objective reality goes as follows: In nature, we see less poisonous animals [mimicking][mimicry] more poisonous ones (snakes, toads, and so on). This mimicry is only possible if there is an objective reality to mimic.
 
-![](/static/images/2022-08-11/mimicry.jpg)
+![](../static/images/2022-08-11/mimicry.jpg)
 
 [This][obscurantism] is a humorous critique of oft-abused terms (think _quantumly connected_, _non-locality_) in the psychological field of consciousness.
 

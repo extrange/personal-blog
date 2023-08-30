@@ -25,7 +25,7 @@ Some caveats:
 
 - I'm not going to comment on when the best age is to downgrade coverage, because that depends on a whole host of factors[^factors] which I might cover on another article.
 
-- I'm not going to take into account cost differences between riders at the same level (e.g. NTUC's vs GE's deluxe riders). That difference is much less than between the classic and deluxe level for any company's riders (e.g., $60,000 in GE's [case](/docs/posts/insurance/2021-06-18-ge-totalcare-comparison.md#cost-comparison)).
+- I'm not going to take into account cost differences between riders at the same level (e.g. NTUC's vs GE's deluxe riders). That difference is much less than between the classic and deluxe level for any company's riders (e.g., $60,000 in GE's [case](2021-06-18-ge-totalcare-comparison.md#cost-comparison)).
 
 ## Why have a deluxe rider when you're young?
 
@@ -33,7 +33,7 @@ When you're young, you're working. You have a stream of income. You can pay for 
 
 If you get sick, you deserve the best. You don't want to have to pay a deductible of $3,500 each year when you get hospitalized, when you can just pay 5% of the total bill with riders.
 
-Things are different when you're older. Premiums are much, much [higher](/docs/posts/insurance/2021-06-18-ge-totalcare-comparison.md#cost-comparison). It might not make sense to pay a $10,000 premium just to save on a $3,500 deductible yearly.
+Things are different when you're older. Premiums are much, much [higher](2021-06-18-ge-totalcare-comparison.md#cost-comparison). It might not make sense to pay a $10,000 premium just to save on a $3,500 deductible yearly.
 
 The cost difference between the deluxe and classic riders is less significant when you're younger (on the average of $400/year). When you're older though, it jumps to $1,000 and can reach $2,700 (GE Elite-P vs Classic-P at 70 years).
 
@@ -157,7 +157,7 @@ Now, we move on to the deluxe-level riders.
     \end{equation}
 
     Visually, Eqn. $\ref{cases-3500}$ can be plotted as follows:
-    ![](/static/images/2021-06-19-comparison-of-isp-riders/pru-ge-excess-graph.jpg)
+    ![](../static/images/2021-06-19-comparison-of-isp-riders/pru-ge-excess-graph.jpg)
 
 ## Which is the best deluxe-level rider?
 
@@ -167,7 +167,7 @@ Of note, only NTUC does not explictly mention claims-based pricing.
 
 However, there is an 'additional non-panel payment' which is [unspecified](https://www.income.com.sg/kcassets/a1efbbbf-27cc-4c7f-beb1-f42951819219/Website-Product-Information-Deluxe-Care-Classic-Care-Rider-EIS.pdf).
 
-![](/static/images/2021-06-19-comparison-of-isp-riders/ntuc-deluxe-additional-non-panel-payment.jpg)
+![](../static/images/2021-06-19-comparison-of-isp-riders/ntuc-deluxe-additional-non-panel-payment.jpg)
 
 I consider this a form of claims-based pricing. The actual penalty is unknown, and for this reason NTUC is out of the picture again.
 
@@ -179,7 +179,7 @@ We now look at other factors.
 
 Of the three, Prudential has the longest pre- and post- hospitalization coverage of 180 and 365 days respectively. This is longer than GE's 120/180 days.
 
-GE has a nice 'home health care' benefit which I've mentioned [above](/docs/posts/insurance/2021-06-19-comparison-of-isp-riders.md#which-is-the-best-classic-level-rider).
+GE has a nice 'home health care' benefit which I've mentioned [above](2021-06-19-comparison-of-isp-riders.md#which-is-the-best-classic-level-rider).
 
 I'd favour **Prudential** somewhat here, since the idea is to get as much coverage as possible for the deluxe-level rider.
 

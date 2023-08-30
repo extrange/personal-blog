@@ -27,7 +27,7 @@ This is not the only problem I have with Conda.
 - Search is slow. Very slow.
 - `conda update --all` doesn't update pip packages...
 
-![](/static/images/2021-04-15/conda.gif)
+![](../static/images/2021-04-15/conda.gif)
 
 That being said, Conda allows you to specify and manage Python itself as a dependency, which is great on Windows, as it prevents you from polluting the working environment.
 

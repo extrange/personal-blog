@@ -51,7 +51,7 @@ Adding ingredients with [umami][umami] (the fifth taste, that of savoriness) vas
 
 ### Satiety Index
 
-![](/static/images/2022-10-28/satiety-index.jpg)
+![](../static/images/2022-10-28/satiety-index.jpg)
 
 Satiety, or how full a food makes you feel, can help when deciding what to eat, especially when snacking. [This article][satiety-index] provides a satiety chart for common foods, and further analyzes reasons for a food's satiety.
 
@@ -79,7 +79,7 @@ Resources:
 
 [Consuming more protein as a percentage of caloric intake][physiqnomics-fat-loss] may result in more weight loss and [muscle retention][diet-and-body-composition].
 
-![](/static/images/2022-10-28/satiety.jpg)
+![](../static/images/2022-10-28/satiety.jpg)
 
 Protein supplementation beyond total protein intakes of 1.62 g/kg/day appears to provide little to no gain ([_Morton et al., 2018_][morton-2018]).
 
@@ -125,7 +125,7 @@ The [recommended intake][fibre-intake] for fiber is around 25-38 grams a day.
 
 Sources include root/leafy vegetables, whole grains, legumes (13-25% fibre), **psyllium husk** (almost completely fibre, note: powder form seems to work better) and chia seeds (34% fibre).
 
-![](/static/images/2022-10-28/psyllium-husk.jpg)
+![](../static/images/2022-10-28/psyllium-husk.jpg)
 
 ## Fat
 
@@ -145,12 +145,12 @@ In light of this evidence, and the fact that most of the population does not get
 
 Omega-3 fatty acids obtained from marine or algae sources (i.e. EPA/DHA) are associated with triglyceride lowering, BP lowering and antiarrhymthmic/antithrombosis effects. Plant based omega-3 fatty acids (ALA) on the other hand, are [poorly converted][plant-ala] to EPA/DHA.
 
-![](/static/images/2022-10-28/effects-pufa2.jpg)
-![](/static/images/2022-10-28/effects-pufa.gif)
+![](../static/images/2022-10-28/effects-pufa2.jpg)
+![](../static/images/2022-10-28/effects-pufa.gif)
 
 Sources of EPA/DHA include oily fish like salmon or mackerel.
 
-![](/static/images/2022-10-28/fish-omega3.jpg)
+![](../static/images/2022-10-28/fish-omega3.jpg)
 
 Mackerel is overall the best option for price and amount of omega 3.
 
@@ -165,7 +165,7 @@ Creatine has been shown to [improve exercise performance][creatine] together wit
 
 ### Tea
 
-![](/static/images/2022-10-28/tea.jpg)
+![](../static/images/2022-10-28/tea.jpg)
 
 **Health Effects**
 
@@ -206,13 +206,13 @@ I have yet to examine the effects of L-theanine, but it is a promising nootropic
 [creatine]: https://cdn.mdedge.com/files/s3fs-public/Document/September-2017/5801JFP_Article2.pdf
 [diet-and-body-composition]: https://pubmed.ncbi.nlm.nih.gov/28630601/
 [fibre-intake]: https://www.healthline.com/health/food-nutrition/how-much-fiber-per-day
-[gi-table]: /static/images/2022-10-28/gi-table-normal.pdf
+[gi-table]: ../static/images/2022-10-28/gi-table-normal.pdf
 [gi-table2]: https://extension.oregonstate.edu/sites/default/files/documents/1/glycemicindex.pdf
 [green-tea-catechins]: https://pubmed.ncbi.nlm.nih.gov/32625874/
 [if-comparison]: https://www.annualreviews.org/doi/abs/10.1146/annurev-nutr-052020-041327
 [if-timing]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5990470/
 [ldl]: https://www.medscape.com/viewarticle/973872
-[legumes-chart]: /static/images/2022-10-28/beans-comparison-chart.pdf
+[legumes-chart]: ../static/images/2022-10-28/beans-comparison-chart.pdf
 [morton-2018]: https://doi.org/10.1136/bjsports-2017-097608
 [nejm-if-fulltext]: https://www.studioapolimeni.com/editorcms/nejmra1905136_pdf.pdf
 [nejm-if]: https://www.nejm.org/doi/full/10.1056/nejmra1905136

@@ -47,7 +47,7 @@ I got the seeds from [Horti](https://horti.sg/product/stevia/) at $4.80.
 
 I planted them in a pot, and after about 1 month I got a big, healthy green plant:
 
-![](/static/images/2020-11-28/stevia-plant.jpg)
+![](../static/images/2020-11-28/stevia-plant.jpg)
 
 I didn't edit the photo - the leaves are really quite green. I ate some leaves raw and they really do taste sweet, with a slight earthy/bitter aftertaste (I mean, it's a leaf after all, not a block of sugar...)
 
@@ -55,20 +55,20 @@ I didn't edit the photo - the leaves are really quite green. I ate some leaves r
 
 Now to make the powder, the leaves have to be dried. A quick google search suggested the optimum drying temperature to be 35 degrees Celsius. After leaving the leaves for 24 hours in a food dehydrator, the end result was a crumbly, shrunken mass of leaves.
 
-![](/static/images/2020-11-28/stevia-drying.jpg)
+![](../static/images/2020-11-28/stevia-drying.jpg)
 
 ## Grinding
 
 The next step was to grind the leaves into a powder! I used a metal mortar and pestle, although research suggests that a coffee grinder is better (I don't have one). While grinding I discarded some stems away since they didn't grind well.
 
-![](/static/images/2020-11-28/stevia-grinding.jpg)
+![](../static/images/2020-11-28/stevia-grinding.jpg)
 
 ## End Result
 
 The final product! This is the result of about ~30 leaves from 3 separate plants in total.
 
-![](/static/images/2020-11-28/powder-1.jpg)
-![](/static/images/2020-11-28/powder-2.jpg)
+![](../static/images/2020-11-28/powder-1.jpg)
+![](../static/images/2020-11-28/powder-2.jpg)
 
 The taste can be described as rather sweet, with some earthy undertones. It is much less bitter compared to the raw, fresh leaf.
 

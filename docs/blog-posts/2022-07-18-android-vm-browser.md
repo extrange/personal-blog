@@ -5,7 +5,7 @@ tags:
 
 # Android VM in a Browser (via Apache Guacamole)
 
-![](/static/images/2022-07-18/android-vm.jpg)
+![](../static/images/2022-07-18/android-vm.jpg)
 
 Running an Android VM in a web browser lets you run Android applications from any computer. This lets you test out apps, or even suspicious programs without compromising your actual device.
 

@@ -9,7 +9,7 @@ On 2 Apr 2021, MOH [announced](https://www.asiaone.com/money/integrated-shield-p
 
 With this in mind, I decided to look at the Great Eastern's (GE) [new riders](https://www.greateasternlife.com/content/dam/great-eastern/sg/homepage/personal-insurance/our-products/health-insurance/great-supremehealth/gsh-gtc-benefit-schedule-and-premium-rates.pdf).
 
-![](/static/images/2021-06-18-ge-totalcare-comparison/ge-totalcare-rider-infographic.jpg)
+![](../static/images/2021-06-18-ge-totalcare-comparison/ge-totalcare-rider-infographic.jpg)
 
 Great Eastern offers 2 classes of riders on top of their base shield plan (GREAT SupremeHealth). These are called GREAT TotalCare **Classic** and **Elite**. They are available for all classes of the base shield plan, from B1 wards all the way to private hospitals[^riders].
 
@@ -17,7 +17,7 @@ Great Eastern offers 2 classes of riders on top of their base shield plan (GREAT
 
 ISPs and Medishield Life, the compulsory national health insurance we all have, require one to co-pay part of the bill, depending on the size.
 
-![](/static/images/2021-06-18-ge-totalcare-comparison/co-payment.jpg)
+![](../static/images/2021-06-18-ge-totalcare-comparison/co-payment.jpg)
 
 This is known as 'co-insurance'.
 
@@ -29,7 +29,7 @@ The main purpose of GE's riders is to cover the co-insurance amount **and** the 
 
 Let's start by looking at the similarities.
 
-![](/static/images/2021-06-18-ge-totalcare-comparison/great-totalcare-special-benefits.jpg)
+![](../static/images/2021-06-18-ge-totalcare-comparison/great-totalcare-special-benefits.jpg)
 
 In terms of the special benefits such as ambulance services, home health care benefit and limits on payable benefit, they are **identical** across their classes. There is no difference here - a TotalCare **Classic-P** and an **Elite-P** plan have the exact same special benefits.
 
@@ -37,7 +37,7 @@ So what's the difference? It's in how much co-payment they cover.
 
 ### B1 and A rider comparison
 
-![](/static/images/2021-06-18-ge-totalcare-comparison/totalcare-restructured-comparison.jpg)
+![](../static/images/2021-06-18-ge-totalcare-comparison/totalcare-restructured-comparison.jpg)
 
 These plans cover B1 to A class wards in restructured hospitals.
 
@@ -56,7 +56,7 @@ For a large bill[^indifference-b1], you'll pay the same amount. For smaller bill
 
 The situation is slightly different for the private riders.
 
-![](/static/images/2021-06-18-ge-totalcare-comparison/totalcare-private-comparison.jpg)
+![](../static/images/2021-06-18-ge-totalcare-comparison/totalcare-private-comparison.jpg)
 
 Here, you'll fall into one of the two groups[^groups]:
 
@@ -86,7 +86,7 @@ Let's compare the prices of these plans.
 
 Extra coverage must come at a price.
 
-![](/static/images/2021-06-18-ge-totalcare-comparison/totalcare-premiums.jpg)
+![](../static/images/2021-06-18-ge-totalcare-comparison/totalcare-premiums.jpg)
 
 We can make some observations:
 
@@ -123,7 +123,7 @@ For the Classic plan:
 The Elite plan:
 
 - You pay only 5% of the total bill regardless of pre-authorization or ward class
-- However, the total premium paid is much higher than the Classic (up to [$60,000](/docs/posts/insurance/2021-06-18-ge-totalcare-comparison.md#private-rider-comparison))
+- However, the total premium paid is much higher than the Classic (up to [$60,000](#private-rider-comparison))
 
 I feel that the real question is - would you pay $60,000 extra, to always pay only 5% of the total bill, regardless of the size?
 

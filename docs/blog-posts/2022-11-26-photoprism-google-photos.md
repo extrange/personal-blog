@@ -7,7 +7,7 @@ tags:
 
 My Google Photos account ran out of storage recently (since 2021 June, Google has [stopped providing free storage for photos in High Quality][google-photos]), and I was looking for a self-hosted, open source replacement, with similar features to Google Photos (fast gallery view, facial recognition, object detection).
 
-![](/static/images/2022-11-26/photoprism.jpg)
+![](../static/images/2022-11-26/photoprism.jpg)
 
 I found [PhotoPrism][photoprism], an open-source, self-hosted, web-based photo manager with features such as facial recognition, object tagging, automatic import and organization, and the ability to view photos with location information on a map. I was impressed, and deployed it on my [server][server].
 
@@ -15,7 +15,7 @@ You can try their demo [here][photoprism-demo]. To get started (via Docker Compo
 
 PhotoPrism can also be installed on mobile devices as a [Progressive Web App][pwa], offering a near-native app experience.
 
-![](/static/images/2022-11-26/pwa.jpg)
+![](../static/images/2022-11-26/pwa.jpg)
 
 ## Mobile Sync
 

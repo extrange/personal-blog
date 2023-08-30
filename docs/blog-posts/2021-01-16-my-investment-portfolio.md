@@ -50,7 +50,7 @@ A very good, mathematically accurate answer I read[^rebalancing] suggests that y
 #### How much can I withdraw a year, without losing all of my principal?
 4% of the total portfolio value per annum, assuming a portfolio invested in stocks and bonds[^withdrawal]. Withdrawing more than 4% p.a. will make the portfolio go to $0 eventually.
   
-![](/static/images/2020-01-16/how-low-nest-egg-last.jpg)
+![](../static/images/2020-01-16/how-low-nest-egg-last.jpg)
   
 #### Should I hedge against foreign currency risk?
 This is controversial, but essentially if you are looking at the long term, currency hedging has little to no impact on your portfolio.[^hedging]
