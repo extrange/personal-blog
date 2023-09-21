@@ -103,7 +103,7 @@ Meat is assumed to have ~20% protein (of raw weight). Whey protein isolates/conc
 Tofu (tau kwa), whey protein and frozen chicken breasts are among the most value-for-money sources.
 
 | Date       | Type                                           | Cost                                    | Cost/100g protein |
-|------------|------------------------------------------------|-----------------------------------------|-------------------|
+| ---------- | ---------------------------------------------- | --------------------------------------- | ----------------- |
 | 2023-06-14 | Sadia frozen chicken breasts                   | \$15.90/2kg                             | \$3.98            |
 | 2022-08-18 | Baiye Tofu (pressed tofu)                      | \$2.50/250g                             | \$4.14            |
 | 2022-07-12 | Pan Royal Frozen Saba Fillet                   | \$9.50/750g                             | \$6.33            |
@@ -133,7 +133,7 @@ I avoid saturated fat, and consume monounsaturated/polyunsaturated fat preferent
 
 I also eat oily fish (such as mackerel and salmon, especially salmon belly), and take fish oil supplements (see below).
 
-## Supplements
+## Others
 
 ### Vitamin D
 
@@ -169,7 +169,7 @@ Creatine has been shown to [improve exercise performance][creatine] together wit
 
 **Health Effects**
 
-Green tea has been shown to lower cholesterol to an extent. 
+Green tea has been shown to lower cholesterol to an extent.
 
 However, there is some [concern][green-tea-catechins] that excessive consumption of catechins, such as in matcha powder, could cause liver damage (elevated serum transaminases).
 
@@ -177,11 +177,11 @@ However, there is some [concern][green-tea-catechins] that excessive consumption
 
 All values per cup.
 
-- White tea: 13mg
-- Green tea: 35mg
-- Oolong tea: 40mg
-- Black tea: 55mg
-- Matcha tea: 80mg
+-   White tea: 13mg
+-   Green tea: 35mg
+-   Oolong tea: 40mg
+-   Black tea: 55mg
+-   Matcha tea: 80mg
 
 In comparison, coffee contains 100-200mg of caffeine. In general, the more the tea leaves are roasted/fermented/processed, the higher the caffeine content.
 
@@ -200,6 +200,23 @@ L-Theanine content is higher in unfermented teas, although a [study][theanine-te
 L-Theanine is also available in supplement form (commonly at 100 and 200mg doses).
 
 I have yet to examine the effects of L-theanine, but it is a promising nootropic for improving sleep, relaxation and possibly focus.
+
+### Comparison of various nutrients across major staple foods
+
+[Here][staple-food-comparison] is a useful table comparing nutrients across major staple foods, such as beans, corn and rice.
+
+Soybeans (and hence beans) rank the highest in most categories, such as protein, fibre and iron. However, they are deficient in other nutrients, which can be supplemented as follows:
+
+| Vitamin/Nutrient    | Source of Vitamin/Nutrient |
+| ------------------- | -------------------------- |
+| Vitamin B5          | Sweet Potatoes             |
+| Vitamin B6          | Potatoes                   |
+| Vitamin E           | Sweet Potatoes, Yam        |
+| Vitamin K1          | Potatoes                   |
+| Beta-carotene       | Sweet Potatoes             |
+| Lutein + Zeaxanthin | Corn                       |
+
+A balanced diet of nutrients can be therefore constructed with beans as the base, and supplemented with sweet potatoes, potatoes and corn.
 
 [beans-chart]: https://missvickie.com/pressure-cooking-dried-bean-time-chart/
 [boiling-nutrients]: https://www.healthline.com/nutrition/cooking-nutrient-content
@@ -231,7 +248,7 @@ I have yet to examine the effects of L-theanine, but it is a promising nootropic
 [my-diet]: 2022-08-01-my-diet.md
 [lectins]: https://www.hsph.harvard.edu/nutritionsource/anti-nutrients/lectins/
 [soaking-beans]: https://www.epicurious.com/expert-advice/soaking-salting-dried-bean-myths-article
-[morning-loaded-calories]: https://www.sciencedirect.com/science/article/pii/S1550413122003448 
+[morning-loaded-calories]: https://www.sciencedirect.com/science/article/pii/S1550413122003448
 [protein-contamination]: https://cleanlabelproject.org/blog-post/new-study-of-protein-powders-from-clean-label-project-finds-elevated-levels-of-heavy-metals-and-bpa-in-53-leading-brands/
 [sweeteners]: https://www.theguardian.com/lifeandstyle/2022/dec/08/artificial-sweeteners-price-of-sugar-free-are-they-as-harmless-as-we-thought
 [one-meal-a-day]: https://www.sciencedirect.com/science/article/abs/pii/S2212267222008747
@@ -251,3 +268,4 @@ I have yet to examine the effects of L-theanine, but it is a promising nootropic
 [theanine-safety]: https://examine.com/supplements/theanine/research/#LQVz3Qb-safety-and-toxicology
 [theanine-tea-content]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4787341/
 [lentils]: https://www.myweekendkitchen.in/types-of-lentils-pulses-english-hindi/
+[staple-food-comparison]: https://en.wikipedia.org/wiki/Template:Comparison_of_major_staple_foods

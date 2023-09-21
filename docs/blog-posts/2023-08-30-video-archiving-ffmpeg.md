@@ -19,12 +19,13 @@ AV1 is at least as good, and as fast, or even faster, than H.265 (and therefore 
 To use `ffmpeg` to transcode by videos, I use the following command:
 
 ```bash
-ffmpeg -i input-file -c:a copy -c:v libsvtav1 -crf 47 -vf scale=out_range=pc -map_metadata 0 output-file
+ffmpeg -i input-file -c:a copy -c:v libsvtav1 -crf 47 -preset 6 -vf scale=out_range=pc -map_metadata 0 output-file
 ```
 
 Explanation of parameters:
 
 - `crf 47`: This sets the [quality level][crf] for each frame, with lower values indicating higher quality and larger file size. The default is 50.
+- `preset 8`: Presets control how many [efficiency features][presets] are used during the encoding process, with lower presets using more features and being smaller but slower. Presets range from 0 - 12, and the default is 8. Home enthusiasts generally use values between 4 - 6.
 - `vf scale=out_range=pc`: The Apeman A100 uses the [`yuvj420`][yuvj] pixel format, which is [deprecated][scaling], resulting in washed out contrast when playing on a non-aware video player (e.g. VLC). This fixes that issue.
 - `map_metadata 0`: Some encoders store video metadata such as `creation_time`, and this preserves it in the output.
 
@@ -49,3 +50,4 @@ After using the parameters above, my library of 4K videos was compressed from 24
 [crf]: https://trac.ffmpeg.org/wiki/Encode/AV1#CRF
 [scaling]: http://trac.ffmpeg.org/wiki/Scaling
 [yuvj]: https://trac.ffmpeg.org/ticket/225
+[presets]: https://gitlab.com/AOMediaCodec/SVT-AV1/-/blob/master/Docs/CommonQuestions.md#what-presets-do
