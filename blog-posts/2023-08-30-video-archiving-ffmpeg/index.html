@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.3.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.30068a00.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
@@ -303,6 +303,26 @@
             Blog Posts
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2023-09-11-best-way-cook-beans/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Best Way to Cook Beans
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1578,11 +1598,12 @@
 <h2 id="ffmpeg">FFmpeg</h2>
 <p><a href="https://ffmpeg.org/">FFmpeg</a> is a popular, open source suite of libraries and programs for working with multimedia files. FFmpeg supports encoding AV1 via several encoders: <code>libaom</code> (the reference encoder), SVT-AV1 and <code>rav1e</code>. <a href="https://gitlab.com/AOMediaCodec/SVT-AV1/-/releases/v1.7.0">SVT-AV1 <code>1.7.0</code></a> improves encoding speed by up to 50% for several presets, and as of the time of this writing, it is probably the best encoder to use.</p>
 <p>To use <code>ffmpeg</code> to transcode by videos, I use the following command:</p>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input-file<span class="w"> </span>-c:a<span class="w"> </span>copy<span class="w"> </span>-c:v<span class="w"> </span>libsvtav1<span class="w"> </span>-crf<span class="w"> </span><span class="m">47</span><span class="w"> </span>-vf<span class="w"> </span><span class="nv">scale</span><span class="o">=</span><span class="nv">out_range</span><span class="o">=</span>pc<span class="w"> </span>-map_metadata<span class="w"> </span><span class="m">0</span><span class="w"> </span>output-file
+<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input-file<span class="w"> </span>-c:a<span class="w"> </span>copy<span class="w"> </span>-c:v<span class="w"> </span>libsvtav1<span class="w"> </span>-crf<span class="w"> </span><span class="m">47</span><span class="w"> </span>-preset<span class="w"> </span><span class="m">6</span><span class="w"> </span>-vf<span class="w"> </span><span class="nv">scale</span><span class="o">=</span><span class="nv">out_range</span><span class="o">=</span>pc<span class="w"> </span>-map_metadata<span class="w"> </span><span class="m">0</span><span class="w"> </span>output-file
 </code></pre></div>
 <p>Explanation of parameters:</p>
 <ul>
 <li><code>crf 47</code>: This sets the <a href="https://trac.ffmpeg.org/wiki/Encode/AV1#CRF">quality level</a> for each frame, with lower values indicating higher quality and larger file size. The default is 50.</li>
+<li><code>preset 8</code>: Presets control how many <a href="https://gitlab.com/AOMediaCodec/SVT-AV1/-/blob/master/Docs/CommonQuestions.md#what-presets-do">efficiency features</a> are used during the encoding process, with lower presets using more features and being smaller but slower. Presets range from 0 - 12, and the default is 8. Home enthusiasts generally use values between 4 - 6.</li>
 <li><code>vf scale=out_range=pc</code>: The Apeman A100 uses the <a href="https://trac.ffmpeg.org/ticket/225"><code>yuvj420</code></a> pixel format, which is <a href="http://trac.ffmpeg.org/wiki/Scaling">deprecated</a>, resulting in washed out contrast when playing on a non-aware video player (e.g. VLC). This fixes that issue.</li>
 <li><code>map_metadata 0</code>: Some encoders store video metadata such as <code>creation_time</code>, and this preserves it in the output.</li>
 </ul>
