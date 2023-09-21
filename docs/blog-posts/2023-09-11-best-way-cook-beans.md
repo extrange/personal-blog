@@ -41,7 +41,11 @@ Examples of heat-stable antinutrients include tannins (decreases iron absorption
 
 Examples of heat-sensitive antinutrients include lectins (which interfere with absorption of calcium, iron, phosphorus and zinc), and saponins (which interfere with normal nutrient absorption).
 
-Generally, heat-stable antinutrients were best removed (60+%) by a combination of soaking with/without autoclaving[^2007], or sprouting > 48hr. Heat-sensitive antinutrients were not significantly affected by sprouting, but were removed almost totally by soaking with/without autoclaving. In both cases, autoclaving was more effective than cooking.
+Heat-stable antinutrients were best removed by a combination of soaking and cooking/autoclaving (60+%) [^2007], or sprouting > 24hr (87-100%).
+
+Heat-sensitive antinutrients were not significantly reduced by sprouting, but were removed almost totally by soaking and cooking/autoclaving.
+
+In both cases, autoclaving was more effective than cooking.
 
 ## Cooking with/without discarding soaking water
 
@@ -65,9 +69,9 @@ Tables from this paper[^2010].
 
 Applying heat is the best way to remove heat-sensitive antinutrients, while sprouting was the best way to remove GOS and heat-stable antinutrients.
 
-Therefore, the best method, taking into account time considerations, would be to soak the beans for 24-48 hours (with no benefit over 48 hours), and subsequently autoclaving.
+Therefore, the best method, taking into account time considerations, would be to soak the beans for 24-48 hours (with not much more benefit over 48 hours), and subsequently autoclaving.
 
-The second best method would be to soak the beans in water and then autoclave them.
+The second best method would be to soak the beans in water and then autoclave them, although this would result in slightly higher levels of GOS and antinutrients.
 
 [^1985]: [Jood, S., Mehta, U., Singh, R., & Bhat, C. M. (1985). Effect of processing on flatus-producing factors in legumes. Journal of Agricultural and Food Chemistry, 33(2), 268-271.][1985]
 [^2000]: [Oboh, H. A., Muzquiz, M., Burbano, C., Cuadrado, C., Pedrosa, M. M., Ayet, G., & Osagie, A. U. (2000). Effect of soaking, cooking and germination on the oligosaccharide content of selected Nigerian legume seeds. Plant Foods for Human Nutrition, 55, 97-110.][2000]
