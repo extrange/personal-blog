@@ -72,6 +72,7 @@ nav:
     - IEM Reviews: 'blog-posts/2020-09-21-iem-reviews.md'
   - Dead Man's Switch: dead-mans-switch.md
   - Mountaineering: mountaineering.md
+  - Travel Bucket List: travel-bucket-list.md
   - Photography: photography.md
   - Piano: piano.md
   - Resume: resume.md
@@ -99,6 +100,7 @@ plugins:
       tags_file: tags.md
   - search
   - social
+  - glightbox
 
 extra:
   analytics:

@@ -35,7 +35,7 @@ I started out by reading books about computer hacking. Long ago, I borrowed a bo
 
 > "The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination. Few media of creation are so flexible, so easy to polish and rework, so readily capable of realizing grand conceptual structures." - Frederic P. Brooks
 
-I was interested in computers and IT since I was in primary school. The web was in its infancy then; I still remember using 56kbps dialup.  Ironically, most of my interest came about when my parents locked my computer and I had to figure out ways of circumvention (booting Linux, keyloggers...). I learnt about networking from trying to configure the routers in my house mostly by trial and error - those IT people my parents called charged something north of $50 just for tweaking settings like DHCP or DNS and security. The 1999 movie 'The Matrix' was also a big inspiration to me.
+I was interested in computers and IT since I was in primary school. The web was in its infancy then; I still remember using 56kbps dialup. Ironically, most of my interest came about when my parents locked my computer and I had to figure out ways of circumvention (booting Linux, keyloggers...). I learnt about networking from trying to configure the routers in my house mostly by trial and error - those IT people my parents called charged something north of $50 just for tweaking settings like DHCP or DNS and security. The 1999 movie 'The Matrix' was also a big inspiration to me.
 
 <figure>
   <img src="/static/images/art-computer-virus-research-defence.jpg" alt="The Art of Computer Virus Research and Defence" loading="lazy"/>
@@ -65,6 +65,8 @@ In recent years I have become much more conscious of what I eat, in part due to 
 For variation, I maintain some [interesting recipes][cooking] I have tried over the years.
 
 ## Spirituality
+
+I'm a big fan of Alan Watts, an American who was deeply involved in the promotion of Japanese Zen to the world. His [videos](https://www.youtube.com/watch?v=khOaAHK7efc) and [writings](https://www.goodreads.com/book/show/514210.The_Way_of_Zen) are frank, witty and hint at the beauty of his thought.
 
 [My worldview](blog-posts/2022-03-03-determinism-and-stoicism.md) aligns most closely with Stoicism, and I am exploring Vipassana and Zen.
 

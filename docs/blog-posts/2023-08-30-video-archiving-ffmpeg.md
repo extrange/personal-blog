@@ -1,3 +1,8 @@
+---
+tags:
+  - Programming
+---
+
 # Video Archiving with FFmpeg
 
 I keep most of my photos and videos on [Photoprism](2022-11-26-photoprism-google-photos.md), a great open-source Google Photos alternative with features like facial recognition and viewing photos by location.

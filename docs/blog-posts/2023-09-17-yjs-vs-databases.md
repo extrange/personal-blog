@@ -1,3 +1,8 @@
+---
+tags:
+  - Programming
+---
+
 # Yjs vs Traditional Databases
 
 [Yjs][yjs] is a [conflict-free, replicated data type][crdt], which allows for distributed, collaborative editing and offline synchronization, with automatic conflict resolution.

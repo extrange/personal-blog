@@ -1,3 +1,4 @@
+cairosvg
+mkdocs-glightbox
 mkdocs-material==9.*
 pillow
-cairosvg

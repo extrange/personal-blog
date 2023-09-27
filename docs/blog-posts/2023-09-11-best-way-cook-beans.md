@@ -1,3 +1,8 @@
+---
+tags:
+  - Cooking
+---
+
 # The Best Way to Cook Beans
 
 Beans (also known as legumes) are an excellent source of protein and fibre, and are also one of the lowest GI (glycemic index) foods available. They are also relatively cheap.

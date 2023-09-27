@@ -1,3 +1,8 @@
+---
+tags:
+  - Programming
+---
+
 # Setting up the Mikrotik hAP ac² with Singel Fibre
 
 ![](../static/images/2023-06-24/ac2.jpg)

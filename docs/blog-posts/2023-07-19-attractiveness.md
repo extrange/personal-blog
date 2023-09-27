@@ -1,3 +1,8 @@
+---
+tags:
+  - Philosophy
+---
+
 # On Attractiveness
 
 Recently, in my country, there has been a spate of politicians getting involved in extramarital affairs. This got me thinking more deeply about how we rate other people in terms of attractiveness, and whether a **total order** of the individual's ranking exists.
