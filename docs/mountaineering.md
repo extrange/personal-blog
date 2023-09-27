@@ -15,6 +15,7 @@ The desolate vastness of the terrain, the harsh cold of the snow, the pale starl
 | 2014 Dec             | Poon Hill, Nepal                          | 3210m   |
 | 2015 Apr             | Mt Rinjani, Indonesia                     | 3726m   |
 | 2015 Dec             | Mt Kilimanjaro, Tanzania                  | 5895m   |
+|                      | The Matterhorn, Switzerland               | 4478m   |
 |                      | Mera Peak, Nepal                          | 6476m   |
 |                      | Aconcagua, Argentina                      | 6962m   |
 |                      | Ama Dablam, Nepal                         | 6812m   |

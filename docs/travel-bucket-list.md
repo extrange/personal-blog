@@ -80,7 +80,9 @@ A list of all the places I want to visit in the future.
 
 ## Europe
 
+-   [ ] [Faroe Islands][faroe-islands]: Visit (Elza)
 -   [ ] France: Corsica (GR20 route there too, recommended by host Cyrill during 2022 May trip with Chanel to Nice, France for hiking)
+-   [ ] France: [GR52 trail][gr52-trail] (60.4 miles)
 -   [ ] France: [Aiguille du Midi][aiguille-du-midi]
 -   [ ] Germany: [Neuschwanstein Castle][neuschwanstein-castle]
 -   [x] Iceland: Blue Lagoon
@@ -96,11 +98,12 @@ A list of all the places I want to visit in the future.
 
 ## North America
 
--   [ ] Alaska: Atigun Pass
+-   [ ] Alaska: Atigun Pass ([Motorcycle to the end of the world 11,000mi][atigun-pass-motorcycle])
 -   [ ] Amazon Rainforest: Visit
 -   [ ] Belize: Great Blue Hole
 -   [ ] Canada: Cape Breton National Park
 -   [ ] Canada: Gampo Abbey (Buddhist monastery)
+-   [ ] Canada: Kluane National Park and Reserve (Kluane Icefields)
 -   [ ] Greenland: Kite Skiing
 -   [ ] Hawaii: Haleakala Volcano (3055m)
 -   [ ] Hawaii: Visit
@@ -158,3 +161,6 @@ A list of all the places I want to visit in the future.
 [tabi-ride-club]: http://tabiride.club/
 [snowman-trek]: https://en.wikipedia.org/wiki/Snowman_Trek
 [korea-4-rivers-bike-trail]: https://bikerentalkorea.kr/pages/the-4-rivers-path
+[gr52-trail]: https://happilyevertravels.com/hike-gr52-trail/
+[faroe-islands]: https://en.wikipedia.org/wiki/Faroe_Islands
+[atigun-pass-motorcycle]: https://imgur.com/a/J7kZJ
