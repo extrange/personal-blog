@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.2">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d451bc0e.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a5377069.min.css">
       
       
 
@@ -93,7 +93,18 @@
       
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -278,14 +289,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
+          
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
@@ -1442,6 +1455,25 @@
   
   
     <li class="md-nav__item">
+      <a href="../../travel-bucket-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Travel Bucket List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../photography/" class="md-nav__link">
         
   
@@ -1573,11 +1605,11 @@
 
 <h1 id="photoprism-a-google-photos-replacement">Photoprism - A Google Photos Replacement</h1>
 <p>My Google Photos account ran out of storage recently (since 2021 June, Google has <a href="https://support.google.com/photos/answer/10100180?hl=en">stopped providing free storage for photos in High Quality</a>), and I was looking for a self-hosted, open source replacement, with similar features to Google Photos (fast gallery view, facial recognition, object detection).</p>
-<p><img alt="" src="../../static/images/2022-11-26/photoprism.jpg" /></p>
+<p><a class="glightbox" href="../../static/images/2022-11-26/photoprism.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../static/images/2022-11-26/photoprism.jpg" /></a></p>
 <p>I found <a href="https://photoprism.app/">PhotoPrism</a>, an open-source, self-hosted, web-based photo manager with features such as facial recognition, object tagging, automatic import and organization, and the ability to view photos with location information on a map. I was impressed, and deployed it on my <a href="../2022-05-22-my-self-hosting-journey/">server</a>.</p>
 <p>You can try their demo <a href="https://try.photoprism.app/">here</a>. To get started (via Docker Compose), see the guide <a href="https://docs.photoprism.app/getting-started/docker-compose/">here</a>.</p>
 <p>PhotoPrism can also be installed on mobile devices as a <a href="https://docs.photoprism.app/user-guide/pwa/">Progressive Web App</a>, offering a near-native app experience.</p>
-<p><img alt="" src="../../static/images/2022-11-26/pwa.jpg" /></p>
+<p><a class="glightbox" href="../../static/images/2022-11-26/pwa.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../static/images/2022-11-26/pwa.jpg" /></a></p>
 <h2 id="mobile-sync">Mobile Sync</h2>
 <p>Photoprism suggests using <a href="https://www.photosync-app.com/home.html">PhotoSync</a>, an app available on Android and iOS. However, the WebDAV sync feature, essential to work with PhotoPrism, is a <a href="https://play.google.com/store/apps/details?id=com.touchbyte.photosync.fullfeatured&amp;hl=en&amp;gl=US">paid</a> feature.</p>
 <p><a href="https://syncthing.net/">Syncthing</a> is a free, open source continuous file synchronization program, with a reliable <a href="https://docs.syncthing.net/users/syncing.html?highlight=conflict#conflicting-changes">conflict resolution algorithm</a>. It offers <a href="https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid&amp;hl=en&amp;gl=US">Android</a> and iOS versions as well.</p>
@@ -1703,10 +1735,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.726fbb30.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
@@ -1715,5 +1747,5 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

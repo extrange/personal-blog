@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="/static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.2">
     
     
       
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.30068a00.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d451bc0e.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a5377069.min.css">
       
       
 
@@ -93,7 +93,18 @@
       
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -278,14 +289,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
+          
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
@@ -1456,6 +1469,25 @@
   
   
     <li class="md-nav__item">
+      <a href="../../travel-bucket-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Travel Bucket List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../photography/" class="md-nav__link">
         
   
@@ -1609,7 +1641,7 @@
 <h2 id="ergonomicity">Ergonomicity</h2>
 <p>Input takes up a majority of our time on the computer, and therefore it is a prime candidate for optimization. In order of importance:</p>
 <p><strong>Keyboard layout: Dvorak</strong></p>
-<p><img alt="" src="../../static/images/2022-02-27/keyboard.jpg" /></p>
+<p><a class="glightbox" href="../../static/images/2022-02-27/keyboard.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../static/images/2022-02-27/keyboard.jpg" /></a></p>
 <p>The keyboard is perhaps the most frequently used peripheral, more so than the mouse, and thus choosing an efficient layout is essential. I decided on Dvorak, as it resembles playing the piano - vowels are on the home row of the left hand, while the common consonants are on the right, and this allows for a more natural alternation compared to the Qwerty layout.</p>
 <p>I remap the <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-z">Z</kbd></span> <span class="keys"><kbd class="key-x">X</kbd></span> <span class="keys"><kbd class="key-c">C</kbd></span> <span class="keys"><kbd class="key-v">V</kbd></span> keys for copy/paste/undo-ing, and <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-w">W</kbd></span> <span class="keys"><kbd class="key-t">T</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-t">T</kbd></span> for browsing, as their Qwerty locations are more convenient than their Dvorak equivalents.</p>
 <details class="note">
@@ -1633,11 +1665,11 @@ t = C-S-k
 </code></pre></div>
 </details>
 <p><strong>Window Manager: Tiling</strong> (currently Pop!_OS Shell)</p>
-<p><img alt="" src="../../static/images/2022-02-27/pop-shell.jpg" /></p>
+<p><a class="glightbox" href="../../static/images/2022-02-27/pop-shell.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../static/images/2022-02-27/pop-shell.jpg" /></a></p>
 <p>A tiling window manager (<a href="https://i3wm.org/">i3</a> being the most popular example) arranges windows in a non-overlapping, grid-like pattern. This allows for more efficient use of screen space, as well as less mouse-keyboard switching.</p>
 <p>Currently, I use <a href="https://github.com/pop-os/shell">Pop!_OS Shell</a>, which is a GNOME extension. I plan to switch to <a href="https://swaywm.org/">Sway</a> in the future.</p>
 <p><strong>Text Editor: Vim/Vim-like</strong></p>
-<p><img alt="" src="../../static/images/2022-02-27/spacevim.jpg" /></p>
+<p><a class="glightbox" href="../../static/images/2022-02-27/spacevim.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../static/images/2022-02-27/spacevim.jpg" /></a></p>
 <p>The program I use most frequently is the text editor, be it for programming or writing documents. Being able to type with just the keyboard, and not having to switch to the mouse for navigation allows me to focus more on what I am typing, and not having to think of reaching for my mouse. As a bonus, learning the Vim keybindings transfers naturally to other programs, such as Vim in Firefox, or the terminal file managers such as <code>ranger</code> and <code>nnn</code>, both of which feature Vim keybindings.</p>
 <p>Besides vanilla Vim, there are also other spin-off projects like <a href="https://neovim.io/">Neovim</a> and <a href="https://spacevim.org/">SpaceVim</a> which I'm considering learning.</p>
 <p><a href="https://github.com/iggredible/Learn-Vim">Here</a> is a great tutorial I'm using to learn Vim.</p>
@@ -1649,7 +1681,7 @@ t = C-S-k
 <p>Having a web server and the associated frontend allows me to customize how data is displayed in one place, which then looks the same on all my other client devices.</p>
 <p>This saves money, as well as time spent configuring new devices (since everything is really being done on the server). As a bonus, since processing is <a href="../2022-02-07-vscode-remote-containers-over-ssh/">offloaded to the server</a> (for programming tasks), battery life of the device is prolonged.</p>
 <h2 id="stable-open-source-environment">Stable, open source environment</h2>
-<p><img alt="" src="../../static/images/2022-02-27/linux.jpg" /></p>
+<p><a class="glightbox" href="../../static/images/2022-02-27/linux.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../static/images/2022-02-27/linux.jpg" /></a></p>
 <p>I've been using Windows ever since I started using computers. However, I have been encountering a lot of frustrations in Windows.</p>
 <ul>
 <li>WSL has too many issues (no <code>systemd</code>, changing IP address, poor Docker volume mount performance)</li>
@@ -1791,10 +1823,10 @@ t = C-S-k
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "header.autohide"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.726fbb30.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
@@ -1803,5 +1835,5 @@ t = C-S-k
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
