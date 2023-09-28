@@ -10,6 +10,8 @@ Service Workers are a great way to add offline functionality to your app, as wel
 
 I recently encountered many issues while debugging, and to save myself and others the hassle, here are some of the best practices I recommend when debugging service workers.
 
+<!-- more -->
+
 ## 1. Use Chrome Private Browsing
 
 In private browsing, each time you close and open the window, all existing service workers are terminated. This avoids issues with older service workers persisting despite a new service worker available.

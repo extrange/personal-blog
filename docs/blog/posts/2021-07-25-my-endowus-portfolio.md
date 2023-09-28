@@ -8,6 +8,8 @@ date: 2021-07-25
 
 I recently started an Endowus portfolio ([reasons](2021-07-25-endowus-or-not.md)). Here's the funds I chose and my allocation:
 
+<!-- more -->
+
 | %   | Fund                                               | Tracked Index                                            |
 | --- | -------------------------------------------------- | -------------------------------------------------------- |
 | 50% | [Dimensional World Equity Fund][wef]               | [MSCI All Country World Index][acwi]                     |

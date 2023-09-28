@@ -6,6 +6,8 @@ date: 2023-07-10
 
 My current camping gear, comments on it, and my routine while camping.
 
+<!-- more -->
+
 ## Camping Gear
 
 ### Outershell pants

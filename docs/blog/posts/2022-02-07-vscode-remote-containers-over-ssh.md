@@ -8,6 +8,8 @@ date: 2022-02-07
 
 When working remotely with a laptop, sometimes we might want access to more CPU power, RAM or a GPU. [VSCode supports accessing a remote machine][vscode-ssh], and if [Docker][docker] is installed on the remote machine, you can even connect to remote [development containers][devcontainers]. This approach tremendously saves battery life since computation is done on the remote server.
 
+<!-- more -->
+
 ## Requirements
 
 -   **Working SSH connection**. If you prefer to use SSH with certificates, you can refer to my [post](2022-02-07-ssh-with-certificates.md).

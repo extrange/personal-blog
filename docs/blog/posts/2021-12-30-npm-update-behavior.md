@@ -10,6 +10,8 @@ Update: This issue has been fixed in `npm` [8.3.2](https://github.com/npm/cli/re
 
 Found this out the hard way.
 
+<!-- more -->
+
 I was working on an app, and I wanted to update its dependencies.
 
 ```

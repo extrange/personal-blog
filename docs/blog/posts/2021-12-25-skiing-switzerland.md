@@ -11,6 +11,8 @@ date: 2021-12-25
 
 I went here during December, 2021, on the VTL lane. We stayed at [Club Med St. Moritz][club-med-st-moritz]. It was full-board and inclusive of ski passes, lessons and rental (of the ski, helmet, boots and poles), which made planning convenient. They also had two-way airport pickup.
 
+<!-- more -->
+
 <figure>
   <img src="/static/images/2021-12-25/room-view.jpg" alt="View from the room" loading="lazy"/>
   <figcaption>View from the room</figcaption>

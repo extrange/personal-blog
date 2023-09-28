@@ -16,6 +16,8 @@ I now use [WSL2 containers in VSCode](2021-11-17-developing-in-wsl-containers.md
 
 In addition, I use `== X.Y.*` (aka [compatible version specifiers][compatible-version-specifiers]) to pin the major and minor version of packages, while allowing for patch versions to be updated automatically each time the container is rebuilt. This prevents surprises during deployment (e.g. missing functionality in minor versions) while allowing bugfix versions to automatically be upgraded without hassle.
 
+<!-- more -->
+
 ## The State of Python Package Management
 
 Python does not have [good](https://www.reddit.com/r/webdev/comments/46w7gt/is_it_just_me_or_is_package_management_with/) [package](https://news.ycombinator.com/item?id=19985802) [management](https://news.ycombinator.com/item?id=21781604).

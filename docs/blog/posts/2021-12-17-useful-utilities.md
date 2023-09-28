@@ -6,6 +6,8 @@ date: 2021-12-17
 
 Stuff I use, arranged by language/OS. Inspired by this [article](https://news.ycombinator.com/item?id=29582437).
 
+<!-- more -->
+
 ## Python
 
 -   [diskcache][diskcache]: Python disk-backed cache, Django compatible, faster than Redis and Memcached

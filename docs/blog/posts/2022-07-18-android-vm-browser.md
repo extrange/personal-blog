@@ -16,6 +16,8 @@ The setup:
 -   [`virt-manager` in Docker][virt-manager-docker], which exposes `virt-manager` in a browser window, and also acts as the VNC server for the Android VM
 -   [Apache Guacamole][apache-guacamole], which acts as the VNC <-> browser bridge
 
+<!-- more -->
+
 ## Getting Started
 
 To begin, first setup `virt-manager` in Docker, as well as Apache Guacamole, with the instructions [here](2022-07-10-win11-vm-gpu-passthrough.md).

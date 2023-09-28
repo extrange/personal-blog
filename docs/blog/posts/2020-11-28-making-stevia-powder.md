@@ -14,6 +14,8 @@ Last updated 28/11/20
 
 I'm a big fan of non-nutritive sweeteners, aka zero calorie sweeteners. Sugar has been getting a very bad rep, especially among the medical community. It [increase the risk of dying from heart disease by up to 38%][healthline-sugar], [causes cancer][ncbi-cancer] and tooth decay (we've all been told that from young!). So when I heard about alternatives to sugar, I began researching.
 
+<!-- more -->
+
 Broadly speaking, the universe of sweeteners can be divided into low- and zero-calorie sweeteners. These are:
 
 Low-calorie sweeteners.

@@ -16,6 +16,8 @@ To answer this question, we need to understand **volatility**, **risk** and **di
 
 _You may also want to read about [my investment portfolio](2021-01-16-my-investment-portfolio.md)._
 
+<!-- more -->
+
 ## Volatility
 
 Intuitively, volatility can be thought of as how much a stock or bond moves during a period (the [standard deviation](https://www.ivolatility.com/help/2.html)). Here's a simple visualization.

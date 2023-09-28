@@ -4,11 +4,14 @@ categories:
 date: 2021-06-19
 ---
 
-(This is a reply to an [analysis](https://docs.google.com/document/d/1HCFqQPU0IJ3eWEiHL97Gyosdp5yiksLX4o9FBA7ckFU/edit) by Yuan Jing)
 
 # A comparison of shield plan riders (NTUC, GE, Prudential)
 
+_This is a reply to an [analysis](https://docs.google.com/document/d/1HCFqQPU0IJ3eWEiHL97Gyosdp5yiksLX4o9FBA7ckFU/edit) by Yuan Jing._
+
 I agree with your suggestion that one should choose maximum coverage[^maximum-coverage] while they're young and can afford the premiums. Later, when premiums get more expensive, switch to the lower tier riders[^lower-tier-riders].
+
+<!-- more -->
 
 I also agree with your paradigm:
 

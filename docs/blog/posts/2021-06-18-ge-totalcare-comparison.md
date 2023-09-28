@@ -8,6 +8,8 @@ date: 2021-06-18
 
 On 2 Apr 2021, MOH [announced](https://www.asiaone.com/money/integrated-shield-plan-riders-now-require-co-payment-what-you-need-know) that all new and existing Integrated Shield Plans (ISPs) would need to integrate a 5% co-payment feature. In other words, there will no longer be any riders covering 100% of your hospital bills. Part of the blame was laid upon increasing healthcare expenses and ['buffet syndrome'](https://www.todayonline.com/singapore/5-co-payment-required-all-new-integrated-shield-plans-full-riders-moh), but that is also [debatable](https://lifefinance.com.sg/greedy-doctors-overpaid-agents-or-kiasu-patients/).
 
+<!-- more -->
+
 With this in mind, I decided to look at the Great Eastern's (GE) [new riders](https://www.greateasternlife.com/content/dam/great-eastern/sg/homepage/personal-insurance/our-products/health-insurance/great-supremehealth/gsh-gtc-benefit-schedule-and-premium-rates.pdf).
 
 ![](../../static/images/2021-06-18-ge-totalcare-comparison/ge-totalcare-rider-infographic.jpg)

@@ -10,6 +10,8 @@ Previously on Windows, I was using [MediaMonkey][mediamonkey] to manage my music
 
 When I [switched to Linux][computing-philosophy], I had to look for a replacement. I wanted a solution that was free and open-source, could be self-hosted on a server, and supported features such as bookmarks, playlists and transcoding (for clients not supporting certain formats).
 
+<!-- more -->
+
 After considering [Airsonic][airsonic-advanced], [Funkwhale][funkwhale] and [Jellyfin][jellyfin], I settled upon [Navidrome][navidrome].
 
 ## [Navidrome][navidrome]

@@ -8,6 +8,9 @@ date: 2023-08-30
 
 I keep most of my photos and videos on [Photoprism](2022-11-26-photoprism-google-photos.md), a great open-source Google Photos alternative with features like facial recognition and viewing photos by location.
 
+<!-- more -->
+
+
 I also have a cheap action camera, the [Apeman Trawo A100][apeman], which supports recording video at 4K 50fps. However, the generated files are extremely large (with bitrates of 50,000kbps, so 1min of video is around ~500MB).
 
 I needed a solution to compress my video files as much as possible, while still preserving (most) of the quality.

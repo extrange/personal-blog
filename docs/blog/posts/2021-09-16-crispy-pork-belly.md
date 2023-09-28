@@ -10,6 +10,8 @@ date: 2021-09-16
 <img src="/static/images/2021-09-16/pork-belly.jpg" alt="Crispy Pork Belly" loading="lazy"/>
 </div>
 
+<!-- more -->
+
 Crispy, roasted pork belly is a really nice snack (and main dish). Lots of recipes on the internet have different variations, some use salt, some involve putting water in the oven as well, and others recommend keeping the raw belly in the refrigerator for 18 hours before putting it in the oven.
 
 In this recipe I keep everything to the minimum, so there's as little cleaning/preparation involved, for the same great taste.

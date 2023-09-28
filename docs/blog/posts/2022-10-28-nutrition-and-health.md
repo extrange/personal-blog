@@ -10,6 +10,8 @@ I have been interested in nutrition from young, seeing as it affects not only we
 
 This page is continually updated as more studies and information develop.
 
+<!-- more -->
+
 ## General
 
 > _The optimal diet consists of grains, legumes, vegetables, and fruit, with <10%-15% of its calories coming from fat._ <br/> [Resolving the Coronary Artery Disease Epidemic through Plant-Based Nutrition, Preventive Cardiology, 2001][resolving-cade]

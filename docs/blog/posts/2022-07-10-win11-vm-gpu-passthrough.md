@@ -17,6 +17,8 @@ After completing this guide, you will have a Windows 11 **headless** virtual mac
 -   RDP for less demanding tasks
 -   RDP over a web browser (via [Apache Guacamole][apache-guacamole])
 
+<!-- more -->
+
 ## Prerequisites:
 
 1. Ensure you have a CPU with virtualization support (for Intel, this is known as [`VT-d`][vt-d]):

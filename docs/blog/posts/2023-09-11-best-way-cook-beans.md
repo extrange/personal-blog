@@ -10,6 +10,8 @@ Beans (also known as legumes) are an excellent source of protein and fibre, and 
 
 However, legumes contain sugars known as galactooligosaccharides (GOS) which are non-digestible, and hence ferment in the gut. While they have benefits, such as being a prebiotic (stimulating the growth of healthy bacteria in the gut), the fermentation process can cause gassiness, bloating, flatulence and even nausea.
 
+<!-- more -->
+
 Furthermore, beans also contain compounds known as antinutrients, which prevent uptake of minerals and even protein. These include tannins, phytic acid and lectins. Some substances, such as the lectin phytohaemagglutinin, are even toxic.
 
 Of note, there are also the following methods which while not described in the literature, I believe to have an effect:

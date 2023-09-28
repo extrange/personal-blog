@@ -13,6 +13,8 @@ Prerequisites:
 -   Docker must be installed.
 -   You have a NVIDIA GPU.
 
+<!-- more -->
+
 ## 1. Install NVIDIA drivers from the RPM Fusion repository[^rpmfusion]:
 
 ```

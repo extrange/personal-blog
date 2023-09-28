@@ -12,6 +12,8 @@ However most VPN services are paid. So if you have a physical server/VPS running
 
 [Tailscale][tailscale] is an awesome open-source VPN service which lets you create a secure peer-to-peer network between your devices. It's built on the open-source [Wireguard][wireguard] protocol which is faster than the IPsec and OpenVPN protocols.
 
+<!-- more -->
+
 It turns out that Tailscale also allows you to redirect all traffic from your device to another device in your peer-to-peer network (an 'exit node'). This is what we will setup on Fedora, the distro I use for my [server][server].
 
 ## Setting up a Tailscale Exit Node on Fedora

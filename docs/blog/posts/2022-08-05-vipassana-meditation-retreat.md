@@ -13,6 +13,8 @@ date: 2022-08-05
 
 From the 20th to 31st of July 2022, I signed up for a [10-day meditation retreat][dhamma.org] at [Saleng Eco Farm, Johor][saleng], conducted by a Vipassana Meditation Center following the teachings of [S. N. Goenka][goenka] (which are in turn derived from Buddhism[^buddhism]).
 
+<!-- more -->
+
 Notably, these are some of the rules observed throughout the course:
 
 -   No speaking, gesturing, or otherwise communicating with anyone other than the teacher (and even then, at designated times)

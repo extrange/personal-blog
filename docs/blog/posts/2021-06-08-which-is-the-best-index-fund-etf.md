@@ -10,6 +10,8 @@ I've been advocating for [broad based, index investing](2020-11-30-getting-start
 
 But with so many options, which is the best?
 
+<!-- more -->
+
 ## [ISAC](https://www.ishares.com/uk/individual/en/products/251850/ishares-msci-acwi-ucits-etf), [WSML](<https://www.ishares.com/uk/individual/en/products/296576/ishares-msci-world-small-cap-ucits-etf-usd-(acc)-fund>), [IWDA](https://www.ishares.com/uk/individual/en/products/251882/), [CSPX](https://www.ishares.com/uk/individual/en/products/253743/) and [VWRA](https://www.vanguardinvestments.dk/portal/instl/dk/en/product.html#/fundDetail/etf/portId=9679/assetCode=equity/?overview)
 
 Let's look at how they compare. Take note of the **expense ratio** and **fund size** (this affects liquidity, or the bid/ask spread[^bid-ask-spread]).

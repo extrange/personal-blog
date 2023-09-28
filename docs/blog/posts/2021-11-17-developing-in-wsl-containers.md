@@ -13,6 +13,8 @@ As a programmer there were a lot of version/environment issues I faced while dev
 -   While `pipenv`, `venv` and `poetry` are ways to manage different Python environments, they still depend on the base Python version installed, which is another external dependency
 -   Maintaining other dependencies such as CUDA drivers, `ffmpeg` etc.
 
+<!-- more -->
+
 I thought about this issue while deciding on a [Python packagement system for Windows](2021-04-15-python-package-management-windows.md), and here is my solution.
 
 ## Docker Containers, in WSL2, in VSCode

@@ -12,6 +12,8 @@ The [Mikrotik][mikrotik] family of routers are known for their extensive configu
 
 I wanted to replace my old [Singtel WiFi Gigabit Router AC Elite][singtel-router], after it started intermittently dying.
 
+<!-- more -->
+
 ## Hardware Setup
 
 I got the Mikrotik [hAP ac2][hap-ac2] secondhand for $50. It runs the 4-core IPQ-4018 chip, and comes with 128MB of RAM. It also has dual-band WiFi, with the 5GHz band supporting a maximum transfer rate of 867 Mbit/s. The all-port [benchmark][benchmark] for this router has it routing 1518-byte packets at 1973.4 Mbps, which is more than sufficient for my current Singtel 1Gbps plan.

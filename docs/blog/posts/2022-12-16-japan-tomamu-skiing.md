@@ -11,6 +11,8 @@ date: 2022-12-16
 
 I skied here during December 2022 with my family. Most of the slopes were closed due to insufficient snow (we were here before Christmas, early in the season), and so we spent most of our time on a few slopes (Silver Bell, Twisting Forest, Knaster).
 
+<!-- more -->
+
 <figure>
   <div style="max-width: 400px"><img src="/static/images/2022-12-16/lessons.jpg" alt="Ski Lesson Proficiencies" loading="lazy"/></div>
   <figcaption>Ski Lesson Proficiencies<figcaption/>

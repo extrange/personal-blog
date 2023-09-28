@@ -12,6 +12,8 @@ My computing setup is designed to maximize productivity, by following the follow
 -   Remote, secure personal data access
 -   Stable open-source environment
 
+<!-- more -->
+
 ## Ergonomicity
 
 Input takes up a majority of our time on the computer, and therefore it is a prime candidate for optimization. In order of importance:

@@ -10,6 +10,8 @@ Returns. The quintessential word we hear when evaluating a fund, looking at our 
 
 How do we actually calculate the return of our portfolio, when we add/withdraw funds from it over the course of time? Let's consider an example.
 
+<!-- more -->
+
 On 1 Jan 2020, John invests $100. In Jun, the market went up and his portfolio is now worth $200. He invests another $100. By the next year, on 1 Jan 2021, the markets remained flat - leaving him with $300 in his account. What is his return?
 
 -   Surely, his return is not $300 - $100 = $200 (200%), because he invested $200 in total.

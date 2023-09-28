@@ -12,6 +12,8 @@ I use electronic notes primarily as they are more accessible compared to paper n
 
 Previously I used a Word document synced on Google Drive. However, this came with several limitations:
 
+<!-- more -->
+
 -   Formatting issues
 -   Not editable over command-line e.g. with Vim
 -   Not searchable unless opened

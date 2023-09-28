@@ -10,6 +10,8 @@ Suppose you have a parent component `A` and a child `B`, and you want to run a `
 
 For example, you have a child component which overrides the default styles of the parent on mount.
 
+<!-- more -->
+
 This was a problem I faced.
 
 You might try this, but it does not work as expected:

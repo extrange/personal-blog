@@ -8,6 +8,8 @@ date: 2023-07-19
 
 Recently, in my country, there has been a spate of politicians getting involved in extramarital affairs. This got me thinking more deeply about how we rate other people in terms of attractiveness, and whether a **total order** of the individual's ranking exists.
 
+<!-- more -->
+
 In mathematics, a total order describes a set $S$ of elements which fulfill the following properties for all $a$, $b$ and $c$ in $S$:
 
 1. $a \le a$ (reflexivity)

@@ -6,21 +6,23 @@ date: 2020-09-21
 
 # Finance Book List
 
+A list of finance-related books I have read/plan to read, collected over the years.
+
+<!-- more -->
+
 <figure>
   <img src="/static/images/stock-bg.jpg" alt="Stock Trading" loading="lazy"/>
   <figcaption>"Lethargy bordering on sloth remains the best investment style. The correct holding period for the stock market is forever." <br>- Burton G. Malkiel</figcaption>
 </figure>
 
-Last updated 21/9/20
-
-##General Introduction
+## General Introduction
 
 A basic primer into investing strategies, the investible universe, how much and where to invest. Both books below provide a broad overview of the history of markets and strategies in general. Choose one.
 
 -   The Bogleheads' Guide to Investing by Taylor Larimore, Mel Lindauer, Michael LeBoeuf
 -   A Random Walk Down Wall Street by Burton G. Malkiel
 
-##Asset Allocation
+## Asset Allocation
 
 A more mathematically inclined view on how asset allocation affects portfolio return and risk.
 

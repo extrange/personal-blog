@@ -8,6 +8,8 @@ date: 2021-01-16
 
 This is my current portfolio allocation as of 2/6/21.
 
+<!-- more -->
+
 | %   | Product[^ishares] (Ticker on LSE)                                                                                                                                             |
 | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 50% | [iShares MSCI ACWI UCITS ETF (ISAC)](https://www.ishares.com/uk/individual/en/products/251850/ishares-msci-acwi-ucits-etf)                                                    |

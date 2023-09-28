@@ -16,6 +16,8 @@ _Update: I discuss more on the measure of intelligence in [this post](2022-12-27
 
 Every decade, huge advancements are being made in the field of artificial intelligence, and each time we are amazed. In the 1960s we had ELIZA, a convincing human-like chatbot. In the 1980s, the world watched as Deep Blue defeated Garry Kasparov for the first time. In the 2010s, the resurgence of deep learning completely transformed prior approaches in nearly all domains, from images and video, to text and speech.
 
+<!-- more -->
+
 One field in particular has been widely viewed as holding promise for artificial general intelligence, and with that, understanding. This is the field of language modeling, and includes models such as [GPT-3][gpt3], [LaMDA][lamda] and [PaLM][palm].
 
 Some of the [impressive feats][impressive-feats] that these models are capable of include:

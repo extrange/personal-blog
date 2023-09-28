@@ -10,6 +10,8 @@ Recently I was trying to set up dual-booting on my laptop, with Fedora 35 and Wi
 
 I followed best practices, installing [Windows before Fedora][windows-before-linux]. However, on rebooting Fedora, the laptop booted straight away to Windows 11 without prompting.
 
+<!-- more -->
+
 On closer look at the BIOS boot menu, I noticed Fedora did not appear as an option, despite `efibootmgr`[^efibootmgr] showing otherwise:
 
 ```

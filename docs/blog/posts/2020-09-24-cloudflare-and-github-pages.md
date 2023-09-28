@@ -6,8 +6,6 @@ date: 2020-09-24
 
 # DNS settings for serving Github Pages over Cloudflare
 
-_Written on 24/9/20_
-
 ## Update (20/12/20) - Cloudflare proxying prevents SSL Certificate renewal
 
 When the SSL certificate (provisioned by Github automatically for the custom domain you specified, via Let's Encrypt) expired on 18/12/20, I started getting errors from Cloudflare.
@@ -15,6 +13,8 @@ When the SSL certificate (provisioned by Github automatically for the custom dom
 Looking deeper, I realized Github was having trouble provisioning the SSL certificate.
 
 **The solution was to disable Cloudflare proxying**. Upon doing so, I was able to get an SSL certificate provisioned for the root domain, `nicholaslyz.com`.
+
+<!-- more -->
 
 ## The Problem
 

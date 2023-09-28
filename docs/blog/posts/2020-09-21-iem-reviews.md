@@ -2,7 +2,9 @@
 date: 2020-09-21
 ---
 
-21/9/20
+Random notes on IEMs I've tried.
+
+<!-- more -->
 
 # Nice HCK DB3
 

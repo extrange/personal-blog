@@ -4,15 +4,13 @@ categories:
 date: 2020-11-30
 ---
 
-Finance
-
 # Getting Started with Investing
-
-_Written on 30/11/20_
 
 ![](../../static/images/2020-11-30/nick-chong-N__BnvQ_w18-unsplash.jpg)
 
 In this post, I give a brief introduction to the world of investments. Do check out my [other post on asset allocation](2020-12-02-asset-allocation.md) - i.e. exactly what assets to buy and why.
+
+<!-- more -->
 
 !!! quote ""
 Some men wrest a living from nature and with their hands; this is called work. <br>

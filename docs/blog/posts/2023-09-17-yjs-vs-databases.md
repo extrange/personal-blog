@@ -14,6 +14,8 @@ Recently, I was deciding between Yjs and the [Prisma][prisma] + [tRPC][trpc] + [
 
 Here are the factors I considered for this decision.
 
+<!-- more -->
+
 |                     | YJS                                                                                            | tRPC + Prisma + SQLite                                                   |
 | ------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | Initial Load        | Fast, as client has copy of entire DB and only updates are synced                              | Slow, as entire DB needs to be sent over. Fast, if paginated.            |

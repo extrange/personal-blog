@@ -10,6 +10,8 @@ I am a strong proponent of term life insurance.
 
 In this post, I go against the common wisdom of 'getting your money back'[^money-back] and refute common arguments for whole life insurance. **I propose, and defend, my recommendation to buy term life + critical illness coverage.**
 
+<!-- more -->
+
 Of note, a good comparison of insurance policies can be found on [comparefirst.sg](https://www.comparefirst.sg).
 
 <figure>

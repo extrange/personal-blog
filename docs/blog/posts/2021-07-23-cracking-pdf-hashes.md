@@ -8,6 +8,8 @@ date: 2021-07-23
 
 Do you have a PDF document lying around somewhere, but it's encrypted and you've forgotten the password to it?
 
+<!-- more -->
+
 [`hashcat`][hashcat] is a great open-source hash cracker with GPU acceleration. It also comes with features such as masking, dictionary attacks and even [statistical methods][statsprocessor] of password guessing. It also supports 300+ hash types (e.g. SHA-1, MD5, WPA, Django...) out of the box.
 
 Don't use this for unlawful purposes!

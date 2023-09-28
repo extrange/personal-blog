@@ -12,6 +12,8 @@ It offers tailored investment solutions, customized for your risk appetite. Its 
 
 With that in mind, should you switch from IBKR to Endowus?
 
+<!-- more -->
+
 ## Endowus
 
 Of the robo-advisors in Singapore, Endowus is the only one offering [institutional level funds][fund-smart-in-depth] (the rest, such as [Syfe][syfe] or [Stashaway][stashaway], use ETFs). Institutional-level funds may offer [lower][institutional-level-funds] costs than their retail counterparts.

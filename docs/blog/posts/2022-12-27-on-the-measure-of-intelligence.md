@@ -13,6 +13,8 @@ date: 2022-12-27
 
 [ChatGPT][chatgpt] was recently released and has been taking the world by storm. In the online space, there is much discussion about whether we are close to general purpose AI. There is no doubt that better and more capable models (e.g. GPT-4) will soon be released, which will overcome the flaws of its predecessors.
 
+<!-- more -->
+
 In that light, I thought it prudent to revisit the definition of intelligence, as well as ways to measure intelligence across human and machine systems.
 
 One of the most pertinent papers on this topic I have come across is [On The Measure of Intelligence][paper], published in 2019 by Francois Chollet (the author of [Deep Learning with Python][keras-book]). Many of its ideas are still relevant, especially regarding what really constitutes intelligence. In this blog post, I summarize the key ideas in the paper:

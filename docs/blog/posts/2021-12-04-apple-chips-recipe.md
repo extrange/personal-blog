@@ -14,6 +14,8 @@ Apple chips are a nice and healthy snack. I made some the other day and it's sup
 
 Time required: 3 hours
 
+<!-- more -->
+
 ## Ingredients
 
 -   Fresh apples ([Gala apples](<https://en.wikipedia.org/wiki/Gala_(apple)>) taste the best)
