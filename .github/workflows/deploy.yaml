@@ -10,12 +10,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python 3.x
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: "3.x"
+          cache: "pip"
 
       - name: Install dependencies
         run: |
@@ -27,9 +28,8 @@ jobs:
         run: |
           mkdocs build
 
-
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-            branch: gh-pages # The branch the action should deploy to.
-            folder: site # The folder the action should deploy.
+          branch: gh-pages # The branch the action should deploy to.
+          folder: site # The folder the action should deploy.

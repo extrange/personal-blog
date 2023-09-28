@@ -1,4 +1,3 @@
-cairosvg
 mkdocs-glightbox
 mkdocs-material==9.*
-pillow
+mkdocs-material[imaging]
