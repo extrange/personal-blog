@@ -62,13 +62,11 @@ In recent years I have become much more conscious of what I eat, in part due to 
 
 [My diet][my-diet] has been varying over the years, but it is mainly a combination of complex carbohydrates, protein sources, fibre and healthy fat.
 
-For variation, I maintain some [interesting recipes][cooking] I have tried over the years.
-
 ## Spirituality
 
 I'm a big fan of Alan Watts, an American who was deeply involved in the promotion of Japanese Zen to the world. His [videos](https://www.youtube.com/watch?v=khOaAHK7efc) and [writings](https://www.goodreads.com/book/show/514210.The_Way_of_Zen) are frank, witty and hint at the beauty of his thought.
 
-[My worldview](blog-posts/2022-03-03-determinism-and-stoicism.md) aligns most closely with Stoicism, and I am exploring Vipassana and Zen.
+[My worldview](blog/posts/2022-03-03-determinism-and-stoicism.md) aligns most closely with Stoicism, and I am exploring Vipassana and Zen.
 
 I attended a [10 day meditation retreat][meditation-retreat] in July 2022.
 
@@ -78,15 +76,14 @@ I primarily gym and run, and play badminton. I strive to go [mountaineering](mou
 
 Recently, I have found [skiing][skiing] to be quite enjoyable.
 
-[server]: blog-posts/2022-05-22-my-self-hosting-journey.md
-[vm]: blog-posts/2022-07-10-win11-vm-gpu-passthrough.md
+[server]: blog/posts/2022-05-22-my-self-hosting-journey.md
+[vm]: blog/posts/2022-07-10-win11-vm-gpu-passthrough.md
 [fedora]: https://getfedora.org/
-[language-models]: blog-posts/2022-03-30-artificial-intelligence-language-models.md
+[language-models]: blog/posts/2022-03-30-artificial-intelligence-language-models.md
 [huggingface-models]: https://huggingface.co/models
-[ergonomics]: blog-posts/2022-02-27-my-computing-philosophy.md#ergonomicity
-[my-diet]: blog-posts/2022-08-01-my-diet.md
-[cooking]: tags.md#Cooking
-[meditation-retreat]: blog-posts/2022-08-05-vipassana-meditation-retreat.md
+[ergonomics]: blog/posts/2022-02-27-my-computing-philosophy.md#ergonomicity
+[my-diet]: blog/posts/2022-08-01-my-diet.md
+[meditation-retreat]: blog/posts/2022-08-05-vipassana-meditation-retreat.md
 [mountaineering]: mountaineering.md
-[skiing]: blog-posts/2021-12-25-skiing-switzerland.md
+[skiing]: blog/posts/2021-12-25-skiing-switzerland.md
 [ibkr-docker]: https://github.com/extrange/ibkr-docker

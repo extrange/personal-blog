@@ -1,22 +1,23 @@
 {% extends "base.html" %} {% block content %} {{ super() }}
-
+{% if (page.meta.comments is not defined) or (page.meta.comments) %}
 <!-- Giscus -->
 <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
-<script src="https://giscus.app/client.js"
-        data-repo="extrange/personal-blog"
-        data-repo-id="MDEwOlJlcG9zaXRvcnkzNzE1Mzc1Mjc="
-        data-category="Announcements"
-        data-category-id="DIC_kwDOFiU2d84CRQpc"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="dark"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="extrange/personal-blog"
+  data-repo-id="MDEwOlJlcG9zaXRvcnkzNzE1Mzc1Mjc="
+  data-category="Announcements"
+  data-category-id="DIC_kwDOFiU2d84CRQpc"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="dark"
+  data-lang="en"
+  crossorigin="anonymous"
+  async
+></script>
 
 <!-- Synchronize Giscus theme with palette -->
 <script>
@@ -47,4 +48,5 @@
     });
   });
 </script>
+{% endif %}
 {% endblock %}

@@ -1,82 +1,36 @@
 site_name: Nicholas
+site_url: https://nicholaslyz.com/
+
 theme:
   name: material
   palette:
     scheme: slate
     primary: indigo
     accent: yellow
-  favicon: '/static/images/favicon.png'
+  favicon: 'static/images/favicon.png'
   logo: 'static/images/favicon.png'
+  custom_dir: overrides
   features:
     - navigation.instant
     - header.autohide
-  custom_dir: overrides
+    - navigation.sections
+    - navigation.indexes
+    - navigation.expand
+  
 extra_css:
   - stylesheets/code.css
-site_url: https://nicholaslyz.com/
+
 nav:
   - Home: index.md
   - About Me: about.md
-  - Blog Posts:
-    - The Best Way to Cook Beans: blog-posts/2023-09-11-best-way-cook-beans.md
-    - Yjs vs Traditional Databases: blog-posts/2023-09-17-yjs-vs-databases.md
-    - Video Archiving with FFmpeg: blog-posts/2023-08-30-video-archiving-ffmpeg.md
-    - On Attractiveness: blog-posts/2023-07-19-attractiveness.md
-    - My Camping Setup & Routine: blog-posts/2023-07-10-camping-gear.md
-    - Setting up the Mikrotik hAP ac² with Singel Fibre: blog-posts/2023-06-24-mikrotik-singtel-setup.md
-    - Music Management with Navidrome and DSub: blog-posts/2023-02-01-music-management.md
-    - 'Self Hosted VPN with Tailscale': blog-posts/2023-01-11-self-hosted-vpn.md
-    - 'On The Measure of Intelligence': blog-posts/2022-12-27-on-the-measure-of-intelligence.md
-    - 'Skiing at Mt Tomamu, Japan': blog-posts/2022-12-16-japan-tomamu-skiing.md
-    - 'PhotoPrism: A Google Photos Replacement': blog-posts/2022-11-26-photoprism-google-photos.md
-    - Nutrition and Health: blog-posts/2022-10-28-nutrition-and-health.md
-    - Is This World Real? On Realism: blog-posts/2022-08-11-is-this-world-real.md
-    - My Experience at a 10 Day Meditation Retreat: blog-posts/2022-08-05-vipassana-meditation-retreat.md
-    - My Diet: blog-posts/2022-08-01-my-diet.md
-    - Android VM in a Browser: blog-posts/2022-07-18-android-vm-browser.md
-    - Windows 11 Gaming VM with GPU Passthrough on Fedora 36: blog-posts/2022-07-10-win11-vm-gpu-passthrough.md
-    - Docker GPU Access in Fedora: blog-posts/2022-07-10-docker-gpu-fedora.md
-    - My Self-Hosting Journey: blog-posts/2022-05-22-my-self-hosting-journey.md
-    - Note-Taking: blog-posts/2022-05-21-note-taking.md
-    - Artificial Intelligence, Language Models and Understanding: blog-posts/2022-03-30-artificial-intelligence-language-models.md
-    - Best Practices for Debugging Service Workers: blog-posts/2022-03-24-best-practices-debugging-service-workers.md
-    - On Happiness: blog-posts/2022-03-05-on-happiness.md
-    - Determinism and Stoicism: blog-posts/2022-03-03-determinism-and-stoicism.md
-    - My Computing Philosophy: blog-posts/2022-02-27-my-computing-philosophy.md
-    - Dualbooting Fedora 35 with Win 11: blog-posts/2022-02-26-fedora-win11-dual-boot.md
-    - VSCode Remote Containers over SSH: blog-posts/2022-02-07-vscode-remote-containers-over-ssh.md
-    - SSH with Certificates: 'blog-posts/2022-02-07-ssh-with-certificates.md'
-    - Deep Work: 'blog-posts/2022-02-04-deep-work.md'
-    - npm update Behavior: 'blog-posts/2021-12-30-npm-update-behavior.md'
-    - Skiing at St Moritz, Switzerland: 'blog-posts/2021-12-25-skiing-switzerland.md'
-    - Useful Utilities: 'blog-posts/2021-12-17-useful-utilities.md'
-    - Apple Chips Recipe: 'blog-posts/2021-12-04-apple-chips-recipe.md'
-    - Developing in WSL Containers: 'blog-posts/2021-11-17-developing-in-wsl-containers.md'
-    - Crispy Pork Belly Recipe: 'blog-posts/2021-09-16-crispy-pork-belly.md'
-    - My Endowus Portfolio: 'blog-posts/2021-07-25-my-endowus-portfolio.md'
-    - To Endowus, Or Not?: 'blog-posts/2021-07-25-endowus-or-not.md'
-    - Cracking PDF Hashes with hashcat: 'blog-posts/2021-07-23-cracking-pdf-hashes.md'
-    - useLayoutEffect: 'blog-posts/2021-06-20-uselayouteffect.md'
-    - Comparison of ISP Riders: 'blog-posts/2021-06-19-comparison-of-isp-riders.md'
-    - GE TotalCare Rider Comparison: 'blog-posts/2021-06-18-ge-totalcare-comparison.md'
-    - The Best Index Fund: 'blog-posts/2021-06-08-which-is-the-best-index-fund-etf.md'
-    - Calculating Return: 'blog-posts/2021-04-22-calculating-return.md'
-    - Python Package Management on Windows: 'blog-posts/2021-04-15-python-package-management-windows.md'
-    - Life Insurance: 'blog-posts/2021-03-19-life-insurance.md'
-    - My Investment Portfolio: 'blog-posts/2021-01-16-my-investment-portfolio.md'
-    - Asset Allocation: 'blog-posts/2020-12-02-asset-allocation.md'
-    - Getting Started with Investing: 'blog-posts/2020-11-30-getting-started-with-investing.md'
-    - Making Stevia Powder: 'blog-posts/2020-11-28-making-stevia-powder.md'
-    - Cloudflare and Github Pages: 'blog-posts/2020-09-24-cloudflare-and-github-pages.md'
-    - Finance Booklist: 'blog-posts/2020-09-21-finance-book-list.md'
-    - IEM Reviews: 'blog-posts/2020-09-21-iem-reviews.md'
+  - Blog:
+      - blog/index.md
   - Dead Man's Switch: dead-mans-switch.md
   - Mountaineering: mountaineering.md
   - Travel Bucket List: travel-bucket-list.md
   - Photography: photography.md
   - Piano: piano.md
   - Resume: resume.md
-  - Tags: tags.md
   
 markdown_extensions:
   - abbr
@@ -96,11 +50,18 @@ markdown_extensions:
       generic: true
 
 plugins:
-  - tags:
-      tags_file: tags.md
   - search
   - social
   - glightbox
+  - blog:
+      blog_toc: true
+      categories_allowed:
+        - Cooking
+        - Finance
+        - Insurance
+        - Philosophy
+        - Programming
+      post_excerpt: required
 
 extra:
   analytics:

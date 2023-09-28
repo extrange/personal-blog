@@ -1,3 +1,7 @@
+---
+comments: false
+---
+
 # Dead Man's Switch
 
 [This is the file](static/formyfamily.7z), in 7z archive format. If you are reading this, you have the password.
