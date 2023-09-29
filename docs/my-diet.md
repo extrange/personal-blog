@@ -6,7 +6,7 @@ Consuming a variety of vegetables is important, as a single vegetable seldom con
 
 <!-- more -->
 
-I batch cook and freeze my lunches/dinners for about a week each time. This lets me take advantage of food on offer, as I can buy more in bulk and freeze them. This also reduces the bulk of the vegetables, saving space in the fridge.
+I batch cook and freeze my lunches/dinners for about 4-7 days worth at a time. This lets me take advantage of food on offer, as I can buy more in bulk and freeze them. It also reduces the bulk of the vegetables, saving space in the fridge.
 
 <figure>
   <div style="max-width: 400px; margin: 0 auto;"><img src="/static/images/2022-08-01/beans.jpg" alt="Cooked beans" loading="lazy"/></div>

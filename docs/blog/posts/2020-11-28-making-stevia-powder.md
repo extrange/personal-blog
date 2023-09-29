@@ -34,7 +34,7 @@ Zero-calorie sweeteners. These have zero nutritional value to the body.
     -   [Acesulfame-K](https://en.wikipedia.org/wiki/Acesulfame_potassium)
     -   Saccharin
 
-I settled for the zero-calorie sweeteners in the end. Sugar alcohols can cause gastrointestinal distress in certain individuals. As for the zero-calorie sweeteners (both natural and artificial), there has been some research on mice suggesting that the [gut microbiome might be affected](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199080). Research done on [stevia](https://academic.oup.com/jn/article/148/7/1186S/5049670) however, including on humans, has generally concluded that there is little or no harm as of present. Finally, monkfruit is more expensive than stevia.
+I settled for the zero-calorie sweeteners in the end. Sugar alcohols can cause gastrointestinal distress in certain individuals. As for the zero-calorie sweeteners (both natural and artificial), there has been some research on mice suggesting that the [gut microbiome might be affected](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0199080). Research done on [stevia](https://pubmed.ncbi.nlm.nih.gov/29982648/) however, including on humans, has generally concluded that there is little or no harm as of present. Finally, monkfruit is more expensive than stevia.
 
 So enough justification! Time for pictures!
 

@@ -16,7 +16,7 @@ With that in mind, should you switch from IBKR to Endowus?
 
 ## Endowus
 
-Of the robo-advisors in Singapore, Endowus is the only one offering [institutional level funds][fund-smart-in-depth] (the rest, such as [Syfe][syfe] or [Stashaway][stashaway], use ETFs). Institutional-level funds may offer [lower][institutional-level-funds] costs than their retail counterparts.
+Of the robo-advisors in Singapore, Endowus is the only one offering [institutional level funds][fund-smart-in-depth] (the rest, such as [Syfe][syfe] or [Stashaway][stashaway], use ETFs). Institutional-level funds may also offer lower costs than their retail counterparts.
 
 Endowus is also the only way you can access to funds from [Dimensional][dimensional], a world-wide mutual fund company boasting Nobel laureates such as Myron Scholes[^scholes]. Most of the Dimensional funds are based off broad indexes such as the MSCI World Index, the ACWI or the AGGU (for fixed income).
 
@@ -93,12 +93,11 @@ For ideas on what to buy, check out my suggestions for [IBKR](2021-01-16-my-inve
 [fund-smart-in-depth]: https://endowus.com/insights/endowus-fund-smart-in-depth-review/
 [syfe]: https://www.syfe.com/core-growth
 [stashaway]: https://www.stashaway.sg/how-we-invest
-[institutional-level-funds]: https://www.cruxinvestor.com/articles/institutional-vs-retail-investors
 [dimensional]: https://sg.dimensional.com/
 [cash-smart]: https://endowus.com/cash-smart
 [syfe-pricing]: https://www.syfe.com/pricing
 [stashaway-pricing]: https://www.stashaway.sg/pricing
-[kristal-pricing]: https://kristal.ai/wp-content/themes/di_kristal/documents/02_2021-Kristal_Freedom_Pricing-Singapore.pdf
+[kristal-pricing]: https://www.kristal.ai/pricing
 [ibkr-aum]: https://investors.interactivebrokers.com/ir/main.php?file=latestMetricPR
 [ibkr]: https://www.interactivebrokers.com/en/home.php
 [ibkr-commissions]: https://www.interactivebrokers.com/en/index.php?f=1340
