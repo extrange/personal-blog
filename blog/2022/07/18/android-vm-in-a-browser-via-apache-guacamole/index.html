@@ -843,7 +843,7 @@
 
 <h2 id="getting-started">Getting Started</h2>
 <p>To begin, first setup <code>virt-manager</code> in Docker, as well as Apache Guacamole, with the instructions <a href="../../10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36/">here</a>.</p>
-<p>Once you have <code>virt-manager</code> in Docker running, <a href="https://www.fosshub.com/Android-x86.htmlhttps://www.android-x86.org/download.html">download</a> and install the Android-x86 image on the VM.</p>
+<p>Once you have <code>virt-manager</code> in Docker running, <a href="https://www.android-x86.org/download.html">download</a> and install the Android-x86 image on the VM.</p>
 <p>Then, enable the 'Display VNC' device in QEMU, choosing an appropriate unused port.</p>
 <p>Finally, in Apache Guacamole, setup a VNC connection to the server (via <code>host.docker.internal</code>) on the port you chose earlier.</p>
 <p>Note that you will need to add the following to your <code>docker-compose.yml</code> in order for the host to be accessible via <code>host.docker.internal</code>:</p>
