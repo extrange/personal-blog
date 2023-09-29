@@ -1,4 +1,3 @@
-{% extends "base.html" %} {% block content %} {{ super() }}
 {% if (page.meta.comments is not defined) or (page.meta.comments) %}
 <!-- Giscus -->
 <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
@@ -49,4 +48,3 @@
   });
 </script>
 {% endif %}
-{% endblock %}
