@@ -31,7 +31,7 @@ nav:
       - Photography: photography.md
       - Piano: piano.md
       - Dead Man's Switch: dead-mans-switch.md
-      - My Diet: blog/posts/2022-08-01-my-diet.md
+      - My Diet: my-diet.md
 
 markdown_extensions:
   - abbr

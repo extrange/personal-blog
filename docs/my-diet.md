@@ -1,11 +1,3 @@
----
-categories:
-    - Cooking
-date:
-    created: 2022-08-01
-    updated: 2023-09-04
----
-
 # My Diet
 
 I consume wholegrains/legumes, vegetables, tofu and meat (chicken/fish). I aim for [~100g of protein][protein] and 30g fibre per day. To minimize antinutrients and maximize nutrients I follow [certain practices][cooking-beans] when preparing the legumes.
@@ -28,7 +20,7 @@ I batch cook and freeze my lunches/dinners for about a week each time. This lets
 
 ## Breakfast
 
-I drink [tea](2022-10-28-nutrition-and-health.md#tea) or water.
+I drink [tea](blog/posts/2022-10-28-nutrition-and-health.md#tea) or water.
 
 I [intermittent fast][if-schedule], following the [16/8][16/8] schedule (time restricted eating). I skip breakfast, eating my first and largest meal of the day at 12 noon, followed by a light/no dinner. From 8pm to 12 noon, I only drink water/tea, and I do not take any food.
 
@@ -60,19 +52,19 @@ Occasionally I take supplements e.g. [fish oil][fish-oil].
 
 [16/8]: https://www.healthline.com/nutrition/16-8-intermittent-fasting
 [beta-glucan]: https://www.healthline.com/nutrition/beta-glucan-heart-healthy
-[fish-oil]: 2022-10-28-nutrition-and-health.md#omega-3
+[fish-oil]: blog/posts/2022-10-28-nutrition-and-health.md#omega-3
 [iarc-red-meat]: https://www.iarc.who.int/wp-content/uploads/2018/11/Monographs-QA_Vol114.pdf
-[if-schedule]: 2022-10-28-nutrition-and-health.md#timingintermittent-fasting
-[matcha-powder]: 2022-10-28-nutrition-and-health.md#green-tea
+[if-schedule]: blog/posts/2022-10-28-nutrition-and-health.md#timingintermittent-fasting
+[matcha-powder]: blog/posts/2022-10-28-nutrition-and-health.md#green-tea
 [protein-requirement]: https://exrx.net/Nutrition/Protein#Requirements
-[protein]: 2022-10-28-nutrition-and-health.md#protein
-[psyllium]: 2022-10-28-nutrition-and-health.md#fibre
-[soaking]: 2022-10-28-nutrition-and-health.md#cooking-methods
-[supplements]: 2022-10-28-nutrition-and-health.md#supplements
-[satiety]: 2022-10-28-nutrition-and-health.md#satiety-index
+[protein]: blog/posts/2022-10-28-nutrition-and-health.md#protein
+[psyllium]: blog/posts/2022-10-28-nutrition-and-health.md#fibre
+[soaking]: blog/posts/2022-10-28-nutrition-and-health.md#cooking-methods
+[supplements]: blog/posts/2022-10-28-nutrition-and-health.md#supplements
+[satiety]: blog/posts/2022-10-28-nutrition-and-health.md#satiety-index
 [mixed-beans-recipe]: https://recipes.nicholaslyz.com/explore/recipes/bbc37612-578a-41ef-ae07-e561dc32ef20/mixed-beans
 [steamed-boiled-vegetables]: https://recipes.nicholaslyz.com/explore/recipes/bbc37612-578a-41ef-ae07-e561dc32ef20/steamed-boiled-vegetables
 [roasted-vegetables]: https://recipes.nicholaslyz.com/explore/recipes/bbc37612-578a-41ef-ae07-e561dc32ef20/roasted-vegetables-with-salmon
 [lunch-recipe]: https://recipes.nicholaslyz.com/explore/recipes/bbc37612-578a-41ef-ae07-e561dc32ef20/mixed-beans-lentils-wholegrains-with-fruits-and-tau-kwa
-[nutrients]: 2022-10-28-nutrition-and-health.md#comparison-of-various-nutrients-across-major-staple-foods
-[cooking-beans]: 2023-09-11-best-way-cook-beans.md
+[nutrients]: blog/posts/2022-10-28-nutrition-and-health.md#comparison-of-various-nutrients-across-major-staple-foods
+[cooking-beans]: blog/posts/2023-09-11-best-way-cook-beans.md
