@@ -6,8 +6,6 @@ date: 2020-11-28
 
 # Making Stevia Powder: From the Beginnnig
 
-Last updated 28/11/20
-
 <figure>
   <img src="/static/images/2020-11-28/iherb-stevia.jpg" alt="Stevia bottle" loading="lazy" width="300"/>
 </figure>

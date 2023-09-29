@@ -2,6 +2,7 @@
 categories:
     - Finance
 date: 2021-04-22
+draft: true
 ---
 
 # Calculating Return (work in progress)

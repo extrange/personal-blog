@@ -47,13 +47,13 @@ I use [`keyd`][keyd] on a Dvorak layout with the following config in `/etc/keyd/
     t = C-S-k
     ```
 
-**Window Manager: Tiling** (currently Pop!\_OS Shell)
+**Window Managers: Tiling vs Stacking**
 
 ![](../../static/images/2022-02-27/pop-shell.jpg)
 
 A tiling window manager ([i3][i3] being the most popular example) arranges windows in a non-overlapping, grid-like pattern. This allows for more efficient use of screen space, as well as less mouse-keyboard switching.
 
-Currently, I use [Pop!\_OS Shell][pop-shell], which is a GNOME extension. I plan to switch to [Sway][sway] in the future.
+I was previously using [Pop!\_OS Shell][pop-shell], which is a GNOME extension, and planned to switch to [Sway][sway] in the future. However as of now I'm using a stacking window manager.
 
 **Text Editor: Vim/Vim-like**
 

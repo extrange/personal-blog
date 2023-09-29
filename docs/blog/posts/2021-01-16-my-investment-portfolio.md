@@ -18,7 +18,8 @@ This is my current portfolio allocation as of 2/6/21.
 | 10% | [iShares Core Global Aggregate Bond UCITS ETF (AGGU)](https://www.ishares.com/uk/individual/en/products/291772/ishares-core-global-aggregate-bond-ucits-etf-fund)             |
 
 !!! note ""
-_As I've emphasized throughout this site, I don't pick individual stocks, nor actively trade. Such activity, to me, is [likely to lead to loss](2020-11-30-getting-started-with-investing.md)._
+
+    _As I've emphasized throughout this site, I don't pick individual stocks, nor actively trade. Such activity, to me, is [likely to lead to loss](2020-11-30-getting-started-with-investing.md)._
 
 These are the reasons for my own portfolio allocation [above](2020-12-02-asset-allocation.md#asset-allocation1).
 

@@ -37,7 +37,7 @@ Notes:
 
 -   Unless otherwise specified, cooking and autoclaving were done in water, and soaking water was discarded.
 -   Autoclaving (121C, 15psi/103kPa) can be replicated at home with the use of a pressure cooker.
--   Unsoaked and cooking in baking soda is generally more effective than with plain water, but the exact amount varies depending on type of bean[^2000], with some beans actually worse off with baking soda.
+-   Cooking unsoaked beans in baking soda is generally more effective than in plain water, but the result varies depending on type of bean[^2000], with some beans actually worse off with baking soda.
 -   Soaking for 12H is more efective than 6H[^1985]. 12H appears to be the point beyond which additional soaking will not improve GOS/antinutrient loss significantly[^2019]. Soaking also appears to increase the soluble fibre content slightly, with no change in insoluble fibre content[^2019].
 -   Soaking in alkaline medium (e.g. baking soda), as compared to water, may cause a destruction of certain B vitamins[^2007].
 
@@ -73,6 +73,11 @@ Tables from this paper[^2010].
 | Carbohydrates                                       | Varied among studies, does not decrease resistant starch content |
 | Fibres                                              | Varied among studies. Reduces substances causing flatulence.     |
 
+## Notes on Sprouting
+
+-   Mung beans are most often used.
+-   Adding a weight on top of the sprouts, while they are growing, helps to make them [plumper].
+
 ## Conclusion
 
 Applying heat is the best way to remove heat-sensitive antinutrients, while sprouting was the best way to remove GOS and heat-stable antinutrients.
@@ -95,3 +100,4 @@ The second best method would be to soak the beans in water and then autoclave th
 [2013]: ../../static/images/2023-09-11/Effect%20of%20processing%20on%20antinutrients%20and%20in%20vitro%20protein%20digestibility%20of%20the%20underutilized%20legume,%20Vigna%20unguiculata%20(L.)%20Walp%20subsp.%20unguiculata%202013.pdf
 [2019]: ../../static/images/2023-09-11/Soaking%20and%20cooking%20modify%20the%20alpha%20galacto%20oligosaccharide%20and%20dietary%20fibre%20content%20in%20five%20Mediterranean%20legumes%202019.pdf
 [antinutrients]: https://www.hsph.harvard.edu/nutritionsource/anti-nutrients/
+[plumper]: https://redhousespice.com/homegrown-mung-bean-sprouts/
