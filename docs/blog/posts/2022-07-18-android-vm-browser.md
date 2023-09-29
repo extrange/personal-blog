@@ -50,6 +50,6 @@ services:
 
 [apache-guacamole]: https://guacamole.apache.org/
 [android-x86]: https://www.android-x86.org/
-[android-x86-dl]: https://www.fosshub.com/Android-x86.htmlhttps://www.android-x86.org/download.html
+[android-x86-dl]: https://www.android-x86.org/download.html
 [virt-manager-docker]: https://github.com/m-bers/docker-virt-manager
 [droid-vnc]: https://github.com/bk138/droidVNC-NG#notes

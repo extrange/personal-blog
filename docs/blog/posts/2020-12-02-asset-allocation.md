@@ -206,7 +206,7 @@ I hope you enjoyed reading this article as much as I did writing it. Do drop me 
     -   Size premium (investing in small companies, which could go bust easily)
     -   Value premium (investing in companies which are 'cheap' relative to their earnings)
 
-[^diversifiable-risk]: Technically speaking, one can only reduce diversifiable risk (sector, company, credit risks.) [Non diversifiable risk](https://www.investopedia.com/video/play/systematic-risk/) includes systemic risk. While one cannot 'diversify away' such risks, _time_ is your friend here - the market has, and will, rebound from all systemic crises.
+[^diversifiable-risk]: Technically speaking, one can only reduce diversifiable risk (sector, company, credit risks.) [Non diversifiable risk](https://www.investopedia.com/terms/s/systematicrisk.asp) includes systemic risk. While one cannot 'diversify away' such risks, _time_ is your friend here - the market has, and will, rebound from all systemic crises.
 [^tech-bubble]: E.g. people waking up one day and realizing 'AI' ain't what it claims to be. Google Assistant cannot answer questions a 7 year old kid can, such as 'If I have 2 marbles in my left hand and 3 in my right, how many marbles do I have?'.
 [^negative-correlation]: In reality, no assets exist with perfectly negative correlation.
 [^historical-return]: Adapted from Asset Allocation, by Roger Gibson. [This paper](https://academic.oup.com/raps/article/10/3/521/5640504) also compares historical return over various asset classes since 1960.

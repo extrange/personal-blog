@@ -60,13 +60,13 @@ Another interesting argument I read online arguing for objective reality goes as
 
 [This][obscurantism] is a humorous critique of oft-abused terms (think _quantumly connected_, _non-locality_) in the psychological field of consciousness.
 
-[^nagel]: This is covered in his 1974 paper, [_What Is It Like to be a Bat_?](https://warwick.ac.uk/fac/cross_fac/iatl/study/ugmodules/humananimalstudies/lectures/32/nagel_bat.pdf)
+[^nagel]: This is covered in his 1974 paper, [_What Is It Like to be a Bat_?](https://www.sas.upenn.edu/~cavitch/pdf-library/Nagel_Bat.pdf)
 [^solaris]: This procedure assumes that 1. his memory is reliable, 2. his conscious thought processes run at the same speed as his unconscious, and 3. he was free to decide the question he asks the supercomputer.
 [^ego-death]: Ironically, with logic and the realization that the ego exists, certain [meditation techniques][zen] and [drugs][drugs] have been utilized with the intent of [dissolving it][ego-death].
 
 [book]: https://www.goodreads.com/book/show/41817484-the-case-against-reality
 [cogito]: https://en.wikipedia.org/wiki/Cogito,_ergo_sum
-[critique]: https://www.psychologyinaction.org/psychology-in-action-1/2016/04/26/the-case-for-reality
+[critique]: https://www.psychologyinaction.org/2016-04-26-the-case-for-reality/
 [discussion]: https://www.youtube.com/watch?v=dd6CQCbk2ro
 [drugs]: https://www.goodreads.com/book/show/8791.LSD
 [ego-death]: https://en.wikipedia.org/wiki/Ego_death
@@ -74,7 +74,7 @@ Another interesting argument I read online arguing for objective reality goes as
 [fitness]: https://en.wikipedia.org/wiki/Fitness_(biology)
 [issues]: https://plato.stanford.edu/entries/panpsychism/#SubjSummProb
 [mimicry]: https://en.wikipedia.org/wiki/Batesian_mimicry
-[obscurantism]: https://psychology-inaction.squarespace.com/psychology-in-action-1/2014/11/09/obscurantism-lame-explanations-to-the-lame-questions
+[obscurantism]: https://www.psychologyinaction.org/2014-11-09-obscurantism-lame-explanations-to-the-lame-questions/
 [panpsychism]: https://plato.stanford.edu/entries/panpsychism/#ConsVersEmerPanp
 [philosophy-math]: https://plato.stanford.edu/entries/philosophy-mathematics/
 [selfish-gene]: https://www.youtube.com/watch?v=_9c--umcSrQ

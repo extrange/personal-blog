@@ -88,7 +88,7 @@ If you are using VSCode [Remote Containers][remote-containers], you will need to
 
 to your `devcontainer.json`. For some reason, `--runtime=nvidia` does not work.
 
-[^rpmfusion]: Enable the RPM Fusion repositories in Fedora [here.](https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/#proc_enabling-the-rpmfusion-repositories-using-command-line-utilities_enabling-the-rpmfusion-repositories)
+[^rpmfusion]: Enable the RPM Fusion repositories in Fedora [here.](https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/)
 [^nvidia-repo]: While there is no official Fedora support for `nvidia-container-runtime`, the Centos 7 repository [seems to work](https://github.com/NVIDIA/nvidia-docker/issues/553#issuecomment-381075335).
 
 [remote-containers]: https://code.visualstudio.com/docs/remote/containers

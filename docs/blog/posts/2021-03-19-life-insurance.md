@@ -99,12 +99,12 @@ Q: **Shouldn't I wait until I have dependents before buying insurance?**
 A: Premiums are cheaper overall the earlier you buy. For example, for a sum assured of $300,000, if you were to buy term insurance for 50 years (till 75) when you are 25, you would pay $28,425 total in premiums. However, if you were to buy term insurance for 35 years (till 75) when you are 40, you would pay $33,784 total in premiums.
 
 [^money-back]: Wasn't that the main reason you were going to buy whole life insurance? :)
-[^source]: [comparefirst.sg](https://comparefirst.sg)
+[^source]: [comparefirst.sg](https://www.comparefirst.sg)
 [^multiplier]: Mathematically speaking, a multiplier component on a whole-life policy is equivalent to purchasing an additional term insurance over the same duration. For example, a $100,000 whole life policy with a 2x multiplier up to 75, is equivalent to buying the basic $100,000 whole life policy and then buying another $100,000 term insurance till 75.
 [^inflation]: The median inflation rate for Singapore was 1.72%pa from 1961-2021 ([source](https://www.macrotrends.net/countries/SGP/singapore/inflation-rate-cpi)). At this rate, $100 now will be worth $84, 10 years in the future.
 [^life-expectancy-100]: Do note there is a 'risk' that you will live beyond 100 and thus not get your payout - [around 4%](https://www.singstat.gov.sg/-/media/files/publications/population/lifetable18-19.pdf), to be exact.
 [^1M65]: [1M65](https://blog.seedly.sg/1m65-1-million-by-65-cpf/)
 [^inflation-adjusted]: To be exact, you could calculate the total inflation-adjusted premiums for term and whole life for a more accurate comparison.
-[^ci-definition-2019]: The standard definitions of 37 critical illnesses can be found [here](https://www.lia.org.sg/industry-guidelines/health-insurance/2019/lia-critical-illness-ci-framework-2019/). The definitions have become stricter over time, e.g. a lot of early cancers are excluded, so it helps to buy your policy earlier while you can.
+[^ci-definition-2019]: The standard definitions of 37 critical illnesses can be found [here](https://www.lia.org.sg/media/2160/mu5819-part-2-of-4-_lia-ci-framework-2019_lia-definitions-for-37-cis.pdf). The definitions have become stricter over time, e.g. a lot of early cancers are excluded, so it helps to buy your policy earlier while you can.
 [^eci-definitions]: For example, under early stage cancer, HSBC covers neuroendocrine tumours and bone marrow malignancies, while Prudential does not.
 [^accelerate]: The term 'accelerate' means that the sum assured is paid out earlier, based on the terms of the rider. It is in effect 'accelerated'.

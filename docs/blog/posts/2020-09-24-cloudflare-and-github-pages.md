@@ -72,7 +72,7 @@ Here are some examples of this hypothesis.
 | CNAME | www.example.com | example.com | Proxied      |
 | CNAME | example.com     | google.com  | Proxied      |
 
--   `www.example.com` gives the 526 error (google.com does not have a valid certificate for ``www.example.com`)
+-   `www.example.com` gives the 526 error (google.com does not have a valid certificate for `www.example.com`)
 -   `example.com` loads `google.com` (Point 1 above)
 
 ### Example 2 - Cloudflare OFF

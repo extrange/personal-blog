@@ -42,7 +42,7 @@ Now, Fedora will appear as an option in the boot menu, and this setting will ove
 
 ![](../../static/images/2022-02-26/boot.jpg)
 
-[^efibootmgr]: A utility to [manipulate the EFI boot manager](https://linux.die.net/man/8/efibootmgr)
+[^efibootmgr]: A utility to [manipulate the EFI boot manager](https://www.mankier.com/8/efibootmgr)
 [^shimx64]: The reason for choosing `shimx64.efi` over `grubx64.efi` is that the former [allows booting](https://askubuntu.com/questions/342365/what-is-the-difference-between-grubx64-and-shimx64) on computers with Secure Boot active.
 
 [windows-before-linux]: https://wiki.archlinux.org/title/Dual_boot_with_Windows#Installation

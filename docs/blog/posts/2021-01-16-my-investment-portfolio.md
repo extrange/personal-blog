@@ -26,7 +26,7 @@ These are the reasons for my own portfolio allocation [above](2020-12-02-asset-a
 -   As I am still working, the bulk return of my portfolio comes from equities. I am comfortable bearing the drawdown risk.
 -   For equities, I buy both an ETF investing in large and mid-cap companies globally across both emerging and developed markets (ISAC), and another in small-cap companies, also globally (WSML).
 -   I buy some bonds for the diversification effect. As interest rates are low now (2020), I have reduced the allocation to bond ETFs. I plan to increase this as I grow older.
--   I am planning to buy a commodity ETF e.g. one tracking the [GSCI](https://en.wikipedia.org/wiki/S%26P_GSCI).
+-   I am planning to buy a commodity ETF e.g. one tracking the [GSCI](https://en.wikipedia.org/wiki/S&P_GSCI).
 -   For the portfolio detailed at the start of this post, my risk exposures are
     -   80% equities (of which 50% are large- and mid-cap companies globally, and 30% small-cap)
     -   10% global property (in the form of real estate investment trust ETFs)
@@ -74,7 +74,7 @@ The main idea behind using CPF as an investment vehicle ([1M65](https://blog.see
 
 #### Why is insurance (e.g. whole-life insurance) not part of the portfolio?
 
-[Insurance is not investment.](https://www.valueresearchonline.com/stories/9261/do-not-mix-insurance-and-investment). The returns from a whole life policy are much lower than even CPF (SA account earns 4% guaranteed interest, while most whole-life plans have a floor interest rate of 2% p.a.). Rather, one buys insurance as a hedge against adverse events which may cause you to need the money earlier, such as disability or illness. For most working adults with dependents, term life insurance is sufficient.
+[Insurance is not investment.](https://web.archive.org/web/20230321104802/https://www.valueresearchonline.com/stories/9261/do-not-mix-insurance-and-investment/). The returns from a whole life policy are much lower than even CPF (SA account earns 4% guaranteed interest, while most whole-life plans have a floor interest rate of 2% p.a.). Rather, one buys insurance as a hedge against adverse events which may cause you to need the money earlier, such as disability or illness. For most working adults with dependents, term life insurance is sufficient.
 
 [^ishares]: If you're wondering why I buy so many ETFs from iShares, it's because they boast one of the lowest expense ratios (an annual fee charged by the ETF managers). Alternative ETF providers include [SSGA](https://www.ssga.com/us/en/institutional/etfs) and [Vanguard](https://investor.vanguard.com/etf/list#/etf/asset-class/month-end-returns).
 [^rebalancing]: From 'The Intelligent Asset Allocator'. Stock returns exhibit autocorrelation (that is, future returns are affected by past returns) over short time periods (e.g. days to months). If you were to rebalance during such a period where the autocorrelation is positive, you would lose money as you would be selling the rising asset too soon.
