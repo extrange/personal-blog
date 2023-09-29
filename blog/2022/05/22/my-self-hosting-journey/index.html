@@ -1,0 +1,1092 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2022/05/22/my-self-hosting-journey/">
+      
+      
+        <link rel="prev" href="../../21/note-taking/">
+      
+      
+        <link rel="next" href="../../../07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36/">
+      
+      
+      <link rel="icon" href="../../../../../static/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.2">
+    
+    
+      
+        <title>My Self-Hosting Journey - Nicholas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.d451bc0e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.a5377069.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/code.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-22SGZWR3ES"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-22SGZWR3ES",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-22SGZWR3ES",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="My Self-Hosting Journey - Nicholas" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-05-22-my-self-hosting-journey.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2022/05/22/my-self-hosting-journey/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="My Self-Hosting Journey - Nicholas" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-05-22-my-self-hosting-journey.png" >
+      
+    
+    
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#my-self-hosting-journey" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Nicholas" class="md-header__button md-logo" aria-label="Nicholas" data-md-component="logo">
+      
+  <img src="../../../../../static/images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nicholas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              My Self-Hosting Journey
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Nicholas" class="md-nav__button md-logo" aria-label="Nicholas" data-md-component="logo">
+      
+  <img src="../../../../../static/images/favicon.png" alt="logo">
+
+    </a>
+    Nicholas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Categories
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/cooking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cooking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/philosophy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Philosophy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/outdoor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outdoor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/finance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/insurance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insurance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Pinned
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Pinned
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../mountaineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mountaineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../travel-bucket-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Travel Bucket List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../photography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Photography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../piano/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Piano
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../dead-mans-switch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dead Man's Switch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../my-diet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    My Diet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#specifications" class="md-nav__link">
+    Specifications
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosted-services" class="md-nav__link">
+    Hosted Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uptime-monitoring" class="md-nav__link">
+    Uptime Monitoring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-and-backup" class="md-nav__link">
+    Storage and Backup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-access" class="md-nav__link">
+    SSH Access
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mobile" class="md-nav__link">
+    Mobile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminal-ui" class="md-nav__link">
+    Terminal UI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2022-05-22 00:00:00" class="md-ellipsis">May 22, 2022</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/programming/">Programming</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              6 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+
+<h1 id="my-self-hosting-journey">My Self-Hosting Journey</h1>
+<figure>
+  <a class="glightbox" href="/static/images/2022-05-22/dashy.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/></a>
+  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+</figure>
+
+<p>Self-hosting your own services has been catching up in popularity: the <a href="https://www.reddit.com/r/selfhosted/">selfhosted subreddit</a> has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge <a href="https://github.com/awesome-selfhosted/awesome-selfhosted">list</a> here).</p>
+<!-- more -->
+
+<p>Self-hosting frees you from vendor lock-in. By using open-source alternatives, you gain portability for your data, and you are free to change to another solution anytime. In addition, there is the benefit of learning about server management and the command-line, which in my opinion are portable skills which can be used in any environment, unlike GUIs which are specific for an application.</p>
+<p>In addition, I have been getting increasingly frustrated with Windows due to various <a href="../../../02/27/my-computing-philosophy/#stable-open-source-environment">issues</a>, and switching to Linux offers one a much needed breath of freedom, customizability and fresh air. Finally, I wanted something which I could keep running 24/7 and not have to pay recurring subscriptions.</p>
+<p>It was with those considerations in mind that I decided to go ahead with self hosting.</p>
+<h2 id="specifications">Specifications</h2>
+<p><a class="glightbox" href="../../../../../static/images/2022-05-22/neofetch.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-05-22/neofetch.jpg" /></a></p>
+<ul>
+<li><strong>CPU</strong>: Intel i5-12400F (6 cores, 12 threads, 18M Cache, up to 4.40Ghz)</li>
+<li><strong>Memory</strong>: Crucial 32GB DDR4 3200Mhz</li>
+<li><strong>Motherboard</strong>: Gigabyte B660M DS3H DDR4</li>
+<li><strong>Boot Drive</strong>: Samsung 500GB 980 NVME M.2</li>
+<li><strong>OS</strong>: Fedora Linux (Server Edition)</li>
+</ul>
+<p>Total cost of the above was SGD $830.</p>
+<p>In addition, I have ~ <a href="#storage-and-backup">30TB of storage</a> in a RAID1 configuration assembled from various drives.</p>
+<h2 id="hosted-services">Hosted Services</h2>
+<p><a class="glightbox" href="../../../../../static/images/2022-05-22/sysmon.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-05-22/sysmon.jpg" /></a></p>
+<p>I use <a href="https://github.com/Lissy93/dashy">Dashy</a> to display all the hosted web services on <a href="https://home.nicholaslyz.com">my site</a>. Authentication is via <code>nginx</code>'s <a href="http://nginx.org/en/docs/http/ngx_http_auth_request_module.html"><code>auth_request</code></a> to a Django backend.</p>
+<p>All hosted services are in Docker containers with limited permissions to reduce the possible attack surface, with logs all redirected to the <code>systemd</code> journal, with the <a href="https://docs.docker.com/config/containers/logging/journald/"><code>journald</code> driver</a>.</p>
+<h2 id="uptime-monitoring">Uptime Monitoring</h2>
+<p>Uptime monitoring is hosted on an offsite VPS with <a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a>, on a separate <a href="https://uptime.icybat.com">site</a>, with notifications via Telegram. This is to allow for redundancy in case my server goes down.</p>
+<h2 id="storage-and-backup">Storage and Backup</h2>
+<p>As of 2022 Dec, I have 32TB of raw storage, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 8TB ATA WDC WD80EAZZ-00B8TB (all non-SMR drives<sup id="fnref:smr"><a class="footnote-ref" href="#fn:smr">1</a></sup>) in a (software) BtrFS RAID-1 configuration, corresponding to approximately 16TB of usable storage.</p>
+<p>I use SSHFS to access my storage remotely. This storage is accessible locally in my LAN via <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>, which Windows also supports<sup id="fnref:nfs-issues"><a class="footnote-ref" href="#fn:nfs-issues">5</a></sup>.</p>
+<p>I chose BtrFS over <code>dmraid</code> + ext4 as BtrFS:</p>
+<ul>
+<li>allows for online subvolume resizing/deletion/modification</li>
+<li>supports file checksums in RAID modes<sup id="fnref:bit-rot"><a class="footnote-ref" href="#fn:bit-rot">2</a></sup></li>
+<li>allows for <strong>arbitrary drives to be added/removed</strong> from the RAID configuration, and <a href="https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices#Adding_new_devices">balance the resulting filesystem automatically</a></li>
+<li>supports lightweight snapshots and sending these snapshots to other devices for backup</li>
+</ul>
+<p>BtrFS also allows for RAID-1 with any number of devices, of all different sizes. The resulting available storage is usually <a href="https://btrfs.wiki.kernel.org/index.php/FAQ#How_much_space_do_I_get_with_unequal_devices_in_RAID-1_mode.3F">half the total storage available</a>. This is made possible as the filesystem <a href="https://btrfs.wiki.kernel.org/index.php/SysadminGuide#Data_usage_and_allocation">allocates data in chunks</a>, with each chunk on a RAID-1 setup being duplicated to 2 different drives.</p>
+<p><strong>Snapshots</strong></p>
+<p><a href="https://github.com/digint/btrbk"><code>btrbk</code></a> is a great utility which I utilize for backups. It allows for automatic snapshot creation, backups to multiple destinations (including SSH), incrementals backups as well as utilities to calculate accurate snapshot space usage.</p>
+<p>I use <code>btrbk</code> together with <a href="https://opensource.com/article/20/7/systemd-timers"><code>systemd.timer</code></a> to make hourly rolling snapshots, preserving snapshots:</p>
+<ul>
+<li>every hour for the last 24 hours</li>
+<li>every day for the past 7 days</li>
+<li>every week for the past 4 weeks</li>
+<li>every month for the past 12 months</li>
+<li>every year for the past 3 years</li>
+</ul>
+<p>This allows me to fallback to any state in the past.</p>
+<p>I manually run the <code>archive</code> command<sup id="fnref:btrbk-issue"><a class="footnote-ref" href="#fn:btrbk-issue">3</a></sup> to send snapshots over to an external drive every 6 months.</p>
+<p>The backup drive is encrypted with AES-256 (via <a href="https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions"><code>cryptsetup</code></a><sup id="fnref:cryptsetup-partition"><a class="footnote-ref" href="#fn:cryptsetup-partition">4</a></sup>).</p>
+<details class="note">
+<summary>Backup commands previously used</summary>
+<p>Prior to <code>btrbk</code>, here were the backup commands I used.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a subvolume snapshot of /mnt/storage</span>
+<span class="c1"># Note: &#39;snapshots&#39; and &#39;subvolumes&#39; are synonymous in BtrFS: A snapshot is a copy of a subvolume</span>
+btrfs<span class="w"> </span>subvolume<span class="w"> </span>snapshot<span class="w"> </span>-r<span class="w"> </span>/mnt/storage/<span class="w"> </span>/mnt/storage/snapshot.<span class="k">$(</span>date<span class="w"> </span>+%Y-%m-%d<span class="k">)</span>
+
+<span class="c1"># Send that snapshot to the backup device /mnt/sdc1</span>
+btrfs<span class="w"> </span>send<span class="w"> </span>/mnt/storage/snapshot.2022-05-18/<span class="w"> </span><span class="p">|</span><span class="w"> </span>btrfs<span class="w"> </span>receive<span class="w"> </span>/mnt/sdc1
+
+<span class="c1"># To instead send an incremental snapshot:</span>
+<span class="c1"># Note: the parent snapshot must exist on the receiving drive</span>
+btrfs<span class="w"> </span>send<span class="w"> </span>-p<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>parent<span class="w"> </span>snapshot<span class="w"> </span>on<span class="w"> </span>sending<span class="w"> </span>drive&gt;<span class="w"> </span>&lt;subvol&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>btrfs<span class="w"> </span>receive<span class="w"> </span>/mnt/sdc1
+</code></pre></div>
+<p>The UUID of the parent subvolume (in the sending drive) must be in one of the receiving drive subvolume's 'Received UUID', in order for the incremental <code>send</code> operation to work. See below for an example:</p>
+<p>Target volume with 2 snapshots, <code>server-2022-05-18</code> followed by <code>snapshot.test</code>:</p>
+<div class="highlight"><pre><span></span><code>[root@server sdc1]# btrfs su show /mnt/system-root/server-2022-05-18/server-2022-05-18
+    Name:                   server-2022-05-18
+<span class="hll">    UUID:                   2b33e415-046b-a746-a35f-50cdef411a9f
+</span>    Parent UUID:            c8a82094-4270-274b-bd08-77aea3dc0896
+    Received UUID:          -
+
+[root@server sdc1]# btrfs su show /mnt/system-root/snapshot.test/snapshot.test
+    Name:                   snapshot.test
+    UUID:                   8a42b8d1-d145-9249-9e76-e7748dc4aeb5
+    Parent UUID:            c8a82094-4270-274b-bd08-77aea3dc0896
+    Received UUID:          -
+</code></pre></div>
+<p>Note on the backup drive that the <code>Received UUID</code> of the original snapshot is the same as the target volume's original snapshot <code>server-2022-05-18</code>.</p>
+<div class="highlight"><pre><span></span><code>[root@server sdc1]# btrfs su show /mnt/sdc1/server-2022-05-18/server-2022-05-18
+    Name:                   server-2022-05-18
+    UUID:                   5ed89436-7a3b-5744-9460-cf79ced43e2c
+    Parent UUID:            -
+<span class="hll">    Received UUID:          2b33e415-046b-a746-a35f-50cdef411a9f
+</span>
+[root@server sdc1]# btrfs su show /mnt/sdc1/snapshot.test/snapshot.test
+    Name:                   snapshot.test
+    UUID:                   7fcd7d87-b2a2-eb46-a636-ca62dfd4029f
+    Parent UUID:            5ed89436-7a3b-5744-9460-cf79ced43e2c
+    Received UUID:          8a42b8d1-d145-9249-9e76-e7748dc4aeb5
+</code></pre></div>
+<p>Note: The <code>Received UUID</code> <strong>does not change</strong> when a snapshot is snapshot-ed again.</p>
+</details>
+<p><strong>Maintenance</strong></p>
+<p>I run <a href="https://btrfs.readthedocs.io/en/latest/btrfs-scrub.html"><code>btrfs scrub</code></a> monthly via a <code>systemd.timer</code>.</p>
+<h2 id="ssh-access">SSH Access</h2>
+<p>SSH access to my server is available via public keys, password access with 2FA (provided via <a href="https://github.com/google/google-authenticator-libpam">Google Authenticator PAM</a><sup id="fnref:pam-issues"><a class="footnote-ref" href="#fn:pam-issues">6</a></sup>) and Web terminal access via <a href="../../../07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36/#5-setup-apache-guacamole">Apache Guacamole</a>.</p>
+<p>I previously used <a href="../../../02/07/setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/">SSH with certificates</a>, however it does not allow me to revoke access as easily as public keys.</p>
+<h3 id="mobile">Mobile</h3>
+<p>Mobile SSH access is via <a href="https://termux.com/">Termux</a>, a terminal emulator for Android which features <a href="https://mosh.org/">Mosh</a><sup id="fnref:mosh"><a class="footnote-ref" href="#fn:mosh">7</a></sup> pre-installed.</p>
+<h3 id="terminal-ui">Terminal UI</h3>
+<p>I use <a href="https://github.com/tmux/tmux/wiki">tmux</a>, a terminal multiplexer, which allows me to keep terminal sessions running on the server on connection close (even if by accident), and resume them from another computer. I use a <code>.bashrc</code> config to load <a href="https://github.com/tmux/tmux/wiki">tmux</a> on interactive logins.</p>
+<details class="note">
+<summary><code>.bashrc</code> Configuration</summary>
+<div class="highlight"><pre><span></span><code><span class="c1"># Since tmux also runs .bashrc, we need to check we are not in tmux</span>
+<span class="c1"># Other checks are to make sure these commands only run in interactive shells</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$-</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*i*<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$SSH_CONNECTION</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TMUX</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>tmux<span class="w"> </span>new-session<span class="w"> </span>-A
+<span class="k">fi</span>
+</code></pre></div>
+</details>
+<p>Finally, I use <a href="https://github.com/powerline/powerline">Powerline</a>, a great status plugin showing CPU/memory/uptime stats, on <code>bash</code> and <a href="https://github.com/tmux/tmux/wiki">tmux</a>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:smr">
+<p>SMR drives have a much greater <a href="https://www.reddit.com/r/DataHoarder/comments/o5bmcu/comment/h2nfiwq/">write penalty</a> compared to CMR/PMR drives.&#160;<a class="footnote-backref" href="#fnref:smr" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:bit-rot">
+<p>If some bits in one of the drives were to fail (e.g. due to <a href="https://en.wikipedia.org/wiki/Bit_rot">bit rot</a>), <code>dmraid</code> would not know which drive contains the correct data as it operates below the filesystem layer.&#160;<a class="footnote-backref" href="#fnref:bit-rot" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:btrbk-issue">
+<p>There is an issue with <a href="https://github.com/digint/btrbk/issues/339#issuecomment-1332137961"><code>btrbk</code> not sending snapshots without direct parent-child uuid link when using <code>resume</code></a>. To get around this, I use <code>archive</code> initially to copy snapshots over to the external drive.&#160;<a class="footnote-backref" href="#fnref:btrbk-issue" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:cryptsetup-partition">
+<p>The reason I do not use <code>cryptsetup</code> (or <code>dmcrypt</code>) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.&#160;<a class="footnote-backref" href="#fnref:cryptsetup-partition" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nfs-issues">
+<p>Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the <a href="https://unix.stackexchange.com/questions/276292/need-permission-for-windows-client-to-access-linux-nfs">fix</a>.&#160;<a class="footnote-backref" href="#fnref:nfs-issues" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:pam-issues">
+<p>On Fedora, Google Authenticator PAM has some <a href="https://github.com/google/google-authenticator-libpam/issues/101">issues</a> with SELinux security configurations and so I use a <a href="https://github.com/google/google-authenticator-libpam/issues/101#issuecomment-997533681">workaround</a>.&#160;<a class="footnote-backref" href="#fnref:pam-issues" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:mosh">
+<p>Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).&#160;<a class="footnote-backref" href="#fnref:mosh" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+  
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/extrange/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:me@nicholaslyz.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.726fbb30.min.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

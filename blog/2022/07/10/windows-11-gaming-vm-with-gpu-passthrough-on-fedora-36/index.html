@@ -1,0 +1,1439 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36/">
+      
+      
+        <link rel="prev" href="../../../05/22/my-self-hosting-journey/">
+      
+      
+        <link rel="next" href="../docker-containers-with-gpu-access-in-fedora/">
+      
+      
+      <link rel="icon" href="../../../../../static/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.2">
+    
+    
+      
+        <title>Windows 11 Gaming VM with GPU Passthrough on Fedora 36 - Nicholas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.d451bc0e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.a5377069.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/code.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-22SGZWR3ES"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-22SGZWR3ES",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-22SGZWR3ES",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Windows 11 Gaming VM with GPU Passthrough on Fedora 36 - Nicholas" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-07-10-win11-vm-gpu-passthrough.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Windows 11 Gaming VM with GPU Passthrough on Fedora 36 - Nicholas" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-07-10-win11-vm-gpu-passthrough.png" >
+      
+    
+    
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="yellow">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Nicholas" class="md-header__button md-logo" aria-label="Nicholas" data-md-component="logo">
+      
+  <img src="../../../../../static/images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nicholas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Windows 11 Gaming VM with GPU Passthrough on Fedora 36
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Nicholas" class="md-nav__button md-logo" aria-label="Nicholas" data-md-component="logo">
+      
+  <img src="../../../../../static/images/favicon.png" alt="logo">
+
+    </a>
+    Nicholas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Categories
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/cooking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cooking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/philosophy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Philosophy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/outdoor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outdoor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/finance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/insurance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insurance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Pinned
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Pinned
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../mountaineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mountaineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../travel-bucket-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Travel Bucket List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../photography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Photography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../piano/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Piano
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../dead-mans-switch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dead Man's Switch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../my-diet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    My Diet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-setup-gpu-passthrough" class="md-nav__link">
+    1. Setup GPU Passthrough
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-install-virtualization-packages" class="md-nav__link">
+    2. Install Virtualization Packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-setup-virt-manager-in-docker" class="md-nav__link">
+    3. Setup virt-manager in Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-install-windows-and-setup-moonlight-streaming" class="md-nav__link">
+    4. Install Windows and Setup Moonlight Streaming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-setup-overlay-mesh-network-aka-peer-to-peer-vpn" class="md-nav__link">
+    5. Setup Overlay Mesh Network (aka Peer-to-Peer VPN)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-setup-apache-guacamole" class="md-nav__link">
+    6. Setup Apache Guacamole
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-optional-setup-nfssamba" class="md-nav__link">
+    7. (Optional) Setup NFS/SAMBA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-optional-fix-low-fps-on-desktop-and-certain-games" class="md-nav__link">
+    8. (Optional) Fix low FPS on desktop and certain games
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issuesnotesfixes" class="md-nav__link">
+    Known Issues/Notes/Fixes
+  </a>
+  
+    <nav class="md-nav" aria-label="Known Issues/Notes/Fixes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disabling-vfio" class="md-nav__link">
+    Disabling VFIO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moonlight-specific-issues" class="md-nav__link">
+    Moonlight-specific Issues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qemuvirt-manager" class="md-nav__link">
+    QEMU/virt-manager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-guacamole" class="md-nav__link">
+    Apache Guacamole
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steam-link" class="md-nav__link">
+    Steam Link
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    Misc
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    Credits
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2022-07-10 00:00:00" class="md-ellipsis">July 10, 2022</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/programming/">Programming</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              13 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+
+<h1 id="windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36">Windows 11 Gaming VM with GPU Passthrough on Fedora 36</h1>
+<figure>
+  <a class="glightbox" href="/static/images/2022-07-10/demo.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/demo.jpg" alt="Gaming on a laptop remotely over Nvidia Gamestream" loading="lazy"/></a>
+  <figcaption>Gaming on a laptop remotely with Nvidia Gamestream using mobile data</figcaption>
+</figure>
+
+<p>After completing this guide, you will have a Windows 11 <strong>headless</strong> virtual machine that can be accessed via:</p>
+<ul>
+<li><a href="https://moonlight-stream.org/">Moonlight</a>/<a href="https://store.steampowered.com/remoteplay#anywhere">Steam Link</a> for high performance gaming</li>
+<li>RDP for less demanding tasks</li>
+<li>RDP over a web browser (via <a href="https://guacamole.apache.org/">Apache Guacamole</a>)</li>
+</ul>
+<!-- more -->
+
+<h2 id="prerequisites">Prerequisites:</h2>
+<ol>
+<li>
+<p>Ensure you have a CPU with virtualization support (for Intel, this is known as <a href="https://www.thomas-krenn.com/en/wiki/Overview_of_the_Intel_VT_Virtualization_Features"><code>VT-d</code></a>):</p>
+<div class="highlight"><pre><span></span><code>$ lscpu | grep -i virtualization
+Virtualization:                  VT-x
+</code></pre></div>
+</li>
+<li>
+<p>NVIDIA GPU (for Moonlight streaming)</p>
+</li>
+<li>
+<p><code>VT-d</code> should be enabled in your BIOS (refer to the relevant manuals)</p>
+</li>
+<li>
+<p><a href="https://docs.docker.com/desktop/linux/install/">Docker</a> is installed</p>
+</li>
+<li>
+<p>Windows 11 Pro license (required for Remote Desktop)</p>
+</li>
+</ol>
+<h2 id="1-setup-gpu-passthrough">1. Setup GPU Passthrough</h2>
+<p><strong>Enable IOMMU</strong></p>
+<p>Open <code>/etc/default/grub</code> with your editor of choice, and append <code>intel_iommu=on</code> as well as <code>initcall_blacklist=sysfb_init</code> to <code>GRUB_CMDLINE_LINUX</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on initcall_blacklist=sysfb_init&quot;</span>
+</code></pre></div>
+<details class="note">
+<summary>What is the purpose of <code>initcall_blacklist=sysfb_init</code>?</summary>
+<p>Even with the <code>vfio-pci</code> drivers utilized, the kernel appears to reserve portions of memory in the GPU which causes errors visible in <code>dmesg</code> as <code>[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]</code>.</p>
+<p>The culprits for my system appeared to be <code>simplefb</code> and <code>bootfb</code>.</p>
+<p>Adding the above kernel parameter fixes the issue.</p>
+</details>
+<p>Optionally, you may want to disable <code>os-prober</code> especially if you have Docker installed, as it will attempt to probe containers and create a lot of unnecessary startup entries:</p>
+<div class="highlight"><pre><span></span><code>GRUB_DISABLE_OS_PROBER=true
+</code></pre></div>
+<p>Save the modified configuration file:</p>
+<div class="highlight"><pre><span></span><code>grub2-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub2/grub.cfg
+</code></pre></div>
+<p><strong>Configure <code>vfio-pci</code> module to load on boot</strong></p>
+<p>Create the following files with the content as shown (you will need superuser privileges):</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#/etc/dracut.conf.d/10-vfio.conf</span>
+<span class="nv">add_drivers</span><span class="o">+=</span><span class="s2">&quot; vfio_pci vfio vfio_iommu_type1 vfio_virqfd &quot;</span>
+
+<span class="c1">#/etc/modules-load.d/vfio-pci.conf</span>
+vfio-pci
+
+<span class="c1">#/etc/modprobe.d/vfio.conf</span>
+options<span class="w"> </span>vfio-pci<span class="w"> </span><span class="nv">ids</span><span class="o">=</span>&lt;GPU-PCI-ID&gt;
+</code></pre></div>
+<p>Where <code>&lt;GPU-PCI-ID&gt;</code> is the id <code>xxxx:xxxx</code> as shown by the output of <code>lspci -nn</code>, for example:</p>
+<div class="highlight"><pre><span></span><code>[root@server ~]# lspci -nn | grep -i vga
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1070 Ti] [10de:1b82] (rev a1)
+</code></pre></div>
+<p>You will need to rebuild the initial ramdisk (<code>initrd</code>) image after modifying the above files:</p>
+<div class="highlight"><pre><span></span><code>dracut -fv
+</code></pre></div>
+<p>Check that the generated ramdisk contains output similar to the following using <code>lsinitrd</code>:</p>
+<div class="highlight"><pre><span></span><code>[root@server ~]# lsinitrd | grep -i vfio
+-rw-r--r--   1 root     root           31 Mar 30 16:53 etc/modprobe.d/vfio.conf
+-rw-r--r--   1 root     root            9 Mar 30 16:53 etc/modules-load.d/vfio-pci.conf
+drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-200.fc36.x86_64/kernel/drivers/vfio
+&lt;truncated&gt;
+</code></pre></div>
+<p>Now reboot, and check that IOMMU is working:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>iommu
+<span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Command<span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span><span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763<span class="w"> </span>rhgb<span class="w"> </span>quiet<span class="w"> </span><span class="nv">intel_iommu</span><span class="o">=</span>on
+<span class="o">[</span><span class="w">    </span><span class="m">0</span>.133682<span class="o">]</span><span class="w"> </span>Kernel<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span><span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763<span class="w"> </span>rhgb<span class="w"> </span>quiet<span class="w"> </span><span class="nv">intel_iommu</span><span class="o">=</span>on
+<span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">0</span>.133749<span class="o">]</span><span class="w"> </span>DMAR:<span class="w"> </span>IOMMU<span class="w"> </span>enabled
+</span><span class="o">[</span><span class="w">    </span><span class="m">0</span>.224446<span class="o">]</span><span class="w"> </span>DMAR-IR:<span class="w"> </span>IOAPIC<span class="w"> </span>id<span class="w"> </span><span class="m">2</span><span class="w"> </span>under<span class="w"> </span>DRHD<span class="w"> </span>base<span class="w">  </span>0xfed91000<span class="w"> </span>IOMMU<span class="w"> </span><span class="m">0</span>
+<span class="o">[</span><span class="w">    </span><span class="m">1</span>.516533<span class="o">]</span><span class="w"> </span>iommu:<span class="w"> </span>Default<span class="w"> </span>domain<span class="w"> </span>type:<span class="w"> </span>Translated
+<span class="o">[</span><span class="w">    </span><span class="m">1</span>.516533<span class="o">]</span><span class="w"> </span>iommu:<span class="w"> </span>DMA<span class="w"> </span>domain<span class="w"> </span>TLB<span class="w"> </span>invalidation<span class="w"> </span>policy:<span class="w"> </span>lazy<span class="w"> </span>mode
+<span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560968<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:00.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">0</span>
+</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560977<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:01.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">1</span>
+</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560985<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:06.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">2</span>
+</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560991<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:0a.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">3</span>
+</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.561003<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:14.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">4</span>
+</span></code></pre></div>
+<p>If you do not see the <code>... Adding to iommu group</code> lines, ensure <code>VT-d</code> has been turned on in your BIOS.</p>
+<h2 id="2-install-virtualization-packages">2. Install Virtualization Packages</h2>
+<div class="highlight"><pre><span></span><code># sudo dnf install @virtualization
+</code></pre></div>
+<p>This will install the necessary packages, including <a href="https://libvirt.org/"><code>libvirt</code></a>, an API to manage QEMU/KVM hypervisors.</p>
+<h2 id="3-setup-virt-manager-in-docker">3. Setup <code>virt-manager</code> in Docker</h2>
+<p>We will use <code>virt-manager</code> to manage the <code>libvirtd</code> backend. To make access easier, we will use <a href="https://github.com/m-bers/docker-virt-manager">docker-virt-manager</a>, which exposes <code>virt-manager</code> over a <a href="https://blog.desdelinux.net/en/broadway-ejecuta-aplicaciones-gtk-navegador/">GTK3 Broadway (HTML5) backend</a>.</p>
+<p>Create a <code>docker-compose.yml</code> file with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">virt-manager</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mber5/virt-manager:latest</span>
+<span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+<span class="w">        </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">HOSTS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;[&#39;qemu:///system&#39;]&quot;</span>
+<span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:80&quot;</span>
+
+<span class="w">        </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock&quot;</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/vm:/vm&quot;</span><span class="w"> </span><span class="c1"># Or wherever you want to store your VM images/virtual harddisks</span>
+
+<span class="w">        </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/dev/kvm:/dev/kvm&quot;</span>
+</code></pre></div>
+<p>Start the container with <code>docker compose up -d</code>.</p>
+<h2 id="4-install-windows-and-setup-moonlight-streaming">4. Install Windows and Setup Moonlight Streaming</h2>
+<p>Now, navigate to <code>http://localhost:8080</code> and you should see the <code>virt-manager</code> interface:</p>
+<p><a class="glightbox" href="../../../../../static/images/2022-07-10/docker-virt-manager.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/docker-virt-manager.gif" /></a></p>
+<p>Create a new VM, and under <code>Add Hardware &gt; PCI Host Device</code>, add your GPU.</p>
+<details class="note">
+<summary>Giving the VM an IP address on the LAN</summary>
+<p>If you would like your VM also have its own IP address on the LAN (e.g. to play multiplayer games with peers on the same subnet), you can add a <a href="https://virt.kernelnewbies.org/MacVTap"><code>macvtap</code></a> interface now, in addition to the standard bridge network between guest and host.</p>
+<p>To do this, add another <code>NIC</code> and ensure <code>Host device enpXsX: macvtap</code> is selected.</p>
+<p><a class="glightbox" href="../../../../../static/images/2022-07-10/vm-network.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-network.jpg" /></a></p>
+<p>If you just want to be able to access the VM over the internet, you can use a peer-to-peer VPN as shown <a href="#5-setup-overlay-mesh-network-aka-peer-to-peer-vpn">below</a>.</p>
+</details>
+<p>Next, install Windows 11 (you can get the ISO from <a href="https://www.microsoft.com/software-download/windows11">here</a>).</p>
+<details class="help">
+<summary>Error: This PC doesn't meet the minimum system requirements to install this version of Windows</summary>
+<p>You may encounter the error <code>This PC doesn't meet the minimum system requirements to install this version of Windows</code>. You can try this <a href="https://www.digitalcitizen.life/install-windows-11-virtual-machine/">fix</a>, or alternatively:</p>
+<ul>
+<li>Press <span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-f10">F10</kbd></span> to open a command prompt</li>
+<li>Type <code>regedit</code></li>
+<li>Navigate to <code>HKLM\System\Setup\LabConfig</code> (create the key if it doesn't exist)</li>
+<li>Add the following registry values (<code>DWORD (32-bit) Value</code>) with <code>1</code> as the value:<ul>
+<li><code>BypassTPMCheck</code></li>
+<li><code>BypassSecureBootCheck</code></li>
+<li><code>BypassCPUCheck</code> (optional)</li>
+<li><code>BypassRAMCheck</code> (optional)</li>
+</ul>
+</li>
+</ul>
+<p>Once the Windows VM boots, install the NVIDIA drivers, and then ensure that the GPU is detected by the VM.</p>
+</details>
+<p><a class="glightbox" href="../../../../../static/images/2022-07-10/vm-gpu.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-gpu.jpg" /></a></p>
+<p>Then, open GeForce Experience, and under 'Settings &gt; SHIELD', enable 'Gamestream'.</p>
+<p><a class="glightbox" href="../../../../../static/images/2022-07-10/vm-gamestream.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-gamestream.jpg" /></a></p>
+<details class="note">
+<summary>Streaming the whole desktop</summary>
+<p>If you want to stream the desktop instead of a game, add <code>C:\Windows\System32\mstsc.exe</code>.</p>
+</details>
+<h2 id="5-setup-overlay-mesh-network-aka-peer-to-peer-vpn">5. Setup Overlay Mesh Network (aka Peer-to-Peer VPN)</h2>
+<p>We will now setup a peer-to-peer VPN, which will let us access Moonlight both within the LAN and from the internet, without worrying about port forwarding or firewall configurations.</p>
+<details class="note">
+<summary>Rationale</summary>
+<p>Moonlight requires <a href="https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#manual-port-forwarding-advanced">certain ports</a> to be forwarded on your router, in order for the PC to be accessible over the internet.</p>
+<p>However, in our current setup, the VM is not directly accessible from the internet or even the LAN, because the <a href="https://libvirt.org/formatnetwork.html#nat-based-network">default network</a><sup id="fnref:default-network"><a class="footnote-ref" href="#fn:default-network">1</a></sup> it is connected to is not assigned an IP address on the LAN, so there is no way to port forward the required ports.</p>
+<p>One way is to give the VM its own IP address on the network via a <a href="https://virt.kernelnewbies.org/MacVTap"><code>macvtap</code></a> interface, as <a href="#4-install-windows-and-setup-moonlight-streaming">shown above</a>.</p>
+<p>However, sometimes port forwarding may not work due to <a href="https://en.wikipedia.org/wiki/Network_address_translation">NATs</a>, your ISP blocking ports, or firewalls.</p>
+<p>Therefore, a better solution is to use a peer-to-peer VPN provider, which utilize <a href="https://tailscale.com/blog/how-nat-traversal-works/">NAT traversal</a> techniques such as <a href="https://en.wikipedia.org/wiki/UDP_hole_punching">UDP hole punching</a> to connect to hosts behind NATs/firewalls.</p>
+<ul>
+<li><a href="https://www.zerotier.com/">ZeroTier</a>: partially open-source, freemium</li>
+<li><a href="https://tailscale.com/">Tailscale</a>: partially open-source, freemium</li>
+<li><a href="https://github.com/slackhq/nebula">Nebula</a>: open-source</li>
+<li><a href="https://github.com/gravitl/netmaker/">Netmaker</a>: open-source, <a href="https://medium.com/netmaker/battle-of-the-vpns-which-one-is-fastest-speed-test-21ddc9cd50db">claims to be the fastest</a></li>
+</ul>
+<p>Overhead is minimal, as these tools connect directly if possible, using a relay only as a backup.</p>
+</details>
+<p><a href="https://www.zerotier.com/">ZeroTier</a> is one such solution, and you can follow the <a href="https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#zerotier">guide from the Moonlight docs</a>.</p>
+<p>After setting up the peer-to-peer VPN of your choice, download the <a href="https://moonlight-stream.org/">Moonlight</a> client on another computer/device, and verify that streaming works.</p>
+<p>You can also <a href="https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c#ID0EDD=Windows_11">setup Remote Desktop</a> now.</p>
+<p>Now, you have a working VM with <a href="https://moonlight-stream.org/">Moonlight</a> for gaming, and Remote Desktop (slower, but much less data usage) for doing work!</p>
+<h2 id="6-setup-apache-guacamole">6. Setup Apache Guacamole</h2>
+<figure>
+  <a class="glightbox" href="/static/images/2022-07-10/guacamole.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/guacamole.jpg" alt="Accessing a Windows VM over a browser with Apache Guacamole" loading="lazy"/></a>
+  <figcaption>Accessing a Windows VM over a browser with Apache Guacamole</figcaption>
+</figure>
+
+<p><a href="https://guacamole.apache.org/">Apache Guacamole</a> is a clientless remote desktop gateway, supporting proxying of RDP and VNC protocols over a HTML5 frontend. For this guide, we will use RDP, as it is more efficient than VNC and saves data.</p>
+<p>Of note, Guacamole also supports SSH connections to a remote server, displaying the terminal in the web browser. However, the current version (<code>1.4.0</code>) of the Apache Guacamole Server Docker <a href="https://github.com/apache/guacamole-server">image</a> only supports connecting via <code>ssh-rsa</code> and <code>ssh-dss</code>, both of which have been <a href="https://www.openssh.com/txt/release-8.8">deprecated since OpenSSH 8.8</a> (<a href="https://www.mail-archive.com/issues@guacamole.apache.org/msg06190.html">JIRA issue</a>) due to security issues (SHA-1 is no longer considered secure). One workaround would be to enable <code>ssh-rsa</code> in <code>sshd</code>, however this is suboptimal. As a result, I have decided to use <a href="https://github.com/nirui/sshwifty">SSHwifty</a> instead as an SSH web proxy.</p>
+<p>To setup Apache Guacamole, follow the instructions <a href="https://guacamole.apache.org/doc/gug/guacamole-docker.html">here</a>.</p>
+<details class="note">
+<summary>Notes</summary>
+<ul>
+<li>I have decided to use the <code>mysql</code> backend instead, as the <code>postgres</code> backend has <a href="https://lists.apache.org/thread/mp6gfxtxwhnnk215crcjbt0106w03o7l">authentication problems</a> (slated to be fixed in <code>1.5.0</code>).</li>
+<li>If you are using a reverse proxy with authentication (e.g. Nginx with <code>auth_request</code>), you can use <a href="https://guacamole.apache.org/doc/gug/guacamole-docker.html#header-authentication">header authentication</a> to avoid having to login into Guacamole.</li>
+<li>To change the password of the default <code>guacadmin</code> user, it is necessary to create another user account with admin rights.</li>
+<li>For RDP, ensure <code>Ignore server certificate</code> is checked, otherwise Guacamole will refuse to connect.</li>
+</ul>
+</details>
+<h2 id="7-optional-setup-nfssamba">7. (Optional) Setup NFS/SAMBA</h2>
+<p>Network File System (NFS) is a handy way to share files on a Linux host with other Linux clients. For sharing files with Windows clients, SAMBA is the better option (much less delay on opening).</p>
+<p><strong>Note</strong>: If you are using a <code>macvtap</code> interface (to allow the guest to receive its own IP address on the network), it is <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap">not possible</a> to connect to the host due to how <code>macvtap</code> works. You will need to create a <code>NAT</code> connection (e.g. <code>Virtual Network 'Default' : NAT</code>) to connect to the host, via a separate subnet.</p>
+<p><strong>NFS</strong></p>
+<p>Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:</p>
+<pre><code>```powershell
+Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
+```
+</code></pre>
+<p>This <a href="https://docs.oracle.com/en-us/iaas/Content/File/Troubleshooting/winNFSerror53.htm">fix</a> <em>may</em> speed up NFS access on Windows (although I strongly recommend using SAMBA).</p>
+<ul>
+<li>For Fedora: You must also open the NFS ports (TCP/UDP <code>111</code>, <code>2049</code> and <code>20048</code>) in the <code>Libvirt</code> zone.</li>
+</ul>
+<p><strong>SAMBA</strong></p>
+<p><a href="https://www.samba.org/">SAMBA</a> is much faster than NFS for Windows guests.</p>
+<p>To setup Samba:</p>
+<ol>
+<li>
+<p>Install Samba on Linux:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-common
+</code></pre></div>
+</li>
+<li>
+<p>Set the correct SELinux contexts for the directories you wish to share (in this example <code>/mnt/storage</code>):</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </span>-t<span class="w"> </span>samba_share_t<span class="w"> </span>/mnt/storage
+</code></pre></div>
+<details class="warning">
+<summary>SSH and SELinux</summary>
+<p>If you are executing the above command on your <code>home</code> directory, be careful to restore SELinux contexts for the <code>.ssh</code> directory:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>restorecon<span class="w"> </span>-r<span class="w"> </span>.ssh
+</code></pre></div>
+<p>Otherwise, <code>sshd</code> will be <strong>denied access</strong> to <code>authorized_keys</code> and you will lose login via SSH!</p>
+</details>
+</li>
+<li>
+<p>Add the following to <code>/etc/samba/smb.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>[storage]
+    path = /mnt/storage
+    public = yes
+    guest ok = yes
+    writable = yes
+    browseable = yes
+    acl allow execute always = yes
+</code></pre></div>
+<p>This will create a share named <code>storage</code>, accessible without login or passwords. <strong>Only do this on a secure LAN!</strong></p>
+</li>
+<li>
+<p>(For Fedora) Open the required ports in the <code>libvirt</code> zone (for the Windows guest), and in the <code>Public</code> zone for other computers on the network:</p>
+<ul>
+<li>TCP <code>139</code>, <code>445</code></li>
+<li>UDP <code>137</code>, <code>138</code></li>
+</ul>
+</li>
+<li>
+<p>Restart the <code>smb</code> and <code>nmb</code> daemons:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>smb<span class="w"> </span>nmb
+</code></pre></div>
+</li>
+</ol>
+<p>You should now have access to the Samba share on the Windows guest, by hitting <span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-r">R</kbd></span> and entering the IP address of the host.</p>
+<h2 id="8-optional-fix-low-fps-on-desktop-and-certain-games">8. (Optional) Fix low FPS on desktop and certain games</h2>
+<p><a href="https://moonlight-stream.org/">Moonlight</a> runs at 30fps or less when displaying the remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU and natively running at a lower FPS. Moonlight is transferring this output when the GPU is not being utilized, for example with the desktop or certain 2D games.</p>
+<p>To fix this, you will need to get an <strong>HDMI dummy plug</strong>.</p>
+<ul>
+<li>Plug the HDMI dummy plug into the graphics card output.</li>
+<li>
+<p>In the Windows VM, ensure that displays are set to mirror each other.</p>
+<ul>
+<li>You might need to play around with the displays a bit, to ensure that Moonlight is streaming the display from the GPU output, and not that of the VM.</li>
+</ul>
+</li>
+<li>
+<p>You might need to reboot the VM after.</p>
+</li>
+</ul>
+<p>You should now be getting ~60fps when streaming the bare desktop.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>And that's it! You now have a fully featured cloud gaming machine, accessible anywhere in the world.</p>
+<h2 id="known-issuesnotesfixes">Known Issues/Notes/Fixes</h2>
+<h3 id="disabling-vfio">Disabling VFIO</h3>
+<p>At times you may want to disable VFIO or GPU passthrough, for example when you want to <a href="../docker-containers-with-gpu-access-in-fedora/">use the GPU in the host</a>.</p>
+<p>To disable GPU passthrough:</p>
+<ul>
+<li>Rename the file <code>/etc/modprobe.d/vfio-pci.conf</code> to <code>/etc/modprobe.d/vfio-pci.conf.bak</code>.</li>
+<li>Rename the file <code>/etc/modules-load.d/vfio-pci.conf</code> to <code>/etc/modules-load.d/vfio-pci.conf.bak</code>.</li>
+<li>
+<p>Add the following lines to <code>GRUB_CMDLINE_LINUX</code> in <code>/etc/default/grub</code>:</p>
+<div class="highlight"><pre><span></span><code>rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
+</code></pre></div>
+</li>
+<li>
+<p>Regenerate <code>grub.cfg</code> with <code>grub2-mkconfig -o /boot/grub2/grub.cfg</code>.</p>
+</li>
+<li>Regenerate the <code>initramfs</code> with <code>dracut -fv</code>.</li>
+<li>Reboot.</li>
+</ul>
+<p>To re-enable GPU passthrough, reverse the steps above.</p>
+<h3 id="moonlight-specific-issues">Moonlight-specific Issues</h3>
+<ul>
+<li>
+<p>Moonlight requires that the server machine (whether VM or physical) be <strong>unlocked</strong>, and that there are <strong>no Remote Desktop Connections</strong> ongoing.</p>
+<ul>
+<li>
+<p>After an RDP session, the main desktop is locked. To fix this, create a batch file with the following content, and run it <strong>with administrator rights</strong> to disconnect the RDP and unlock the main desktop:</p>
+<div class="highlight"><pre><span></span><code>Powershell -Command &quot;tscon rdp-tcp#0 /DEST:console&quot;
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p>The streaming resolution of Moonlight is <strong>not</strong> what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.</p>
+</li>
+<li>
+<p>Some useful shortcuts:</p>
+<ul>
+<li>Quit moonlight: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-q">Q</kbd></span></li>
+<li>Minimize window: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-d">D</kbd></span></li>
+<li>Show stats overlay: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-s">S</kbd></span></li>
+<li>Paste text from host: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-v">V</kbd></span></li>
+<li>Toggle mouse and keyboard capture: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-z">Z</kbd></span></li>
+</ul>
+</li>
+<li>
+<p>Moonlight not filling screen:</p>
+<ul>
+<li><a href="https://github.com/moonlight-stream/moonlight-android/issues/588">Use the Nvidia control panel to change the screen resolution.</a></li>
+</ul>
+</li>
+<li>
+<p>Intermittent black screen: <a href="https://github.com/moonlight-stream/nvidia-gamestream-issues/issues/27">Disable hardware-accelerated GPU scheduling</a></p>
+</li>
+</ul>
+<h3 id="qemuvirt-manager">QEMU/<code>virt-manager</code></h3>
+<ul>
+<li>
+<p>Snapshotting the VM is not possible while a PCI device is being passed-through. However, if you are using BtrFS, you can make snapshots of the storage volume.</p>
+</li>
+<li>
+<p>VM hangs/pauses, and in <code>dmesg</code> you see <code>[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]</code> and similar errors:</p>
+<ul>
+<li>Ensure that the <a href="https://forum.proxmox.com/threads/problem-with-gpu-passthrough.55918/post-478351"><code>initcall_blacklist=sysfb_init</code></a> kernel parameter has been added to <code>grub.cfg</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>virt-manager</code>/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in <code>virt-manager</code>) must first be closed.</p>
+</li>
+<li>
+<p>Windows XP only: In <code>virt-manager</code>, the NIC device model must be <code>rtl8139</code>, and the sound card model as <code>AC97</code> in order for drivers to be installed.</p>
+</li>
+<li>
+<p>Nvidia Geforce Experience says 'Unsupported CPU':</p>
+<ul>
+<li>Change the CPU model in <code>virt-manager</code> (in the XML) to <code>host-model</code> (<a href="https://libvirt.org/formatdomain.html#cpu-model-and-topology">preferred</a>) or <code>host-passthrough</code>.</li>
+</ul>
+</li>
+<li>
+<p>Passthrough-ed USB devices, when disconnected, prevent the VM from booting</p>
+<ul>
+<li>Add <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-manipulating_the_domain_xml-devices#sect-Host_physical_machine_device_assignment-USB_PCI_devices"><code>startupPolicy="optional"</code></a> to the <code>&lt;source&gt;</code> tag in the XML for the passthrough-ed USB device</li>
+</ul>
+</li>
+<li>
+<p>Low FPS when display is set to 'Duplicate these displays':</p>
+<ul>
+<li>Change display settings to 'Extend these displays' instead. I suspect when displays are duplicated, the GPU works extra to render frames on both monitors, causing the FPS drop.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/virtualization_tuning_and_optimization_guide/index">Useful VM performance tuning options</a></p>
+<ul>
+<li>For example, setting multiple sockets with each having 1 CPU and 1 core is more efficient.</li>
+</ul>
+</li>
+<li>
+<p>Types of VM network connections compared:
+    <a class="glightbox" href="../../../../../static/images/2022-07-10/vm-networking.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-networking.png" /></a></p>
+</li>
+</ul>
+<p>For more information on the <code>libvirt</code> domain XML, check out the <a href="https://libvirt.org/formatdomain.html">documentation</a>.</p>
+<h3 id="apache-guacamole">Apache Guacamole</h3>
+<ul>
+<li>For RDP, 'Support audio in console' must be <strong>unchecked</strong> for sound to work.</li>
+</ul>
+<h3 id="steam-link">Steam Link</h3>
+<p><a href="https://store.steampowered.com/remoteplay#anywhere">Steam Link</a> is another solution for low latency desktop streaming, which is also available cross-platform. One advantage compared to <a href="https://moonlight-stream.org/">Moonlight</a> is that it works without a GPU installed (it uses <code>libx264</code> on the CPU). While the performance using a GPU (using <a href="https://en.wikipedia.org/wiki/Nvidia_NVENC">NVENC</a>) is roughly equivalent to Moonlight at the same bitrate, performance without a GPU leaves a lot to be desired, in terms of encoding time and therefore latency.</p>
+<figure>
+  <a class="glightbox" href="/static/images/2022-07-10/steamlink.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/steamlink.jpg" alt="Steam Link without GPU" loading="lazy"/></a>
+  <figcaption>Steam Link using <code>libx264</code> (CPU) encoding. <br/>Note the encoding latency of 130ms (game: Hearthstone)</figcaption>
+</figure>
+
+<p>Gaming (even light) is therefore not possible without a GPU. Even for non-gaming tasks, there is little reason not to use Remote Desktop/Apache Guacamole instead, which have much lower network bandwidth requirements.</p>
+<p>Steam Link also appears to render the cursor client-side, compared to Moonlight which renders the cursor on the server. This introduces some visible screen artifacts, as can be seen in the comparison images when the cursor is click-dragged rapidly (the desktop lags behind the cursor for Steam Link).</p>
+<figure>
+  <a class="glightbox" href="/static/images/2022-07-10/steamlink-cursor.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/steamlink-cursor.jpg" alt="Steam Link" loading="lazy"/></a>
+  <figcaption>Steam Link</figcaption>
+</figure>
+
+<figure>
+  <a class="glightbox" href="/static/images/2022-07-10/moonlight-cursor.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/moonlight-cursor.jpg" alt="Moonlight" loading="lazy"/></a>
+  <figcaption>Moonlight</figcaption>
+</figure>
+
+<p>One advantage of Steam Link however is that no port forwarding appears to be required, while Moonlight sometimes has issues with UDP port 47999 when on mobile data (from my experience).</p>
+<h3 id="misc">Misc</h3>
+<ul>
+<li>Connection speed: Moonlight &gt; Steam Link &gt;&gt; RDP &gt; Guacamole &gt; <code>virt-manager</code></li>
+</ul>
+<h2 id="credits">Credits</h2>
+<ul>
+<li><a href="https://forum.level1techs.com/t/fedora-33-ultimiate-vfio-guide-for-2020-2021-wip/163814">Fedora 33: Ultimiate VFIO Guide for 2020/2021 [WIP]</a></li>
+<li><a href="https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Setting_up_IOMMU">PCI passthrough via OVMF</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:default-network">
+<p>The default network (which you can view with <code>sudo virsh net-dumpxml default</code>) is configured with <a href="https://libvirt.org/formatnetwork.html#connectivity"><code>forward mode='nat'</code></a>, which allows outbound communication for guests, but not inbound communications (unless you configure computers on the LAN to use your host as a NAT).&#160;<a class="footnote-backref" href="#fnref:default-network" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+  
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/extrange/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:me@nicholaslyz.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.726fbb30.min.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
