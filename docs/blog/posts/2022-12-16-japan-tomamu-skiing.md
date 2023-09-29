@@ -1,5 +1,7 @@
 ---
 date: 2022-12-16
+categories:
+    - Outdoor
 ---
 
 # Club Med Tomamu Skiing

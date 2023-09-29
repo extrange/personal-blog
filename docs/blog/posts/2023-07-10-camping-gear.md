@@ -1,5 +1,8 @@
 ---
 date: 2023-07-10
+draft: true
+categories:
+    - Outdoor
 ---
 
 # Camping Gear and Lifestyle

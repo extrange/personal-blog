@@ -1,5 +1,7 @@
 ---
 date: 2021-12-25
+categories:
+    - Outdoor
 ---
 
 # Skiing in St Moritz, Switzerland

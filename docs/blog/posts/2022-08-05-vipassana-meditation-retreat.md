@@ -1,6 +1,7 @@
 ---
 categories:
     - Philosophy
+    - Outdoor
 date: 2022-08-05
 ---
 
