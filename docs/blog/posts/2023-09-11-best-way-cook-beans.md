@@ -49,7 +49,7 @@ Examples of heat-stable antinutrients include tannins (decreases iron absorption
 
 Examples of heat-sensitive antinutrients include lectins (which interfere with absorption of calcium, iron, phosphorus and zinc), and saponins (which interfere with normal nutrient absorption).
 
-Heat-stable antinutrients were best removed by a combination of soaking and cooking/autoclaving (60+%) [^2007], or sprouting > 24hr (87-100%).
+Heat-stable antinutrients were best removed by sprouting for 24hr or more (87-100%). The combination of soaking and cooking/autoclaving was less effective (60+%) [^2007].
 
 Heat-sensitive antinutrients were not significantly reduced by sprouting, but were removed almost totally by soaking and cooking/autoclaving.
 

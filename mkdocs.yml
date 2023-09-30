@@ -49,6 +49,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.arithmatex:
       generic: true
+  - md_in_html
+
 
 plugins:
   - search
@@ -63,6 +65,7 @@ plugins:
         - Philosophy
         - Programming
         - Outdoor
+        - Debates
       post_excerpt: required
       archive: false
   - redirects:
