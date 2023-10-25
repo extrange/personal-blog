@@ -26,8 +26,11 @@ The keyboard is perhaps the most frequently used peripheral, more so than the mo
 
 I remap the ++control++ + ++z++ ++x++ ++c++ ++v++ keys for copy/paste/undo-ing, and ++control++ + ++w++ ++t++ / ++control+shift+t++ for browsing, as their Qwerty locations are more convenient than their Dvorak equivalents.
 
+I also remap the ++caps-lock++ key to ++backspace++.
+
 ??? note "Configuration for Linux"
-I use [`keyd`][keyd] on a Dvorak layout with the following config in `/etc/keyd/default.conf`:
+
+    I use [`keyd`][keyd] on a Dvorak layout with the following config in `/etc/keyd/default.conf`:
 
     ```conf
     [ids]
@@ -46,6 +49,8 @@ I use [`keyd`][keyd] on a Dvorak layout with the following config in `/etc/keyd/
     [control_shift:C-S]
     t = C-S-k
     ```
+
+    Changing the ++caps-lock++ key behavior can be done in Gnome Tweaks, under Keyboard & Mouse > Additional Layout Options.
 
 **Window Managers: Tiling vs Stacking**
 
