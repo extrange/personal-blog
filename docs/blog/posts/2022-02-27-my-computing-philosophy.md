@@ -58,7 +58,7 @@ I also remap the ++caps-lock++ key to ++backspace++.
 
 A tiling window manager ([i3][i3] being the most popular example) arranges windows in a non-overlapping, grid-like pattern. This allows for more efficient use of screen space, as well as less mouse-keyboard switching.
 
-I was previously using [Pop!\_OS Shell][pop-shell], which is a GNOME extension, and planned to switch to [Sway][sway] in the future. However as of now I'm using a stacking window manager.
+I was previously using [Pop!\_OS Shell][pop-shell], which is a GNOME extension, and planned to switch to [Sway][sway] in the future. However, most of the time I use one window at a time, and ++alt++ + ++tab++ already works pretty well in that regard.
 
 **Text Editor: Vim/Vim-like**
 
@@ -66,9 +66,11 @@ I was previously using [Pop!\_OS Shell][pop-shell], which is a GNOME extension, 
 
 The program I use most frequently is the text editor, be it for programming or writing documents. Being able to type with just the keyboard, and not having to switch to the mouse for navigation allows me to focus more on what I am typing, and not having to think of reaching for my mouse. As a bonus, learning the Vim keybindings transfers naturally to other programs, such as Vim in Firefox, or the terminal file managers such as `ranger` and `nnn`, both of which feature Vim keybindings.
 
-Besides vanilla Vim, there are also other spin-off projects like [Neovim][neovim] and [SpaceVim][spacevim] which I'm considering learning.
+Besides vanilla Vim, there are also other spin-off projects like [Neovim][neovim] and [SpaceVim][spacevim].
 
-[Here][vim-tutorial] is a great tutorial I'm using to learn Vim.
+[Here][vim-tutorial] is a great tutorial I have used to learn Vim.
+
+I use VSCode with a Vim plugin for coding (rather than Vim or Neovim). The reason is that the plethora of features available in VSCode is hard to replicate in Neovim, at least not without extensive configuration changes, and I don't want to have another configuration file which I have to maintain when Vim/Neovim packages change.
 
 **Blue Light Filter: Flux/System Default**
 
@@ -101,9 +103,11 @@ The reasons remaining to use Windows have dwindled:
 
 -   Gaming: It is possible to [play on a Windows VM (with GPU passthrough) over the internet](2022-07-10-win11-vm-gpu-passthrough.md).
 -   Really obscure, closed source, Windows-only tools: Again, running them in a VM is possible.
--   Missing/substandard Linux device drivers[^linux-device-drivers]: A bit of a problem for some laptops, but for most desktops this is a non-issue.
+-   Missing/substandard Linux device drivers[^linux-device-drivers]: Potentially a problem for some laptops, but as time passes most hardware is already supported.
 
 In view of the above problems, I have decided to move to Linux.
+
+As of 2023 Nov I am making the switch to [NixOS], a distro which allows declarative configuration of not just packages but system and user settings.
 
 [^cloud-privacy]: Why not just store everything in the cloud? Because I don't trust Google (or Microsoft) with keeping the privacy of my data intact.
 [^package-manager]: [Chocolatey](https://chocolatey.org/) is a good try, however.
@@ -120,3 +124,4 @@ In view of the above problems, I have decided to move to Linux.
 [pop-shell]: https://github.com/pop-os/shell
 [i3]: https://i3wm.org/
 [sway]: https://swaywm.org/
+[NixOS]: https://nixos.org/
