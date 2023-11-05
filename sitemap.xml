@@ -306,6 +306,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://nicholaslyz.com/blog/2023/11/05/the-biohacker-lifestyle/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://nicholaslyz.com/blog/2023/09/29/doctors-and-bus-drivers/</loc>
          <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
@@ -316,17 +321,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://nicholaslyz.com/blog/category/cooking/</loc>
+         <lastmod>2023-11-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://nicholaslyz.com/blog/category/programming/</loc>
          <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://nicholaslyz.com/blog/category/debates/</loc>
-         <lastmod>2023-11-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://nicholaslyz.com/blog/category/cooking/</loc>
          <lastmod>2023-11-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
