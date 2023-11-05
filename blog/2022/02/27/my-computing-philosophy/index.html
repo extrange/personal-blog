@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.35e1ed30.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.356b1318.min.css">
@@ -400,6 +400,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../category/philosophy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Philosophy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../category/programming/" class="md-nav__link">
         
   
@@ -445,26 +465,6 @@
   
   <span class="md-ellipsis">
     Cooking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../category/philosophy/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Philosophy
   </span>
   
 
@@ -839,7 +839,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                           <span class="md-ellipsis">
                             
-                              4 min read
+                              5 min read
                             
                           </span>
                         </div>
@@ -874,12 +874,11 @@
 <p><a class="glightbox" href="../../../../../static/images/2022-02-27/keyboard.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-02-27/keyboard.jpg" /></a></p>
 <p>The keyboard is perhaps the most frequently used peripheral, more so than the mouse, and thus choosing an efficient layout is essential. I decided on Dvorak, as it resembles playing the piano - vowels are on the home row of the left hand, while the common consonants are on the right, and this allows for a more natural alternation compared to the Qwerty layout.</p>
 <p>I remap the <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-z">Z</kbd></span> <span class="keys"><kbd class="key-x">X</kbd></span> <span class="keys"><kbd class="key-c">C</kbd></span> <span class="keys"><kbd class="key-v">V</kbd></span> keys for copy/paste/undo-ing, and <span class="keys"><kbd class="key-control">Ctrl</kbd></span> + <span class="keys"><kbd class="key-w">W</kbd></span> <span class="keys"><kbd class="key-t">T</kbd></span> / <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-t">T</kbd></span> for browsing, as their Qwerty locations are more convenient than their Dvorak equivalents.</p>
+<p>I also remap the <span class="keys"><kbd class="key-caps-lock">Caps Lock</kbd></span> key to <span class="keys"><kbd class="key-backspace">Backspace</kbd></span>.</p>
 <details class="note">
 <summary>Configuration for Linux</summary>
-</details>
 <p>I use <a href="https://github.com/rvaiya/keyd"><code>keyd</code></a> on a Dvorak layout with the following config in <code>/etc/keyd/default.conf</code>:</p>
-<pre><code>```conf
-[ids]
+<div class="highlight"><pre><span></span><code>[ids]
 
 *
 
@@ -894,17 +893,19 @@ shift = layer(control_shift)
 
 [control_shift:C-S]
 t = C-S-k
-```
-</code></pre>
+</code></pre></div>
+<p>Changing the <span class="keys"><kbd class="key-caps-lock">Caps Lock</kbd></span> key behavior can be done in Gnome Tweaks, under Keyboard &amp; Mouse &gt; Additional Layout Options.</p>
+</details>
 <p><strong>Window Managers: Tiling vs Stacking</strong></p>
 <p><a class="glightbox" href="../../../../../static/images/2022-02-27/pop-shell.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-02-27/pop-shell.jpg" /></a></p>
 <p>A tiling window manager (<a href="https://i3wm.org/">i3</a> being the most popular example) arranges windows in a non-overlapping, grid-like pattern. This allows for more efficient use of screen space, as well as less mouse-keyboard switching.</p>
-<p>I was previously using <a href="https://github.com/pop-os/shell">Pop!_OS Shell</a>, which is a GNOME extension, and planned to switch to <a href="https://swaywm.org/">Sway</a> in the future. However as of now I'm using a stacking window manager.</p>
+<p>I was previously using <a href="https://github.com/pop-os/shell">Pop!_OS Shell</a>, which is a GNOME extension, and planned to switch to <a href="https://swaywm.org/">Sway</a> in the future. However, most of the time I use one window at a time, and <span class="keys"><kbd class="key-alt">Alt</kbd></span> + <span class="keys"><kbd class="key-tab">Tab</kbd></span> already works pretty well in that regard.</p>
 <p><strong>Text Editor: Vim/Vim-like</strong></p>
 <p><a class="glightbox" href="../../../../../static/images/2022-02-27/spacevim.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-02-27/spacevim.jpg" /></a></p>
 <p>The program I use most frequently is the text editor, be it for programming or writing documents. Being able to type with just the keyboard, and not having to switch to the mouse for navigation allows me to focus more on what I am typing, and not having to think of reaching for my mouse. As a bonus, learning the Vim keybindings transfers naturally to other programs, such as Vim in Firefox, or the terminal file managers such as <code>ranger</code> and <code>nnn</code>, both of which feature Vim keybindings.</p>
-<p>Besides vanilla Vim, there are also other spin-off projects like <a href="https://neovim.io/">Neovim</a> and <a href="https://spacevim.org/">SpaceVim</a> which I'm considering learning.</p>
-<p><a href="https://github.com/iggredible/Learn-Vim">Here</a> is a great tutorial I'm using to learn Vim.</p>
+<p>Besides vanilla Vim, there are also other spin-off projects like <a href="https://neovim.io/">Neovim</a> and <a href="https://spacevim.org/">SpaceVim</a>.</p>
+<p><a href="https://github.com/iggredible/Learn-Vim">Here</a> is a great tutorial I have used to learn Vim.</p>
+<p>I use VSCode with a Vim plugin for coding (rather than Vim or Neovim). The reason is that the plethora of features available in VSCode is hard to replicate in Neovim, at least not without extensive configuration changes, and I don't want to have another configuration file which I have to maintain when Vim/Neovim packages change.</p>
 <p><strong>Blue Light Filter: Flux/System Default</strong></p>
 <p>Blue light is a major disruptor of our circadian rhythms and as such this is one of the settings I quickly adjust on devices I use. <a href="https://justgetflux.com/">Flux</a> is a tool I use on Windows, and for Linux, Gnome already has a night light feature in-built.</p>
 <h2 id="remote-secure-personal-data-access">Remote, secure personal data access</h2>
@@ -927,9 +928,10 @@ t = C-S-k
 <ul>
 <li>Gaming: It is possible to <a href="../../../07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36/">play on a Windows VM (with GPU passthrough) over the internet</a>.</li>
 <li>Really obscure, closed source, Windows-only tools: Again, running them in a VM is possible.</li>
-<li>Missing/substandard Linux device drivers<sup id="fnref:linux-device-drivers"><a class="footnote-ref" href="#fn:linux-device-drivers">3</a></sup>: A bit of a problem for some laptops, but for most desktops this is a non-issue.</li>
+<li>Missing/substandard Linux device drivers<sup id="fnref:linux-device-drivers"><a class="footnote-ref" href="#fn:linux-device-drivers">3</a></sup>: Potentially a problem for some laptops, but as time passes most hardware is already supported.</li>
 </ul>
 <p>In view of the above problems, I have decided to move to Linux.</p>
+<p>As of 2023 Nov I am making the switch to <a href="https://nixos.org/">NixOS</a>, a distro which allows declarative configuration of not just packages but system and user settings.</p>
 <div class="footnote">
 <hr />
 <ol>
