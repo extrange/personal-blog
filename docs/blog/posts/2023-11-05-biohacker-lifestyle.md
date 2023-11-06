@@ -19,7 +19,7 @@ The benefits of this lifestyle include
 
 He lives a protocolized routine, which roughly resembles the following:
 
-**Morning Protocol**
+## Morning Protocol
 
 | Time          | Activity                                  | Notes                                                                                                        |
 | ------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -30,7 +30,7 @@ He lives a protocolized routine, which roughly resembles the following:
 | 08:11         | Remove from heat, start eating breakfast  |                                                                                                              |
 | 09:15 - 16:30 | Work                                      | No/minimal lunch if any at all                                                                               |
 
-**Evening Protocol**
+## Evening Protocol
 
 | Time          | Activity                            | Notes                                                                                                        |
 | ------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -52,16 +52,27 @@ Other notes:
 -   He found that fish provides the greatest level of satiety.
 -   An average of 4L of water is taken daily (in sips). No water 2 hours before bed.
 -   Playing [brown noise] not only helps block out neighbor's footsteps/noises but also improves concentration.
+-   He likened using social media (Facebook, Instagram) to taking sugar.
 -   He notes that this lifestyle is a privileged one, however.
 
 ## My takeaways
 
--   He sleeps very early, and wakes up early. If possible, I might want to emulate this, seeing as I am not very productive at night, and exposure to light after 6pm does adversely affect sleep. After all, sleep is the best nootropic.
--   He cuts off light exposure at 6pm. Since I sometimes have to go out to meet friends, I should consider wearing blue blocker glasses.
--   Varied diet: He takes not only legumes, but also sweet potatoes and grains, to have complete protein. I may want to rotate legumes with other grains.
--   Timing of diet: He eats most for breakfast, less for lunch, and no dinner. I sometimes eat after 6pm - I should stop.
--   Adherence to diet: I often end up eating outside food at gatherings, which is quite unhealthy at times (e.g. fried, refined or processed foods). I need to be stricter about this.
--   [Brown noise][brown noise]: I recently discovered this, and I believe it does help with sleep and concentration. I may want to invest in a better speaker for this.
+### Sleep
+
+-   **Sleep early, and wake up early.** I might want to emulate this, seeing as I am not very productive at night, and exposure to light after 6pm does adversely affect sleep. After all, sleep is the best nootropic.
+-   **Wear blue blocker glasses after 6pm.** He cuts off light exposure at 6pm. Since I sometimes have to go out to meet friends, I should consider wearing blue blocker glasses.
+-   **Have a consistent, relaxing bedtime ritual**. Ironically, inspired by this negative [review] for [The Circadion Code] by Satchin Panda.
+-   **Play [brown noise] at night.** I recently discovered this, and I believe it does help with sleep and concentration. I may want to invest in a better speaker for this.
+
+### Diet
+
+-   **Rotate legumes with other grains.** He takes not only legumes, but also sweet potatoes and grains, to have complete protein.
+-   **Eat breakfast, minimal lunch, no dinner.** He eats most for breakfast, less for lunch, and no dinner. I sometimes eat after 6pm - I should stop.
+-   **Adhere to diet as strictly as possible.** I often end up eating outside food at gatherings, which is quite unhealthy at times (e.g. fried, refined or processed foods). I need to be stricter about this.
+
+### Misc
+
+-   **Use timers to remind myself of routines.** This reduces the cognitive load of having to remember to meditate, buy vegetables, or other chores, and lets me live this schedule full autopilot.
 
 I'm probably not going to go full [Brian Johnson] and [take 111 pills daily, do 'IsoTib ankle rotations' or eat 2250 calories per day in a 6 hour period][blueprint] (actually, maybe the last), but I think the general principles of eating vegetables and reducing light exposure hold a lot of value in a society sometimes so obsessed with materialism, that we have sometimes forgotten how to live.
 
@@ -69,3 +80,5 @@ I'm probably not going to go full [Brian Johnson] and [take 111 pills daily, do 
 [brown noise]: https://www.nytimes.com/interactive/2022/09/23/well/mind/brown-noise.html
 [Brian Johnson]: https://www.gq-magazine.co.uk/lifestyle/article/bryan-johnson-millionaire-deaging-technology
 [Andrew Huberman]: https://www.hubermanlab.com/
+[review]: https://www.goodreads.com/review/show/3568678844
+[The Circadian Code]: https://www.goodreads.com/en/book/show/37534452
