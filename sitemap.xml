@@ -21,7 +21,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://nicholaslyz.com/my-diet/</loc>
+         <loc>https://nicholaslyz.com/my-lifestyle/</loc>
          <lastmod>2023-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -297,6 +297,11 @@
     </url>
     <url>
          <loc>https://nicholaslyz.com/blog/2023/10/17/syncthing-topology/</loc>
+         <lastmod>2023-11-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://nicholaslyz.com/blog/2023/10/24/designing-my-own-immutable-os/</loc>
          <lastmod>2023-11-06</lastmod>
          <changefreq>daily</changefreq>
     </url>

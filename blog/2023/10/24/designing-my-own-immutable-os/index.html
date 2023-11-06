@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog/2023/10/28/impersonation/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2023/10/24/designing-my-own-immutable-os/">
       
       
-        <link rel="prev" href="../../24/designing-my-own-immutable-os/">
+        <link rel="prev" href="../../17/syncing-my-kindle-with-calibre-web-koreader-and-syncthing/">
       
       
-        <link rel="next" href="../../../11/05/the-biohacker-lifestyle/">
+        <link rel="next" href="../../28/impersonation/">
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Impersonation - Nicholas</title>
+        <title>Designing my own immutable OS - Nicholas</title>
       
     
     
@@ -69,11 +69,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Impersonation - Nicholas" >
+        <meta  property="og:title"  content="Designing my own immutable OS - Nicholas" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2023-10-28-impersonation.png" >
+        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2023-10-24-custom-immutable-os.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -81,15 +81,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2023/10/28/impersonation/" >
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2023/10/24/designing-my-own-immutable-os/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Impersonation - Nicholas" >
+        <meta  name="twitter:title"  content="Designing my own immutable OS - Nicholas" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2023-10-28-impersonation.png" >
+        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2023-10-24-custom-immutable-os.png" >
       
     
     
@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#impersonation" class="md-skip">
+        <a href="#designing-my-own-immutable-os" class="md-skip">
           Skip to content
         </a>
       
@@ -157,7 +157,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Impersonation
+              Designing my own immutable OS
             
           </span>
         </div>
@@ -753,6 +753,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    Benefits
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -788,20 +803,10 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2023-10-28 00:00:00" class="md-ellipsis">October 28, 2023</time>
+                        <time datetime="2023-10-24 00:00:00" class="md-ellipsis">October 24, 2023</time>
                       </div>
                     </li>
                     
-                    
-                      <li class="md-nav__item">
-                        <div class="md-nav__link">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
-                          <span class="md-ellipsis">
-                            in
-                            
-                              <a href="../../../../category/philosophy/">Philosophy</a></span>
-                        </div>
-                      </li>
                     
                     
                       
@@ -830,13 +835,18 @@
         
 
 
-<h1 id="impersonation">Impersonation</h1>
-<p>Recently I read '<a href="https://www.goodreads.com/en/book/show/23019294">A Head Full of Ghosts</a>' by Paul Tremblay. It's a novel, similar to the Exorcist, but different in that the entire sequence of events has been filmed by a TV crew for a show, and one of the protagonist is actively critiquing the theatric aspect of the show, while narrating the actual creepy events.</p>
+<h1 id="designing-my-own-immutable-os">Designing my own immutable OS</h1>
+<p>What an immutable OS is
+Fedora Silverblue</p>
+<p>another user's experience with various customizations: https://wstyler.ucsd.edu/posts/silverblue_fixes.html</p>
+<p>Ublue - customization ability with recipe.yml (<code>startingpoint</code>)
+https://www.youtube.com/watch?v=PM5exNztbXE (Jorge's Guide to the Ultimate Silverblue Desktop)</p>
 <!-- more -->
 
-<p>One of the characters asks the question "When we go to heaven, how do we know that our relatives we meet there are really our relatives, and not just some demon impersonating them?". Supposed the demon never acted out of character; then, there would be no way to tell an impersonation apart.</p>
-<p>But then in real life, we do have instances of people acting 'out of character', or rather, abnormally. This can happen due to stress or illness. We wouldn't say or assume that the person in such a scenario is being impersonated in any way by anything. So why is it different in the case of the demonic possession?</p>
-<p>Perhaps, it is normal to act abnormally once in a while. And when someone is 'normal' for an extended period of time, like the quiet little girl in horror movies, then one suspects that something might really be afoot.</p>
+<h2 id="benefits">Benefits</h2>
+<p>possibly better performance</p>
+<p>update on reboot, containerization of everything</p>
+<p>cli tools need to be used in a toolbox</p>
 
 
   
