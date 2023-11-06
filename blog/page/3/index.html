@@ -756,13 +756,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#docker-containers-with-gpu-access-in-fedora" class="md-nav__link">
-    Docker Containers with GPU access in Fedora
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36" class="md-nav__link">
     Windows 11 Gaming VM with GPU Passthrough on Fedora 36
   </a>
@@ -825,6 +818,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#setup-ssh-with-certificates-on-windows-and-a-bit-of-linux" class="md-nav__link">
+    Setup SSH with Certificates on Windows (and a bit of Linux)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -839,48 +839,6 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2022-07-10 00:00:00">July 10, 2022</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/programming/" class="md-meta__link">Programming</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="docker-containers-with-gpu-access-in-fedora"><a class="toclink" href="../../2022/07/10/docker-containers-with-gpu-access-in-fedora/">Docker Containers with GPU access in Fedora</a></h2>
-<p>This guide will let you use a NVIDIA GPU in a Docker container (e.g. for Tensorflow/Pytorch).</p>
-<p>Prerequisites:</p>
-<ul>
-<li>Docker must be installed.</li>
-<li>You have a NVIDIA GPU.</li>
-</ul>
-
-    <nav class="md-post__action">
-      <a href="../../2022/07/10/docker-containers-with-gpu-access-in-fedora/">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1248,6 +1206,49 @@
 
     <nav class="md-post__action">
       <a href="../../2022/02/26/dualbooting-fedora-35-with-windows-11/">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2022-02-07 00:00:00">February 7, 2022</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/programming/" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              8 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setup-ssh-with-certificates-on-windows-and-a-bit-of-linux"><a class="toclink" href="../../2022/02/07/setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/">Setup SSH with Certificates on Windows (and a bit of Linux)</a></h2>
+<p>The <a href="https://www.ssh.com/academy/ssh/protocol">Secure Shell Protocol</a> (SSH) allows one to remotely access a terminal interface on a remote machine. In addition, it allows for capabilities such as port tunneling<sup id="fnref:port-tunneling"><a class="footnote-ref" href="../../2022/02/07/setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/#fn:port-tunneling">1</a></sup>, file transfers and screen forwarding.</p>
+<p>The main reasons for setting up SSH access on my machine were to allow me to:</p>
+<ul>
+<li>Access the filesystem remotely and transfer files</li>
+<li><a href="../../2022/02/07/vscode-remote-containers-over-ssh/">Develop on VSCode remotely, in Remote-Containers</a></li>
+<li>Tunnel ports to/from the remote machine (e.g., to access local applications only listening on <code>localhost</code>)</li>
+</ul>
+
+    <nav class="md-post__action">
+      <a href="../../2022/02/07/setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/">
         Continue reading
       </a>
     </nav>
