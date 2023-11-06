@@ -31,7 +31,7 @@ nav:
       - Photography: photography.md
       - Piano: piano.md
       - Dead Man's Switch: dead-mans-switch.md
-      - My Diet: my-diet.md
+      - My Lifestyle: my-lifestyle.md
 
 markdown_extensions:
   - abbr
@@ -110,7 +110,7 @@ plugins:
         "blog-posts/2022-07-10-docker-gpu-fedora.md": blog/posts/2022-07-10-docker-gpu-fedora.md
         "blog-posts/2022-07-10-win11-vm-gpu-passthrough.md": blog/posts/2022-07-10-win11-vm-gpu-passthrough.md
         "blog-posts/2022-07-18-android-vm-browser.md": blog/posts/2022-07-18-android-vm-browser.md
-        "blog-posts/2022-08-01-my-diet.md": my-diet.md
+        "blog-posts/2022-08-01-my-diet.md": my-lifestyle.md
         "blog-posts/2022-08-05-vipassana-meditation-retreat.md": blog/posts/2022-08-05-vipassana-meditation-retreat.md
         "blog-posts/2022-08-11-is-this-world-real.md": blog/posts/2022-08-11-is-this-world-real.md
         "blog-posts/2022-10-28-nutrition-and-health.md": blog/posts/2022-10-28-nutrition-and-health.md

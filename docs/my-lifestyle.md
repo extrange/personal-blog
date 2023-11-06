@@ -1,0 +1,73 @@
+# My Lifestyle
+
+Over the years I have been slowly incorporating various practices and routines which I have learnt about from [friends] and [scientific journals], to improve my physical and mental well-being.
+
+While there are many more potential changes that I could make with regards to this lifestyle to further optimize the benefits, I have decided to select the minimal set with the largest benefit to inconvenience ratio (as judged by myself).
+
+<!-- more -->
+
+## Morning Routine
+
+**Sunlight exposure**: Immediately after waking up, I try to head outside, such as when I cycle to work, or head to the market to get groceries.
+
+**Breakfast**: See [below](./my-lifestyle.md#breakfast).
+
+**Sunlight Exposure**: If possible, I try to go outdoors, to achieve a few hours of sunlight exposure, which helps in retraining the circadian rhythm.
+
+## Evening Routine
+
+**Avoid electronic distractions**: My phone is on DND with no notifications (except for critical ones) after 6pm.
+
+**Exercise**: I either cycle back from work, run or gym, as part of an effort to achieve 150-200 minutes of Zone 2 cardio weekly.
+
+**Meal prep**: I batch cook and freeze my lunches/dinners for about 4-7 days worth at a time. This lets me take advantage of food on offer, as I can buy more in bulk and freeze them. It also reduces the bulk of the vegetables, saving space in the fridge.
+
+**Avoid blue light from 630pm**: Blue light adverse affects the circadian rhythm and subsequent sleep quality. I use incandescent lighting indoors. I try to avoid using my phone/computer if possible. If I have to head out, I wear [blue blocker glasses].
+
+**Warm shower**: This prevents an adrenaline surge at night (compared to a cold shower).
+
+**Meditation/Relaxation**: There are many [benefits of meditation].
+
+**[Brown noise]**: Playing this helps drown out distracting noises, common where I am.
+
+**Reading**: Then, the rest of the time before bed is spent reading, usually on my Kindle.
+
+## Diet
+
+**Legumes/wholegrains, vegetables, tofu and protein (chicken/fish)**: I aim for at least [~100g of protein][protein] and 30g of dietary fibre per day. To minimize antinutrients and maximize nutrients I follow [certain practices][cooking-beans] when preparing the legumes.
+
+Consuming a variety of vegetables is important, as a single vegetable seldom contains [all the necessary vitamins/nutrients][nutrients].
+
+**Intermittent Fasting**: I [intermittent fast][if-schedule], following the [16/8][16/8] schedule (time restricted eating). I eat the most at breakfast, less at lunch, and skip dinner. From 12nn onwards to the next morning, I only drink water/tea, and I do not take any food. *I was previously doing IF for lunch/dinner, but recently shifted the window earlier as an empty stomach before bed improves my sleep.*
+
+### Breakfast
+
+<figure>
+  <div style="max-width: 400px"><img src="/static/images/2022-08-01/lunch.jpg" alt="Lunch" loading="lazy"/></div>
+  <figcaption>Mixed beans with steel-cut oats, chia seeds, psyllium husk powder, fruits, tau kwa and vegetables (old recipe)<figcaption/>
+</figure>
+
+This is the largest meal of the day for me, and the most important for fibre and protein, consisting of lentils, tau kwa, eggs and fruits. I sometimes drink [tea](blog/posts/2022-10-28-nutrition-and-health.md#tea).
+
+View my [recipe here][recipe].
+
+### Lunch/Late Morning Snack
+
+I eat either or both of a protein e.g. chicken breast, fatty fish (mackerel/salmon/canned sardines), or a boiled soup of corn, carrots, sweet potatoes and potatoes, to achieve a good [balance of nutrients][nutrients].
+
+Occasionally I take supplements e.g. [fish oil][fish-oil].
+
+I stop eating by about 12 noon.
+
+[16/8]: https://www.healthline.com/nutrition/16-8-intermittent-fasting
+[fish-oil]: blog/posts/2022-10-28-nutrition-and-health.md#omega-3
+[if-schedule]: blog/posts/2022-10-28-nutrition-and-health.md#timingintermittent-fasting
+[protein]: blog/posts/2022-10-28-nutrition-and-health.md#protein
+[recipe]: https://recipes.nicholaslyz.com/explore/recipes/bbc37612-578a-41ef-ae07-e561dc32ef20/mixed-beans-lentils-wholegrains-with-fruits-and-tau-kwa
+[nutrients]: blog/posts/2022-10-28-nutrition-and-health.md#comparison-of-various-nutrients-across-major-staple-foods
+[cooking-beans]: blog/posts/2023-09-11-best-way-cook-beans.md
+[friends]: blog/posts/2023-11-05-biohacker-lifestyle.md
+[scientific journals]: blog/posts/2022-10-28-nutrition-and-health.md
+[benefits of meditation]: blog/posts/2022-08-05-vipassana-meditation-retreat.md
+[blue blocker glasses]: https://optimizeyourbiology.com/blue-blocker-database
+[Brown noise]: https://www.nytimes.com/interactive/2022/09/23/well/mind/brown-noise.html

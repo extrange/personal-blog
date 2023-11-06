@@ -82,8 +82,7 @@ Recently, I have found [skiing][skiing] to be quite enjoyable.
 [language-models]: blog/posts/2022-03-30-artificial-intelligence-language-models.md
 [huggingface-models]: https://huggingface.co/models
 [ergonomics]: blog/posts/2022-02-27-my-computing-philosophy.md#ergonomicity
-[my-diet]: my-diet.md
+[my-diet]: my-lifestyle.md#diet
 [meditation-retreat]: blog/posts/2022-08-05-vipassana-meditation-retreat.md
-[mountaineering]: mountaineering.md
 [skiing]: blog/posts/2021-12-25-skiing-switzerland.md
 [ibkr-docker]: https://github.com/extrange/ibkr-docker
