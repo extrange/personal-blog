@@ -7,8 +7,8 @@ date: 2022-05-22
 # My Self-Hosting Journey
 
 <figure>
-  <img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/>
-  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+  <img src="/static/images/2022-05-22/sysmon.jpg" alt="System Monitoring with btop" loading="lazy"/>
+  <figcaption>System monitoring with btop</figcaption>
 </figure>
 
 Self-hosting your own services has been catching up in popularity: the [selfhosted subreddit][selfhosted] has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge [list][awesome-selfhosted] here).
@@ -37,7 +37,10 @@ In addition, I have ~ [30TB of storage](#storage-and-backup) in a RAID1 configur
 
 ## Hosted Services
 
-![](../../static/images/2022-05-22/sysmon.jpg)
+<figure>
+  <img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/>
+  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+</figure>
 
 I use [Dashy][dashy] to display all the hosted web services on [my site](https://home.nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request] to a Django backend.
 
@@ -150,19 +153,30 @@ Mobile SSH access is via [Termux][termux], a terminal emulator for Android which
 
 ### Terminal UI
 
-I use [tmux][tmux], a terminal multiplexer, which allows me to keep terminal sessions running on the server on connection close (even if by accident), and resume them from another computer. I use a `.bashrc` config to load [tmux][tmux] on interactive logins.
+![](../../static/images/2022-05-22/terminal.jpg)
+
+I use [Zellij], a terminal multiplexer, which allows me to keep terminal sessions running on the server on connection close (even if by accident), and resume them from another computer.
 
 ??? note "`.bashrc` Configuration"
 
     ```bash
-    # Since tmux also runs .bashrc, we need to check we are not in tmux
-    # Other checks are to make sure these commands only run in interactive shells
-    if [[ $- == *i* ]] && [[ -n $SSH_CONNECTION ]] && [[ -z "$TMUX" ]]; then
-        tmux new-session -A
+    # Only run in interactive shells, and not in VSCode
+    if [[ $- == *i* ]] && [[ -z $VSCODE_INJECTION ]]; then
+     eval "$(zellij setup --generate-auto-start bash)"
     fi
     ```
 
-Finally, I use [Powerline][powerline], a great status plugin showing CPU/memory/uptime stats, on `bash` and [tmux][tmux].
+For my shell prompt, I use [Starship], a minimalist prompt which shows directory paths, container environment indicators and current `git` branches by default.
+
+_I was previously using [tmux] and [Powerline]._
+
+[^smr]: SMR drives have a much greater [write penalty][smr] compared to CMR/PMR drives.
+[^bit-rot]: If some bits in one of the drives were to fail (e.g. due to [bit rot](https://en.wikipedia.org/wiki/Bit_rot)), `dmraid` would not know which drive contains the correct data as it operates below the filesystem layer.
+[^btrbk-issue]: There is an issue with [`btrbk` not sending snapshots without direct parent-child uuid link when using `resume`][btrbk-issue]. To get around this, I use `archive` initially to copy snapshots over to the external drive.
+[^cryptsetup-partition]: The reason I do not use `cryptsetup` (or `dmcrypt`) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.
+[^nfs-issues]: Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the [fix](https://unix.stackexchange.com/questions/276292/need-permission-for-windows-client-to-access-linux-nfs).
+[^pam-issues]: By default, SELinux [blocks](https://github.com/google/google-authenticator-libpam/issues/101) `sshd` from reading the `.google_authenticator` file in the home directory. One [workaround] is to place the file in the `.ssh` directory instead.
+[^mosh]: Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).
 
 [awesome-selfhosted]: https://github.com/awesome-selfhosted/awesome-selfhosted
 [btrbk-issue]: https://github.com/digint/btrbk/issues/339#issuecomment-1332137961
@@ -177,18 +191,13 @@ Finally, I use [Powerline][powerline], a great status plugin showing CPU/memory/
 [mosh]: https://mosh.org/
 [nfs]: https://en.wikipedia.org/wiki/Network_File_System
 [nginx-auth-request]: http://nginx.org/en/docs/http/ngx_http_auth_request_module.html
-[powerline]: https://github.com/powerline/powerline
+[Powerline]: https://github.com/powerline/powerline
 [selfhosted]: https://www.reddit.com/r/selfhosted/
 [smr]: https://www.reddit.com/r/DataHoarder/comments/o5bmcu/comment/h2nfiwq/
 [systemd.timer]: https://opensource.com/article/20/7/systemd-timers
 [termux]: https://termux.com/
 [tmux]: https://github.com/tmux/tmux/wiki
 [uptime-kuma]: https://github.com/louislam/uptime-kuma
-
-[^smr]: SMR drives have a much greater [write penalty][smr] compared to CMR/PMR drives.
-[^bit-rot]: If some bits in one of the drives were to fail (e.g. due to [bit rot](https://en.wikipedia.org/wiki/Bit_rot)), `dmraid` would not know which drive contains the correct data as it operates below the filesystem layer.
-[^btrbk-issue]: There is an issue with [`btrbk` not sending snapshots without direct parent-child uuid link when using `resume`][btrbk-issue]. To get around this, I use `archive` initially to copy snapshots over to the external drive.
-[^cryptsetup-partition]: The reason I do not use `cryptsetup` (or `dmcrypt`) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.
-[^nfs-issues]: Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the [fix](https://unix.stackexchange.com/questions/276292/need-permission-for-windows-client-to-access-linux-nfs).
-[^pam-issues]: On Fedora, Google Authenticator PAM has some [issues](https://github.com/google/google-authenticator-libpam/issues/101) with SELinux security configurations and so I use a [workaround](https://github.com/google/google-authenticator-libpam/issues/101#issuecomment-997533681).
-[^mosh]: Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).
+[workaround]: https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-factor-authentication-for-ssh-on-centos-8#step-1-installing-google-s-pam
+[Zellij]: https://zellij.dev/
+[Starship]: https://starship.rs/

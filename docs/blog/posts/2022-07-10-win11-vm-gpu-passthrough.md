@@ -283,15 +283,19 @@ To setup Samba:
     sudo dnf install samba samba-common
     ```
 
-2.  Set the correct SELinux contexts for the directories you wish to share (in this example `/mnt/storage`):
+2.  Set the correct SELinux contexts/[booleans] for the directories you wish to share (in this example `/mnt/storage`):
 
     ```bash
+    # Allow samba to share any file/directory read/write:
+    sudo setsebool -P samba_export_all_rw 1
+
+    # Alternatively, if you want to restrict permissions to a directory:
     sudo chcon -R -t samba_share_t /mnt/storage
     ```
 
     ??? warning "SSH and SELinux"
 
-        If you are executing the above command on your `home` directory, be careful to restore SELinux contexts for the `.ssh` directory:
+        If you are executing the `chcon` command above on your `home` directory, be careful to restore SELinux contexts for the `.ssh` directory:
 
         ```bash
         sudo restorecon -r .ssh
@@ -501,3 +505,4 @@ One advantage of Steam Link however is that no port forwarding appears to be req
 [netmaker]: https://github.com/gravitl/netmaker/
 [netmaker-claim]: https://medium.com/netmaker/battle-of-the-vpns-which-one-is-fastest-speed-test-21ddc9cd50db
 [gpu-scheduling]: https://github.com/moonlight-stream/nvidia-gamestream-issues/issues/27
+[booleans]: https://linux.die.net/man/8/samba_selinux
