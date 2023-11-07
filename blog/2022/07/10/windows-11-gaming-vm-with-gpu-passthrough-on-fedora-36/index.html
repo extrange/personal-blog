@@ -1184,12 +1184,16 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 </code></pre></div>
 </li>
 <li>
-<p>Set the correct SELinux contexts for the directories you wish to share (in this example <code>/mnt/storage</code>):</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </span>-t<span class="w"> </span>samba_share_t<span class="w"> </span>/mnt/storage
+<p>Set the correct SELinux contexts/<a href="https://linux.die.net/man/8/samba_selinux">booleans</a> for the directories you wish to share (in this example <code>/mnt/storage</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Allow samba to share any file/directory read/write:</span>
+sudo<span class="w"> </span>setsebool<span class="w"> </span>-P<span class="w"> </span>samba_export_all_rw<span class="w"> </span><span class="m">1</span>
+
+<span class="c1"># Alternatively, if you want to restrict permissions to a directory:</span>
+sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </span>-t<span class="w"> </span>samba_share_t<span class="w"> </span>/mnt/storage
 </code></pre></div>
 <details class="warning">
 <summary>SSH and SELinux</summary>
-<p>If you are executing the above command on your <code>home</code> directory, be careful to restore SELinux contexts for the <code>.ssh</code> directory:</p>
+<p>If you are executing the <code>chcon</code> command above on your <code>home</code> directory, be careful to restore SELinux contexts for the <code>.ssh</code> directory:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>restorecon<span class="w"> </span>-r<span class="w"> </span>.ssh
 </code></pre></div>
 <p>Otherwise, <code>sshd</code> will be <strong>denied access</strong> to <code>authorized_keys</code> and you will lose login via SSH!</p>

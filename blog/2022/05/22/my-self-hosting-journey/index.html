@@ -895,8 +895,8 @@
 
 <h1 id="my-self-hosting-journey">My Self-Hosting Journey</h1>
 <figure>
-  <a class="glightbox" href="/static/images/2022-05-22/dashy.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/></a>
-  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+  <a class="glightbox" href="/static/images/2022-05-22/sysmon.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/sysmon.jpg" alt="System Monitoring with btop" loading="lazy"/></a>
+  <figcaption>System monitoring with btop</figcaption>
 </figure>
 
 <p>Self-hosting your own services has been catching up in popularity: the <a href="https://www.reddit.com/r/selfhosted/">selfhosted subreddit</a> has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge <a href="https://github.com/awesome-selfhosted/awesome-selfhosted">list</a> here).</p>
@@ -917,7 +917,11 @@
 <p>Total cost of the above was SGD $830.</p>
 <p>In addition, I have ~ <a href="#storage-and-backup">30TB of storage</a> in a RAID1 configuration assembled from various drives.</p>
 <h2 id="hosted-services">Hosted Services</h2>
-<p><a class="glightbox" href="../../../../../static/images/2022-05-22/sysmon.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-05-22/sysmon.jpg" /></a></p>
+<figure>
+  <a class="glightbox" href="/static/images/2022-05-22/dashy.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/></a>
+  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+</figure>
+
 <p>I use <a href="https://github.com/Lissy93/dashy">Dashy</a> to display all the hosted web services on <a href="https://home.nicholaslyz.com">my site</a>. Authentication is via <code>nginx</code>'s <a href="http://nginx.org/en/docs/http/ngx_http_auth_request_module.html"><code>auth_request</code></a> to a Django backend.</p>
 <p>All hosted services are in Docker containers with limited permissions to reduce the possible attack surface, with logs all redirected to the <code>systemd</code> journal, with the <a href="https://docs.docker.com/config/containers/logging/journald/"><code>journald</code> driver</a>.</p>
 <h2 id="uptime-monitoring">Uptime Monitoring</h2>
@@ -997,17 +1001,18 @@ btrfs<span class="w"> </span>send<span class="w"> </span>-p<span class="w"> </sp
 <h3 id="mobile">Mobile</h3>
 <p>Mobile SSH access is via <a href="https://termux.com/">Termux</a>, a terminal emulator for Android which features <a href="https://mosh.org/">Mosh</a><sup id="fnref:mosh"><a class="footnote-ref" href="#fn:mosh">7</a></sup> pre-installed.</p>
 <h3 id="terminal-ui">Terminal UI</h3>
-<p>I use <a href="https://github.com/tmux/tmux/wiki">tmux</a>, a terminal multiplexer, which allows me to keep terminal sessions running on the server on connection close (even if by accident), and resume them from another computer. I use a <code>.bashrc</code> config to load <a href="https://github.com/tmux/tmux/wiki">tmux</a> on interactive logins.</p>
+<p><a class="glightbox" href="../../../../../static/images/2022-05-22/terminal.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-05-22/terminal.jpg" /></a></p>
+<p>I use <a href="https://zellij.dev/">Zellij</a>, a terminal multiplexer, which allows me to keep terminal sessions running on the server on connection close (even if by accident), and resume them from another computer.</p>
 <details class="note">
 <summary><code>.bashrc</code> Configuration</summary>
-<div class="highlight"><pre><span></span><code><span class="c1"># Since tmux also runs .bashrc, we need to check we are not in tmux</span>
-<span class="c1"># Other checks are to make sure these commands only run in interactive shells</span>
-<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$-</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*i*<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$SSH_CONNECTION</span><span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$TMUX</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span>tmux<span class="w"> </span>new-session<span class="w"> </span>-A
+<div class="highlight"><pre><span></span><code><span class="c1"># Only run in interactive shells, and not in VSCode</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$-</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>*i*<span class="w"> </span><span class="o">]]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="nv">$VSCODE_INJECTION</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w"> </span><span class="nb">eval</span><span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>zellij<span class="w"> </span>setup<span class="w"> </span>--generate-auto-start<span class="w"> </span>bash<span class="k">)</span><span class="s2">&quot;</span>
 <span class="k">fi</span>
 </code></pre></div>
 </details>
-<p>Finally, I use <a href="https://github.com/powerline/powerline">Powerline</a>, a great status plugin showing CPU/memory/uptime stats, on <code>bash</code> and <a href="https://github.com/tmux/tmux/wiki">tmux</a>.</p>
+<p>For my shell prompt, I use <a href="https://starship.rs/">Starship</a>, a minimalist prompt which shows directory paths, container environment indicators and current <code>git</code> branches by default.</p>
+<p><em>I was previously using <a href="https://github.com/tmux/tmux/wiki">tmux</a> and <a href="https://github.com/powerline/powerline">Powerline</a>.</em></p>
 <div class="footnote">
 <hr />
 <ol>
@@ -1027,7 +1032,7 @@ btrfs<span class="w"> </span>send<span class="w"> </span>-p<span class="w"> </sp
 <p>Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the <a href="https://unix.stackexchange.com/questions/276292/need-permission-for-windows-client-to-access-linux-nfs">fix</a>.&#160;<a class="footnote-backref" href="#fnref:nfs-issues" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:pam-issues">
-<p>On Fedora, Google Authenticator PAM has some <a href="https://github.com/google/google-authenticator-libpam/issues/101">issues</a> with SELinux security configurations and so I use a <a href="https://github.com/google/google-authenticator-libpam/issues/101#issuecomment-997533681">workaround</a>.&#160;<a class="footnote-backref" href="#fnref:pam-issues" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>By default, SELinux <a href="https://github.com/google/google-authenticator-libpam/issues/101">blocks</a> <code>sshd</code> from reading the <code>.google_authenticator</code> file in the home directory. One <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-factor-authentication-for-ssh-on-centos-8#step-1-installing-google-s-pam">workaround</a> is to place the file in the <code>.ssh</code> directory instead.&#160;<a class="footnote-backref" href="#fnref:pam-issues" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 <li id="fn:mosh">
 <p>Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).&#160;<a class="footnote-backref" href="#fnref:mosh" title="Jump back to footnote 7 in the text">&#8617;</a></p>
