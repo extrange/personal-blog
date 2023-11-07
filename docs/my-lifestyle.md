@@ -16,7 +16,7 @@ While there are many more potential changes that I could make with regards to th
 
 ## Evening Routine
 
-**Avoid electronic distractions**: My phone is on DND with no notifications (except for critical ones) after 6pm.
+**Avoid electronic distractions**: My phone is on DND with no notifications (except for critical ones) after 6pm. Surprises late in the day can ruin subsequent sleep.
 
 **Exercise**: I either cycle back from work, run or gym, as part of an effort to achieve 150-200 minutes of Zone 2 cardio weekly.
 
@@ -38,7 +38,7 @@ While there are many more potential changes that I could make with regards to th
 
 Consuming a variety of vegetables is important, as a single vegetable seldom contains [all the necessary vitamins/nutrients][nutrients].
 
-**Intermittent Fasting**: I [intermittent fast][if-schedule], following the [16/8][16/8] schedule (time restricted eating). I eat the most at breakfast, less at lunch, and skip dinner. From 12nn onwards to the next morning, I only drink water/tea, and I do not take any food. *I was previously doing IF for lunch/dinner, but recently shifted the window earlier as an empty stomach before bed improves my sleep.*
+**Intermittent Fasting**: I [intermittent fast][if-schedule], following the [16/8][16/8] schedule (time restricted eating). I eat the most at breakfast, less at lunch, and skip dinner. From 12nn onwards to the next morning, I only drink water/tea, and I do not take any food. _I was previously doing IF for lunch/dinner, but recently shifted the window earlier as an empty stomach before bed improves my sleep._
 
 ### Breakfast
 
@@ -58,6 +58,10 @@ I eat either or both of a protein e.g. chicken breast, fatty fish (mackerel/salm
 Occasionally I take supplements e.g. [fish oil][fish-oil].
 
 I stop eating by about 12 noon.
+
+## Reminders
+
+I schedule reminders at fixed days on my calendar for chores like grocery shopping, soaking and cooking lentils. This helps me plan the rest of my schedule around those chores.
 
 [16/8]: https://www.healthline.com/nutrition/16-8-intermittent-fasting
 [fish-oil]: blog/posts/2022-10-28-nutrition-and-health.md#omega-3
