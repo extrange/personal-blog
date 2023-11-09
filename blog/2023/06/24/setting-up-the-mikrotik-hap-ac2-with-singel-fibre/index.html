@@ -960,11 +960,11 @@
 <p>Power on the ONT and Mikrotik router. Now, either connect your PC to the LAN, or the SSID emitted by the Mikrotik router (the name should be obvious).</p>
 <h3 id="2-access-console">2. Access Console</h3>
 <p>From here, you have 2 ways of accessing the terminal interface.</p>
-<pre><code>- Option 1: Browse to `192.168.88.1`, click 'Ok' and then click on the 'Terminal' button.
-- Option 2: `ssh` to `admin@192.168.88.1`.
-
-You can read more about the terminal commands [here][console].
-</code></pre>
+<ul>
+<li>Option 1: Browse to <code>192.168.88.1</code>, click 'Ok' and then click on the 'Terminal' button.</li>
+<li>Option 2: <code>ssh</code> to <code>admin@192.168.88.1</code>.</li>
+</ul>
+<p>You can read more about the terminal commands <a href="https://help.mikrotik.com/docs/display/ROS/Command+Line+Interface">here</a>.</p>
 <p>Once you can access the terminal, run the following command:</p>
 <div class="highlight"><pre><span></span><code>[admin@MikroTik] &gt; interface/bridge/port print
 </code></pre></div>

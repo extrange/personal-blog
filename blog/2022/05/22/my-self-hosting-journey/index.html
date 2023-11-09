@@ -996,8 +996,9 @@ btrfs<span class="w"> </span>send<span class="w"> </span>-p<span class="w"> </sp
 <p><strong>Maintenance</strong></p>
 <p>I run <a href="https://btrfs.readthedocs.io/en/latest/btrfs-scrub.html"><code>btrfs scrub</code></a> monthly via a <code>systemd.timer</code>.</p>
 <h2 id="ssh-access">SSH Access</h2>
-<p>SSH access to my server is available via public keys, password access with 2FA (provided via <a href="https://github.com/google/google-authenticator-libpam">Google Authenticator PAM</a><sup id="fnref:pam-issues"><a class="footnote-ref" href="#fn:pam-issues">6</a></sup>) and Web terminal access via <a href="../../../07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36/#5-setup-apache-guacamole">Apache Guacamole</a>.</p>
+<p>SSH access to my server is available via public keys and password access with 2FA (provided via <a href="https://github.com/google/google-authenticator-libpam">Google Authenticator PAM</a><sup id="fnref:pam-issues"><a class="footnote-ref" href="#fn:pam-issues">6</a></sup>).</p>
 <p>I previously used <a href="../../../02/07/setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/">SSH with certificates</a>, however it does not allow me to revoke access as easily as public keys.</p>
+<p>I run <a href="https://github.com/skeeto/endlessh">Endlessh</a>, an SSH tarpit, on port <code>22</code> to waste attackers' time and keep my <code>journald</code> logs cleaner, while my <code>sshd</code> is configured to listen on another port.</p>
 <h3 id="mobile">Mobile</h3>
 <p>Mobile SSH access is via <a href="https://termux.com/">Termux</a>, a terminal emulator for Android which features <a href="https://mosh.org/">Mosh</a><sup id="fnref:mosh"><a class="footnote-ref" href="#fn:mosh">7</a></sup> pre-installed.</p>
 <h3 id="terminal-ui">Terminal UI</h3>
