@@ -143,9 +143,11 @@ I run [`btrfs scrub`][btrfs-scrub] monthly via a `systemd.timer`.
 
 ## SSH Access
 
-SSH access to my server is available via public keys, password access with 2FA (provided via [Google Authenticator PAM][google-authenticator-pam][^pam-issues]) and Web terminal access via [Apache Guacamole](./2022-07-10-win11-vm-gpu-passthrough.md#5-setup-apache-guacamole).
+SSH access to my server is available via public keys and password access with 2FA (provided via [Google Authenticator PAM][google-authenticator-pam][^pam-issues]).
 
 I previously used [SSH with certificates](./2022-02-07-ssh-with-certificates.md), however it does not allow me to revoke access as easily as public keys.
+
+I run [Endlessh], an SSH tarpit, on port `22` to waste attackers' time and keep my `journald` logs cleaner, while my `sshd` is configured to listen on another port.
 
 ### Mobile
 
@@ -201,3 +203,4 @@ _I was previously using [tmux] and [Powerline]._
 [workaround]: https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-factor-authentication-for-ssh-on-centos-8#step-1-installing-google-s-pam
 [Zellij]: https://zellij.dev/
 [Starship]: https://starship.rs/
+[Endlessh]: https://github.com/skeeto/endlessh

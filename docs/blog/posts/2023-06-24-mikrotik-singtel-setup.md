@@ -40,10 +40,10 @@ Power on the ONT and Mikrotik router. Now, either connect your PC to the LAN, or
 
 From here, you have 2 ways of accessing the terminal interface.
 
-    - Option 1: Browse to `192.168.88.1`, click 'Ok' and then click on the 'Terminal' button.
-    - Option 2: `ssh` to `admin@192.168.88.1`.
+- Option 1: Browse to `192.168.88.1`, click 'Ok' and then click on the 'Terminal' button.
+- Option 2: `ssh` to `admin@192.168.88.1`.
 
-    You can read more about the terminal commands [here][console].
+You can read more about the terminal commands [here][console].
 
 Once you can access the terminal, run the following command:
 
