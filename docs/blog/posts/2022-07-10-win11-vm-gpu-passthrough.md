@@ -4,7 +4,7 @@ categories:
 date: 2022-07-10
 ---
 
-# Windows 11 Gaming VM with GPU Passthrough on Fedora 36
+# Windows 11 Gaming VM with GPU Passthrough on Fedora Linux
 
 <figure>
   <img src="/static/images/2022-07-10/demo.jpg" alt="Gaming on a laptop remotely over Nvidia Gamestream" loading="lazy"/>
@@ -14,7 +14,7 @@ date: 2022-07-10
 After completing this guide, you will have a Windows 11 **headless** virtual machine that can be accessed via:
 
 -   [Moonlight][moonlight]/[Steam Link][steam-link] for high performance gaming
--   RDP for less demanding tasks
+-   Remote Desktop (RDP) for less demanding tasks
 -   RDP over a web browser (via [Apache Guacamole][apache-guacamole])
 
 <!-- more -->
@@ -204,9 +204,9 @@ Then, open GeForce Experience, and under 'Settings > SHIELD', enable 'Gamestream
 
 ## 5. Setup Overlay Mesh Network (aka Peer-to-Peer VPN)
 
-We will now setup a peer-to-peer VPN, which will let us access Moonlight both within the LAN and from the internet, without worrying about port forwarding or firewall configurations.
+We will now setup a peer-to-peer VPN, which will let us access our server anywhere in the world, without worrying about port forwarding or firewall configurations.
 
-??? note "Rationale"
+??? note "Technical Info"
 
     Moonlight requires [certain ports][moonlight-ports] to be forwarded on your router, in order for the PC to be accessible over the internet.
 
@@ -216,16 +216,16 @@ We will now setup a peer-to-peer VPN, which will let us access Moonlight both wi
 
     However, sometimes port forwarding may not work due to [NATs][nat], your ISP blocking ports, or firewalls.
 
-    Therefore, a better solution is to use a peer-to-peer VPN provider, which utilize [NAT traversal][nat-traversal] techniques such as [UDP hole punching][udp-hole-punching] to connect to hosts behind NATs/firewalls.
+    Therefore, a better solution is to use a peer-to-peer VPN provider, which utilizes [NAT traversal][nat-traversal] techniques such as [UDP hole punching][udp-hole-punching] to connect to hosts behind NATs/firewalls.
 
-    - [ZeroTier][zerotier]: partially open-source, freemium
-    - [Tailscale][tailscale]: partially open-source, freemium
+    - [Tailscale][tailscale]: Windows, Linux and Android clients. Easiest to setup.
+    - [ZeroTier][zerotier]: Similar to Tailscale
     - [Nebula][nebula]: open-source
     - [Netmaker][netmaker]: open-source, [claims to be the fastest][netmaker-claim]
 
-    Overhead is minimal, as these tools connect directly if possible, using a relay only as a backup.
+    Latency is minimal, as these tools connect directly if possible, using a relay only as a backup.
 
-[ZeroTier][zerotier] is one such solution, and you can follow the [guide from the Moonlight docs][zerotier-guide].
+I recommend using [Tailscale][tailscale].
 
 After setting up the peer-to-peer VPN of your choice, download the [Moonlight][moonlight] client on another computer/device, and verify that streaming works.
 
@@ -459,6 +459,10 @@ Steam Link also appears to render the cursor client-side, compared to Moonlight 
 
 One advantage of Steam Link however is that no port forwarding appears to be required, while Moonlight sometimes has issues with UDP port 47999 when on mobile data (from my experience).
 
+### Tailscale latency issues
+
+At times, Tailscale may not be able to achieve a direct connection (e.g. due to a [hard NAT]), and will fallback to using a relay. This can be seen with `tailscale status`. This is sometimes annoying, and made complicated by the fact that when running the VM behind the same NAT as the host (e.g. behind the same network), you can only forward port `41641` (used for the Wireguard connection) to one device (either the host, or the VM's `macvtap` adapter). I've tried [changing the listen port] to `41640` for the VM, and despite being able to achieve connectivity via `nc`, Tailscale still intermittently refuses to use that port.
+
 ### Misc
 
 -   Connection speed: Moonlight > Steam Link >> RDP > Guacamole > `virt-manager`
@@ -506,3 +510,5 @@ One advantage of Steam Link however is that no port forwarding appears to be req
 [netmaker-claim]: https://medium.com/netmaker/battle-of-the-vpns-which-one-is-fastest-speed-test-21ddc9cd50db
 [gpu-scheduling]: https://github.com/moonlight-stream/nvidia-gamestream-issues/issues/27
 [booleans]: https://linux.die.net/man/8/samba_selinux
+[hard NAT]: https://tailscale.com/blog/how-nat-traversal-works/
+[changing the listen port]: https://github.com/tailscale/tailscale/issues/5114#issuecomment-1402806749
