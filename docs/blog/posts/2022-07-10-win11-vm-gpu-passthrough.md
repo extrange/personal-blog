@@ -13,8 +13,8 @@ date: 2022-07-10
 
 After completing this guide, you will have a Windows 11 **headless** virtual machine that can be accessed via:
 
--   [Moonlight][moonlight]/[Steam Link][steam-link] for high performance gaming
--   Remote Desktop (RDP) for less demanding tasks
+-   [Moonlight][moonlight]/[Steam Link][steam-link] for high performance gaming, using [Sunshine] stream
+-   Remote Desktop (RDP) access for less demanding tasks
 -   RDP over a web browser (via [Apache Guacamole][apache-guacamole])
 
 <!-- more -->
@@ -157,7 +157,7 @@ services:
 
 Start the container with `docker compose up -d`.
 
-## 4. Install Windows and Setup Moonlight Streaming
+## 4. Install Windows and setup streaming
 
 Now, navigate to `http://localhost:8080` and you should see the `virt-manager` interface:
 
@@ -194,13 +194,11 @@ Next, install Windows 11 (you can get the ISO from [here](https://www.microsoft.
 
 ![](../../static/images/2022-07-10/vm-gpu.jpg)
 
-Then, open GeForce Experience, and under 'Settings > SHIELD', enable 'Gamestream'.
+Next, install [Sunshine], the streaming server. Follow the instructions on the website.
 
-![](../../static/images/2022-07-10/vm-gamestream.jpg)
+??? note "What about NVIDIA Gamestream?"
 
-??? note "Streaming the whole desktop"
-
-    If you want to stream the desktop instead of a game, add `C:\Windows\System32\mstsc.exe`.
+    I was previously recommending NVIDIA Gamestream. However, [Sunshine] stream has better performance, and more importantly, the PIN code can be keyed in via a convenient web interface.
 
 ## 5. Setup Overlay Mesh Network (aka Peer-to-Peer VPN)
 
@@ -512,3 +510,4 @@ At times, Tailscale may not be able to achieve a direct connection (e.g. due to 
 [booleans]: https://linux.die.net/man/8/samba_selinux
 [hard NAT]: https://tailscale.com/blog/how-nat-traversal-works/
 [changing the listen port]: https://github.com/tailscale/tailscale/issues/5114#issuecomment-1402806749
+[Sunshine]: https://app.lizardbyte.dev/Sunshine/?lng=en
