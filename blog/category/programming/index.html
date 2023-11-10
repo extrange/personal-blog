@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog/category/programming/">
       
       
-        <link rel="prev" href="../cooking/">
+        <link rel="prev" href="../../">
       
       
-        <link rel="next" href="../debates/">
+        <link rel="next" href="../philosophy/">
       
       
       <link rel="icon" href="../../../static/images/favicon.png">
@@ -396,46 +396,6 @@
                 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../philosophy/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Philosophy
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cooking/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Cooking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -482,6 +442,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-power-crashes" class="md-nav__link">
+    GPU Power Crashes
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#syncing-my-kindle-with-calibre-web-koreader-and-syncthing" class="md-nav__link">
@@ -546,17 +513,50 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#docker-containers-with-gpu-access-in-fedora" class="md-nav__link">
-    Docker Containers with GPU access in Fedora
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../philosophy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Philosophy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cooking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cooking
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -866,6 +866,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#gpu-power-crashes" class="md-nav__link">
+    GPU Power Crashes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#syncing-my-kindle-with-calibre-web-koreader-and-syncthing" class="md-nav__link">
     Syncing my Kindle with calibre-web, KOReader and Syncthing
   </a>
@@ -928,13 +935,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#docker-containers-with-gpu-access-in-fedora" class="md-nav__link">
-    Docker Containers with GPU access in Fedora
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -949,6 +949,44 @@
       <header class="md-typeset">
         <h1 id="programming">Programming</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-11-07 00:00:00">November 7, 2023</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="gpu-power-crashes"><a class="toclink" href="../../2023/11/07/gpu-power-crashes/">GPU Power Crashes</a></h2>
+<p>For a few months, while running my <a href="../../2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/">Windows 11 VM</a> with a GPU passthrough-ed, I was getting random reboots/screen hangs. There was a clear pattern - the reboots/hangs occured whenever I launched a resource-intensive application on the VM, such as a game.</p>
+<p>In an effort to trace down the problem, I looked through <code>dmesg</code> (truncated for brevity) for various boots:</p>
+
+    <nav class="md-post__action">
+      <a href="../../2023/11/07/gpu-power-crashes/">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1300,48 +1338,6 @@
   </div>
 </article>
       
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2022-07-10 00:00:00">July 10, 2022</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="./" class="md-meta__link">Programming</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="docker-containers-with-gpu-access-in-fedora"><a class="toclink" href="../../2022/07/10/docker-containers-with-gpu-access-in-fedora/">Docker Containers with GPU access in Fedora</a></h2>
-<p>This guide will let you use a NVIDIA GPU in a Docker container (e.g. for Tensorflow/Pytorch).</p>
-<p>Prerequisites:</p>
-<ul>
-<li>Docker must be installed.</li>
-<li>You have a NVIDIA GPU.</li>
-</ul>
-
-    <nav class="md-post__action">
-      <a href="../../2022/07/10/docker-containers-with-gpu-access-in-fedora/">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
       
         
           
@@ -1408,7 +1404,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>

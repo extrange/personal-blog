@@ -400,6 +400,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../category/philosophy/" class="md-nav__link">
         
   
@@ -425,26 +445,6 @@
   
   <span class="md-ellipsis">
     Cooking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../category/programming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Programming
   </span>
   
 
@@ -860,13 +860,13 @@
 <p>You can sync your phone's camera folder (sometimes called <code>DCIM</code>) to PhotoPrism's <a href="https://docs.photoprism.app/user-guide/sync/webdav/#connect-to-a-webdav-server"><code>import</code> folder</a> using Syncthing.</p>
 <p>Then, you can use <a href="https://dl.photoprism.org/docker/scheduler/">this <code>docker compose.yml</code></a> to setup <a href="https://github.com/mcuadros/ofelia">Ofelia</a>, a job scheduler for Docker, to trigger the PhotoPrism import process (which adds photos to your library and organizes them).</p>
 <p>This can be done with the following <code>config.ini</code> for Ofelia:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[job-exec &quot;photoprism import&quot;]</span>
-<span class="c1">## See schedule syntax at https://pkg.go.dev/github.com/robfig/cron</span>
-<span class="na">schedule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@daily</span>
-<span class="na">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">photoprism</span>
-<span class="na">command</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s">photoprism import</span>
-<span class="na">no-overlap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
-</code></pre></div>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[job-exec &quot;photoprism import&quot;]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">## See schedule syntax at https://pkg.go.dev/github.com/robfig/cron</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">schedule</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">@daily</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">container</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">photoprism</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">command</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s">photoprism import</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="na">no-overlap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+</span></code></pre></div>
 <p>By using the <a href="https://docs.syncthing.net/v1.23.5/users/foldertypes#send-receive-folder">Send &amp; Receive Folder</a> type in Syncthing, whenever an import is performed by Photoprism, the imported photos in your phone are automatically deleted, freeing up space</p>
 
 
@@ -982,7 +982,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>

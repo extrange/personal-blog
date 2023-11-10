@@ -400,6 +400,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../category/philosophy/" class="md-nav__link">
         
   
@@ -425,26 +445,6 @@
   
   <span class="md-ellipsis">
     Cooking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../category/programming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Programming
   </span>
   
 
@@ -864,17 +864,17 @@
 <p>Then, follow the instructions <a href="https://tailscale.com/kb/1103/exit-nodes/">here</a>.</p>
 <p><strong>Notes</strong></p>
 <p>On the exit node, you will need to run the following <a href="https://github.com/tailscale/tailscale/issues/4639#issuecomment-1125643993">additional commands</a> to add the <code>tailscale0</code> interface to the <a href="https://firewalld.org/documentation/zone/predefined-zones.html"><code>trusted</code></a> group of <code>firewalld</code>:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--zone<span class="o">=</span>trusted<span class="w"> </span>--change-interface<span class="o">=</span>tailscale0<span class="w"> </span>--permanent
-sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>tailscaled
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--zone<span class="o">=</span>trusted<span class="w"> </span>--change-interface<span class="o">=</span>tailscale0<span class="w"> </span>--permanent
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>tailscaled
+</span></code></pre></div>
 <p>This will prevent the firewall from blocking incoming connections from your devices.</p>
 <h2 id="using-the-exit-node">Using the Exit Node</h2>
 <p>To use the exit node, do:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tailscale<span class="w"> </span>up<span class="w"> </span>--exit-node<span class="o">=</span>&lt;<span class="nb">exit</span><span class="w"> </span>node<span class="w"> </span>ip&gt;
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>tailscale<span class="w"> </span>up<span class="w"> </span>--exit-node<span class="o">=</span>&lt;<span class="nb">exit</span><span class="w"> </span>node<span class="w"> </span>ip&gt;
+</span></code></pre></div>
 <p>Optionally, to access devices on the LAN in the VPN (disabled by default): do:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tailscale<span class="w"> </span>up<span class="w"> </span>--exit-node<span class="o">=</span>&lt;<span class="nb">exit</span><span class="w"> </span>node<span class="w"> </span>ip&gt;<span class="w"> </span>--exit-node-allow-lan-access<span class="o">=</span><span class="nb">true</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>tailscale<span class="w"> </span>up<span class="w"> </span>--exit-node<span class="o">=</span>&lt;<span class="nb">exit</span><span class="w"> </span>node<span class="w"> </span>ip&gt;<span class="w"> </span>--exit-node-allow-lan-access<span class="o">=</span><span class="nb">true</span>
+</span></code></pre></div>
 
 
   
@@ -989,7 +989,7 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>

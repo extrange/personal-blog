@@ -400,6 +400,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../category/philosophy/" class="md-nav__link">
         
   
@@ -425,26 +445,6 @@
   
   <span class="md-ellipsis">
     Cooking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../category/programming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Programming
   </span>
   
 
@@ -929,39 +929,39 @@
 <h2 id="1-setting-up-ssh-on-the-host">1. Setting up SSH on the host</h2>
 <p>First, ensure that OpenSSH, the open-source implementation of the <a href="https://www.ssh.com/academy/ssh/protocol">SSH</a> protocol and its tools, <a href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse">is installed</a>.</p>
 <p>To check that <code>sshd</code>, the SSH daemon, is running on the host, open a Powershell terminal as an administrator and execute <code>Get-Service sshd</code>. The output should be similar to the following:</p>
-<div class="highlight"><pre><span></span><code>Status   Name               DisplayName
-------   ----               -----------
-Running  sshd               OpenSSH SSH Server
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Status   Name               DisplayName
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>------   ----               -----------
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Running  sshd               OpenSSH SSH Server
+</span></code></pre></div>
 <p>Next, we will use <a href="https://man.openbsd.org/ssh-keygen.1"><code>ssh-keygen</code></a> to generate our server's public-private key pair, which will be used to sign the public keys of clients we want to allow SSH access from. <em>This keypair is different from the host's keypair (the keypair presented to clients), which is usually stored in <code>%ProgramData%\ssh\sshd_config</code>.</em></p>
 <p>Open a terminal and type the following:</p>
-<div class="highlight"><pre><span></span><code>ssh-keygen -f user_ca -t ed25519
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh-keygen -f user_ca -t ed25519
+</span></code></pre></div>
 <ul>
 <li><code>-f</code>: the name of the keypair</li>
 <li><code>-t</code>: the key algorithm, in this case <a href="https://en.wikipedia.org/wiki/EdDSA">EdDSA with Curve25519</a></li>
 </ul>
 <p>The passphrase is used to encrypt the private key, and is optional. You should get the following output:</p>
-<div class="highlight"><pre><span></span><code>Generating public/private ed25519 key pair.
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in user_ca.
-Your public key has been saved in user_ca.pub.
-The key fingerprint is:
-SHA256:OxXXnTRmRiD7bxGMgyuU4fz4JTxKcEpGrngbIWpz/ow nick@Desktop-Nick
-The key&#39;s randomart image is:
-+--[ED25519 256]--+
-|       . . . .oB |
-|      o o o +.B.o|
-|   . . = *.o.o.+.|
-|  . o = = +oo . .|
-| + o + .S+.* o . |
-|. + . o .o+ + . .|
-|   . .  o. .   o |
-|    +    .    .  |
-|   E o           |
-+----[SHA256]-----+
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Generating public/private ed25519 key pair.
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Enter passphrase (empty for no passphrase):
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Enter same passphrase again:
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Your identification has been saved in user_ca.
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Your public key has been saved in user_ca.pub.
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>The key fingerprint is:
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>SHA256:OxXXnTRmRiD7bxGMgyuU4fz4JTxKcEpGrngbIWpz/ow nick@Desktop-Nick
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>The key&#39;s randomart image is:
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>+--[ED25519 256]--+
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>|       . . . .oB |
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>|      o o o +.B.o|
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>|   . . = *.o.o.+.|
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>|  . o = = +oo . .|
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>| + o + .S+.* o . |
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>|. + . o .o+ + . .|
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>|   . .  o. .   o |
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>|    +    .    .  |
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>|   E o           |
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>+----[SHA256]-----+
+</span></code></pre></div>
 <p><code>user_ca</code> contains the <strong>private key</strong> of this pair, and must be kept secret.</p>
 <p>Now, we need to tell our host to trust this public key, and enable public key authentication.</p>
 <p>Open up <code>C:\ProgramData\ssh\sshd_config</code> and make the following changes:</p>
@@ -991,11 +991,11 @@ The key&#39;s randomart image is:
 <p>where <code>&lt;PATH_TO_KEYFILE&gt;</code> is the location to the private key, e.g. <code>~\.ssh\client_key</code>.</p>
 <p>You should not be prompted for a password.</p>
 <p>If you don't want to keep having to specify the keyfile, create/edit the <a href="https://linux.die.net/man/5/ssh_config">config</a> file (usually at <code>~/.ssh/config</code>)<sup id="fnref:openssh-config-windows"><a class="footnote-ref" href="#fn:openssh-config-windows">5</a></sup>:</p>
-<div class="highlight"><pre><span></span><code>Host ssh.your-domain.com
-  HostName ssh.your-domain.com
-  User your-username
-  IdentityFile ~/.ssh/your_private_key
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Host ssh.your-domain.com
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  HostName ssh.your-domain.com
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  User your-username
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  IdentityFile ~/.ssh/your_private_key
+</span></code></pre></div>
 <h2 id="optional-adding-the-private-key-and-signed-public-key-to-ssh-agent">(Optional) Adding the private key and signed public key to <code>ssh-agent</code></h2>
 <p><a href="https://man.openbsd.org/ssh-agent.1"><code>ssh-agent</code></a> is a program which is able to store private keys and the signed public key using the appropriate secure credential storage for the operating system. This presents a more secure alternative than storing the private key unencrypted on the server.</p>
 <p>In order to add keys to the agent, use <a href="https://man.openbsd.org/ssh-add.1"><code>ssh-add</code></a>:</p>
@@ -1010,26 +1010,26 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
 <h2 id="optional-host-public-key-verification-over-dns">(Optional) Host Public Key Verification over DNS</h2>
 <p>How does the client authenticate the host the first time round? How does the client know that the public key the host is presenting really is the correct key, and not an attacker's key?</p>
 <p>One way would be to verify the host's key fingerprint manually when connecting the first time. This is known as <a href="https://en.wikipedia.org/wiki/Trust_on_first_use">trust on first use</a>.</p>
-<div class="highlight"><pre><span></span><code># ssh server@server.com
-The authenticity of host &#39;server@server.com (192.168.65.2)&#39; can&#39;t be established.
-ECDSA key fingerprint is SHA256:e3eMAe6IrkZkWfCnYasBJUNRyHDC8SzDI0gLP9wWf1A.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># ssh server@server.com
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>The authenticity of host &#39;server@server.com (192.168.65.2)&#39; can&#39;t be established.
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>ECDSA key fingerprint is SHA256:e3eMAe6IrkZkWfCnYasBJUNRyHDC8SzDI0gLP9wWf1A.
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Are you sure you want to continue connecting (yes/no/[fingerprint])?
+</span></code></pre></div>
 <p>However, it's not easy to remember.</p>
 <p>A better way is to add the host key to the DNS record, in a special type of record called <a href="https://en.wikipedia.org/wiki/SSHFP_record">SSHFP</a>.</p>
 <p>We can get the required information to add via <code>ssh-keygen</code>:</p>
-<div class="highlight"><pre><span></span><code>C:\WINDOWS\system32&gt;ssh-keygen -r your.domain.name
-your.domain.name IN SSHFP 4 1 3e35102ba1ef8777b74d257edcef0d6391cb9c19
-your.domain.name IN SSHFP 4 2 f9212b988c5cb2e9027746b13339c6b32d9f1c49183620765476ba76b51ddd31
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>C:\WINDOWS\system32&gt;ssh-keygen -r your.domain.name
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>your.domain.name IN SSHFP 4 1 3e35102ba1ef8777b74d257edcef0d6391cb9c19
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>your.domain.name IN SSHFP 4 2 f9212b988c5cb2e9027746b13339c6b32d9f1c49183620765476ba76b51ddd31
+</span></code></pre></div>
 <p>You need to add this information as an <code>SSHFP</code> record via your DNS registrar.</p>
 <p>Finally, on the client, when we connect, we use the following command (non case-sensitive):</p>
 <p><code>ssh -o "VerifyHostKeyDNS ask" you@your.domain.name</code></p>
-<div class="highlight"><pre><span></span><code>The authenticity of host &#39;your.domain.name (xx.xx.xx.xx)&#39; can&#39;t be established.
-ED25519 key fingerprint is SHA256:+SErmIxcsukCd0axMznGsy2fHEkYNiB2VHa6drUd3TE.
-Matching host key fingerprint found in DNS.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>The authenticity of host &#39;your.domain.name (xx.xx.xx.xx)&#39; can&#39;t be established.
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>ED25519 key fingerprint is SHA256:+SErmIxcsukCd0axMznGsy2fHEkYNiB2VHa6drUd3TE.
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Matching host key fingerprint found in DNS.
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Are you sure you want to continue connecting (yes/no/[fingerprint])?
+</span></code></pre></div>
 <p>Sadly, <a href="https://github.com/PowerShell/Win32-OpenSSH/issues/1841"><strong>the OpenSSH client in Windows does not support <code>VerifyHostKeyDNS</code></strong></a>.</p>
 <h2 id="why-not-host-your-own-ssh-ca">Why not host your own SSH-CA?</h2>
 <p>Prior to my decision to use <code>ssh-keygen</code> as the certificate authority, I considered a number of alternative self-hosted SSH certificate authorities, but rejected them as follows:</p>
@@ -1179,7 +1179,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>

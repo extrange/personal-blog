@@ -400,6 +400,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../category/philosophy/" class="md-nav__link">
         
   
@@ -425,26 +445,6 @@
   
   <span class="md-ellipsis">
     Cooking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../category/programming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Programming
   </span>
   
 
@@ -862,11 +862,11 @@
 <p>First, we need to extract the password hash from the PDF. There's an online tool for this, but for now let's use this python script (<a href="https://github.com/truongkma/ctf-tools/blob/master/John/run/pdf2john.py">pdf2john.py</a>).</p>
 <p>Run it with <code>python pdf2john.py &lt;your-pdf-file&gt;</code>.</p>
 <p>The output should resemble something like this:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>b&#39;aa.pdf&#39;:b&#39;$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6&#39;:::::b&#39;D:\\Desktop\\&lt;your PDF file&gt;.pdf&#39;
-</code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>b&#39;aa.pdf&#39;:b&#39;$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6&#39;:::::b&#39;D:\\Desktop\\&lt;your PDF file&gt;.pdf&#39;
+</span></code></pre></div></td></tr></table></div>
 <p>We're only interested in the second part (beginning with <code>$pdf$4...</code> up till <code>...69d6</code>). So, let's copy that out:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6
-</code></pre></div></td></tr></table></div>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>$pdf$4*4*128*-1028*1*16*51cacf728db0cc489bd42a56dd58d87c*32*fa9ce7f2daef91b171ec19e04edc00ba00000000000000000000000000000000*32*c431fab9cc5ef7b59c244b61b745f71ac5ba427b1b9102da468e77127f1e69d6
+</span></code></pre></div></td></tr></table></div>
 <p>This is the hash we'll supply to <code>hashcat</code> later on.</p>
 <h2 id="starting-brute-force-with-hashcat">Starting brute force with <code>hashcat</code></h2>
 <p>First, grab the latest copy of <code>hashcat</code> from <a href="https://hashcat.net/hashcat/">here</a>.</p>
@@ -1013,7 +1013,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>

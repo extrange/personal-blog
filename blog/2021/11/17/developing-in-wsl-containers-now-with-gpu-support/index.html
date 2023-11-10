@@ -400,6 +400,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../category/philosophy/" class="md-nav__link">
         
   
@@ -425,26 +445,6 @@
   
   <span class="md-ellipsis">
     Cooking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../category/programming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Programming
   </span>
   
 
@@ -939,12 +939,12 @@
 <li>Follow the instructions <a href="https://docs.microsoft.com/en-us/windows/wsl/install">here</a> to install WSL2 and the default Linux distribution (Ubuntu)</li>
 <li>Next, check that the Ubuntu distribution is set as default, and is on WSL2:<ul>
 <li><code>wsl -l -v</code> should show:
-<div class="highlight"><pre><span></span><code>  NAME                   STATE           VERSION
-* Ubuntu                 Running         2
-  Legacy                 Stopped         1
-  docker-desktop         Running         2
-  docker-desktop-data    Running         2
-</code></pre></div></li>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  NAME                   STATE           VERSION
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>* Ubuntu                 Running         2
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  Legacy                 Stopped         1
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  docker-desktop         Running         2
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  docker-desktop-data    Running         2
+</span></code></pre></div></li>
 <li>If Ubuntu is missing, install it from the <a href="https://www.microsoft.com/en-sg/p/ubuntu/9nblggh4msv6">Microsoft Store</a> (you need to run <code>ubuntu</code> from the command prompt after)</li>
 <li>If Ubuntu is <strong>not</strong> the default distro (marked with a *), run <code>wsl --set-default Ubuntu</code>.</li>
 <li>If the <code>VERSION</code> for Ubuntu is not <code>2</code>, run <code>wsl --set-version Ubuntu 2</code>.</li>
@@ -979,9 +979,9 @@
 <li>Notes:<ul>
 <li>You can modify the <code>.devcontainer/Dockerfile</code> to your liking - e.g. if you want to add Java to a Python image, install package dependencies during build, etc</li>
 <li>If you want to install requirements automatically e.g. with <code>pip</code>, you can either uncomment that particular line in the <code>Dockerfile</code> (if it exists) or write your own e.g.:
-    <div class="highlight"><pre><span></span><code><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>/tmp/requirements.txt
-<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>--no-cache-dir<span class="w">  </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</code></pre></div></li>
+    <div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>/tmp/requirements.txt
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>--no-cache-dir<span class="w">  </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span></code></pre></div></li>
 </ul>
 </li>
 </ul>
@@ -993,19 +993,19 @@
 </ul>
 <p>Using a prebuilt image e.g. <a href="https://hub.docker.com/r/pytorch/pytorch"><code>pytorch/pytorch</code></a> will include all these requirements.</p>
 <p>Once you have done that, check the output of <code>nvidia-smi</code>:</p>
-<div class="highlight"><pre><span></span><code>Wed Mar 30 12:33:38 2022
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 510.06       Driver Version: 510.06       CUDA Version: 11.6     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA GeForce ... WDDM  | 00000000:01:00.0  On |                  N/A |
-| 40%   41C    P0    49W / 151W |   2595MiB /  4096MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Wed Mar 30 12:33:38 2022
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>+-----------------------------------------------------------------------------+
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>| NVIDIA-SMI 510.06       Driver Version: 510.06       CUDA Version: 11.6     |
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>|-------------------------------+----------------------+----------------------+
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>| GPU  Name            TCC/WDDM | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>|                               |                      |               MIG M. |
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>|===============================+======================+======================|
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>|   0  NVIDIA GeForce ... WDDM  | 00000000:01:00.0  On |                  N/A |
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>| 40%   41C    P0    49W / 151W |   2595MiB /  4096MiB |      0%      Default |
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>|                               |                      |                  N/A |
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>+-------------------------------+----------------------+----------------------+
+</span></code></pre></div>
 <h2 id="conclusion">Conclusion</h2>
 <p>And that's it! Start up, rebuild and stop your containers as you like.</p>
 <figure>
@@ -1128,7 +1128,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>

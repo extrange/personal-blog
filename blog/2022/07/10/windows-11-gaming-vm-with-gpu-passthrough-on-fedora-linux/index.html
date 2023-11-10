@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog/2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/">
       
       
         <link rel="prev" href="../../../05/22/my-self-hosting-journey/">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Windows 11 Gaming VM with GPU Passthrough on Fedora 36 - Nicholas</title>
+        <title>Windows 11 Gaming VM with GPU Passthrough on Fedora Linux - Nicholas</title>
       
     
     
@@ -69,7 +69,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Windows 11 Gaming VM with GPU Passthrough on Fedora 36 - Nicholas" >
+        <meta  property="og:title"  content="Windows 11 Gaming VM with GPU Passthrough on Fedora Linux - Nicholas" >
       
         <meta  property="og:description"  content="None" >
       
@@ -81,11 +81,11 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36/" >
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Windows 11 Gaming VM with GPU Passthrough on Fedora 36 - Nicholas" >
+        <meta  name="twitter:title"  content="Windows 11 Gaming VM with GPU Passthrough on Fedora Linux - Nicholas" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -122,7 +122,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36" class="md-skip">
+        <a href="#windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux" class="md-skip">
           Skip to content
         </a>
       
@@ -157,7 +157,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Windows 11 Gaming VM with GPU Passthrough on Fedora 36
+              Windows 11 Gaming VM with GPU Passthrough on Fedora Linux
             
           </span>
         </div>
@@ -400,6 +400,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../category/philosophy/" class="md-nav__link">
         
   
@@ -425,26 +445,6 @@
   
   <span class="md-ellipsis">
     Cooking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../category/programming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Programming
   </span>
   
 
@@ -873,6 +873,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tailscale-latency-issues" class="md-nav__link">
+    Tailscale latency issues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#misc" class="md-nav__link">
     Misc
   </a>
@@ -970,7 +977,7 @@
         
 
 
-<h1 id="windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36">Windows 11 Gaming VM with GPU Passthrough on Fedora 36</h1>
+<h1 id="windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux">Windows 11 Gaming VM with GPU Passthrough on Fedora Linux</h1>
 <figure>
   <a class="glightbox" href="/static/images/2022-07-10/demo.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/demo.jpg" alt="Gaming on a laptop remotely over Nvidia Gamestream" loading="lazy"/></a>
   <figcaption>Gaming on a laptop remotely with Nvidia Gamestream using mobile data</figcaption>
@@ -979,7 +986,7 @@
 <p>After completing this guide, you will have a Windows 11 <strong>headless</strong> virtual machine that can be accessed via:</p>
 <ul>
 <li><a href="https://moonlight-stream.org/">Moonlight</a>/<a href="https://store.steampowered.com/remoteplay#anywhere">Steam Link</a> for high performance gaming</li>
-<li>RDP for less demanding tasks</li>
+<li>Remote Desktop (RDP) for less demanding tasks</li>
 <li>RDP over a web browser (via <a href="https://guacamole.apache.org/">Apache Guacamole</a>)</li>
 </ul>
 <!-- more -->
@@ -988,9 +995,9 @@
 <ol>
 <li>
 <p>Ensure you have a CPU with virtualization support (for Intel, this is known as <a href="https://www.thomas-krenn.com/en/wiki/Overview_of_the_Intel_VT_Virtualization_Features"><code>VT-d</code></a>):</p>
-<div class="highlight"><pre><span></span><code>$ lscpu | grep -i virtualization
-Virtualization:                  VT-x
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ lscpu | grep -i virtualization
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Virtualization:                  VT-x
+</span></code></pre></div>
 </li>
 <li>
 <p>NVIDIA GPU (for Moonlight streaming)</p>
@@ -1008,8 +1015,8 @@ Virtualization:                  VT-x
 <h2 id="1-setup-gpu-passthrough">1. Setup GPU Passthrough</h2>
 <p><strong>Enable IOMMU</strong></p>
 <p>Open <code>/etc/default/grub</code> with your editor of choice, and append <code>intel_iommu=on</code> as well as <code>initcall_blacklist=sysfb_init</code> to <code>GRUB_CMDLINE_LINUX</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on initcall_blacklist=sysfb_init&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on initcall_blacklist=sysfb_init&quot;</span>
+</span></code></pre></div>
 <details class="note">
 <summary>What is the purpose of <code>initcall_blacklist=sysfb_init</code>?</summary>
 <p>Even with the <code>vfio-pci</code> drivers utilized, the kernel appears to reserve portions of memory in the GPU which causes errors visible in <code>dmesg</code> as <code>[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]</code>.</p>
@@ -1017,74 +1024,74 @@ Virtualization:                  VT-x
 <p>Adding the above kernel parameter fixes the issue.</p>
 </details>
 <p>Optionally, you may want to disable <code>os-prober</code> especially if you have Docker installed, as it will attempt to probe containers and create a lot of unnecessary startup entries:</p>
-<div class="highlight"><pre><span></span><code>GRUB_DISABLE_OS_PROBER=true
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GRUB_DISABLE_OS_PROBER=true
+</span></code></pre></div>
 <p>Save the modified configuration file:</p>
-<div class="highlight"><pre><span></span><code>grub2-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub2/grub.cfg
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>grub2-mkconfig<span class="w"> </span>-o<span class="w"> </span>/boot/grub2/grub.cfg
+</span></code></pre></div>
 <p><strong>Configure <code>vfio-pci</code> module to load on boot</strong></p>
 <p>Create the following files with the content as shown (you will need superuser privileges):</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#/etc/dracut.conf.d/10-vfio.conf</span>
-<span class="nv">add_drivers</span><span class="o">+=</span><span class="s2">&quot; vfio_pci vfio vfio_iommu_type1 vfio_virqfd &quot;</span>
-
-<span class="c1">#/etc/modules-load.d/vfio-pci.conf</span>
-vfio-pci
-
-<span class="c1">#/etc/modprobe.d/vfio.conf</span>
-options<span class="w"> </span>vfio-pci<span class="w"> </span><span class="nv">ids</span><span class="o">=</span>&lt;GPU-PCI-ID&gt;
-</code></pre></div>
-<p>Where <code>&lt;GPU-PCI-ID&gt;</code> is the id <code>xxxx:xxxx</code> as shown by the output of <code>lspci -nn</code>, for example:</p>
-<div class="highlight"><pre><span></span><code>[root@server ~]# lspci -nn | grep -i vga
-01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1070 Ti] [10de:1b82] (rev a1)
-</code></pre></div>
-<p>You will need to rebuild the initial ramdisk (<code>initrd</code>) image after modifying the above files:</p>
-<div class="highlight"><pre><span></span><code>dracut -fv
-</code></pre></div>
-<p>Check that the generated ramdisk contains output similar to the following using <code>lsinitrd</code>:</p>
-<div class="highlight"><pre><span></span><code>[root@server ~]# lsinitrd | grep -i vfio
--rw-r--r--   1 root     root           31 Mar 30 16:53 etc/modprobe.d/vfio.conf
--rw-r--r--   1 root     root            9 Mar 30 16:53 etc/modules-load.d/vfio-pci.conf
-drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-200.fc36.x86_64/kernel/drivers/vfio
-&lt;truncated&gt;
-</code></pre></div>
-<p>Now reboot, and check that IOMMU is working:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>iommu
-<span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Command<span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span><span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763<span class="w"> </span>rhgb<span class="w"> </span>quiet<span class="w"> </span><span class="nv">intel_iommu</span><span class="o">=</span>on
-<span class="o">[</span><span class="w">    </span><span class="m">0</span>.133682<span class="o">]</span><span class="w"> </span>Kernel<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span><span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763<span class="w"> </span>rhgb<span class="w"> </span>quiet<span class="w"> </span><span class="nv">intel_iommu</span><span class="o">=</span>on
-<span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">0</span>.133749<span class="o">]</span><span class="w"> </span>DMAR:<span class="w"> </span>IOMMU<span class="w"> </span>enabled
-</span><span class="o">[</span><span class="w">    </span><span class="m">0</span>.224446<span class="o">]</span><span class="w"> </span>DMAR-IR:<span class="w"> </span>IOAPIC<span class="w"> </span>id<span class="w"> </span><span class="m">2</span><span class="w"> </span>under<span class="w"> </span>DRHD<span class="w"> </span>base<span class="w">  </span>0xfed91000<span class="w"> </span>IOMMU<span class="w"> </span><span class="m">0</span>
-<span class="o">[</span><span class="w">    </span><span class="m">1</span>.516533<span class="o">]</span><span class="w"> </span>iommu:<span class="w"> </span>Default<span class="w"> </span>domain<span class="w"> </span>type:<span class="w"> </span>Translated
-<span class="o">[</span><span class="w">    </span><span class="m">1</span>.516533<span class="o">]</span><span class="w"> </span>iommu:<span class="w"> </span>DMA<span class="w"> </span>domain<span class="w"> </span>TLB<span class="w"> </span>invalidation<span class="w"> </span>policy:<span class="w"> </span>lazy<span class="w"> </span>mode
-<span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560968<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:00.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">0</span>
-</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560977<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:01.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">1</span>
-</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560985<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:06.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">2</span>
-</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560991<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:0a.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">3</span>
-</span><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.561003<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:14.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">4</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">#/etc/dracut.conf.d/10-vfio.conf</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">add_drivers</span><span class="o">+=</span><span class="s2">&quot; vfio_pci vfio vfio_iommu_type1 vfio_virqfd &quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">#/etc/modules-load.d/vfio-pci.conf</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>vfio-pci
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">#/etc/modprobe.d/vfio.conf</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>options<span class="w"> </span>vfio-pci<span class="w"> </span><span class="nv">ids</span><span class="o">=</span>&lt;GPU-PCI-ID&gt;
 </span></code></pre></div>
+<p>Where <code>&lt;GPU-PCI-ID&gt;</code> is the id <code>xxxx:xxxx</code> as shown by the output of <code>lspci -nn</code>, for example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[root@server ~]# lspci -nn | grep -i vga
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1070 Ti] [10de:1b82] (rev a1)
+</span></code></pre></div>
+<p>You will need to rebuild the initial ramdisk (<code>initrd</code>) image after modifying the above files:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dracut -fv
+</span></code></pre></div>
+<p>Check that the generated ramdisk contains output similar to the following using <code>lsinitrd</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[root@server ~]# lsinitrd | grep -i vfio
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-rw-r--r--   1 root     root           31 Mar 30 16:53 etc/modprobe.d/vfio.conf
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>-rw-r--r--   1 root     root            9 Mar 30 16:53 etc/modules-load.d/vfio-pci.conf
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-200.fc36.x86_64/kernel/drivers/vfio
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>&lt;truncated&gt;
+</span></code></pre></div>
+<p>Now reboot, and check that IOMMU is working:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>iommu
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Command<span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span><span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763<span class="w"> </span>rhgb<span class="w"> </span>quiet<span class="w"> </span><span class="nv">intel_iommu</span><span class="o">=</span>on
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.133682<span class="o">]</span><span class="w"> </span>Kernel<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span><span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763<span class="w"> </span>rhgb<span class="w"> </span>quiet<span class="w"> </span><span class="nv">intel_iommu</span><span class="o">=</span>on
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">0</span>.133749<span class="o">]</span><span class="w"> </span>DMAR:<span class="w"> </span>IOMMU<span class="w"> </span>enabled
+</span></span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.224446<span class="o">]</span><span class="w"> </span>DMAR-IR:<span class="w"> </span>IOAPIC<span class="w"> </span>id<span class="w"> </span><span class="m">2</span><span class="w"> </span>under<span class="w"> </span>DRHD<span class="w"> </span>base<span class="w">  </span>0xfed91000<span class="w"> </span>IOMMU<span class="w"> </span><span class="m">0</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="o">[</span><span class="w">    </span><span class="m">1</span>.516533<span class="o">]</span><span class="w"> </span>iommu:<span class="w"> </span>Default<span class="w"> </span>domain<span class="w"> </span>type:<span class="w"> </span>Translated
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="o">[</span><span class="w">    </span><span class="m">1</span>.516533<span class="o">]</span><span class="w"> </span>iommu:<span class="w"> </span>DMA<span class="w"> </span>domain<span class="w"> </span>TLB<span class="w"> </span>invalidation<span class="w"> </span>policy:<span class="w"> </span>lazy<span class="w"> </span>mode
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560968<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:00.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">0</span>
+</span></span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560977<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:01.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">1</span>
+</span></span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560985<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:06.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">2</span>
+</span></span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.560991<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:0a.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">3</span>
+</span></span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">1</span>.561003<span class="o">]</span><span class="w"> </span>pci<span class="w"> </span><span class="m">0000</span>:00:14.0:<span class="w"> </span>Adding<span class="w"> </span>to<span class="w"> </span>iommu<span class="w"> </span>group<span class="w"> </span><span class="m">4</span>
+</span></span></code></pre></div>
 <p>If you do not see the <code>... Adding to iommu group</code> lines, ensure <code>VT-d</code> has been turned on in your BIOS.</p>
 <h2 id="2-install-virtualization-packages">2. Install Virtualization Packages</h2>
-<div class="highlight"><pre><span></span><code># sudo dnf install @virtualization
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># sudo dnf install @virtualization
+</span></code></pre></div>
 <p>This will install the necessary packages, including <a href="https://libvirt.org/"><code>libvirt</code></a>, an API to manage QEMU/KVM hypervisors.</p>
 <h2 id="3-setup-virt-manager-in-docker">3. Setup <code>virt-manager</code> in Docker</h2>
 <p>We will use <code>virt-manager</code> to manage the <code>libvirtd</code> backend. To make access easier, we will use <a href="https://github.com/m-bers/docker-virt-manager">docker-virt-manager</a>, which exposes <code>virt-manager</code> over a <a href="https://blog.desdelinux.net/en/broadway-ejecuta-aplicaciones-gtk-navegador/">GTK3 Broadway (HTML5) backend</a>.</p>
 <p>Create a <code>docker-compose.yml</code> file with the following content:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">virt-manager</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mber5/virt-manager:latest</span>
-<span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
-<span class="w">        </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">            </span><span class="nt">HOSTS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;[&#39;qemu:///system&#39;]&quot;</span>
-<span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:80&quot;</span>
-
-<span class="w">        </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock&quot;</span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/vm:/vm&quot;</span><span class="w"> </span><span class="c1"># Or wherever you want to store your VM images/virtual harddisks</span>
-
-<span class="w">        </span><span class="nt">devices</span><span class="p">:</span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/dev/kvm:/dev/kvm&quot;</span>
-</code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nt">virt-manager</span><span class="p">:</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mber5/virt-manager:latest</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">            </span><span class="nt">HOSTS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;[&#39;qemu:///system&#39;]&quot;</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:80&quot;</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock&quot;</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/vm:/vm&quot;</span><span class="w"> </span><span class="c1"># Or wherever you want to store your VM images/virtual harddisks</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="nt">devices</span><span class="p">:</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/dev/kvm:/dev/kvm&quot;</span>
+</span></code></pre></div>
 <p>Start the container with <code>docker compose up -d</code>.</p>
 <h2 id="4-install-windows-and-setup-moonlight-streaming">4. Install Windows and Setup Moonlight Streaming</h2>
 <p>Now, navigate to <code>http://localhost:8080</code> and you should see the <code>virt-manager</code> interface:</p>
@@ -1123,23 +1130,23 @@ drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-2
 <p>If you want to stream the desktop instead of a game, add <code>C:\Windows\System32\mstsc.exe</code>.</p>
 </details>
 <h2 id="5-setup-overlay-mesh-network-aka-peer-to-peer-vpn">5. Setup Overlay Mesh Network (aka Peer-to-Peer VPN)</h2>
-<p>We will now setup a peer-to-peer VPN, which will let us access Moonlight both within the LAN and from the internet, without worrying about port forwarding or firewall configurations.</p>
+<p>We will now setup a peer-to-peer VPN, which will let us access our server anywhere in the world, without worrying about port forwarding or firewall configurations.</p>
 <details class="note">
-<summary>Rationale</summary>
+<summary>Technical Info</summary>
 <p>Moonlight requires <a href="https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#manual-port-forwarding-advanced">certain ports</a> to be forwarded on your router, in order for the PC to be accessible over the internet.</p>
 <p>However, in our current setup, the VM is not directly accessible from the internet or even the LAN, because the <a href="https://libvirt.org/formatnetwork.html#nat-based-network">default network</a><sup id="fnref:default-network"><a class="footnote-ref" href="#fn:default-network">1</a></sup> it is connected to is not assigned an IP address on the LAN, so there is no way to port forward the required ports.</p>
 <p>One way is to give the VM its own IP address on the network via a <a href="https://virt.kernelnewbies.org/MacVTap"><code>macvtap</code></a> interface, as <a href="#4-install-windows-and-setup-moonlight-streaming">shown above</a>.</p>
 <p>However, sometimes port forwarding may not work due to <a href="https://en.wikipedia.org/wiki/Network_address_translation">NATs</a>, your ISP blocking ports, or firewalls.</p>
-<p>Therefore, a better solution is to use a peer-to-peer VPN provider, which utilize <a href="https://tailscale.com/blog/how-nat-traversal-works/">NAT traversal</a> techniques such as <a href="https://en.wikipedia.org/wiki/UDP_hole_punching">UDP hole punching</a> to connect to hosts behind NATs/firewalls.</p>
+<p>Therefore, a better solution is to use a peer-to-peer VPN provider, which utilizes <a href="https://tailscale.com/blog/how-nat-traversal-works/">NAT traversal</a> techniques such as <a href="https://en.wikipedia.org/wiki/UDP_hole_punching">UDP hole punching</a> to connect to hosts behind NATs/firewalls.</p>
 <ul>
-<li><a href="https://www.zerotier.com/">ZeroTier</a>: partially open-source, freemium</li>
-<li><a href="https://tailscale.com/">Tailscale</a>: partially open-source, freemium</li>
+<li><a href="https://tailscale.com/">Tailscale</a>: Windows, Linux and Android clients. Easiest to setup.</li>
+<li><a href="https://www.zerotier.com/">ZeroTier</a>: Similar to Tailscale</li>
 <li><a href="https://github.com/slackhq/nebula">Nebula</a>: open-source</li>
 <li><a href="https://github.com/gravitl/netmaker/">Netmaker</a>: open-source, <a href="https://medium.com/netmaker/battle-of-the-vpns-which-one-is-fastest-speed-test-21ddc9cd50db">claims to be the fastest</a></li>
 </ul>
-<p>Overhead is minimal, as these tools connect directly if possible, using a relay only as a backup.</p>
+<p>Latency is minimal, as these tools connect directly if possible, using a relay only as a backup.</p>
 </details>
-<p><a href="https://www.zerotier.com/">ZeroTier</a> is one such solution, and you can follow the <a href="https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#zerotier">guide from the Moonlight docs</a>.</p>
+<p>I recommend using <a href="https://tailscale.com/">Tailscale</a>.</p>
 <p>After setting up the peer-to-peer VPN of your choice, download the <a href="https://moonlight-stream.org/">Moonlight</a> client on another computer/device, and verify that streaming works.</p>
 <p>You can also <a href="https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c#ID0EDD=Windows_11">setup Remote Desktop</a> now.</p>
 <p>Now, you have a working VM with <a href="https://moonlight-stream.org/">Moonlight</a> for gaming, and Remote Desktop (slower, but much less data usage) for doing work!</p>
@@ -1166,10 +1173,10 @@ drwxr-xr-x   1 root     root            0 Mar 30 16:53 usr/lib/modules/5.18.18-2
 <p><strong>Note</strong>: If you are using a <code>macvtap</code> interface (to allow the guest to receive its own IP address on the network), it is <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap">not possible</a> to connect to the host due to how <code>macvtap</code> works. You will need to create a <code>NAT</code> connection (e.g. <code>Virtual Network 'Default' : NAT</code>) to connect to the host, via a separate subnet.</p>
 <p><strong>NFS</strong></p>
 <p>Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:</p>
-<pre><code>```powershell
+<div class="language-text highlight"><pre><span></span><code>```powershell
 Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
 ```
-</code></pre>
+</code></pre></div>
 <p>This <a href="https://docs.oracle.com/en-us/iaas/Content/File/Troubleshooting/winNFSerror53.htm">fix</a> <em>may</em> speed up NFS access on Windows (although I strongly recommend using SAMBA).</p>
 <ul>
 <li>For Fedora: You must also open the NFS ports (TCP/UDP <code>111</code>, <code>2049</code> and <code>20048</code>) in the <code>Libvirt</code> zone.</li>
@@ -1180,35 +1187,35 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <ol>
 <li>
 <p>Install Samba on Linux:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-common
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-common
+</span></code></pre></div>
 </li>
 <li>
 <p>Set the correct SELinux contexts/<a href="https://linux.die.net/man/8/samba_selinux">booleans</a> for the directories you wish to share (in this example <code>/mnt/storage</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Allow samba to share any file/directory read/write:</span>
-sudo<span class="w"> </span>setsebool<span class="w"> </span>-P<span class="w"> </span>samba_export_all_rw<span class="w"> </span><span class="m">1</span>
-
-<span class="c1"># Alternatively, if you want to restrict permissions to a directory:</span>
-sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </span>-t<span class="w"> </span>samba_share_t<span class="w"> </span>/mnt/storage
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Allow samba to share any file/directory read/write:</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sudo<span class="w"> </span>setsebool<span class="w"> </span>-P<span class="w"> </span>samba_export_all_rw<span class="w"> </span><span class="m">1</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Alternatively, if you want to restrict permissions to a directory:</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </span>-t<span class="w"> </span>samba_share_t<span class="w"> </span>/mnt/storage
+</span></code></pre></div>
 <details class="warning">
 <summary>SSH and SELinux</summary>
 <p>If you are executing the <code>chcon</code> command above on your <code>home</code> directory, be careful to restore SELinux contexts for the <code>.ssh</code> directory:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>restorecon<span class="w"> </span>-r<span class="w"> </span>.ssh
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>restorecon<span class="w"> </span>-r<span class="w"> </span>.ssh
+</span></code></pre></div>
 <p>Otherwise, <code>sshd</code> will be <strong>denied access</strong> to <code>authorized_keys</code> and you will lose login via SSH!</p>
 </details>
 </li>
 <li>
 <p>Add the following to <code>/etc/samba/smb.conf</code>:</p>
-<div class="highlight"><pre><span></span><code>[storage]
-    path = /mnt/storage
-    public = yes
-    guest ok = yes
-    writable = yes
-    browseable = yes
-    acl allow execute always = yes
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>[storage]
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    path = /mnt/storage
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    public = yes
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    guest ok = yes
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    writable = yes
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    browseable = yes
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    acl allow execute always = yes
+</span></code></pre></div>
 <p>This will create a share named <code>storage</code>, accessible without login or passwords. <strong>Only do this on a secure LAN!</strong></p>
 </li>
 <li>
@@ -1220,8 +1227,8 @@ sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </sp
 </li>
 <li>
 <p>Restart the <code>smb</code> and <code>nmb</code> daemons:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>smb<span class="w"> </span>nmb
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>smb<span class="w"> </span>nmb
+</span></code></pre></div>
 </li>
 </ol>
 <p>You should now have access to the Samba share on the Windows guest, by hitting <span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-r">R</kbd></span> and entering the IP address of the host.</p>
@@ -1252,8 +1259,8 @@ sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </sp
 <li>Rename the file <code>/etc/modules-load.d/vfio-pci.conf</code> to <code>/etc/modules-load.d/vfio-pci.conf.bak</code>.</li>
 <li>
 <p>Add the following lines to <code>GRUB_CMDLINE_LINUX</code> in <code>/etc/default/grub</code>:</p>
-<div class="highlight"><pre><span></span><code>rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
+</span></code></pre></div>
 </li>
 <li>
 <p>Regenerate <code>grub.cfg</code> with <code>grub2-mkconfig -o /boot/grub2/grub.cfg</code>.</p>
@@ -1269,8 +1276,8 @@ sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </sp
 <ul>
 <li>
 <p>After an RDP session, the main desktop is locked. To fix this, create a batch file with the following content, and run it <strong>with administrator rights</strong> to disconnect the RDP and unlock the main desktop:</p>
-<div class="highlight"><pre><span></span><code>Powershell -Command &quot;tscon rdp-tcp#0 /DEST:console&quot;
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Powershell -Command &quot;tscon rdp-tcp#0 /DEST:console&quot;
+</span></code></pre></div>
 </li>
 </ul>
 </li>
@@ -1368,6 +1375,8 @@ sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </sp
 </figure>
 
 <p>One advantage of Steam Link however is that no port forwarding appears to be required, while Moonlight sometimes has issues with UDP port 47999 when on mobile data (from my experience).</p>
+<h3 id="tailscale-latency-issues">Tailscale latency issues</h3>
+<p>At times, Tailscale may not be able to achieve a direct connection (e.g. due to a <a href="https://tailscale.com/blog/how-nat-traversal-works/">hard NAT</a>), and will fallback to using a relay. This can be seen with <code>tailscale status</code>. This is sometimes annoying, and made complicated by the fact that when running the VM behind the same NAT as the host (e.g. behind the same network), you can only forward port <code>41641</code> (used for the Wireguard connection) to one device (either the host, or the VM's <code>macvtap</code> adapter). I've tried <a href="https://github.com/tailscale/tailscale/issues/5114#issuecomment-1402806749">changing the listen port</a> to <code>41640</code> for the VM, and despite being able to achieve connectivity via <code>nc</code>, Tailscale still intermittently refuses to use that port.</p>
 <h3 id="misc">Misc</h3>
 <ul>
 <li>Connection speed: Moonlight &gt; Steam Link &gt;&gt; RDP &gt; Guacamole &gt; <code>virt-manager</code></li>
@@ -1499,7 +1508,7 @@ sudo<span class="w"> </span>chcon<span class="w"> </span>-R<span class="w"> </sp
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>

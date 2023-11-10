@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://nicholaslyz.com/blog/2022/07/10/docker-containers-with-gpu-access-in-fedora/">
       
       
-        <link rel="prev" href="../windows-11-gaming-vm-with-gpu-passthrough-on-fedora-36/">
+        <link rel="prev" href="../windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/">
       
       
         <link rel="next" href="../../18/android-vm-in-a-browser-via-apache-guacamole/">
@@ -400,6 +400,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../category/philosophy/" class="md-nav__link">
         
   
@@ -425,26 +445,6 @@
   
   <span class="md-ellipsis">
     Cooking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../category/programming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Programming
   </span>
   
 
@@ -883,45 +883,45 @@
 <!-- more -->
 
 <h2 id="1-install-nvidia-drivers-from-the-rpm-fusion-repository1">1. Install NVIDIA drivers from the RPM Fusion repository<sup id="fnref:rpmfusion"><a class="footnote-ref" href="#fn:rpmfusion">1</a></sup>:</h2>
-<div class="highlight"><pre><span></span><code>sudo dnf install xorg-x11-drv-nvidia-cuda
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo dnf install xorg-x11-drv-nvidia-cuda
+</span></code></pre></div>
 <p>It is necessary to reboot the system, as this package includes a <a href="https://github.com/rpmfusion/xorg-x11-drv-nvidia/blob/master/xorg-x11-drv-nvidia.spec">script</a> which blacklists the default Nouveau drivers.</p>
 <h2 id="2-add-the-nvidia-container-runtime-repository2">2. Add the <a href="https://github.com/nvidia/nvidia-container-runtime">NVIDIA Container Runtime Repository</a><sup id="fnref:nvidia-repo"><a class="footnote-ref" href="#fn:nvidia-repo">2</a></sup>:</h2>
-<div class="highlight"><pre><span></span><code>curl -s -L https://nvidia.github.io/libnvidia-container/centos7/libnvidia-container.repo | sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl -s -L https://nvidia.github.io/libnvidia-container/centos7/libnvidia-container.repo | sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
+</span></code></pre></div>
 <h2 id="3-install-the-nvidia-container-toolkit">3. Install the NVIDIA Container Toolkit</h2>
 <p>This includes the NVIDIA Container Runtime, which adds a custom pre-start hook to all containers to allow GPU access):</p>
-<div class="highlight"><pre><span></span><code>sudo dnf install nvidia-container-toolkit
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo dnf install nvidia-container-toolkit
+</span></code></pre></div>
 <h2 id="4-register-the-runtime-with-docker">4. Register the runtime with Docker:</h2>
-<div class="highlight"><pre><span></span><code>sudo tee /etc/docker/daemon.json &lt;&lt;EOF
-{
-    &quot;runtimes&quot;: {
-        &quot;nvidia&quot;: {
-            &quot;path&quot;: &quot;/usr/bin/nvidia-container-runtime&quot;,
-            &quot;runtimeArgs&quot;: []
-        }
-    }
-}
-EOF
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo tee /etc/docker/daemon.json &lt;&lt;EOF
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>{
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    &quot;runtimes&quot;: {
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        &quot;nvidia&quot;: {
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>            &quot;path&quot;: &quot;/usr/bin/nvidia-container-runtime&quot;,
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>            &quot;runtimeArgs&quot;: []
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        }
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    }
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>}
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>EOF
+</span></code></pre></div>
 <p>Tell <code>dockerd</code> to reload configuration:</p>
-<div class="highlight"><pre><span></span><code>sudo pkill -SIGHUP dockerd
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo pkill -SIGHUP dockerd
+</span></code></pre></div>
 <p><em>(Optional)</em> To make all containers use the NVIDIA runtime by default, add the following to <code>/etc/docker/daemon.json</code>:</p>
-<div class="highlight"><pre><span></span><code>&quot;default-runtime&quot;: &quot;nvidia&quot;
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&quot;default-runtime&quot;: &quot;nvidia&quot;
+</span></code></pre></div>
 <h2 id="5-finally-test-gpu-access-in-docker-with-either">5. Finally, test GPU access in Docker with either:</h2>
-<div class="highlight"><pre><span></span><code>docker run --runtime=nvidia --rm nvidia/cuda:10.2-base nvidia-smi
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker run --runtime=nvidia --rm nvidia/cuda:10.2-base nvidia-smi
+</span></code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><span></span><code>docker run --runtime=nvidia --gpus all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark -numbodies=512000
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker run --runtime=nvidia --gpus all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark -numbodies=512000
+</span></code></pre></div>
 <p>And that's it!</p>
 <p><strong>Note on VSCode</strong></p>
 <p>If you are using VSCode <a href="https://code.visualstudio.com/docs/remote/containers">Remote Containers</a>, you will need to add</p>
-<div class="highlight"><pre><span></span><code>&quot;runArgs&quot;: [&quot;--gpus&quot;,&quot;all&quot;]
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&quot;runArgs&quot;: [&quot;--gpus&quot;,&quot;all&quot;]
+</span></code></pre></div>
 <p>to your <code>devcontainer.json</code>. For some reason, <code>--runtime=nvidia</code> does not work.</p>
 <div class="footnote">
 <hr />
@@ -1048,7 +1048,7 @@ EOF
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>

@@ -400,6 +400,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../category/philosophy/" class="md-nav__link">
         
   
@@ -425,26 +445,6 @@
   
   <span class="md-ellipsis">
     Cooking
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../category/programming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Programming
   </span>
   
 
@@ -966,73 +966,73 @@
 </ul>
 <p>You can read more about the terminal commands <a href="https://help.mikrotik.com/docs/display/ROS/Command+Line+Interface">here</a>.</p>
 <p>Once you can access the terminal, run the following command:</p>
-<div class="highlight"><pre><span></span><code>[admin@MikroTik] &gt; interface/bridge/port print
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[admin@MikroTik] &gt; interface/bridge/port print
+</span></code></pre></div>
 <p>We see that a <a href="https://wiki.mikrotik.com/wiki/Manual:Interface/Bridge#Summary">bridge</a> has been created between all the interfaces except <code>ether1</code>.</p>
-<div class="highlight"><pre><span></span><code>Flags: I - INACTIVE; H - HW-OFFLOAD
-
-#    INTERFACE  BRIDGE  HW   PVID  PRIORITY  PATH-COST  INTERNAL-PATH-COST  HORIZON
-;;; defconf
-0  H ether2     bridge  yes     1  0x80             10                  10  none
-;;; defconf
-1  H ether3     bridge  yes     1  0x80             10                  10  none
-;;; defconf
-2  H ether4     bridge  yes     1  0x80             10                  10  none
-;;; defconf
-3 IH ether5     bridge  yes     1  0x80             10                  10  none
-;;; defconf
-4 I  wlan1      bridge          1  0x80             10                  10  none
-;;; defconf
-5 I  wlan2      bridge          1  0x80             10                  10  none
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Flags: I - INACTIVE; H - HW-OFFLOAD
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>#    INTERFACE  BRIDGE  HW   PVID  PRIORITY  PATH-COST  INTERNAL-PATH-COST  HORIZON
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>;;; defconf
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>0  H ether2     bridge  yes     1  0x80             10                  10  none
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>;;; defconf
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>1  H ether3     bridge  yes     1  0x80             10                  10  none
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>;;; defconf
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>2  H ether4     bridge  yes     1  0x80             10                  10  none
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>;;; defconf
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>3 IH ether5     bridge  yes     1  0x80             10                  10  none
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>;;; defconf
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>4 I  wlan1      bridge          1  0x80             10                  10  none
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>;;; defconf
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>5 I  wlan2      bridge          1  0x80             10                  10  none
+</span></code></pre></div>
 <h3 id="3-setup-vlan">3. Setup VLAN</h3>
 <p>At this point, we do not have internet access yet. We will need to 'untag' the packets coming from the ONT.</p>
 <p>In order to tell the router to untag incoming packets from <code>ether1</code> (and automatically re-tag packets outgoing from <code>ether1</code>), we will need to create a <a href="https://help.mikrotik.com/docs/display/ROS/VLAN">VLAN</a> on that interface. The VLAN ID for Singtel internet is <code>10</code>.</p>
 <p>Run the following command:</p>
-<div class="highlight"><pre><span></span><code>&gt; interface vlan add interface=ether1 vlan-id=10
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&gt; interface vlan add interface=ether1 vlan-id=10
+</span></code></pre></div>
 <h3 id="4-setup-dhcp-client-on-router">4. Setup DHCP Client on router</h3>
 <p>Then, we need to tell our router to obtain its IP address from this VLAN, instead of directly from <code>ether1</code>:</p>
-<div class="highlight"><pre><span></span><code>&gt; ip dhcp-client set 0 interface=vlan1
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&gt; ip dhcp-client set 0 interface=vlan1
+</span></code></pre></div>
 <p>We should now have an IP address assigned to us by the ONT:</p>
-<div class="highlight"><pre><span></span><code>&gt; ip dhcp-client print
-
-# INTERFACE  USE-PEER-DNS  ADD-DEFAULT-ROUTE  STATUS  ADDRESS
-0 vlan1      no            yes                bound   &lt;YOUR-IP-ADDRESS&gt;/24
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>&gt; ip dhcp-client print
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a># INTERFACE  USE-PEER-DNS  ADD-DEFAULT-ROUTE  STATUS  ADDRESS
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>0 vlan1      no            yes                bound   &lt;YOUR-IP-ADDRESS&gt;/24
+</span></code></pre></div>
 <p>At this point, the router itself has internet access (over <code>vlan1</code>).</p>
 <h3 id="5-setup-nat">5. Setup NAT</h3>
 <p>Next, we need to tell the router to change the <strong>source</strong> IPs of outgoing packets to the router's own IP, so that the ONT and subsequent servers will be able to route the packet back to us (these servers can't see our internal addresses on the network, e.g. 192.168.x.x - they can only see our router's external address as above). This translation is known as <a href="https://help.mikrotik.com/docs/display/ROS/NAT">Network Address Translation</a>, of which there are 2 types - source (<code>srcnat</code>) and destination (<code>dstnat</code>), which apply to outgoing and incoming packets respectively.</p>
-<div class="highlight"><pre><span></span><code>&gt; ip firewall nat print
-
-0   chain=srcnat action=masquerade out-interface-list=WAN log=no log-prefix=&quot;&quot; ipsec-policy=out,none
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&gt; ip firewall nat print
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>0   chain=srcnat action=masquerade out-interface-list=WAN log=no log-prefix=&quot;&quot; ipsec-policy=out,none
+</span></code></pre></div>
 <p>The <code>masquerade</code> action is a <a href="https://help.mikrotik.com/docs/display/ROS/NAT#NAT-Masquerade">special type</a> of <code>srcnat</code> which sets the source IP to whatever the router's own IP happens to be at that point in time. This is useful when our router gets assigned IP addresses dynamically (most ISPs do this).</p>
 <p>We now tell the router to perform NAT on packets headed for the internet, by modifying the existing entry:</p>
-<div class="highlight"><pre><span></span><code>&gt; ip firewall nat set 0 out-interface=vlan1
-&gt; ip firewall nat unset 0 out-interface-list
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>&gt; ip firewall nat set 0 out-interface=vlan1
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>&gt; ip firewall nat unset 0 out-interface-list
+</span></code></pre></div>
 <p>To complete the NAT hairpin setup and maintain SSH access internally on the LAN, run the following:</p>
-<div class="highlight"><pre><span></span><code># This enables hairpinning
-&gt; ip firewall nat add chain=srcnat action=masquerade src-address=192.168.88.0/24 dst-address=192.168.88.0/24
-
-# This allows clients on the LAN to still be able to SSH to the router
-&gt; ip firewall nat add chain=dstnat to-addresses=192.168.88.1 to-ports=22 protocol=tcp dst-address=192.168.88.1 dst-port=22
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># This enables hairpinning
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>&gt; ip firewall nat add chain=srcnat action=masquerade src-address=192.168.88.0/24 dst-address=192.168.88.0/24
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a># This allows clients on the LAN to still be able to SSH to the router
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>&gt; ip firewall nat add chain=dstnat to-addresses=192.168.88.1 to-ports=22 protocol=tcp dst-address=192.168.88.1 dst-port=22
+</span></code></pre></div>
 <p>At this juncture, your device should have internet access.</p>
 <h2 id="advanced-configuration">Advanced Configuration</h2>
 <h3 id="changing-default-gateway-address">Changing default gateway address</h3>
-<div class="highlight"><pre><span></span><code>&gt; ip address add address=192.168.1.1/24 interface=bridge
-&gt; ip dhcp-server remove 0
-&gt; ip dhcp-server setup
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&gt; ip address add address=192.168.1.1/24 interface=bridge
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>&gt; ip dhcp-server remove 0
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>&gt; ip dhcp-server setup
+</span></code></pre></div>
 <h3 id="setup-static-dhcp-leases">Setup Static DHCP Leases</h3>
 <p>This can be done conveniently via the WebGUI, or the <a href="https://help.mikrotik.com/docs/display/ROS/DHCP#DHCP-Leases">terminal</a>.</p>
 <h3 id="setup-port-forwarding">Setup Port Forwarding</h3>
 <p>This can be done with <code>dstnat</code> rules, as follows:</p>
-<div class="highlight"><pre><span></span><code>&gt; ip firewall nat add chain=dstnat action=dst-nat to-addresses=&lt;LOCAL-ADDRESS&gt; to-ports=&lt;LOCAL-PORT&gt; protocol=tcp dst-address-type=local dst-port=&lt;PUBLIC-PORT&gt;
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>&gt; ip firewall nat add chain=dstnat action=dst-nat to-addresses=&lt;LOCAL-ADDRESS&gt; to-ports=&lt;LOCAL-PORT&gt; protocol=tcp dst-address-type=local dst-port=&lt;PUBLIC-PORT&gt;
+</span></code></pre></div>
 <p>This rule will forward packets incoming on <code>PUBLIC-PORT</code> and send them to <code>LOCAL-ADDRESS:LOCAL-PORT</code>.</p>
 <p>Additionally, the inclusion of <a href="https://wiki.mikrotik.com/wiki/Manual:IP/Firewall/NAT#Properties"><code>dst-address-type=local</code></a> allows devices within the LAN to access the public URL of a port-forwarded device on the same LAN (also known as <a href="https://help.mikrotik.com/docs/display/ROS/NAT#NAT-HairpinNAT">hairpin NAT</a>).</p>
 <p>Either <code>dst-address-type</code> or <code>dst-address</code> must be set, otherwise all traffic bound for <code>PUBLIC-PORT</code>, even locally, will be routed to <code>LOCAL-ADDRESS</code>.</p>
@@ -1040,9 +1040,9 @@
 <p>DoH is a more secure form of DNS, which cryptographically verifies responses from the server. You can set it up on the router by following this <a href="https://gist.github.com/M0r13n/4142018edb10f927cf4f19c6de31614c">guide</a> for Cloudflare's 1.1.1.1 service.</p>
 <p>After you have set it up, you can test whether it is working <a href="https://one.one.one.one/help/">here</a>.</p>
 <p>Note: if you receive <code>certificate is not yet valid</code> errors after configuring DoH, you may need to setup the <a href="https://en.wikipedia.org/wiki/Network_Time_Protocol">NTP</a> client on the router to fetch the correct time as follows:</p>
-<div class="highlight"><pre><span></span><code>&gt; system ntp client set enabled=yes
-&gt; system ntp client servers add address=pool.ntp.org
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>&gt; system ntp client set enabled=yes
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>&gt; system ntp client servers add address=pool.ntp.org
+</span></code></pre></div>
 <div class="footnote">
 <hr />
 <ol>
@@ -1168,7 +1168,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
