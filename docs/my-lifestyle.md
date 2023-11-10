@@ -1,5 +1,7 @@
 # My Lifestyle
 
+![](static/images/life.jpg)
+
 Over the years I have been slowly incorporating various practices and routines which I have learnt about from [friends] and [scientific journals], to improve my physical and mental well-being.
 
 While there are many more potential changes that I could make with regards to this lifestyle to further optimize the benefits, I have decided to select the minimal set with the largest benefit to inconvenience ratio (as judged by myself).
@@ -8,29 +10,27 @@ While there are many more potential changes that I could make with regards to th
 
 ## Morning Routine
 
-**Sunlight exposure**: Immediately after waking up, I try to head outside, such as when I cycle to work, or head to the market to get groceries.
+**Light exposure**: Immediately after waking up, I try to head outside, such as when I cycle to work, or head to the market to get groceries. Then, throughout the day, I try to go outdoors. These light exposures help in retraining the circadian rhythm.
 
 **Breakfast**: See [below](./my-lifestyle.md#breakfast).
 
-**Sunlight Exposure**: If possible, I try to go outdoors, to achieve a few hours of sunlight exposure, which helps in retraining the circadian rhythm.
-
 ## Evening Routine
 
-**Avoid electronic distractions**: My phone is on DND with no notifications (except for critical ones) after 6pm. Surprises late in the day can ruin subsequent sleep.
+**Meal prep**: Twice a week, I batch cook and freeze my lunches/dinners for about 4-7 days worth at a time. This lets me take advantage of food on offer, as I can buy more in bulk and freeze them. It also reduces the bulk of the vegetables, saving space in the fridge.
 
-**Exercise**: I either cycle back from work, run or gym, as part of an effort to achieve 150-200 minutes of Zone 2 cardio weekly.
+**No electronic distractions after 6pm**: After 6pm, my phone is on DND with no notifications (except for critical ones). Surprises this late in the day can ruin sleep.
 
-**Meal prep**: I batch cook and freeze my lunches/dinners for about 4-7 days worth at a time. This lets me take advantage of food on offer, as I can buy more in bulk and freeze them. It also reduces the bulk of the vegetables, saving space in the fridge.
-
-**Avoid blue light from 630pm**: Blue light adverse affects the circadian rhythm and subsequent sleep quality. I use incandescent lighting indoors. I try to avoid using my phone/computer if possible. If I have to head out, I wear [blue blocker glasses].
+**No blue light from 630pm**: I use incandescent lighting indoors. I try to avoid using my phone/computer if possible. If I have to head out, I wear [blue blocker glasses]. Blue light adverse affects the circadian rhythm and subsequent sleep quality. 
 
 **Warm shower**: This prevents an adrenaline surge at night (compared to a cold shower).
 
-**Meditation/Relaxation**: There are many [benefits of meditation].
+**[Brown noise]**: I play brown noise using either my phone or speakers. This helps drown out distracting noises, common where I am.
 
-**[Brown noise]**: Playing this helps drown out distracting noises, common where I am.
+**Relaxation**: Then, the rest of the time before bed is spent reading (usually on my [Kindle]), practicing the piano, or [meditating][benefits of meditation].
 
-**Reading**: Then, the rest of the time before bed is spent reading, usually on my Kindle.
+## Reminders
+
+I schedule reminders at fixed days on my calendar for chores like grocery shopping, soaking and cooking lentils. This helps me plan the rest of my schedule around those chores.
 
 ## Diet
 
@@ -38,7 +38,9 @@ While there are many more potential changes that I could make with regards to th
 
 Consuming a variety of vegetables is important, as a single vegetable seldom contains [all the necessary vitamins/nutrients][nutrients].
 
-**Intermittent Fasting**: I [intermittent fast][if-schedule], following the [16/8][16/8] schedule (time restricted eating). I eat the most at breakfast, less at lunch, and skip dinner. From 12nn onwards to the next morning, I only drink water/tea, and I do not take any food. _I was previously doing IF for lunch/dinner, but recently shifted the window earlier as an empty stomach before bed improves my sleep._
+**Intermittent Fasting**: I [intermittent fast][if-schedule], following the [16/8][16/8] schedule (time restricted eating). I eat the most at breakfast, less at lunch, and skip dinner. From 12 noon onwards, I only drink water/tea, and I do not take any food.
+
+_I was previously doing IF for lunch/dinner, but recently shifted the window earlier as an empty stomach before bed improves my sleep._
 
 ### Breakfast
 
@@ -59,10 +61,6 @@ Occasionally I take supplements e.g. [fish oil][fish-oil].
 
 I stop eating by about 12 noon.
 
-## Reminders
-
-I schedule reminders at fixed days on my calendar for chores like grocery shopping, soaking and cooking lentils. This helps me plan the rest of my schedule around those chores.
-
 [16/8]: https://www.healthline.com/nutrition/16-8-intermittent-fasting
 [fish-oil]: blog/posts/2022-10-28-nutrition-and-health.md#omega-3
 [if-schedule]: blog/posts/2022-10-28-nutrition-and-health.md#timingintermittent-fasting
@@ -75,3 +73,4 @@ I schedule reminders at fixed days on my calendar for chores like grocery shoppi
 [benefits of meditation]: blog/posts/2022-08-05-vipassana-meditation-retreat.md
 [blue blocker glasses]: https://optimizeyourbiology.com/blue-blocker-database
 [Brown noise]: https://www.nytimes.com/interactive/2022/09/23/well/mind/brown-noise.html
+[Kindle]: ./blog/posts/2023-10-17-kindle-sync.md
