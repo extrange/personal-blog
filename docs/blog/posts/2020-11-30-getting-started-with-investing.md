@@ -77,7 +77,7 @@ Stocks represent assets of a company that investors can purchase. Note that in t
 
 But what if you want to buy not just a few stocks, but 100? 1000? The entire US market?
 
-This is possible with the advent of the [exchange-traded fund (ETF)](https://www.investopedia.com/terms/e/etf.asp). It is essentially a fund which invests the shareholders' monies into a basket of securities. For example, the [SPY](https://www.ssga.com/us/en/institutional/etfs/funds/spdr-sp-500-etf-trust-spy) tracks the S&P 500, an index tracking the performance of 500 large companies in the US. ETFs not only track indices - you can buy ETFs specializing in [pharmaceutical products](https://www.ssga.com/us/en/institutional/etfs/funds/spdr-sp-pharmaceuticals-etf-xph) or almost anything else as well. As they are listed on an exchange, ETFs are also subject to regulation[^etf-regulation].
+This is possible with the advent of the [exchange-traded fund (ETF)](https://www.investopedia.com/terms/e/etf.asp). It is essentially a fund which invests the shareholders' monies into a basket of securities. For example, the [SPY](https://www.ssga.com/us/en/institutional/etfs/funds/spdr-sp-500-etf-trust-spy) tracks the S&P 500, an index tracking the performance of 500 large companies in the US. ETFs not only track indices - you can buy ETFs specializing in [pharmaceutical products] or almost anything else as well. As they are listed on an exchange, ETFs are also subject to regulation[^etf-regulation].
 
 ### Fixed-Income Securities (aka bonds)
 
@@ -191,3 +191,5 @@ Finally, if you spot any errors here, do [let me know](mailto:me@nicholaslyz.com
 [^restrictions]: E.g. IB does not allow Singaporeans to buy SGX listed equities.
 [^local-bank-insurance]: It is a tad disappointing that our local banks have lower bank guarantees than the US.
 [^hedging]: Personally, I use a 1.1 diagonal put ratio spread (1 year long, 3 months short) for hedging my equities (the _beta-weighted_ amount). The Options Edge by Michael C. Khouw provides a great introduction to this hedging strategy.
+
+[pharmaceutical products]: https://www.ssga.com/us/en/intermediary/etfs/funds/spdr-sp-pharmaceuticals-etf-xph
