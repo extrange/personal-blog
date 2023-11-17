@@ -911,16 +911,19 @@
 <p><em>(Optional)</em> To make all containers use the NVIDIA runtime by default, add the following to <code>/etc/docker/daemon.json</code>:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&quot;default-runtime&quot;: &quot;nvidia&quot;
 </span></code></pre></div>
+<p>Alternatively, you can use <a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html"><code>nvidia-ctk</code></a>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo nvidia-ctk runtime configure --runtime=docker
+</span></code></pre></div>
 <h2 id="5-finally-test-gpu-access-in-docker-with-either">5. Finally, test GPU access in Docker with either:</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker run --runtime=nvidia --rm nvidia/cuda:10.2-base nvidia-smi
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker run --rm nvidia/cuda:10.2-base nvidia-smi
 </span></code></pre></div>
 <p>or</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker run --runtime=nvidia --gpus all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark -numbodies=512000
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker run --gpus all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark -numbodies=512000
 </span></code></pre></div>
 <p>And that's it!</p>
 <p><strong>Note on VSCode</strong></p>
 <p>If you are using VSCode <a href="https://code.visualstudio.com/docs/remote/containers">Remote Containers</a>, you will need to add</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&quot;runArgs&quot;: [&quot;--gpus&quot;,&quot;all&quot;]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>&quot;runArgs&quot;: [&quot;--gpus&quot;,&quot;all&quot;]
 </span></code></pre></div>
 <p>to your <code>devcontainer.json</code>. For some reason, <code>--runtime=nvidia</code> does not work.</p>
 <div class="footnote">
