@@ -64,16 +64,22 @@ _(Optional)_ To make all containers use the NVIDIA runtime by default, add the f
 "default-runtime": "nvidia"
 ```
 
+Alternatively, you can use [`nvidia-ctk`][nvidia-ctk]:
+
+```
+sudo nvidia-ctk runtime configure --runtime=docker
+```
+
 ## 5. Finally, test GPU access in Docker with either:
 
 ```
-docker run --runtime=nvidia --rm nvidia/cuda:10.2-base nvidia-smi
+docker run --rm nvidia/cuda:10.2-base nvidia-smi
 ```
 
 or
 
 ```
-docker run --runtime=nvidia --gpus all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark -numbodies=512000
+docker run --gpus all --rm nvcr.io/nvidia/k8s/cuda-sample:nbody nbody -benchmark -numbodies=512000
 ```
 
 And that's it!
@@ -92,3 +98,4 @@ to your `devcontainer.json`. For some reason, `--runtime=nvidia` does not work.
 [^nvidia-repo]: While there is no official Fedora support for `nvidia-container-runtime`, the Centos 7 repository [seems to work](https://github.com/NVIDIA/nvidia-docker/issues/553#issuecomment-381075335).
 
 [remote-containers]: https://code.visualstudio.com/docs/remote/containers
+[nvidia-ctk]: https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
