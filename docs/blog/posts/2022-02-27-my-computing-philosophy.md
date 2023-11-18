@@ -76,7 +76,7 @@ I use VSCode with a Vim plugin for coding (rather than Vim or Neovim). The reaso
 
 Blue light is a major disruptor of our circadian rhythms and as such this is one of the settings I quickly adjust on devices I use. [Flux][flux] is a tool I use on Windows, and for Linux, Gnome already has a night light feature in-built.
 
-## Remote, secure personal data access
+## Secure, remote, self-hosted data access
 
 Being able to access the contents of your computer anywhere you go is really handy, and it allows for things like remote file management, sharing files with friends and working on your projects anywhere in the world, on any computer.
 
@@ -90,9 +90,9 @@ This saves money, as well as time spent configuring new devices (since everythin
 
 ![](../../static/images/2022-02-27/linux.jpg)
 
-I've been using Windows ever since I started using computers. However, I have been encountering a lot of frustrations in Windows.
+In the past, Windows was my desktop. I have since changed to Linux after encountering a myriad of frustrations.
 
--   WSL has too many issues (no `systemd`, changing IP address, poor Docker volume mount performance)
+-   Too many issues with WSL (no `systemd`, constantly changing IP address, poor Docker volume mount performance)
 -   Potential windows spyware concerns, e.g. Edge requesting for more and more tracking
 -   Updates keep breaking things and resetting preferences (e.g. Edge homepage, system color theme)
 -   Updates force you to restart
@@ -103,11 +103,19 @@ The reasons remaining to use Windows have dwindled:
 
 -   Gaming: It is possible to [play on a Windows VM (with GPU passthrough) over the internet](2022-07-10-win11-vm-gpu-passthrough.md).
 -   Really obscure, closed source, Windows-only tools: Again, running them in a VM is possible.
--   Missing/substandard Linux device drivers[^linux-device-drivers]: Potentially a problem for some laptops, but as time passes most hardware is already supported.
+-   Missing/substandard Linux device drivers[^linux-device-drivers]. Potentially a problem for some laptops, but as time passes most hardware is already supported.
 
-In view of the above problems, I have decided to move to Linux.
+With Linux, I have a package manager, open-source software which doesn't track me, and complete control over my computer's behavior.
 
-As of 2023 Nov I am making the switch to [NixOS], a distro which allows declarative configuration of not just packages but system and user settings.
+## Minimalist, declarative configuration
+
+Most software out there provides settings and extensions to customize and enhance functionality. For example, in a desktop environment, we have preferences such as what font or color scheme to use.
+
+Nontheless, I prefer to keep to default settings and avoid extensions as far as possible. The reason for this is twofold: There is a smaller 'configuration surface' exposed to me which simplifies management, and I am protected from update incompatibilities/regressions because of less dependencies.
+
+Furthermore, being able to declare these preferences in a file and then load that into a system on demand would save a lot of time.
+
+As of 2023 Nov, I am making the switch to Linux distro which can do just that in a single file - [NixOS]. It supports declarative configuration of not just system and user settings, but also packages and Flatpaks.
 
 [^cloud-privacy]: Why not just store everything in the cloud? Because I don't trust Google (or Microsoft) with keeping the privacy of my data intact.
 [^package-manager]: [Chocolatey](https://chocolatey.org/) is a good try, however.
