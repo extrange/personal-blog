@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.9">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.78cf6014.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.356b1318.min.css">
@@ -761,21 +761,36 @@
       
         <li class="md-nav__item">
   <a href="#ergonomicity" class="md-nav__link">
-    Ergonomicity
+    <span class="md-ellipsis">
+      Ergonomicity
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#remote-secure-personal-data-access" class="md-nav__link">
-    Remote, secure personal data access
+  <a href="#secure-remote-self-hosted-data-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secure, remote, self-hosted data access
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#stable-open-source-environment" class="md-nav__link">
-    Stable, open source environment
+    <span class="md-ellipsis">
+      Stable, open source environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minimalist-declarative-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimalist, declarative configuration
+    </span>
   </a>
   
 </li>
@@ -908,16 +923,16 @@
 <p>I use VSCode with a Vim plugin for coding (rather than Vim or Neovim). The reason is that the plethora of features available in VSCode is hard to replicate in Neovim, at least not without extensive configuration changes, and I don't want to have another configuration file which I have to maintain when Vim/Neovim packages change.</p>
 <p><strong>Blue Light Filter: Flux/System Default</strong></p>
 <p>Blue light is a major disruptor of our circadian rhythms and as such this is one of the settings I quickly adjust on devices I use. <a href="https://justgetflux.com/">Flux</a> is a tool I use on Windows, and for Linux, Gnome already has a night light feature in-built.</p>
-<h2 id="remote-secure-personal-data-access">Remote, secure personal data access</h2>
+<h2 id="secure-remote-self-hosted-data-access">Secure, remote, self-hosted data access</h2>
 <p>Being able to access the contents of your computer anywhere you go is really handy, and it allows for things like remote file management, sharing files with friends and working on your projects anywhere in the world, on any computer.</p>
 <p><a href="../../07/setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/">SSH access</a> is one way to achieve secure access to another computer, and it is a method I currently use in conjunction with text editors such as VSCode and Vim. Additionally, I also deploy a web server with a <a href="https://github.com/extrange/web-app">web frontend</a><sup id="fnref:cloud-privacy"><a class="footnote-ref" href="#fn:cloud-privacy">1</a></sup>, to manage my tasks, book lists and potentially other loose non-file pieces of content.</p>
 <p>Having a web server and the associated frontend allows me to customize how data is displayed in one place, which then looks the same on all my other client devices.</p>
 <p>This saves money, as well as time spent configuring new devices (since everything is really being done on the server). As a bonus, since processing is <a href="../../07/vscode-remote-containers-over-ssh/">offloaded to the server</a> (for programming tasks), battery life of the device is prolonged.</p>
 <h2 id="stable-open-source-environment">Stable, open source environment</h2>
 <p><a class="glightbox" href="../../../../../static/images/2022-02-27/linux.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-02-27/linux.jpg" /></a></p>
-<p>I've been using Windows ever since I started using computers. However, I have been encountering a lot of frustrations in Windows.</p>
+<p>In the past, Windows was my desktop. I have since changed to Linux after encountering a myriad of frustrations.</p>
 <ul>
-<li>WSL has too many issues (no <code>systemd</code>, changing IP address, poor Docker volume mount performance)</li>
+<li>Too many issues with WSL (no <code>systemd</code>, constantly changing IP address, poor Docker volume mount performance)</li>
 <li>Potential windows spyware concerns, e.g. Edge requesting for more and more tracking</li>
 <li>Updates keep breaking things and resetting preferences (e.g. Edge homepage, system color theme)</li>
 <li>Updates force you to restart</li>
@@ -928,10 +943,14 @@
 <ul>
 <li>Gaming: It is possible to <a href="../../../07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/">play on a Windows VM (with GPU passthrough) over the internet</a>.</li>
 <li>Really obscure, closed source, Windows-only tools: Again, running them in a VM is possible.</li>
-<li>Missing/substandard Linux device drivers<sup id="fnref:linux-device-drivers"><a class="footnote-ref" href="#fn:linux-device-drivers">3</a></sup>: Potentially a problem for some laptops, but as time passes most hardware is already supported.</li>
+<li>Missing/substandard Linux device drivers<sup id="fnref:linux-device-drivers"><a class="footnote-ref" href="#fn:linux-device-drivers">3</a></sup>. Potentially a problem for some laptops, but as time passes most hardware is already supported.</li>
 </ul>
-<p>In view of the above problems, I have decided to move to Linux.</p>
-<p>As of 2023 Nov I am making the switch to <a href="https://nixos.org/">NixOS</a>, a distro which allows declarative configuration of not just packages but system and user settings.</p>
+<p>With Linux, I have a package manager, open-source software which doesn't track me, and complete control over my computer's behavior.</p>
+<h2 id="minimalist-declarative-configuration">Minimalist, declarative configuration</h2>
+<p>Most software out there provides settings and extensions to customize and enhance functionality. For example, in a desktop environment, we have preferences such as what font or color scheme to use.</p>
+<p>Nontheless, I prefer to keep to default settings and avoid extensions as far as possible. The reason for this is twofold: There is a smaller 'configuration surface' exposed to me which simplifies management, and I am protected from update incompatibilities/regressions because of less dependencies.</p>
+<p>Furthermore, being able to declare these preferences in a file and then load that into a system on demand would save a lot of time.</p>
+<p>As of 2023 Nov, I am making the switch to Linux distro which can do just that in a single file - <a href="https://nixos.org/">NixOS</a>. It supports declarative configuration of not just system and user settings, but also packages and Flatpaks.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -1063,7 +1082,7 @@
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
         <script src="../../../../../javascripts/mathjax.js"></script>
       

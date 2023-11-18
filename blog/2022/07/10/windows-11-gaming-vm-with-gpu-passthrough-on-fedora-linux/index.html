@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.9">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.78cf6014.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.356b1318.min.css">
@@ -761,77 +761,99 @@
       
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
-    Prerequisites:
+    <span class="md-ellipsis">
+      Prerequisites:
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#1-setup-gpu-passthrough" class="md-nav__link">
-    1. Setup GPU Passthrough
+    <span class="md-ellipsis">
+      1. Setup GPU Passthrough
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2-install-virtualization-packages" class="md-nav__link">
-    2. Install Virtualization Packages
+    <span class="md-ellipsis">
+      2. Install Virtualization Packages
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3-setup-virt-manager-in-docker" class="md-nav__link">
-    3. Setup virt-manager in Docker
+    <span class="md-ellipsis">
+      3. Setup virt-manager in Docker
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#4-install-windows-and-setup-streaming" class="md-nav__link">
-    4. Install Windows and setup streaming
+    <span class="md-ellipsis">
+      4. Install Windows and setup streaming
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#5-setup-overlay-mesh-network-aka-peer-to-peer-vpn" class="md-nav__link">
-    5. Setup Overlay Mesh Network (aka Peer-to-Peer VPN)
+    <span class="md-ellipsis">
+      5. Setup Overlay Mesh Network (aka Peer-to-Peer VPN)
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#6-setup-apache-guacamole" class="md-nav__link">
-    6. Setup Apache Guacamole
+    <span class="md-ellipsis">
+      6. Setup Apache Guacamole
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#7-optional-setup-nfssamba" class="md-nav__link">
-    7. (Optional) Setup NFS/SAMBA
+    <span class="md-ellipsis">
+      7. (Optional) Setup NFS/SAMBA
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#8-optional-fix-low-fps-on-desktop-and-certain-games" class="md-nav__link">
-    8. (Optional) Fix low FPS on desktop and certain games
+    <span class="md-ellipsis">
+      8. (Optional) Fix low FPS on desktop and certain games
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
-    Conclusion
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#known-issuesnotesfixes" class="md-nav__link">
-    Known Issues/Notes/Fixes
+    <span class="md-ellipsis">
+      Known Issues/Notes/Fixes
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Known Issues/Notes/Fixes">
@@ -839,49 +861,63 @@
         
           <li class="md-nav__item">
   <a href="#disabling-vfio" class="md-nav__link">
-    Disabling VFIO
+    <span class="md-ellipsis">
+      Disabling VFIO
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#moonlight-specific-issues" class="md-nav__link">
-    Moonlight-specific Issues
+    <span class="md-ellipsis">
+      Moonlight-specific Issues
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#qemuvirt-manager" class="md-nav__link">
-    QEMU/virt-manager
+    <span class="md-ellipsis">
+      QEMU/virt-manager
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#apache-guacamole" class="md-nav__link">
-    Apache Guacamole
+    <span class="md-ellipsis">
+      Apache Guacamole
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#steam-link" class="md-nav__link">
-    Steam Link
+    <span class="md-ellipsis">
+      Steam Link
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#tailscale-latency-issues" class="md-nav__link">
-    Tailscale latency issues
+    <span class="md-ellipsis">
+      Tailscale latency issues
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#misc" class="md-nav__link">
-    Misc
+    <span class="md-ellipsis">
+      Misc
+    </span>
   </a>
   
 </li>
@@ -893,7 +929,9 @@
       
         <li class="md-nav__item">
   <a href="#credits" class="md-nav__link">
-    Credits
+    <span class="md-ellipsis">
+      Credits
+    </span>
   </a>
   
 </li>
@@ -1510,7 +1548,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
         <script src="../../../../../javascripts/mathjax.js"></script>
       
