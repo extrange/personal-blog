@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.78cf6014.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.fad675c6.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.356b1318.min.css">
@@ -248,6 +248,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../../../../.." class="md-nav__link">
         
@@ -264,6 +265,7 @@
     
       
       
+  
   
   
   
@@ -286,6 +288,7 @@
   
   
     
+  
   
   
     
@@ -345,6 +348,7 @@
   
   
   
+  
     
     
       
@@ -399,44 +403,7 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../category/programming/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Programming
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../category/philosophy/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Philosophy
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
+    
   
   
     <li class="md-nav__item">
@@ -459,6 +426,9 @@
   
   
   
+    
+  
+  
     <li class="md-nav__item">
       <a href="../../../../category/debates/" class="md-nav__link">
         
@@ -479,24 +449,7 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../category/outdoor/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Outdoor
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
+    
   
   
     <li class="md-nav__item">
@@ -519,12 +472,84 @@
   
   
   
+    
+  
+  
     <li class="md-nav__item">
       <a href="../../../../category/insurance/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Insurance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/outdoor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outdoor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/philosophy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Philosophy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
   </span>
   
 
@@ -551,6 +576,7 @@
     
       
       
+  
   
   
   
@@ -609,6 +635,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../../../../../mountaineering/" class="md-nav__link">
         
@@ -626,6 +653,7 @@
             
               
                 
+  
   
   
   
@@ -649,6 +677,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../../../../../photography/" class="md-nav__link">
         
@@ -666,6 +695,7 @@
             
               
                 
+  
   
   
   
@@ -689,6 +719,7 @@
   
   
   
+  
     <li class="md-nav__item">
       <a href="../../../../../dead-mans-switch/" class="md-nav__link">
         
@@ -706,6 +737,7 @@
             
               
                 
+  
   
   
   
@@ -1051,7 +1083,7 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
 <p>Prior to my decision to use <code>ssh-keygen</code> as the certificate authority, I considered a number of alternative self-hosted SSH certificate authorities, but rejected them as follows:</p>
 <ul>
 <li><a href="https://www.bastillion.io/">Bastillion</a> - Not certificate based. Also, need to manually upload and download the public keys and configure SSH.</li>
-<li><a href="https://developers.cloudflare.com/cloudflare-one/tutorials/ssh">Cloudflare Tunnel</a> - Need to download on both server and client. I had some issues setting up SSH certificate login.</li>
+<li><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/use-cases/ssh/">Cloudflare Tunnel</a> - Need to download on both server and client. I had some issues setting up SSH certificate login.</li>
 <li><a href="https://smallstep.com/docs/step-ca">Step</a> - Need to download on both server and client. Also, TLS connection to <code>step-ca</code> from a client requires adding its generated root certificate as a trusted certificate<sup id="fnref:leaf-certificates"><a class="footnote-ref" href="#fn:leaf-certificates">3</a></sup>.</li>
 <li><a href="https://goteleport.com/docs/getting-started/">Teleport</a> - Need to download on both server and client. Teleport Nodes (the server component) are not supported on Windows. The ability to record SSH sessions might be useful if I were to move to Linux.</li>
 <li><a href="https://www.vaultproject.io/">Vault by HashiCorp</a> - Need to download on both server and client.</li>
@@ -1198,7 +1230,7 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
       
         <script src="../../../../../javascripts/mathjax.js"></script>
       
