@@ -232,7 +232,7 @@ Instead, to streamline the process of generating client certificates, I plan to 
 [-V]: https://man.openbsd.org/ssh-keygen.1#V
 [authorized-keys]: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement#deploying-the-public-key
 [bastillion]: https://www.bastillion.io/
-[cloudflare-tunnel-ssh]: https://developers.cloudflare.com/cloudflare-one/tutorials/ssh
+[cloudflare-tunnel-ssh]: https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/use-cases/ssh/
 [digital-signature]: https://en.wikipedia.org/wiki/Digital_signature
 [ed25519]: https://en.wikipedia.org/wiki/EdDSA
 [install-openssh]: https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse
