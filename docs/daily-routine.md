@@ -1,6 +1,6 @@
-# My Lifestyle
+# Daily Routine
 
-![](static/images/life.jpg)
+This is the implementation of the [principles] I base my lifestyle on.
 
 Over the years I have been slowly incorporating various practices and routines which I have learnt about from [friends] and [scientific journals], to improve my physical and mental well-being.
 
@@ -10,27 +10,41 @@ While there are many more potential changes that I could make with regards to th
 
 ## Morning Routine
 
-**Light exposure**: Immediately after waking up, I try to head outside, such as when I cycle to work, or head to the market to get groceries. Then, throughout the day, I try to go outdoors. These light exposures help in retraining the circadian rhythm.
+**Light exposure**: Immediately after waking up, I try to head outside, such as when I cycle to work, or head to the market to get groceries. Also, throughout the day, I try to go outdoors. These light exposures help in retraining the circadian rhythm and improving mood.
 
-**Breakfast**: See [below](./my-lifestyle.md#breakfast).
+**[Breakfast](#breakfast)**.
+
+**Exercise**: I cycle to work, run, gym, or on the weekends, play badminton/hike.
+
+## Intellectual Stimulation
+
+**Books**: I keep a [book list], which I read on my [Kindle]. I find studying something novel or challenging such as plumbing, acoustics, TCP/IP, reverse engineering or cryptography actually lifts my mood. Conversely, fiction, such as manga/fanfiction, helps expand my imagination.
+
+**Games**: Video games can be an incredible source of creativity and imagination. Some games like Starcraft and Diablo II were so ahead of their time. I found Mirror's Edge to be fun as well.
+
+**News**: I curate my own RSS feed from various sources such as blogs, Youtube and reputable news sites, categorized in diverse topics such as technology, philosophy or science. I try to avoid mass-market, addictive, low quality sources like Facebook, Instagram, or the mainstream media in my country. I'm currently trialing a Telegram channel, to consolidate interesting articles from all of my friends. To collate articles to read later, I use tools like [Wallabag].
+
+**Piano**: A nice song uplifts the mood. I have some [recordings].
+
+**Podcasts/Audiobooks**: I have found the spoken work to be indispensible while traveling, exercising or otherwise engaged in various activities which preclude reading.
+
+**Programming**: I work on various [programming projects]. I use a streamlined [workflow] consisting of various tools and settings, which I have developed over time.
+
+**Watching**: I maintain a list of movies and shows to watch. In addition, my RSS feed aggregator also tracks video channels which I find interesting.
 
 ## Evening Routine
 
 **Meal prep**: Twice a week, I batch cook and freeze my lunches/dinners for about 4-7 days worth at a time. This lets me take advantage of food on offer, as I can buy more in bulk and freeze them. It also reduces the bulk of the vegetables, saving space in the fridge.
 
-**No electronic distractions after 6pm**: After 6pm, my phone is on DND with no notifications (except for critical ones). Surprises this late in the day can ruin sleep.
+**No electronic distractions after 6pm**: After 6pm, my phone is on DND with no notifications (except for critical ones). Surprises (good or bad) this late in the day can ruin sleep.
 
-**No blue light from 630pm**: I use incandescent lighting indoors. I try to avoid using my phone/computer if possible. If I have to head out, I wear [blue blocker glasses]. Blue light adverse affects the circadian rhythm and subsequent sleep quality. 
+**No blue light from 630pm**: I use incandescent lighting indoors. I try to avoid using my phone/computer if possible. If I have to head out, I wear [blue blocker glasses]. Blue light adverse affects the circadian rhythm and subsequent sleep quality.
 
 **Warm shower**: This prevents an adrenaline surge at night (compared to a cold shower).
 
-**[Brown noise]**: I play brown noise using either my phone or speakers. This helps drown out distracting noises, common where I am.
+**[Brown noise]**: I play brown noise to drown out distracting noises, which is common where I am.
 
-**Relaxation**: Then, the rest of the time before bed is spent reading (usually on my [Kindle]), practicing the piano, or [meditating][benefits of meditation].
-
-## Reminders
-
-I schedule reminders at fixed days on my calendar for chores like grocery shopping, soaking and cooking lentils. This helps me plan the rest of my schedule around those chores.
+**Relaxation**: Then, the rest of the time before bed is spent reading (usually on my [Kindle]), practicing the piano, MMO or [meditating][benefits of meditation].
 
 ## Diet
 
@@ -61,6 +75,10 @@ Occasionally I take supplements e.g. [fish oil][fish-oil].
 
 I stop eating by about 12 noon.
 
+## Misc
+
+**Reminders for chores**: I schedule reminders at fixed days on my calendar for chores like grocery shopping, soaking and cooking lentils. This helps me plan the rest of my schedule around those chores.
+
 [16/8]: https://www.healthline.com/nutrition/16-8-intermittent-fasting
 [fish-oil]: blog/posts/2022-10-28-nutrition-and-health.md#omega-3
 [if-schedule]: blog/posts/2022-10-28-nutrition-and-health.md#timingintermittent-fasting
@@ -73,4 +91,10 @@ I stop eating by about 12 noon.
 [benefits of meditation]: blog/posts/2022-08-05-vipassana-meditation-retreat.md
 [blue blocker glasses]: https://optimizeyourbiology.com/blue-blocker-database
 [Brown noise]: https://www.nytimes.com/interactive/2022/09/23/well/mind/brown-noise.html
-[Kindle]: ./blog/posts/2023-10-17-kindle-sync.md
+[Kindle]: blog/posts/2023-10-17-kindle-sync.md
+[Wallabag]: https://wallabag.org/
+[programming projects]: https://github.com/extrange
+[workflow]: blog/posts/2022-02-27-my-computing-philosophy.md
+[book list]: https://calibre.nicholaslyz.com
+[recordings]: piano.md
+[principles]: principles.md

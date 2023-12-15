@@ -6,11 +6,7 @@ date: 2022-02-27
 
 # My Computing Philosophy
 
-My computing setup is designed to maximize productivity, by following the following principles:
-
--   Ergonomicity
--   Remote, secure personal data access
--   Stable open-source environment
+My computing setup is designed to maximize the state of flow, by reducing distractions and other associated cognitive overheads.
 
 <!-- more -->
 
@@ -18,49 +14,25 @@ My computing setup is designed to maximize productivity, by following the follow
 
 Input takes up a majority of our time on the computer, and therefore it is a prime candidate for optimization. In order of importance:
 
-**Keyboard layout: Dvorak**
+### Keyboard layout: Dvorak
 
 ![](../../static/images/2022-02-27/keyboard.jpg)
 
 The keyboard is perhaps the most frequently used peripheral, more so than the mouse, and thus choosing an efficient layout is essential. I decided on Dvorak, as it resembles playing the piano - vowels are on the home row of the left hand, while the common consonants are on the right, and this allows for a more natural alternation compared to the Qwerty layout.
 
-I remap the ++control++ + ++z++ ++x++ ++c++ ++v++ keys for copy/paste/undo-ing, and ++control++ + ++w++ ++t++ / ++control+shift+t++ for browsing, as their Qwerty locations are more convenient than their Dvorak equivalents.
+I remap the ++control++ + ++z++ ++x++ ++c++ ++v++ keys (using [keyd]) for copy/paste/undo-ing, and ++control++ + ++w++ ++t++ / ++control+shift+t++ for browsing, as their Qwerty locations are more convenient than their Dvorak equivalents. I also remap the ++caps-lock++ key to ++backspace++.
 
-I also remap the ++caps-lock++ key to ++backspace++.
+### Window Manager
 
-??? note "Configuration for Linux"
-
-    I use [`keyd`][keyd] on a Dvorak layout with the following config in `/etc/keyd/default.conf`:
-
-    ```conf
-    [ids]
-
-    *
-
-    [control]
-    z = C-/
-    x = C-b
-    c = C-i
-    v = C-.
-    t = C-k
-    w = C-,
-    shift = layer(control_shift)
-
-    [control_shift:C-S]
-    t = C-S-k
-    ```
-
-    Changing the ++caps-lock++ key behavior can be done in Gnome Tweaks, under Keyboard & Mouse > Additional Layout Options.
-
-**Window Managers: Tiling vs Stacking**
+A tiling window manager (e.g. [i3], [sway]) arranges windows in a non-overlapping, grid-like pattern. This allows for more efficient use of screen space, as well as less mouse-keyboard switching.
 
 ![](../../static/images/2022-02-27/pop-shell.jpg)
 
-A tiling window manager ([i3][i3] being the most popular example) arranges windows in a non-overlapping, grid-like pattern. This allows for more efficient use of screen space, as well as less mouse-keyboard switching.
+I was previously using [Pop!\_OS Shell][pop-shell], which is a GNOME extension.
 
-I was previously using [Pop!\_OS Shell][pop-shell], which is a GNOME extension, and planned to switch to [Sway][sway] in the future. However, most of the time I use one window at a time, and ++alt++ + ++tab++ already works pretty well in that regard.
+I plan to move to [Hyprland], a dynamic tiling window manager, in the future.
 
-**Text Editor: Vim/Vim-like**
+### Text Editor: Vim/Vim-like
 
 ![](../../static/images/2022-02-27/spacevim.jpg)
 
@@ -72,50 +44,48 @@ Besides vanilla Vim, there are also other spin-off projects like [Neovim][neovim
 
 I use VSCode with a Vim plugin for coding (rather than Vim or Neovim). The reason is that the plethora of features available in VSCode is hard to replicate in Neovim, at least not without extensive configuration changes, and I don't want to have another configuration file which I have to maintain when Vim/Neovim packages change.
 
-**Blue Light Filter: Flux/System Default**
+### Blue Light Filter
 
 Blue light is a major disruptor of our circadian rhythms and as such this is one of the settings I quickly adjust on devices I use. [Flux][flux] is a tool I use on Windows, and for Linux, Gnome already has a night light feature in-built.
 
-## Secure, remote, self-hosted data access
+## Self hosted applications and files
 
 Being able to access the contents of your computer anywhere you go is really handy, and it allows for things like remote file management, sharing files with friends and working on your projects anywhere in the world, on any computer.
 
-[SSH access][ssh] is one way to achieve secure access to another computer, and it is a method I currently use in conjunction with text editors such as VSCode and Vim. Additionally, I also deploy a web server with a [web frontend][web-frontend][^cloud-privacy], to manage my tasks, book lists and potentially other loose non-file pieces of content.
+[SSH access][ssh] is one way to achieve secure access to another computer, and it is a method I currently use in conjunction with text editors such as VSCode and Vim. Additionally, I also deploy a web server with a [web frontend][^cloud-privacy], to manage my tasks, book lists and potentially other loose non-file pieces of content.
 
 Having a web server and the associated frontend allows me to customize how data is displayed in one place, which then looks the same on all my other client devices.
 
 This saves money, as well as time spent configuring new devices (since everything is really being done on the server). As a bonus, since processing is [offloaded to the server][vscode-remote-containers] (for programming tasks), battery life of the device is prolonged.
 
-## Stable, open source environment
+## Declarative Environment
 
-![](../../static/images/2022-02-27/linux.jpg)
+![](../../static/images/2022-02-27/nix.jpg)
+
+I currently use [NixOS]. You can see my configuration [here][nixos-config].
 
 In the past, Windows was my desktop. I have since changed to Linux after encountering a myriad of frustrations.
 
--   Too many issues with WSL (no `systemd`, constantly changing IP address, poor Docker volume mount performance)
--   Potential windows spyware concerns, e.g. Edge requesting for more and more tracking
--   Updates keep breaking things and resetting preferences (e.g. Edge homepage, system color theme)
--   Updates force you to restart
--   Even in 2022, Windows still lacks a decent package manager[^package-manager], making application updates a pain
--   Powershell, while improving, is still behind Linux shells and utilities
+??? note
 
-The reasons remaining to use Windows have dwindled:
+    -   Too many issues with WSL (no `systemd`, constantly changing IP address, poor Docker volume mount performance)
+    -   Potential windows spyware concerns, e.g. Edge requesting for more and more tracking
+    -   Updates keep breaking things and resetting preferences (e.g. Edge homepage, system color theme)
+    -   Updates force you to restart
+    -   Even in 2022, Windows still lacks a decent package manager[^package-manager], making application updates a pain
+    -   Powershell, while improving, is still behind Linux shells and utilities
 
--   Gaming: It is possible to [play on a Windows VM (with GPU passthrough) over the internet](2022-07-10-win11-vm-gpu-passthrough.md).
--   Really obscure, closed source, Windows-only tools: Again, running them in a VM is possible.
--   Missing/substandard Linux device drivers[^linux-device-drivers]. Potentially a problem for some laptops, but as time passes most hardware is already supported.
+The reasons for using Windows have also dwindled.
+
+??? note
+
+    -   Gaming: It is possible to [play on a Windows VM (with GPU passthrough) over the internet](2022-07-10-win11-vm-gpu-passthrough.md).
+    -   Really obscure, closed source, Windows-only tools: Again, running them in a VM is possible.
+    -   Missing/substandard Linux device drivers[^linux-device-drivers]. Potentially a problem for some laptops, but as time passes most hardware is already supported.
 
 With Linux, I have a package manager, open-source software which doesn't track me, and complete control over my computer's behavior.
 
-## Minimalist, declarative configuration
-
-Most software out there provides settings and extensions to customize and enhance functionality. For example, in a desktop environment, we have preferences such as what font or color scheme to use.
-
-Nontheless, I prefer to keep to default settings and avoid extensions as far as possible. The reason for this is twofold: There is a smaller 'configuration surface' exposed to me which simplifies management, and I am protected from update incompatibilities/regressions because of less dependencies.
-
-Furthermore, being able to declare these preferences in a file and then load that into a system on demand would save a lot of time.
-
-As of 2023 Nov, I am making the switch to Linux distro which can do just that in a single file - [NixOS]. It supports declarative configuration of not just system and user settings, but also packages and Flatpaks.
+With Nix, my system configuration is maintained in a version controlled repository. I can maintain complex configurations and preferences for both the system and applications, and confidently deploy it on multiple systems with perfect reproducibility.
 
 [^cloud-privacy]: Why not just store everything in the cloud? Because I don't trust Google (or Microsoft) with keeping the privacy of my data intact.
 [^package-manager]: [Chocolatey](https://chocolatey.org/) is a good try, however.
@@ -128,8 +98,10 @@ As of 2023 Nov, I am making the switch to Linux distro which can do just that in
 [ssh]: 2022-02-07-ssh-with-certificates.md
 [vim-tutorial]: https://github.com/iggredible/Learn-Vim
 [vscode-remote-containers]: 2022-02-07-vscode-remote-containers-over-ssh.md
-[web-frontend]: https://github.com/extrange/web-app
+[web frontend]: https://github.com/extrange/web-app
 [pop-shell]: https://github.com/pop-os/shell
 [i3]: https://i3wm.org/
-[sway]: https://swaywm.org/
+[Sway]: https://swaywm.org/
 [NixOS]: https://nixos.org/
+[Hyprland]: https://hyprland.org/
+[nixos-config]: https://github.com/extrange/nixos-config

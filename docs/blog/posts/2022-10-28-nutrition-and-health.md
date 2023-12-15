@@ -248,7 +248,7 @@ A balanced diet of nutrients can be therefore constructed with beans as the base
 [umami-sources]: https://www.umamiinfo.com/richfood/
 [umami]: https://www.pccmarkets.com/sound-consumer/2015-04/understanding-umami/
 [vitamin-d-mortality]: https://pubmed.ncbi.nlm.nih.gov/24690623/
-[my-diet]: ../../my-lifestyle.md#diet
+[my-diet]: ../../daily-routine.md#diet
 [lectins]: https://www.hsph.harvard.edu/nutritionsource/anti-nutrients/lectins/
 [soaking-beans]: https://www.epicurious.com/expert-advice/soaking-salting-dried-bean-myths-article
 [morning-loaded-calories]: https://www.sciencedirect.com/science/article/pii/S1550413122003448
