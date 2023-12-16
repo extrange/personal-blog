@@ -877,6 +877,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#python-package-management-on-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Package Management on Windows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#life-insurance" class="md-nav__link">
     <span class="md-ellipsis">
       Life Insurance
@@ -962,6 +971,47 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2021-04-15 00:00:00">April 15, 2021</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/programming/" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="python-package-management-on-windows"><a class="toclink" href="../../2021/04/15/python-package-management-on-windows/">Python Package Management on Windows</a></h2>
+<h3 id="update-171121"><a class="toclink" href="../../2021/04/15/python-package-management-on-windows/#update-171121"><strong>Update 17/11/21</strong></a></h3>
+<p>I now use <a href="../../2021/11/17/developing-in-wsl-containers-now-with-gpu-support/">WSL2 containers in VSCode</a>. Additionally, I use <code>requirements.txt</code> files generated with:</p>
+<p><code>pip list --format freeze --not-required</code></p>
+<p><a href="https://pip.pypa.io/en/stable/cli/pip_list/#cmdoption-not-required"><code>--not-required</code></a> ensures only top-level packages are printed.</p>
+<p>In addition, I use <code>== X.Y.*</code> (aka <a href="https://www.python.org/dev/peps/pep-0440/#compatible-release">compatible version specifiers</a>) to pin the major and minor version of packages, while allowing for patch versions to be updated automatically each time the container is rebuilt. This prevents surprises during deployment (e.g. missing functionality in minor versions) while allowing bugfix versions to automatically be upgraded without hassle.</p>
+
+    <nav class="md-post__action">
+      <a href="../../2021/04/15/python-package-management-on-windows/">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">

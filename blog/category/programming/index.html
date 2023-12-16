@@ -606,6 +606,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-fedora-with-a-windows-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up Fedora with a Windows VM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gpu-power-crashes" class="md-nav__link">
     <span class="md-ellipsis">
       GPU Power Crashes
@@ -681,15 +690,6 @@
   <a href="#photoprism-a-google-photos-replacement" class="md-nav__link">
     <span class="md-ellipsis">
       Photoprism - A Google Photos Replacement
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#android-vm-in-a-browser-via-apache-guacamole" class="md-nav__link">
-    <span class="md-ellipsis">
-      Android VM in a Browser (via Apache Guacamole)
     </span>
   </a>
   
@@ -1009,6 +1009,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-fedora-with-a-windows-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up Fedora with a Windows VM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gpu-power-crashes" class="md-nav__link">
     <span class="md-ellipsis">
       GPU Power Crashes
@@ -1089,15 +1098,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#android-vm-in-a-browser-via-apache-guacamole" class="md-nav__link">
-    <span class="md-ellipsis">
-      Android VM in a Browser (via Apache Guacamole)
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1112,6 +1112,50 @@
       <header class="md-typeset">
         <h1 id="programming">Programming</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-12-17 00:00:00">December 17, 2023</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              7 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-fedora-with-a-windows-vm"><a class="toclink" href="../../2023/12/17/setting-up-fedora-with-a-windows-vm/">Setting up Fedora with a Windows VM</a></h2>
+<p>This is a short guide on how to setup Fedora with a Windows VM via <a href="https://libvirt.org/">libvirt</a>, optionally sharing a RAID-1 Btrfs volume from the host to the Windows guest via SAMBA. I'm assuming you are coming from Windows.</p>
+<p>Reasons why you might want to do this:</p>
+<ul>
+<li>Windows is quite <a href="../../2022/02/27/my-computing-philosophy/#declarative-environment">annoying</a>.</li>
+<li>With <a href="https://looking-glass.io/">Looking Glass</a>, you can passthrough your GPU to the Windows guest and enjoy native graphics performance.</li>
+<li>The <a href="https://btrfs.readthedocs.io/en/latest/">Btrfs</a> filesystem allows snapshotting, checksumming and multi-disk RAID with an unequal number/size of drives.</li>
+<li>You can snapshot the entire Windows VM and revert to it anytime.</li>
+</ul>
+
+    <nav class="md-post__action">
+      <a href="../../2023/12/17/setting-up-fedora-with-a-windows-vm/">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1451,50 +1495,6 @@
 
     <nav class="md-post__action">
       <a href="../../2022/11/26/photoprism---a-google-photos-replacement/">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2022-07-18 00:00:00">July 18, 2022</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="./" class="md-meta__link">Programming</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="android-vm-in-a-browser-via-apache-guacamole"><a class="toclink" href="../../2022/07/18/android-vm-in-a-browser-via-apache-guacamole/">Android VM in a Browser (via Apache Guacamole)</a></h2>
-<p><img alt="" src="../../../static/images/2022-07-18/android-vm.jpg" /></p>
-<p>Running an Android VM in a web browser lets you run Android applications from any computer. This lets you test out apps, or even suspicious programs without compromising your actual device.</p>
-<p>The setup:</p>
-<ul>
-<li><a href="https://www.android-x86.org/">Android-x86</a>, an x86 port of Android</li>
-<li><a href="https://github.com/m-bers/docker-virt-manager"><code>virt-manager</code> in Docker</a>, which exposes <code>virt-manager</code> in a browser window, and also acts as the VNC server for the Android VM</li>
-<li><a href="https://guacamole.apache.org/">Apache Guacamole</a>, which acts as the VNC &lt;-&gt; browser bridge</li>
-</ul>
-
-    <nav class="md-post__action">
-      <a href="../../2022/07/18/android-vm-in-a-browser-via-apache-guacamole/">
         Continue reading
       </a>
     </nav>

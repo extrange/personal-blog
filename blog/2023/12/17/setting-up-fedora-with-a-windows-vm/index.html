@@ -1,0 +1,1359 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2023/12/17/setting-up-fedora-with-a-windows-vm/">
+      
+      
+        <link rel="prev" href="../../14/on-emotional-maturity/">
+      
+      
+      
+      <link rel="icon" href="../../../../../static/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+    
+    
+      
+        <title>Setting up Fedora with a Windows VM - Nicholas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/code.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Setting up Fedora with a Windows VM - Nicholas" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2023-12-17-setting-up-fedora-with-windows-vm.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2023/12/17/setting-up-fedora-with-a-windows-vm/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Setting up Fedora with a Windows VM - Nicholas" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2023-12-17-setting-up-fedora-with-windows-vm.png" >
+      
+    
+    
+   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="yellow">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setting-up-fedora-with-a-windows-vm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Nicholas" class="md-header__button md-logo" aria-label="Nicholas" data-md-component="logo">
+      
+  <img src="../../../../../static/images/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nicholas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setting up Fedora with a Windows VM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Nicholas" class="md-nav__button md-logo" aria-label="Nicholas" data-md-component="logo">
+      
+  <img src="../../../../../static/images/favicon.png" alt="logo">
+
+    </a>
+    Nicholas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Categories
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/books/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Books
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/cooking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cooking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/debates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/finance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/insurance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Insurance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/outdoor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Outdoor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/philosophy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Philosophy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../category/programming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Pinned
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Pinned
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../dead-mans-switch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dead Man's Switch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lifestyle
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Lifestyle
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../principles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Principles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../daily-routine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Daily Routine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../mountaineering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mountaineering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../photography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Photography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../piano/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Piano
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../travel-bucket-list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Travel Bucket List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-install-fedora" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Install Fedora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-setup-virtualization-install-windows-guest" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Setup virtualization, install Windows guest
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-setup-gpu-passthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Setup GPU Passthrough
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-setup-looking-glass" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Setup Looking Glass
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5a-setup-btrfs-volume-on-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      5a. Setup Btrfs volume on host
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5b-setup-btrfs-raid-1-mirror" class="md-nav__link">
+    <span class="md-ellipsis">
+      5b. Setup Btrfs RAID-1 mirror
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-share-btrfs-host-volume-with-windows-guest" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Share Btrfs host volume with Windows guest
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-linux-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Linux commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-stuff-to-check-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other stuff to check out
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2023-12-17 00:00:00" class="md-ellipsis">December 17, 2023</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/programming/">Programming</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              7 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+
+<h1 id="setting-up-fedora-with-a-windows-vm">Setting up Fedora with a Windows VM</h1>
+<p>This is a short guide on how to setup Fedora with a Windows VM via <a href="https://libvirt.org/">libvirt</a>, optionally sharing a RAID-1 Btrfs volume from the host to the Windows guest via SAMBA. I'm assuming you are coming from Windows.</p>
+<p>Reasons why you might want to do this:</p>
+<ul>
+<li>Windows is quite <a href="../../../../2022/02/27/my-computing-philosophy/#declarative-environment">annoying</a>.</li>
+<li>With <a href="https://looking-glass.io/">Looking Glass</a>, you can passthrough your GPU to the Windows guest and enjoy native graphics performance.</li>
+<li>The <a href="https://btrfs.readthedocs.io/en/latest/">Btrfs</a> filesystem allows snapshotting, checksumming and multi-disk RAID with an unequal number/size of drives.</li>
+<li>You can snapshot the entire Windows VM and revert to it anytime.</li>
+</ul>
+<!-- more -->
+
+<h2 id="1-install-fedora">1. Install Fedora</h2>
+<p>Head over to the <a href="https://fedoraproject.org/">Fedora</a> website and grab the ISO of your choice. Fedora offers several 'spins' - these are simply Fedora with different desktop environments preinstalled. GNOME is the default, with KDE Plasma, XFCE, Budgie, Cinnamon and others available. There is quite a bit of <a href="https://baine.jeojck.com/GNOMEvKDE.html">satire</a> re. GNOME vs KDE online.</p>
+<p>Fedora uses the <a href="https://btrfs.readthedocs.io/en/latest/">Btrfs</a> filesystem by default. It also enables <a href="https://wiki.archlinux.org/title/Zram">zram</a> by <a href="https://fedoraproject.org/wiki/Changes/SwapOnZRAM#Detailed_Description">default</a>, an alternative to using <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-swapspace">swap</a>.</p>
+<p>Notes:</p>
+<ul>
+<li>If you'd like to just copy the ISO on a thumbdrive without having to format it, check out <a href="https://www.ventoy.net/en/index.html">Ventoy</a>. This utility, installed on a USB drive, allows you to boot multiple ISOs from a single thumbdrive.</li>
+<li>UEFI is preferred over BIOS, and you can only install Fedora with UEFI if you boot the USB thumbdrive in UEFI mode.</li>
+<li>If you don't create a <code>/boot</code> partition during the install (even if you have <code>/boot/efi</code>), it seems Fedora won't give you a boot menu to choose between kernels at startup.</li>
+<li><a href="https://wiki.archlinux.org/title/Zram">zram</a> is not the only option for compressed memory-based swap; <a href="https://wiki.archlinux.org/title/zswap">zswap</a> is another method which uses compressed memory as a cache, together with the disk for rarely-accessed pages of memory.</li>
+</ul>
+<h2 id="2-setup-virtualization-install-windows-guest">2. Setup virtualization, install Windows guest</h2>
+<p>Fedora uses the <code>dnf</code> package manager. Regarding virtualization, <code>qemu</code> is the emulator, and <a href="https://libvirt.org/"><code>libvirt</code></a> is an API to access <code>qemu</code>. <code>virt-manager</code> is a graphical virtual machine manager and viewer.</p>
+<p>To install all of the above automatically, Fedora provides a <a href="https://docs.fedoraproject.org/en-US/quick-docs/virtualization-getting-started/">helpful guide</a>. In short, once you have confirmed you have hardware support and enabled <code>VT-d</code> in the BIOS/UEFI, run the following command:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>@virtualization
+</span></code></pre></div>
+<p>After install, you should be able to access <code>virt-manager</code> from your desktop.</p>
+<p>Download the Windows disk iso from <a href="https://www.microsoft.com/software-download/windows11">here</a>. Due to permission issues with <code>libvirt</code>, you have to place the iso in <code>/var/lib/libvirt/images</code> in order for it to be able to access it.</p>
+<p>Create a new VM, and select the downloaded ISO as the install media. Then, install Windows like normal.</p>
+<h2 id="3-setup-gpu-passthrough">3. Setup GPU Passthrough</h2>
+<p>The virtualization setup is as follows:</p>
+<ul>
+<li>Host (Fedora): Uses either chip integrated graphics, or a separate dedicated GPU (preferably AMD).</li>
+<li>Guest (Windows): Uses a GPU (preferably NVIDIA), pass-through'ed from the host.</li>
+</ul>
+<p>Before proceeding, ensure you are not using the display output of the GPU you want to passthrough.</p>
+<p>In order to setup GPU passthrough, you will need to use the <code>vfio</code> driver for your GPU (instead of <code>amdgpu</code>, <code>nouveau</code> or <code>nvidia</code>).</p>
+<p>Follow step 1 of <a href="../../../../2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/#1-setup-gpu-passthrough">this guide</a>.</p>
+<p>Check if you are successful by running the following command:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>lspci<span class="w"> </span>-knn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>nvidia<span class="w"> </span>-A5
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="m">01</span>:00.0<span class="w"> </span>VGA<span class="w"> </span>compatible<span class="w"> </span>controller<span class="w"> </span><span class="o">[</span><span class="m">0300</span><span class="o">]</span>:<span class="w"> </span>NVIDIA<span class="w"> </span>Corporation<span class="w"> </span>GP102<span class="w"> </span><span class="o">[</span>GeForce<span class="w"> </span>GTX<span class="w"> </span><span class="m">1080</span><span class="w"> </span>Ti<span class="o">]</span><span class="w"> </span><span class="o">[</span>10de:1b06<span class="o">]</span><span class="w"> </span><span class="o">(</span>rev<span class="w"> </span>a1<span class="o">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span>Subsystem:<span class="w"> </span>NVIDIA<span class="w"> </span>Corporation<span class="w"> </span>Device<span class="w"> </span><span class="o">[</span>10de:120f<span class="o">]</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="hll"><span class="w">        </span>Kernel<span class="w"> </span>driver<span class="w"> </span><span class="k">in</span><span class="w"> </span>use:<span class="w"> </span>vfio-pci
+</span></span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span>Kernel<span class="w"> </span>modules:<span class="w"> </span>nouveau,<span class="w"> </span>nvidia_drm,<span class="w"> </span>nvidia
+</span></code></pre></div>
+<h2 id="4-setup-looking-glass">4. Setup Looking Glass</h2>
+<p><a href="https://looking-glass.io/">Looking Glass</a> is an application which uses a shared memory region (IVSHMEM) between the host and guest to exchange frames with low latency. It consists of a host application which runs on the Windows guest VM, and a client application (the viewer), running on the Fedora host.</p>
+<p>First, ensure the GPU you want to passthrough has a [dummy plug] attached. This is <a href="https://looking-glass.io/docs/B6/requirements/">required</a> in order for the passthrough'ed GPU to output video.</p>
+<p>Then, follow the <a href="https://looking-glass.io/docs/B6/install/">installation instructions</a>.</p>
+<p>If you have successfully setup Looking Glass, you should now be able to access your Windows VM using the Looking Glass client, and see that the GPU is indeed available to Windows.</p>
+<h2 id="5a-setup-btrfs-volume-on-host">5a. Setup Btrfs volume on host</h2>
+<p>Now, we will setup a Btrfs volume in mirror (RAID-1). You will require 2 drives of the same size (for 2 drives, the usable size of a RAID-1 mirror will be that of the smaller).</p>
+<p>First, identify your drives to be used:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ lsblk
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>NAME        MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sda           8:0    0   5.5T  0 disk
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>└─sda1        8:1    0   5.5T  0 part  /vm-storage
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="hll">sdb           8:16   0  10.9T  0 disk
+</span></span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>└─sdb1        8:17   0  10.9T  0 part
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="hll">sdc           8:32   0  10.9T  0 disk
+</span></span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>└─sdc1        8:33   0  10.9T  0 part  /mnt/storage
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>                                       /mnt/storage-root
+</span></code></pre></div>
+<p>In this example, I am using <code>/dev/sdb</code> and <code>/dev/sdc</code>.</p>
+<p>Create a GPT partition table on the first drive (note: this will <strong>delete</strong> everything on it!):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>parted<span class="w"> </span>/dev/sdb<span class="w"> </span>--<span class="w"> </span>mklabel<span class="w"> </span>gpt
+</span></code></pre></div>
+<p>Then, make a single partition spanning the whole drive.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>parted<span class="w"> </span>/dev/sdb<span class="w"> </span>--<span class="w"> </span>mkpart<span class="w"> </span>storage<span class="w"> </span>btrfs<span class="w"> </span><span class="m">0</span>%<span class="w"> </span><span class="m">100</span>%
+</span></code></pre></div>
+<p>You can check that there is indeed a partition being created with <code>lsblk</code>.</p>
+<p>Next, we format this partition with Btrfs:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>mkfs.btrfs<span class="w"> </span>/dev/sdb1
+</span></code></pre></div>
+<p>Btrfs allows the user to have multiple <a href="https://wiki.archlinux.org/title/btrfs#Subvolumes">subvolumes</a> within the filesystem, unlike other filesystems which would require you to instead make multiple partitions. Snapshots are perfomed on subvolumes, and the snapshots themselves are subvolumes.</p>
+<p>By default, <a href="https://wiki.archlinux.org/title/btrfs#Subvolumes">Btrfs creates a 'root' subvolume at <code>/</code> of the drive</a>. We will create another subvolume named <code>root</code>, at <code>/root</code> (not to be confused with <code>/</code>). This will be where we put our files. In the future, snapshots of <code>/root</code> can be stored in another subvolume, e.g. <code>/snapshots</code>.</p>
+<p>In order to create a subvolume, the drive must be mounted. In Linux, drives are mounted to folders, usually in <code>/mnt</code>.</p>
+<p>Create a folder in <code>/mnt</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>/mnt/storage
+</span></code></pre></div>
+<p>Mount the Btrfs real root (<code>/</code>) on it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>/mnt/storage
+</span></code></pre></div>
+<p>Create our subvolume, then unmount:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>btrfs<span class="w"> </span>subvolume<span class="w"> </span>create<span class="w"> </span>/mnt/storage/root
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>umount<span class="w"> </span>/mnt/storage/root
+</span></code></pre></div>
+<p>To mount our <code>/root</code> subvolume, we can run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>mount<span class="w"> </span>/dev/sdb1<span class="w"> </span>-o<span class="w"> </span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span>/mnt/storage
+</span></code></pre></div>
+<h2 id="5b-setup-btrfs-raid-1-mirror">5b. Setup Btrfs RAID-1 mirror</h2>
+<p>Next, with your Btrfs volume mounted at <code>/mnt/storage</code>, copy all your files over to it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Assuming your files are in /home/user/my-files</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1"># The &#39;.&#39; is important - see https://askubuntu.com/a/86891</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>cp<span class="w"> </span>-av<span class="w"> </span>/home/user/my-files/.<span class="w"> </span>/mnt/storage
+</span></code></pre></div>
+<p>Create an empty partition for your other drive in the same way as above (assuming it is <code>/dev/sdc</code>):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>parted<span class="w"> </span>/dev/sdc<span class="w"> </span>--<span class="w"> </span>mklabel<span class="w"> </span>gpt
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>parted<span class="w"> </span>/dev/sdc<span class="w"> </span>--<span class="w"> </span>mkpart<span class="w"> </span>storage<span class="w"> </span>btrfs<span class="w"> </span><span class="m">0</span>%<span class="w"> </span><span class="m">100</span>%
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># Note: we don&#39;t create a Btrfs filesystem now, it will be done automatically next step</span>
+</span></code></pre></div>
+<p>Then, add this drive to our existing filesystem at <code>/mnt/storage</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># This will create a Btrfs filesystem on /dev/sdc</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>btrfs<span class="w"> </span>device<span class="w"> </span>add<span class="w"> </span>/dev/sdc<span class="w"> </span>/mnt/storage
+</span></code></pre></div>
+<p>Set up RAID-1, for both metadata and data:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>btrfs<span class="w"> </span>balance<span class="w"> </span>start<span class="w"> </span>-mconvert<span class="o">=</span>raid1<span class="w"> </span>-dconvert<span class="o">=</span>raid1
+</span></code></pre></div>
+<p>This operation will take a while. If you want to read more on setting up RAID-1, you can refer to the <a href="https://btrfs.readthedocs.io/en/latest/btrfs-device.html#starting-with-a-single-device-filesystem">Btrfs documentation</a>.</p>
+<p>When it is complete, you should have a working RAID-1 setup. Check this with the following commands (note: I am using 3 drives for RAID 1, yours may be different):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>btrfs<span class="w"> </span>filesystem<span class="w"> </span>show<span class="w"> </span>/mnt/storage
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Label:<span class="w"> </span><span class="s1">&#39;Main Storage&#39;</span><span class="w">  </span>uuid:<span class="w"> </span>535ba318-5337-4b28-84c3-14fa6ef041a3
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">        </span>Total<span class="w"> </span>devices<span class="w"> </span><span class="m">3</span><span class="w"> </span>FS<span class="w"> </span>bytes<span class="w"> </span>used<span class="w"> </span><span class="m">7</span>.14TiB
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="hll"><span class="w">        </span>devid<span class="w">    </span><span class="m">1</span><span class="w"> </span>size<span class="w"> </span><span class="m">10</span>.91TiB<span class="w"> </span>used<span class="w"> </span><span class="m">6</span>.05TiB<span class="w"> </span>path<span class="w"> </span>/dev/sdc1
+</span></span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="hll"><span class="w">        </span>devid<span class="w">    </span><span class="m">2</span><span class="w"> </span>size<span class="w"> </span><span class="m">10</span>.91TiB<span class="w"> </span>used<span class="w"> </span><span class="m">6</span>.05TiB<span class="w"> </span>path<span class="w"> </span>/dev/sdb1
+</span></span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="hll"><span class="w">        </span>devid<span class="w">    </span><span class="m">3</span><span class="w"> </span>size<span class="w"> </span><span class="m">7</span>.28TiB<span class="w"> </span>used<span class="w"> </span><span class="m">2</span>.19TiB<span class="w"> </span>path<span class="w"> </span>/dev/sdd1
+</span></span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>$<span class="w"> </span>sudo<span class="w"> </span>btrfs<span class="w"> </span>filesystem<span class="w"> </span>usage<span class="w"> </span>/mnt/storage
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>Overall:
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span>Device<span class="w"> </span>size:<span class="w">                  </span><span class="m">29</span>.11TiB
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span>Device<span class="w"> </span>allocated:<span class="w">             </span><span class="m">14</span>.29TiB
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">    </span>Device<span class="w"> </span>unallocated:<span class="w">           </span><span class="m">14</span>.81TiB
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">    </span>Device<span class="w"> </span>missing:<span class="w">                  </span><span class="m">0</span>.00B
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">    </span>Device<span class="w"> </span>slack:<span class="w">                    </span><span class="m">0</span>.00B
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">    </span>Used:<span class="w">                         </span><span class="m">14</span>.29TiB
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">    </span>Free<span class="w"> </span><span class="o">(</span>estimated<span class="o">)</span>:<span class="w">              </span><span class="m">7</span>.41TiB<span class="w">      </span><span class="o">(</span>min:<span class="w"> </span><span class="m">7</span>.41TiB<span class="o">)</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">    </span>Free<span class="w"> </span><span class="o">(</span>statfs,<span class="w"> </span>df<span class="o">)</span>:<span class="w">             </span><span class="m">4</span>.86TiB
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">    </span>Data<span class="w"> </span>ratio:<span class="w">                       </span><span class="m">2</span>.00
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">    </span>Metadata<span class="w"> </span>ratio:<span class="w">                   </span><span class="m">2</span>.00
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">    </span>Global<span class="w"> </span>reserve:<span class="w">              </span><span class="m">512</span>.00MiB<span class="w">      </span><span class="o">(</span>used:<span class="w"> </span><span class="m">0</span>.00B<span class="o">)</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">    </span>Multiple<span class="w"> </span>profiles:<span class="w">                  </span>no
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="hll">Data,RAID1:<span class="w"> </span>Size:7.13TiB,<span class="w"> </span>Used:7.13TiB<span class="w"> </span><span class="o">(</span><span class="m">99</span>.95%<span class="o">)</span>
+</span></span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="w">   </span>/dev/sdc1<span class="w">       </span><span class="m">6</span>.04TiB
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a><span class="w">   </span>/dev/sdb1<span class="w">       </span><span class="m">6</span>.04TiB
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="w">   </span>/dev/sdd1<span class="w">       </span><span class="m">2</span>.18TiB
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>Metadata,RAID1:<span class="w"> </span>Size:14.00GiB,<span class="w"> </span>Used:12.54GiB<span class="w"> </span><span class="o">(</span><span class="m">89</span>.60%<span class="o">)</span>
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a><span class="w">   </span>/dev/sdc1<span class="w">       </span><span class="m">9</span>.00GiB
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="w">   </span>/dev/sdb1<span class="w">      </span><span class="m">12</span>.00GiB
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="w">   </span>/dev/sdd1<span class="w">       </span><span class="m">7</span>.00GiB
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>System,RAID1:<span class="w"> </span>Size:8.00MiB,<span class="w"> </span>Used:1.02MiB<span class="w"> </span><span class="o">(</span><span class="m">12</span>.70%<span class="o">)</span>
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="w">   </span>/dev/sdc1<span class="w">       </span><span class="m">8</span>.00MiB
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="w">   </span>/dev/sdb1<span class="w">       </span><span class="m">8</span>.00MiB
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>Unallocated:
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a><span class="w">   </span>/dev/sdc1<span class="w">       </span><span class="m">4</span>.86TiB
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a><span class="w">   </span>/dev/sdb1<span class="w">       </span><span class="m">4</span>.86TiB
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a><span class="w">   </span>/dev/sdd1<span class="w">       </span><span class="m">5</span>.09TiB
+</span></code></pre></div>
+<p>Understanding exactly how much free space you have can be confusing on Btrfs, but for now you can just refer to the 'Free (estimated)' line.</p>
+<p>We can also setup automounting on boot by editing <code>/etc/fstab</code>.</p>
+<p>Open <code>/etc/fstab</code> with your editor of choice (e.g. <code>sudo nano /etc/fstab</code>) and add the following line:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>UUID=&lt;your-disk-uuid&gt; /mnt/storage            btrfs   subvol=root,compress-force=zstd,nofail 0 0
+</span></code></pre></div>
+<p>The portion <code>subvol=root,compress-force=zstd,nofail</code> are the mount options. For general mount options, see <code>man mount</code>. Fer Btrfs specific mount options (e.g. <code>subvol, compress-force</code>), refer to the <a href="https://btrfs.readthedocs.io/en/latest/Administration.html">Btrfs documentation</a>.</p>
+<p>Check that you didn't make any mistakes:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>findmnt<span class="w"> </span>--verify
+</span></code></pre></div>
+<p>Now, when you reboot, you should be able to see your storage volumes in the file manager.</p>
+<h2 id="6-share-btrfs-host-volume-with-windows-guest">6. Share Btrfs host volume with Windows guest</h2>
+<p>Unfortunately, Windows cannot read Btrfs. To share your Btrfs volume with Linux, setup a network share from the Fedora host to the Windows guest.</p>
+<p>Follow the instructions <a href="../../../../2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/#7-optional-setup-nfssamba">here</a> for setting up SAMBA.</p>
+<p>That's it! You should now have a working Windows VM capable of playing games with GPU passthrough.</p>
+<h2 id="common-linux-commands">Common Linux commands</h2>
+<ul>
+<li><code>ls</code>: list files. Add <code>-l</code> to show a list, <code>-a</code> to show hidden files, <code>-h</code> to show sizes in human readable format. You can combine multiple options e.g. <code>ls -alh</code>.</li>
+<li><code>cd &lt;directory&gt;</code>: change directory. If no arguments are given, default to the user's home directory</li>
+<li><code>pwd</code>: shows the current directory path</li>
+<li><code>rm &lt;filename&gt;</code>: delete a file</li>
+<li><code>nano &lt;filename&gt;</code>: open a small terminal editor to edit/create a text file</li>
+<li><code>sudo &lt;command&gt;</code>: run a command as superuser</li>
+<li><code>man &lt;command&gt;</code>: show manual for a command. Use <code>u</code> or <code>d</code> to scroll up/down.</li>
+</ul>
+<h2 id="other-stuff-to-check-out">Other stuff to check out</h2>
+<ul>
+<li><a href="https://lutris.net/">Lutris</a>: Play Windows games on Linux. Supports Starcraft 2, DotA 2 and so on.</li>
+<li><a href="http://obsidian.md/">Obsidian</a>: Open-source note taking app with graph view of your notes and more.</li>
+<li><a href="https://syncthing.net/">Syncthing</a>: Peer-to-peer filesharing with Android support. Google Drive alternative.</li>
+<li><a href="https://tailscale.com/">Tailscale</a>: Peer-to-peer VPN, which lets you access computers anywhere as if they were on your LAN. Supports Android, Linux and Windows.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+<!-- Giscus -->
+<h2 id="__comments">Comments</h2>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="extrange/personal-blog"
+  data-repo-id="MDEwOlJlcG9zaXRvcnkzNzE1Mzc1Mjc="
+  data-category="Announcements"
+  data-category-id="DIC_kwDOFiU2d84CRQpc"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="dark"
+  data-lang="en"
+  crossorigin="anonymous"
+  async
+></script>
+
+<!-- Synchronize Giscus theme with palette -->
+<script>
+  var giscus = document.querySelector("script[src*=giscus]");
+
+  /* Set palette on initial load */
+  var palette = __md_get("__palette");
+  if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light";
+    giscus.setAttribute("data-theme", theme);
+  }
+
+  /* Register event handlers after documented loaded */
+  document.addEventListener("DOMContentLoaded", function () {
+    var ref = document.querySelector("[data-md-component=palette]");
+    ref.addEventListener("change", function () {
+      var palette = __md_get("__palette");
+      if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light";
+
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame");
+        frame.contentWindow.postMessage(
+          { giscus: { setConfig: { theme } } },
+          "https://giscus.app"
+        );
+      }
+    });
+  });
+</script>
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/extrange/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:me@nicholaslyz.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

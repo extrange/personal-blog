@@ -877,6 +877,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-fedora-with-a-windows-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up Fedora with a Windows VM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#on-emotional-maturity" class="md-nav__link">
     <span class="md-ellipsis">
       On Emotional Maturity
@@ -957,15 +966,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#yjs-vs-traditional-databases" class="md-nav__link">
-    <span class="md-ellipsis">
-      Yjs vs Traditional Databases
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -980,6 +980,50 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-12-17 00:00:00">December 17, 2023</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/programming/" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              7 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-fedora-with-a-windows-vm"><a class="toclink" href="2023/12/17/setting-up-fedora-with-a-windows-vm/">Setting up Fedora with a Windows VM</a></h2>
+<p>This is a short guide on how to setup Fedora with a Windows VM via <a href="https://libvirt.org/">libvirt</a>, optionally sharing a RAID-1 Btrfs volume from the host to the Windows guest via SAMBA. I'm assuming you are coming from Windows.</p>
+<p>Reasons why you might want to do this:</p>
+<ul>
+<li>Windows is quite <a href="2022/02/27/my-computing-philosophy/#declarative-environment">annoying</a>.</li>
+<li>With <a href="https://looking-glass.io/">Looking Glass</a>, you can passthrough your GPU to the Windows guest and enjoy native graphics performance.</li>
+<li>The <a href="https://btrfs.readthedocs.io/en/latest/">Btrfs</a> filesystem allows snapshotting, checksumming and multi-disk RAID with an unequal number/size of drives.</li>
+<li>You can snapshot the entire Windows VM and revert to it anytime.</li>
+</ul>
+
+    <nav class="md-post__action">
+      <a href="2023/12/17/setting-up-fedora-with-a-windows-vm/">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1317,46 +1361,6 @@ https://www.youtube.com/watch?v=PM5exNztbXE (Jorge's Guide to the Ultimate Silve
 
     <nav class="md-post__action">
       <a href="2023/09/29/doctors-and-bus-drivers/">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-09-17 00:00:00">September 17, 2023</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="category/programming/" class="md-meta__link">Programming</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="yjs-vs-traditional-databases"><a class="toclink" href="2023/09/17/yjs-vs-traditional-databases/">Yjs vs Traditional Databases</a></h2>
-<p><a href="https://github.com/yjs/yjs">Yjs</a> is a <a href="https://lars.hupel.info/topics/crdt/01-intro/">conflict-free, replicated data type</a>, which allows for distributed, collaborative editing and offline synchronization, with automatic conflict resolution.</p>
-<p>It can also be used as a database backend.</p>
-<p>Recently, I was deciding between Yjs and the <a href="https://www.prisma.io/">Prisma</a> + <a href="https://trpc.io/">tRPC</a> + <a href="https://www.prisma.io/docs/reference/database-reference/database-features">SQLite</a> combination. As it was a small todo-style app, I settled on Yjs.</p>
-<p>Here are the factors I considered for this decision.</p>
-
-    <nav class="md-post__action">
-      <a href="2023/09/17/yjs-vs-traditional-databases/">
         Continue reading
       </a>
     </nav>
