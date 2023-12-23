@@ -1141,7 +1141,7 @@
 </span></code></pre></div>
 <p>Then, add this drive to our existing filesystem at <code>/mnt/storage</code>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># This will create a Btrfs filesystem on /dev/sdc</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>btrfs<span class="w"> </span>device<span class="w"> </span>add<span class="w"> </span>/dev/sdc<span class="w"> </span>/mnt/storage
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>btrfs<span class="w"> </span>device<span class="w"> </span>add<span class="w"> </span>/dev/sdc1<span class="w"> </span>/mnt/storage
 </span></code></pre></div>
 <p>Set up RAID-1, for both metadata and data:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>btrfs<span class="w"> </span>balance<span class="w"> </span>start<span class="w"> </span>-mconvert<span class="o">=</span>raid1<span class="w"> </span>-dconvert<span class="o">=</span>raid1
@@ -1201,7 +1201,7 @@
 <p>Now, when you reboot, you should be able to see your storage volumes in the file manager.</p>
 <h2 id="6-share-btrfs-host-volume-with-windows-guest">6. Share Btrfs host volume with Windows guest</h2>
 <p>Unfortunately, Windows cannot read Btrfs. To share your Btrfs volume with Linux, setup a network share from the Fedora host to the Windows guest.</p>
-<p>Follow the instructions <a href="../../../../2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/#7-optional-setup-nfssamba">here</a> for setting up SAMBA.</p>
+<p>Follow the instructions <a href="../../../../2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/#7-optional-filesharing-virtiofsnfssamba">here</a> for setting up SAMBA.</p>
 <p>That's it! You should now have a working Windows VM capable of playing games with GPU passthrough.</p>
 <h2 id="common-linux-commands">Common Linux commands</h2>
 <ul>

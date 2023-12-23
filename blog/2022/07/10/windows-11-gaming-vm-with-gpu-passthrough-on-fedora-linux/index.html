@@ -944,9 +944,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-optional-setup-nfssamba" class="md-nav__link">
+  <a href="#7-optional-filesharing-virtiofsnfssamba" class="md-nav__link">
     <span class="md-ellipsis">
-      7. (Optional) Setup NFS/SAMBA
+      7. (Optional) Filesharing: VirtioFS/NFS/SAMBA
     </span>
   </a>
   
@@ -1116,7 +1116,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                           <span class="md-ellipsis">
                             
-                              13 min read
+                              14 min read
                             
                           </span>
                         </div>
@@ -1326,10 +1326,15 @@
 <li>For RDP, ensure <code>Ignore server certificate</code> is checked, otherwise Guacamole will refuse to connect.</li>
 </ul>
 </details>
-<h2 id="7-optional-setup-nfssamba">7. (Optional) Setup NFS/SAMBA</h2>
-<p>Network File System (NFS) is a handy way to share files on a Linux host with other Linux clients. For sharing files with Windows clients, SAMBA is the better option (much less delay on opening).</p>
+<h2 id="7-optional-filesharing-virtiofsnfssamba">7. (Optional) Filesharing: VirtioFS/NFS/SAMBA</h2>
+<p>You may want to share a filesystem between the host and guest. There are several options, with [VirtioFS] being the fastest, followed by SAMBA, then Network File System (NFS).</p>
 <p><strong>Note</strong>: If you are using a <code>macvtap</code> interface (to allow the guest to receive its own IP address on the network), it is <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap">not possible</a> to connect to the host due to how <code>macvtap</code> works. You will need to create a <code>NAT</code> connection (e.g. <code>Virtual Network 'Default' : NAT</code>) to connect to the host, via a separate subnet.</p>
+<p><strong>VirtioFS</strong></p>
+<p>This is the preferred way. The VirtioFS driver is included in the Linux kernel since 5.4.</p>
+<p>Follow the <a href="https://virtio-fs.gitlab.io/howto-windows.html">instructions</a> to set it up.</p>
+<p>Note: support for multiple mount points doesn't <a href="https://github.com/virtio-win/kvm-guest-drivers-windows/issues/590">appear ready</a>.</p>
 <p><strong>NFS</strong></p>
+<p>NFS is a handy way to share files on a Linux host with other Linux clients. For sharing files with Windows clients, SAMBA is the better option (much less delay on opening compared to NFS).</p>
 <p>Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:</p>
 <div class="language-text highlight"><pre><span></span><code>```powershell
 Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForNFS-Infrastructure -Online -NoRestart
