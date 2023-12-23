@@ -251,13 +251,23 @@ To setup Apache Guacamole, follow the instructions [here][apache-guacamole-docke
     -   To change the password of the default `guacadmin` user, it is necessary to create another user account with admin rights.
     -   For RDP, ensure `Ignore server certificate` is checked, otherwise Guacamole will refuse to connect.
 
-## 7. (Optional) Setup NFS/SAMBA
+## 7. (Optional) Filesharing: VirtioFS/NFS/SAMBA
 
-Network File System (NFS) is a handy way to share files on a Linux host with other Linux clients. For sharing files with Windows clients, SAMBA is the better option (much less delay on opening).
+You may want to share a filesystem between the host and guest. There are several options, with [VirtioFS] being the fastest, followed by SAMBA, then Network File System (NFS).
 
 **Note**: If you are using a `macvtap` interface (to allow the guest to receive its own IP address on the network), it is [not possible][macvtap-issues] to connect to the host due to how `macvtap` works. You will need to create a `NAT` connection (e.g. `Virtual Network 'Default' : NAT`) to connect to the host, via a separate subnet.
 
+**VirtioFS**
+
+This is the preferred way. The VirtioFS driver is included in the Linux kernel since 5.4.
+
+Follow the [instructions][virtiofs-instructions] to set it up.
+
+Note: support for multiple mount points doesn't [appear ready][virtio-multiple].
+
 **NFS**
+
+NFS is a handy way to share files on a Linux host with other Linux clients. For sharing files with Windows clients, SAMBA is the better option (much less delay on opening compared to NFS).
 
 Windows does not come with NFS support by default - you must enable it. In an elevated PowerShell window, run:
 
@@ -511,3 +521,5 @@ At times, Tailscale may not be able to achieve a direct connection (e.g. due to 
 [hard NAT]: https://tailscale.com/blog/how-nat-traversal-works/
 [changing the listen port]: https://github.com/tailscale/tailscale/issues/5114#issuecomment-1402806749
 [Sunshine]: https://app.lizardbyte.dev/Sunshine/?lng=en
+[virtiofs-instructions]: https://virtio-fs.gitlab.io/howto-windows.html
+[virtio-multiple]: https://github.com/virtio-win/kvm-guest-drivers-windows/issues/590

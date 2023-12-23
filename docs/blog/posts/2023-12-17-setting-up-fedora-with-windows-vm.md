@@ -172,7 +172,7 @@ Then, add this drive to our existing filesystem at `/mnt/storage`:
 
 ```bash
 # This will create a Btrfs filesystem on /dev/sdc
-sudo btrfs device add /dev/sdc /mnt/storage
+sudo btrfs device add /dev/sdc1 /mnt/storage
 ```
 
 Set up RAID-1, for both metadata and data:
@@ -297,4 +297,4 @@ That's it! You should now have a working Windows VM capable of playing games wit
 [subvolumes]: https://wiki.archlinux.org/title/btrfs#Subvolumes
 [Btrfs documentation]: https://btrfs.readthedocs.io/en/latest/btrfs-device.html#starting-with-a-single-device-filesystem
 [btrfs-mount]: https://btrfs.readthedocs.io/en/latest/Administration.html
-[samba]: 2022-07-10-win11-vm-gpu-passthrough.md#7-optional-setup-nfssamba
+[samba]: 2022-07-10-win11-vm-gpu-passthrough.md#7-optional-filesharing-virtiofsnfssamba
