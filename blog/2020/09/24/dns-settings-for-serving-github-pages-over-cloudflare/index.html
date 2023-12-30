@@ -1045,34 +1045,34 @@
 <!-- more -->
 
 <h2 id="the-problem">The Problem</h2>
-<p><a class="glightbox" href="../../../../../static/images/cloudflare-logo.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/cloudflare-logo.jpg" /></a>
-<a class="glightbox" href="/static/images/github-pages-logo.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/github-pages-logo.jpg" width="332" alt="Github Logo" loading="lazy"/></a></p>
+<p><a class="glightbox" href="../../../../../static/images/cloudflare-logo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/cloudflare-logo.jpg" /></a>
+<a class="glightbox" href="/static/images/github-pages-logo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/github-pages-logo.jpg" width="332" alt="Github Logo" loading="lazy"/></a></p>
 <p><a href="https://www.cloudflare.com">Cloudflare</a> is one of the largest CDNs, and the Free plan offers unlimited bandwidth to your site. I use it for this site. However, the configuration can be tricky...</p>
 <figure>
-  <a class="glightbox" href="/static/images/cf-error.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/cf-error.jpg" alt="Cloudflare Error" loading="lazy"/></a>
+  <a class="glightbox" href="/static/images/cf-error.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/cf-error.jpg" alt="Cloudflare Error" loading="lazy"/></a>
   <figcaption>I kept getting this error for ```www.nicholaslyz.com```, but not ```nicholaslyz.com```</figcaption>
 </figure>
 
 <p>Here was my initial configuration:</p>
-<p><a class="glightbox" href="../../../../../static/images/incorrect-config.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" loading="lazy" src="../../../../../static/images/incorrect-config.jpg" /></a></p>
+<p><a class="glightbox" href="../../../../../static/images/incorrect-config.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" loading="lazy" src="../../../../../static/images/incorrect-config.jpg" /></a></p>
 <p>I use Github Pages with <a href="https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain">custom domains</a> and 'Enforce HTTPS' enabled, and Cloudflare with <a href="https://support.cloudflare.com/hc/en-us/articles/200170416-End-to-end-HTTPS-with-Cloudflare-Part-3-SSL-options#h_8afd8a8d-382d-4694-a2b2-44cbc9f637ef">SSL Full (Strict)</a>.</p>
 <p>When a visitor visits <code>www.your-site.com</code>, Github issues a HTTPS 301 redirect from the <code>www</code> subdomain to the registered custom domain/subdomain (in this case <code>your-site.com</code>), presenting a certificate valid for <code>www.github.com, *.github.com, github.com, *.github.io, github.io, *.githubusercontent.com, githubusercontent.com</code>. This happens because Github <a href="https://github.community/t/does-github-pages-support-https-for-www-and-subdomains/10360/2">only provisions certificates for the registered (sub)domain</a> (in my case, <code>nicholaslyz.com</code>) and not the other subdomains.</p>
 <figure>
-  <a class="glightbox" href="/static/images/gh-pages.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/gh-pages.jpg" alt="Github redirection" loading="lazy"/></a>
+  <a class="glightbox" href="/static/images/gh-pages.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/gh-pages.jpg" alt="Github redirection" loading="lazy"/></a>
   <figcaption>Github redirects users automatically to the correct version of your page, using their Github certificate</figcaption>
 </figure>
 
 <p>With Cloudflare proxying switched off - Firefox displays <a href="https://support.mozilla.org/en-US/kb/what-does-your-connection-is-not-secure-mean">'Warning: Potential Security Risk Ahead'</a> for the <code>www</code> version of the site, because the Github certificate is not valid for the <code>www</code> subdomain. This is the same error Cloudflare is getting. Chrome and Edge however, <a href="https://www.thesslstore.com/blog/chrome-fix-common-name-mismatch-error/">ignore the certificate error</a>, so they follow the redirect and work fine.</p>
 <p>This configuration (without cloudflare proxying) will still result in an error when the user tries to visit the <code>www</code> subdomain:</p>
 <figure>
-  <a class="glightbox" href="/static/images/cf-no-proxy.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/cf-no-proxy.jpg" alt="Cloudflare Error" loading="lazy"/></a>
+  <a class="glightbox" href="/static/images/cf-no-proxy.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/cf-no-proxy.jpg" alt="Cloudflare Error" loading="lazy"/></a>
   <figcaption>If Cloudflare proxying is turned off, the error recurs</figcaption>
 </figure>
 
 <p>This is because Github is trying to redirect the user to the non-<code>www</code> version of the site while presenting the Github certificate.</p>
 <h2 id="solution">Solution</h2>
 <p>The following DNS settings worked (changes in red):</p>
-<p><a class="glightbox" href="../../../../../static/images/correct-config.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" loading="lazy" src="../../../../../static/images/correct-config.jpg" /></a></p>
+<p><a class="glightbox" href="../../../../../static/images/correct-config.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" loading="lazy" src="../../../../../static/images/correct-config.jpg" /></a></p>
 <p><strong>I believe CF allows requests from the origin with mismatched certificates to pass through if</strong></p>
 <ol>
 <li><strong>The CNAME entry closest to the origin is being queried or</strong></li>

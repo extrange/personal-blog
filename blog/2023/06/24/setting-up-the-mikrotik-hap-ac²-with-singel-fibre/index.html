@@ -1089,14 +1089,14 @@
 
 
 <h1 id="setting-up-the-mikrotik-hap-ac2-with-singel-fibre">Setting up the Mikrotik hAP ac² with Singel Fibre</h1>
-<p><a class="glightbox" href="../../../../../static/images/2023-06-24/ac2.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2023-06-24/ac2.jpg" /></a></p>
+<p><a class="glightbox" href="../../../../../static/images/2023-06-24/ac2.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2023-06-24/ac2.jpg" /></a></p>
 <p>The <a href="https://mikrotik.com/products">Mikrotik</a> family of routers are known for their extensive configurability, offering enterprise level features such as PoE, custom routes, VLANs and more. It runs a custom Linux distribution known as <a href="https://mikrotik.com/software">RouterOS</a> which offers a WebGUI and terminal interface, as well as SSH.</p>
 <p>I wanted to replace my old <a href="https://www.singtel.com/personal/support/broadband/routers-ont/arcadyan-ac-elite-guide">Singtel WiFi Gigabit Router AC Elite</a>, after it started intermittently dying.</p>
 <!-- more -->
 
 <h2 id="hardware-setup">Hardware Setup</h2>
 <p>I got the Mikrotik <a href="https://mikrotik.com/product/hap_ac2">hAP ac2</a> secondhand for $50. It runs the 4-core IPQ-4018 chip, and comes with 128MB of RAM. It also has dual-band WiFi, with the 5GHz band supporting a maximum transfer rate of 867 Mbit/s. The all-port <a href="https://mikrotik.com/product/hap_ac2#fndtn-testresults">benchmark</a> for this router has it routing 1518-byte packets at 1973.4 Mbps, which is more than sufficient for my current Singtel 1Gbps plan.</p>
-<p><a class="glightbox" href="../../../../../static/images/2023-06-24/benchmark.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2023-06-24/benchmark.jpg" /></a></p>
+<p><a class="glightbox" href="../../../../../static/images/2023-06-24/benchmark.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2023-06-24/benchmark.jpg" /></a></p>
 <p>For the Optical Network Terminal (ONT), I have an <a href="https://www.singtel.com/personal/support/broadband/routers-ont/alu-ont-led-troubleshoot">Alcatel-Lucent G-240G-C</a>.</p>
 <h2 id="singtel-vlan-tagging">Singtel VLAN Tagging</h2>
 <p>Router setup is not so straightforward with Singtel Fibre, however, due to a 'feature' present called <a href="https://en.wikipedia.org/wiki/IEEE_802.1Q">VLAN Tagging</a><sup id="fnref:singtel-fibre"><a class="footnote-ref" href="#fn:singtel-fibre">1</a></sup>.</p>

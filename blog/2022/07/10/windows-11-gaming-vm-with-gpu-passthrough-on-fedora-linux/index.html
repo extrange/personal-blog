@@ -1138,7 +1138,7 @@
 
 <h1 id="windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux">Windows 11 Gaming VM with GPU Passthrough on Fedora Linux</h1>
 <figure>
-  <a class="glightbox" href="/static/images/2022-07-10/demo.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/demo.jpg" alt="Gaming on a laptop remotely over Nvidia Gamestream" loading="lazy"/></a>
+  <a class="glightbox" href="/static/images/2022-07-10/demo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/demo.jpg" alt="Gaming on a laptop remotely over Nvidia Gamestream" loading="lazy"/></a>
   <figcaption>Gaming on a laptop remotely with Nvidia Gamestream using mobile data</figcaption>
 </figure>
 
@@ -1254,13 +1254,13 @@
 <p>Start the container with <code>docker compose up -d</code>.</p>
 <h2 id="4-install-windows-and-setup-streaming">4. Install Windows and setup streaming</h2>
 <p>Now, navigate to <code>http://localhost:8080</code> and you should see the <code>virt-manager</code> interface:</p>
-<p><a class="glightbox" href="../../../../../static/images/2022-07-10/docker-virt-manager.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/docker-virt-manager.gif" /></a></p>
+<p><a class="glightbox" href="../../../../../static/images/2022-07-10/docker-virt-manager.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/docker-virt-manager.gif" /></a></p>
 <p>Create a new VM, and under <code>Add Hardware &gt; PCI Host Device</code>, add your GPU.</p>
 <details class="note">
 <summary>Giving the VM an IP address on the LAN</summary>
 <p>If you would like your VM also have its own IP address on the LAN (e.g. to play multiplayer games with peers on the same subnet), you can add a <a href="https://virt.kernelnewbies.org/MacVTap"><code>macvtap</code></a> interface now, in addition to the standard bridge network between guest and host.</p>
 <p>To do this, add another <code>NIC</code> and ensure <code>Host device enpXsX: macvtap</code> is selected.</p>
-<p><a class="glightbox" href="../../../../../static/images/2022-07-10/vm-network.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-network.jpg" /></a></p>
+<p><a class="glightbox" href="../../../../../static/images/2022-07-10/vm-network.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-network.jpg" /></a></p>
 <p>If you just want to be able to access the VM over the internet, you can use a peer-to-peer VPN as shown <a href="#5-setup-overlay-mesh-network-aka-peer-to-peer-vpn">below</a>.</p>
 </details>
 <p>Next, install Windows 11 (you can get the ISO from <a href="https://www.microsoft.com/software-download/windows11">here</a>).</p>
@@ -1281,7 +1281,7 @@
 </ul>
 <p>Once the Windows VM boots, install the NVIDIA drivers, and then ensure that the GPU is detected by the VM.</p>
 </details>
-<p><a class="glightbox" href="../../../../../static/images/2022-07-10/vm-gpu.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-gpu.jpg" /></a></p>
+<p><a class="glightbox" href="../../../../../static/images/2022-07-10/vm-gpu.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-gpu.jpg" /></a></p>
 <p>Next, install <a href="https://app.lizardbyte.dev/Sunshine/?lng=en">Sunshine</a>, the streaming server. Follow the instructions on the website.</p>
 <details class="note">
 <summary>What about NVIDIA Gamestream?</summary>
@@ -1310,7 +1310,7 @@
 <p>Now, you have a working VM with <a href="https://moonlight-stream.org/">Moonlight</a> for gaming, and Remote Desktop (slower, but much less data usage) for doing work!</p>
 <h2 id="6-setup-apache-guacamole">6. Setup Apache Guacamole</h2>
 <figure>
-  <a class="glightbox" href="/static/images/2022-07-10/guacamole.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/guacamole.jpg" alt="Accessing a Windows VM over a browser with Apache Guacamole" loading="lazy"/></a>
+  <a class="glightbox" href="/static/images/2022-07-10/guacamole.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/guacamole.jpg" alt="Accessing a Windows VM over a browser with Apache Guacamole" loading="lazy"/></a>
   <figcaption>Accessing a Windows VM over a browser with Apache Guacamole</figcaption>
 </figure>
 
@@ -1510,7 +1510,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 </li>
 <li>
 <p>Types of VM network connections compared:
-    <a class="glightbox" href="../../../../../static/images/2022-07-10/vm-networking.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-networking.png" /></a></p>
+    <a class="glightbox" href="../../../../../static/images/2022-07-10/vm-networking.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-networking.png" /></a></p>
 </li>
 </ul>
 <p>For more information on the <code>libvirt</code> domain XML, check out the <a href="https://libvirt.org/formatdomain.html">documentation</a>.</p>
@@ -1521,19 +1521,19 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <h3 id="steam-link">Steam Link</h3>
 <p><a href="https://store.steampowered.com/remoteplay#anywhere">Steam Link</a> is another solution for low latency desktop streaming, which is also available cross-platform. One advantage compared to <a href="https://moonlight-stream.org/">Moonlight</a> is that it works without a GPU installed (it uses <code>libx264</code> on the CPU). While the performance using a GPU (using <a href="https://en.wikipedia.org/wiki/Nvidia_NVENC">NVENC</a>) is roughly equivalent to Moonlight at the same bitrate, performance without a GPU leaves a lot to be desired, in terms of encoding time and therefore latency.</p>
 <figure>
-  <a class="glightbox" href="/static/images/2022-07-10/steamlink.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/steamlink.jpg" alt="Steam Link without GPU" loading="lazy"/></a>
+  <a class="glightbox" href="/static/images/2022-07-10/steamlink.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/steamlink.jpg" alt="Steam Link without GPU" loading="lazy"/></a>
   <figcaption>Steam Link using <code>libx264</code> (CPU) encoding. <br/>Note the encoding latency of 130ms (game: Hearthstone)</figcaption>
 </figure>
 
 <p>Gaming (even light) is therefore not possible without a GPU. Even for non-gaming tasks, there is little reason not to use Remote Desktop/Apache Guacamole instead, which have much lower network bandwidth requirements.</p>
 <p>Steam Link also appears to render the cursor client-side, compared to Moonlight which renders the cursor on the server. This introduces some visible screen artifacts, as can be seen in the comparison images when the cursor is click-dragged rapidly (the desktop lags behind the cursor for Steam Link).</p>
 <figure>
-  <a class="glightbox" href="/static/images/2022-07-10/steamlink-cursor.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/steamlink-cursor.jpg" alt="Steam Link" loading="lazy"/></a>
+  <a class="glightbox" href="/static/images/2022-07-10/steamlink-cursor.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/steamlink-cursor.jpg" alt="Steam Link" loading="lazy"/></a>
   <figcaption>Steam Link</figcaption>
 </figure>
 
 <figure>
-  <a class="glightbox" href="/static/images/2022-07-10/moonlight-cursor.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/moonlight-cursor.jpg" alt="Moonlight" loading="lazy"/></a>
+  <a class="glightbox" href="/static/images/2022-07-10/moonlight-cursor.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/moonlight-cursor.jpg" alt="Moonlight" loading="lazy"/></a>
   <figcaption>Moonlight</figcaption>
 </figure>
 

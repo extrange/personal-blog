@@ -1013,13 +1013,13 @@
 <li>Search is slow. Very slow.</li>
 <li><code>conda update --all</code> doesn't update pip packages...</li>
 </ul>
-<p><a class="glightbox" href="../../../../../static/images/2021-04-15/conda.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2021-04-15/conda.gif" /></a></p>
+<p><a class="glightbox" href="../../../../../static/images/2021-04-15/conda.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2021-04-15/conda.gif" /></a></p>
 <p>That being said, Conda allows you to specify and manage Python itself as a dependency, which is great on Windows, as it prevents you from polluting the working environment.</p>
 <p>I started looking for alternatives. There's <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, <a href="https://python-poetry.org/">poetry</a>, <a href="https://github.com/pyenv-win/pyenv-win">pyenv-win</a> among others.</p>
 <p>I was previously using <code>pipenv</code>, but the dependency resolution wasn't perfect and I kept getting errors about unsatisfiable dependencies.</p>
 <p>So what's the best solution?</p>
 <h2 id="poetry-chocolatey-to-the-rescue">Poetry + Chocolatey to the rescue!</h2>
-<p><a class="glightbox" href="/static/images/2021-04-15/chocolatey.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img style="max-width: min(30vw, 150px);" src="/static/images/2021-04-15/chocolatey.svg" alt="Chocolatey"/></a></p>
+<p><a class="glightbox" href="/static/images/2021-04-15/chocolatey.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img style="max-width: min(30vw, 150px);" src="/static/images/2021-04-15/chocolatey.svg" alt="Chocolatey"/></a></p>
 <p>My setup:</p>
 <ul>
 <li>Chocolatey with <code>--sidebyside</code> to manage Python versions</li>
