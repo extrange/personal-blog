@@ -26,14 +26,13 @@ Attendees:
 
 ### 26 Mar
 
--   15:50: Nicholas, Benjamin and Elizabeth arrive in Osaka KIX via TR 818 (Departure from Singapore on 26/3/24 08:30)
--   Jessica arrives \_\_\_
+-   15:50: Nicholas, Benjamin, Jessica and Elizabeth arrive in Osaka KIX via TR 818 (Departure from Singapore on 26/3/24 08:30)
 -   Overnight in Osaka at \_\_\_
 
 ### 27 Mar
 
--   08:40: Chanel arrives in Osaka KIX via \_\_\_
--   \_\_\_: Meet Koon Aik, Zhi Qi, Koon Hwee and Koon Hian
+-   08:40: Chanel arrives in Osaka KIX
+-   Evening: Meet Koon Aik, Zhi Qi, Koon Hwee and Koon Hian
 -   Visit Yamazaki distillery
 -   Overnight in Osaka at \_\_\_
 
@@ -52,27 +51,21 @@ Attendees:
 
 -   Walk from Takahara to Chikatsuyu (10km, ~ 6hr)
 -   Overnight at [Happiness Chikatsuyu] in Chikatsuyu
-    -   Free cancellation 20 days before
-    -   Suggest dinner only (JPY 12,800 per pax)
+    -   Dinner inclusive
 
 ### 30 Mar
 
 -   [Bus][chikatsuyu-bus] from Chikatsuyu to Doyukawa (4 stops)
 -   Walk [Doyukawa to Kumano Hongu Taisha] (~17 km, 6-9 hrs)
 -   Walk/[Bus][hongu-taisha-bus] from Hongu Taisha to Yunomine Onsen (~3km, 1 hr)
--   ~~Walk Tsugizakura-oji to Kumano Hongu Taisha (~21.5 km, 8~11 hrs)~~
 -   Overnight at [J-Hoppers Kumano] in Yunomine Onsen
     -   Free cancellation 20 days before
     -   Suggest private guest rooms x3 (~ JPY 8000 per pax)
 
-_The main hiking ends here. Koon Aik, Koon Hwee, Zhi Qi and Koon Hian take their departure._
-
----
-
 ### 31 Mar
 
 -   Walk Kumano Hongu Taisha to Koguchi (5-6hr)
--   End here, and take bus back
+-   For _Koon Aik, Koon Hwee, Zhi Qi, Koon Hian and Elizabeth, the hiking ends here. They take a bus back to Wakayama._
 -   Overnight at \_\_\_ in Koguchi
 
 ### 1 Apr
@@ -91,7 +84,7 @@ _The main hiking ends here. Koon Aik, Koon Hwee, Zhi Qi and Koon Hian take their
 ### 3 Apr
 
 -   \_\_\_
--   14:45: Nicholas, Benjamin and Elizabeth depart from Osaka (KIX), arriving in SIN at 20:10.
+-   14:45: Nicholas, Benjamin, Jessica and Elizabeth depart from Osaka (KIX), arriving in SIN at 20:10. Chanel continues on.
 
 ## Notes
 
