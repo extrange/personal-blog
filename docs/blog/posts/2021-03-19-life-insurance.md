@@ -19,7 +19,7 @@ Of note, a good comparison of insurance policies can be found on [comparefirst.s
   <figcaption>Finally, I can check premiums without calling 10 agents</figcaption>
 </figure>
 
-**Update (Apr 2021)**: [MoneyOwl](https://www.moneyowl.com.sg/pricing/) is a service which independently assesses policies across insurance companies for you, and rebates you up to 50% of the commission they receive (of what your agent would normally get).
+**Update (Jan 2024)**: MoneyOwl ~is~ was a service which independently assesses policies across insurance companies for you, and rebates you up to 50% of the commission they receive (of what your agent would normally get).
 
 ## Term Life offers the same protection for a lower cost
 
