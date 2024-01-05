@@ -26,73 +26,7 @@ Attendees:
 
 ## Itinerary
 
-### 26 Mar
-
--   15:50: Nicholas, Benjamin, Jessica and Elizabeth arrive in Osaka KIX via TR 818 (Departure from Singapore on 26/3/24 08:30)
--   Overnight in Osaka at [Apartment Hotel 11 Dotonbori II][apartment-hotel-osaka]
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6563.049265436855!2d135.5043318467768!3d34.66670631594333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e764b569ff2d%3A0x6c8b3175f6378fa8!2sApartment%20Hotel%2011%20Dotonbori%20II!5e0!3m2!1sen!2ssg!4v1704255931587!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-### 27 Mar
-
--   08:40: Chanel arrives in Osaka KIX
--   Evening: Meet Koon Aik, Zhi Qi, Koon Hwee and Koon Hian
--   Visit Yamazaki distillery
--   Overnight in Osaka at [Apartment Hotel 11 Dotonbori II][apartment-hotel-osaka]
-
-### 28 Mar
-
--   9am Train from Osaka to Kii-Tanabe (~3 hrs)
--   Lunch
--   Bus from Kii-Tanabe to Takijiri (~40 min)
--   Walk from Takijiri-oji to Takahara (3.7 km, ~2.5 hrs)
--   Overnight at [SEN.RETREAT TAKAHARA] in Takahara
-    -   Grill facilities and kitchen are provided.
-    -   If you want to buy extra food, there is a convenience store nearby (3.9km, 51 minutes walk):
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4555.873410506588!2d135.51966127238046!3d33.789443767679515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6007a9fb18a104e3%3A0x8cd788cdc5c06ab2!2sA%20Coop%20Kumanokodo%20Nakahechi!5e0!3m2!1sen!2ssg!4v1703916967375!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-### 29 Mar
-
--   Walk from Takahara to Chikatsuyu (10km, ~ 6hr)
--   Overnight at \_\_\_ in Chikatsuyu
-
-### 30 Mar
-
--   [Bus][chikatsuyu-bus] from Chikatsuyu to Doyukawa (4 stops)
--   Walk [Doyukawa to Kumano Hongu Taisha] (~17 km, 6-9 hrs)
--   Walk/[Bus][hongu-taisha-bus] from Hongu Taisha to Yunomine Onsen (~3km, 1 hr)
--   Overnight at [J-Hoppers Kumano] in Yunomine Onsen
-    -   Free cancellation 20 days before
-    -   Suggest private guest rooms x3 (~ JPY 8000 per pax)
-
-### 31 Mar
-
--   For _Koon Aik, Koon Hwee, Zhi Qi, Koon Hian and Elizabeth, the hiking ends here._
--   Walk Kumano Hongu Taisha to Koguchi (Kogumotori-goe, 16km, 670m elevation gain, 5-6hr)
--   Take free shuttle bus to [Takata Green Land Kumotori Onsen].
--   Overnight at [Takata Green Land Kumotori Onsen] in Koguchi
-
-### 1 Apr
-
--   Walk Koguchi to Nachisan (Ogumotori-goe, 14km, 1260m elevation gain, 7-9hr)
--   [Bus][nachisan-bus] from Nachisan to Kii-Katsuura station (25 min)
--   Overnight at [Sunrise Katsuura] in Kii-Katsuura
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.925141231628!2d135.93872687633564!3d33.63318293974068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600615d4a909001d%3A0xf9d1b83e06328ae!2sHotel%20Sunrise%20Katsuura!5e0!3m2!1sen!2ssg!4v1704256293187!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-### 2 Apr
-
--   Train to Wakayama/Osaka/Shirahama/\_\_\_
--   Wakayama activities:
-    -   [Cycling][wakayama-cycling]
-    -   Kinogawa City Strawberry Picking
--   Overnight in \_\_\_ at \_\_\_
-
-### 3 Apr
-
--   Take train to Osaka/KIX
--   14:45: Nicholas, Benjamin, Jessica and Elizabeth depart from Osaka (KIX), arriving in SIN at 20:10. Chanel continues on.
+**Refer [here](https://tasks.nicholaslyz.com/#b0863a73-5ed7-486e-b073-ff311e61561f) for the actual itinerary.**
 
 ## Notes
 
