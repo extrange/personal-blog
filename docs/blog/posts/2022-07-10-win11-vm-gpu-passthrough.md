@@ -342,7 +342,17 @@ You should now have access to the Samba share on the Windows guest, by hitting +
 
 [Moonlight][moonlight] runs at 30fps or less when displaying the remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU and natively running at a lower FPS. Moonlight is transferring this output when the GPU is not being utilized, for example with the desktop or certain 2D games.
 
-To fix this, you will need to get an **HDMI dummy plug**.
+To fix this, you have 2 options.
+
+**Option 1: Virtual Display Driver**
+
+This requires more work, but no additional hardware is required.
+
+Follow the instructions on this [link][virtual-display-driver].
+
+**Option 2: HDMI Dummy Plug**
+
+You will need to get an **HDMI dummy plug**.
 
 -   Plug the HDMI dummy plug into the graphics card output.
 -   In the Windows VM, ensure that displays are set to mirror each other.
@@ -523,3 +533,4 @@ At times, Tailscale may not be able to achieve a direct connection (e.g. due to 
 [Sunshine]: https://app.lizardbyte.dev/Sunshine/?lng=en
 [virtiofs-instructions]: https://virtio-fs.gitlab.io/howto-windows.html
 [virtio-multiple]: https://github.com/virtio-win/kvm-guest-drivers-windows/issues/590
+[virtual-display-driver]: https://github.com/itsmikethetech/Virtual-Display-Driver
