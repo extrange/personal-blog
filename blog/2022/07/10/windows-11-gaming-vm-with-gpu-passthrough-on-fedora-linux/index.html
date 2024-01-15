@@ -1397,7 +1397,12 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <p>You should now have access to the Samba share on the Windows guest, by hitting <span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-r">R</kbd></span> and entering the IP address of the host.</p>
 <h2 id="8-optional-fix-low-fps-on-desktop-and-certain-games">8. (Optional) Fix low FPS on desktop and certain games</h2>
 <p><a href="https://moonlight-stream.org/">Moonlight</a> runs at 30fps or less when displaying the remote desktop (when not in a game). I suspect this is probably because the desktop is not rendered using the GPU and natively running at a lower FPS. Moonlight is transferring this output when the GPU is not being utilized, for example with the desktop or certain 2D games.</p>
-<p>To fix this, you will need to get an <strong>HDMI dummy plug</strong>.</p>
+<p>To fix this, you have 2 options.</p>
+<p><strong>Option 1: Virtual Display Driver</strong></p>
+<p>This requires more work, but no additional hardware is required.</p>
+<p>Follow the instructions on this <a href="https://github.com/itsmikethetech/Virtual-Display-Driver">link</a>.</p>
+<p><strong>Option 2: HDMI Dummy Plug</strong></p>
+<p>You will need to get an <strong>HDMI dummy plug</strong>.</p>
 <ul>
 <li>Plug the HDMI dummy plug into the graphics card output.</li>
 <li>
