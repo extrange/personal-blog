@@ -7,8 +7,8 @@ date: 2022-05-22
 # My Self-Hosting Journey
 
 <figure>
-  <img src="/static/images/2022-05-22/sysmon.jpg" alt="System Monitoring with btop" loading="lazy"/>
-  <figcaption>System monitoring with btop</figcaption>
+  <img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/>
+  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
 </figure>
 
 Self-hosting your own services has been catching up in popularity: the [selfhosted subreddit][selfhosted] has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge [list][awesome-selfhosted] here).
@@ -38,8 +38,8 @@ In addition, I have ~ [30TB of storage](#storage-and-backup) in a RAID1 configur
 ## Hosted Services
 
 <figure>
-  <img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/>
-  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+  <img src="/static/images/2022-05-22/sysmon.jpg" alt="System Monitoring with btop" loading="lazy"/>
+  <figcaption>System monitoring with btop</figcaption>
 </figure>
 
 I use [Dashy][dashy] to display all the hosted web services on [my site](https://home.nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request] to a Django backend.
