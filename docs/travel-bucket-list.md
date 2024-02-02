@@ -69,6 +69,7 @@ A list of all the places I want to visit in the future.
 
 -   [ ] Australia: Great Barrier Reef
 -   [ ] Australia: Uluru/Ayer's Rock
+-   [ ] Australia: [Great Central Road]
 -   [ ] New Zealand: Aoraki Mackenzie International Dark Sky Reserve (dark sky preserve)
 -   [ ] New Zealand: Aotea/Great Barrier Island (dark sky preserve)
 -   [ ] New Zealand: Dunedin (dark sky preserve)
@@ -166,3 +167,4 @@ A list of all the places I want to visit in the future.
 [gr52-trail]: https://happilyevertravels.com/hike-gr52-trail/
 [faroe-islands]: https://en.wikipedia.org/wiki/Faroe_Islands
 [atigun-pass-motorcycle]: https://imgur.com/a/J7kZJ
+[Great Central Road]: https://en.wikipedia.org/wiki/Great_Central_Road
