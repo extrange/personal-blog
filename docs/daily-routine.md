@@ -54,7 +54,7 @@ Consuming a variety of vegetables is important, as a single vegetable seldom con
 
 **Intermittent Fasting**: I [intermittent fast][if-schedule], following the [16/8][16/8] schedule (time restricted eating). I eat the most at breakfast, less at lunch, and skip dinner. From 12 noon onwards, I only drink water/tea, and I do not take any food.
 
-_I was previously doing IF for lunch/dinner, but recently shifted the window earlier as an empty stomach before bed improves my sleep._
+_I was previously doing IF for lunch/dinner, but recently shifted the window earlier as an empty stomach before bed improves my sleep. Also, I'm not unwaveringly strict about IF - I do eat dinner from time to time and simply shift breakfast to lunch the next day._
 
 ### Breakfast
 
@@ -63,15 +63,30 @@ _I was previously doing IF for lunch/dinner, but recently shifted the window ear
   <figcaption>Mixed beans with steel-cut oats, chia seeds, psyllium husk powder, fruits, tau kwa and vegetables (old recipe)<figcaption/>
 </figure>
 
-This is the largest meal of the day for me, and the most important for fibre and protein, consisting of lentils, tau kwa, eggs and fruits. I sometimes drink [tea](blog/posts/2022-10-28-nutrition-and-health.md#tea).
+This is the largest meal of the day for me, and the [most important][nutrients] for fibre and protein, consisting of wholegrains/legumes, tau kwa and fruits. I sometimes drink [tea](blog/posts/2022-10-28-nutrition-and-health.md#tea).
 
 View my [recipe here][recipe].
 
-### Lunch/Late Morning Snack
+### Snack
 
-I eat either or both of a protein e.g. chicken breast, fatty fish (mackerel/salmon/canned sardines), or a boiled soup of corn, carrots, sweet potatoes and potatoes, to achieve a good [balance of nutrients][nutrients].
+This varies, but I sometimes also eat:
+
+-   Chicken breast
+-   Fatty fish (mackerel/salmon/canned sardines)
+-   Edamame
+-   Random leftover food
 
 Occasionally I take supplements e.g. [fish oil][fish-oil].
+
+### Lunch
+
+This is usually a defrosted pack of precooked steamed vegetables:
+
+-   Broccoli
+-   Cauliflower
+-   Sweet potato
+-   Ginger
+-   Shiitake mushrooms
 
 I stop eating by about 12 noon.
 
