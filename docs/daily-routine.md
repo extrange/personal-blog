@@ -63,7 +63,7 @@ _I was previously doing IF for lunch/dinner, but recently shifted the window ear
   <figcaption>Mixed beans with steel-cut oats, chia seeds, psyllium husk powder, fruits, tau kwa and vegetables (old recipe)<figcaption/>
 </figure>
 
-This is the largest meal of the day for me, and the [most important][nutrients] for fibre and protein, consisting of wholegrains/legumes, tau kwa and fruits. I sometimes drink [tea](blog/posts/2022-10-28-nutrition-and-health.md#tea).
+This is the largest meal of the day for me, and the [most important][nutrients] for fibre and protein, consisting of wholegrains/legumes, tau kwa, nuts and fruits. I sometimes drink [tea](blog/posts/2022-10-28-nutrition-and-health.md#tea).
 
 View my [recipe here][recipe].
 
