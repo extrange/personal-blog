@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.12">
     
     
       
@@ -1001,7 +1001,7 @@
 <p>Explanation of parameters:</p>
 <ul>
 <li><code>crf 47</code>: This sets the <a href="https://trac.ffmpeg.org/wiki/Encode/AV1#CRF">quality level</a> for each frame, with lower values indicating higher quality and larger file size. The default is 50.</li>
-<li><code>preset 8</code>: Presets control how many <a href="https://gitlab.com/AOMediaCodec/SVT-AV1/-/blob/master/Docs/CommonQuestions.md#what-presets-do">efficiency features</a> are used during the encoding process, with lower presets using more features and being smaller but slower. Presets range from 0 - 12, and the default is 8. Home enthusiasts generally use values between 4 - 6.</li>
+<li><code>preset 6</code>: Presets control how many <a href="https://gitlab.com/AOMediaCodec/SVT-AV1/-/blob/master/Docs/CommonQuestions.md#what-presets-do">efficiency features</a> are used during the encoding process, with lower presets using more features and being smaller but slower. Presets range from 0 - 12, and the default is 8. Home enthusiasts generally use values between 4 - 6.</li>
 <li><code>vf scale=out_range=pc</code>: The Apeman A100 uses the <a href="https://trac.ffmpeg.org/ticket/225"><code>yuvj420</code></a> pixel format, which is <a href="http://trac.ffmpeg.org/wiki/Scaling">deprecated</a>, resulting in washed out contrast when playing on a non-aware video player (e.g. VLC). This fixes that issue.</li>
 <li><code>map_metadata 0</code>: Some encoders store video metadata such as <code>creation_time</code>, and this preserves it in the output.</li>
 </ul>
@@ -1144,7 +1144,7 @@
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
         <script src="../../../../../javascripts/mathjax.js"></script>
       
