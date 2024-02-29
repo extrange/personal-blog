@@ -34,7 +34,7 @@ ffmpeg -i input-file -c:a copy -c:v libsvtav1 -crf 47 -preset 6 -vf scale=out_ra
 Explanation of parameters:
 
 -   `crf 47`: This sets the [quality level][crf] for each frame, with lower values indicating higher quality and larger file size. The default is 50.
--   `preset 8`: Presets control how many [efficiency features][presets] are used during the encoding process, with lower presets using more features and being smaller but slower. Presets range from 0 - 12, and the default is 8. Home enthusiasts generally use values between 4 - 6.
+-   `preset 6`: Presets control how many [efficiency features][presets] are used during the encoding process, with lower presets using more features and being smaller but slower. Presets range from 0 - 12, and the default is 8. Home enthusiasts generally use values between 4 - 6.
 -   `vf scale=out_range=pc`: The Apeman A100 uses the [`yuvj420`][yuvj] pixel format, which is [deprecated][scaling], resulting in washed out contrast when playing on a non-aware video player (e.g. VLC). This fixes that issue.
 -   `map_metadata 0`: Some encoders store video metadata such as `creation_time`, and this preserves it in the output.
 
