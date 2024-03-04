@@ -1,4 +1,12 @@
 {
+    "ignorePatterns": [
+        {
+            "pattern": "^https://www.sciencedirect.com/science/article/pii/S1550413122003448"
+        },
+        {
+            "pattern": "^https://www.sciencedirect.com/science/article/abs/pii/S2212267222008747"
+        }
+    ],
     "aliveStatusCodes": [
         0,
         200,
