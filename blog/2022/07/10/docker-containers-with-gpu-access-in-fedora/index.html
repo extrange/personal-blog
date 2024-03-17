@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.12">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
     
     
       
@@ -879,18 +879,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-install-nvidia-drivers-from-the-rpm-fusion-repository1" class="md-nav__link">
+  <a href="#1-install-nvidia-drivers-from-the-rpm-fusion-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Install NVIDIA drivers from the RPM Fusion repository1:
+      1. Install NVIDIA drivers from the RPM Fusion repository:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-add-the-nvidia-container-runtime-repository2" class="md-nav__link">
+  <a href="#2-add-the-nvidia-container-runtime-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Add the NVIDIA Container Runtime Repository2:
+      2. Add the NVIDIA Container Runtime Repository:
     </span>
   </a>
   
@@ -1011,11 +1011,11 @@
 </ul>
 <!-- more -->
 
-<h2 id="1-install-nvidia-drivers-from-the-rpm-fusion-repository1">1. Install NVIDIA drivers from the RPM Fusion repository<sup id="fnref:rpmfusion"><a class="footnote-ref" href="#fn:rpmfusion">1</a></sup>:</h2>
+<h2 id="1-install-nvidia-drivers-from-the-rpm-fusion-repository">1. Install NVIDIA drivers from the RPM Fusion repository<sup id="fnref:rpmfusion"><a class="footnote-ref" href="#fn:rpmfusion">1</a></sup>:</h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo dnf install xorg-x11-drv-nvidia-cuda
 </span></code></pre></div>
 <p>It is necessary to reboot the system, as this package includes a <a href="https://github.com/rpmfusion/xorg-x11-drv-nvidia/blob/master/xorg-x11-drv-nvidia.spec">script</a> which blacklists the default Nouveau drivers.</p>
-<h2 id="2-add-the-nvidia-container-runtime-repository2">2. Add the <a href="https://github.com/nvidia/nvidia-container-runtime">NVIDIA Container Runtime Repository</a><sup id="fnref:nvidia-repo"><a class="footnote-ref" href="#fn:nvidia-repo">2</a></sup>:</h2>
+<h2 id="2-add-the-nvidia-container-runtime-repository">2. Add the <a href="https://github.com/nvidia/nvidia-container-runtime">NVIDIA Container Runtime Repository</a><sup id="fnref:nvidia-repo"><a class="footnote-ref" href="#fn:nvidia-repo">2</a></sup>:</h2>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl -s -L https://nvidia.github.io/libnvidia-container/centos7/libnvidia-container.repo | sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
 </span></code></pre></div>
 <h2 id="3-install-the-nvidia-container-toolkit">3. Install the NVIDIA Container Toolkit</h2>
