@@ -104,7 +104,7 @@ For ideas on what to buy, check out my suggestions for [IBKR](2021-01-16-my-inve
 [ibkr-lite]: https://www.interactivebrokers.com/en/index.php?f=45196
 [ibkr-monthly-fees]: https://www.interactivebrokers.com/en/index.php?f=4969
 [uob-rating]: https://www.uobgroup.com/investor-relations/capital-and-funding-information/credit-ratings.html
-[ibkr-rating]: https://www.interactivebrokers.com/en/index.php?f=2334
+[ibkr-rating]: https://www.interactivebrokers.com/en/general/financial-strength.php
 
 [^scholes]: Co-originator of the Black-Scholes options pricing model, used widely for hedging, pricing and speculative purposes in all markets globally.
 [^uob-rating]: This is the rating for UOB's Long-Term Bank Deposits by Moody's.
