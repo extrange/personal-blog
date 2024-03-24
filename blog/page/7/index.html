@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
     
     
       
@@ -875,6 +875,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#dns-settings-for-serving-github-pages-over-cloudflare" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS settings for serving Github Pages over Cloudflare
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#finance-book-list" class="md-nav__link">
     <span class="md-ellipsis">
       Finance Book List
@@ -906,6 +915,48 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2020-09-24 00:00:00">September 24, 2020</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/programming/" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="dns-settings-for-serving-github-pages-over-cloudflare"><a class="toclink" href="../../2020/09/24/dns-settings-for-serving-github-pages-over-cloudflare/">DNS settings for serving Github Pages over Cloudflare</a></h2>
+<h3 id="update-201220-cloudflare-proxying-prevents-ssl-certificate-renewal"><a class="toclink" href="../../2020/09/24/dns-settings-for-serving-github-pages-over-cloudflare/#update-201220-cloudflare-proxying-prevents-ssl-certificate-renewal">Update (20/12/20) - Cloudflare proxying prevents SSL Certificate renewal</a></h3>
+<p>When the SSL certificate (provisioned by Github automatically for the custom domain you specified, via Let's Encrypt) expired on 18/12/20, I started getting errors from Cloudflare.</p>
+<p>Looking deeper, I realized Github was having trouble provisioning the SSL certificate.</p>
+<p><strong>The solution was to disable Cloudflare proxying</strong>. Upon doing so, I was able to get an SSL certificate provisioned for the root domain, <code>nicholaslyz.com</code>.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../2020/09/24/dns-settings-for-serving-github-pages-over-cloudflare/">
+          Continue reading
+        </a>
+      </nav>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1050,7 +1101,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.bd41221c.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
