@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog/2024/03/22/race-conditions-with-asyncio-in-python/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2024/03/25/thinking-fast-and-slow-summary/">
       
       
-        <link rel="prev" href="../../../02/26/book-summary-the-courage-to-be-disliked/">
+        <link rel="prev" href="../../22/race-conditions-with-asyncio-in-python/">
       
-      
-        <link rel="next" href="../../25/thinking-fast-and-slow-summary/">
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Race conditions with asyncio in Python - Nicholas</title>
+        <title>Thinking Fast and Slow summary - Nicholas</title>
       
     
     
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Race conditions with `asyncio` in Python - Nicholas" >
+        <meta  property="og:title"  content="Thinking Fast and Slow summary - Nicholas" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2024-03-22-asyncio-race-condition.png" >
+        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2024-03-24-thinking-fast-and-slow.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +69,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2024/03/22/race-conditions-with-asyncio-in-python/" >
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2024/03/25/thinking-fast-and-slow-summary/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Race conditions with `asyncio` in Python - Nicholas" >
+        <meta  name="twitter:title"  content="Thinking Fast and Slow summary - Nicholas" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2024-03-22-asyncio-race-condition.png" >
+        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2024-03-24-thinking-fast-and-slow.png" >
       
     
     
@@ -109,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#race-conditions-with-asyncio-in-python" class="md-skip">
+        <a href="#thinking-fast-and-slow-summary" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Race conditions with asyncio in Python
+              Thinking Fast and Slow summary
             
           </span>
         </div>
@@ -879,18 +877,147 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#asynchronous-execution" class="md-nav__link">
+  <a href="#representiveness-heuristic" class="md-nav__link">
     <span class="md-ellipsis">
-      Asynchronous Execution
+      Representiveness Heuristic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Representiveness Heuristic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conjunction-fallacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conjunction Fallacy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disjunction-fallacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disjunction Fallacy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-rate-fallacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base Rate Fallacy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regression-fallacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regression Fallacy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#framing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Framing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anchoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anchoring
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fixing-the-issue" class="md-nav__link">
+  <a href="#availability-heuristic" class="md-nav__link">
     <span class="md-ellipsis">
-      Fixing the issue
+      Availability heuristic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Availability heuristic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hindsight-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hindsight bias
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-law-of-small-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Law of Small Numbers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preference-reversal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preference reversal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-vs-experienced-utility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decision vs Experienced Utility
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experienced-well-being" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experienced Well-Being
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#focusing-illusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Focusing illusion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Misc
     </span>
   </a>
   
@@ -933,7 +1060,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2024-03-22 00:00:00" class="md-ellipsis">March 22, 2024</time>
+                        <time datetime="2024-03-25 00:00:00" class="md-ellipsis">March 25, 2024</time>
                       </div>
                     </li>
                     
@@ -944,7 +1071,7 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/programming/">Programming</a></span>
+                              <a href="../../../../category/books/">Books</a></span>
                         </div>
                       </li>
                     
@@ -955,7 +1082,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                           <span class="md-ellipsis">
                             
-                              2 min read
+                              9 min read
                             
                           </span>
                         </div>
@@ -975,147 +1102,167 @@
         
 
 
-<h1 id="race-conditions-with-asyncio-in-python">Race conditions with <code>asyncio</code> in Python</h1>
-<p>What do you think the output of the following code will be?</p>
+<h1 id="thinking-fast-and-slow-summary">Thinking Fast and Slow summary</h1>
+<p><a class="glightbox" href="../../../../../static/images/2024-03-24/cover.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2024-03-24/cover.jpg" /></a></p>
+<p>This is my summary of the book <a href="https://www.goodreads.com/en/book/show/11468377">Thinking, Fast and Slow</a> by Daniel Kahneman, which I read in March 2024.</p>
+<p>I mainly describe the cognitive heuristics, biases and fallacies with examples here.</p>
 <!-- more -->
 
-<div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">asyncio</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="n">ran</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="k">nonlocal</span> <span class="n">ran</span> <span class="c1"># Lets us modify from the outer scope</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ran</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">ran</span><span class="p">:</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>            <span class="c1"># Pretend this is an await for another async function</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a>            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a>            <span class="n">ran</span> <span class="o">=</span> <span class="kc">True</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;after ran = True&quot;</span><span class="p">)</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TaskGroup</span><span class="p">()</span> <span class="k">as</span> <span class="n">tg</span><span class="p">:</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a>            <span class="n">tg</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">foo</span><span class="p">())</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</span></code></pre></div></td></tr></table></div>
-<p>We might guess:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ran=False
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>after ran = True
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ran=True
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>ran=True
-</span></code></pre></div>
-<p>With the explanation being:</p>
+<h2 id="representiveness-heuristic">Representiveness Heuristic</h2>
+<p>We categorize things based on how similar they appear to stereotypes of that category, for example judging a person reading a poetry book as more likely to be a poet than an accountant.</p>
+<p>This results in the following fallacies:</p>
+<h3 id="conjunction-fallacy">Conjunction Fallacy</h3>
+<p>We falsely judge the probability of an event and its associated event both occuring higher than that of the initial event.</p>
+<div class="admonition note">
+<p class="admonition-title">The Linda Problem</p>
+<p>Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student, she was deeply concerned with issues of discrimination and social justice, and also participated in anti-nuclear demonstrations.</p>
+<p>Which is more probable?</p>
 <ul>
-<li>First, we schedule <code>should_only_print_once</code> to run 3 times in the <code>TaskGroup</code>.</li>
-<li>The first time the event loop enters the function, <code>ran = False</code> is printed.</li>
-<li>Since <code>ran</code> is <code>False</code>, we enter the <code>if</code> conditional and set <code>ran = True</code>.</li>
-<li>Print <code>after ran = True</code>.</li>
-<li>For the remaining times the event loop enters the function, <code>ran</code> is now <code>False</code>. So, we print <code>ran = False</code> twice and end.</li>
+<li>Linda is a bank teller.</li>
+<li>Linda is a bank teller and is active in the feminist movement.</li>
 </ul>
-<p>In fact, the output is:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ran=False
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ran=False
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ran=False
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>after ran = True
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>after ran = True
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>after ran = True
-</span></code></pre></div>
-<p>What is happening here?</p>
-<h2 id="asynchronous-execution">Asynchronous Execution</h2>
-<p>At line 13, we have <code>await asyncio.sleep(0)</code>.</p>
-<p>This <em>yields</em> control flow to the event loop. At this point, the event loop is free to continue executing other tasks, such as the other 2 tasks for <code>foo()</code>.</p>
-<p>Importantly, at this point, the value of <code>ran</code> is still <code>False</code> - the initial run has not yet reached <code>ran = True</code>. Therefore, when the event loop reenters <code>foo()</code> subsequently, it sees that <code>ran == False</code>.</p>
-<p>Finally, when all 3 asynchronous executions of <code>foo()</code> have reached <code>await asyncio.sleep(0)</code>, the first one to run sets <code>ran = True</code>, and that is what the subsequent executions see and print.</p>
-<h2 id="fixing-the-issue">Fixing the issue</h2>
-<p>The correct way to fix this is by wrapping code that accesses shared state in an <a href="https://docs.python.org/3/library/asyncio-sync.html#lock"><code>asyncio.Lock</code></a>.</p>
-<div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-3-10">10</a></span>
-<span class="normal"><a href="#__codelineno-3-11">11</a></span>
-<span class="normal"><a href="#__codelineno-3-12">12</a></span>
-<span class="normal"><a href="#__codelineno-3-13">13</a></span>
-<span class="normal"><a href="#__codelineno-3-14">14</a></span>
-<span class="normal"><a href="#__codelineno-3-15">15</a></span>
-<span class="normal"><a href="#__codelineno-3-16">16</a></span>
-<span class="normal"><a href="#__codelineno-3-17">17</a></span>
-<span class="normal"><a href="#__codelineno-3-18">18</a></span>
-<span class="normal"><a href="#__codelineno-3-19">19</a></span>
-<span class="normal"><a href="#__codelineno-3-20">20</a></span>
-<span class="normal"><a href="#__codelineno-3-21">21</a></span>
-<span class="normal"><a href="#__codelineno-3-22">22</a></span>
-<span class="normal"><a href="#__codelineno-3-23">23</a></span>
-<span class="normal"><a href="#__codelineno-3-24">24</a></span>
-<span class="normal"><a href="#__codelineno-3-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">asyncio</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="n">ran</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="hll">    <span class="n">lock</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
-</span></span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="hll">        <span class="k">async</span> <span class="k">with</span> <span class="n">lock</span><span class="p">:</span>
-</span></span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>            <span class="k">nonlocal</span> <span class="n">ran</span> <span class="c1"># Lets us modify from the outer scope</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ran</span><span class="si">=}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">ran</span><span class="p">:</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a>                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a>                <span class="n">ran</span> <span class="o">=</span> <span class="kc">True</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18"></a>                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;after ran = True&quot;</span><span class="p">)</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19"></a>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TaskGroup</span><span class="p">()</span> <span class="k">as</span> <span class="n">tg</span><span class="p">:</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22"></a>            <span class="n">tg</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">foo</span><span class="p">())</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23"></a>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25"></a>    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</span></code></pre></div></td></tr></table></div>
-<p>Output:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ran=False
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>after ran = True
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>ran=True
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>ran=True
-</span></code></pre></div>
-<p>When the first task for <code>foo()</code> executes, it acquires the <code>lock</code> and gains exclusive access to the subsequent code.</p>
-<p>During the <code>await</code> at line 8, control flow switches to the other tasks executing <code>foo()</code>, but because the lock was already acquired by the first task, they cannot proceed further.</p>
-<p>Execution finally returns to the first task, which sets <code>ran = True</code> and completes, allowing the rest of the waiting tasks to execute in the same fashion.</p>
+</div>
+<p>Most people, view Linda more likely to be a bank teller who is active in the feminist movement, rather than just a bank teller, even though the latter is a subset of the former and must therefore be equal or smaller than it.</p>
+<h3 id="disjunction-fallacy">Disjunction Fallacy</h3>
+<p>We false judge the probability of an event higher than the probability of either the event or another event happening.</p>
+<div class="admonition note">
+<p>Mr Pius goes to Church and has visited the Vatican. Which is more likely:</p>
+<ul>
+<li>Mr Pius is a Christian.</li>
+<li>Mr Pius is either a Muslim or a Christian.</li>
+</ul>
+</div>
+<h3 id="base-rate-fallacy">Base Rate Fallacy</h3>
+<p>We tend to ignore the prevailing base rates for an event when estimating its probability, given other information.</p>
+<p>For example, in the false positive paradox, where a test for a disease which has 99% sensitivity and specificity is actually only truly positively correct 50% of the time, in a population in which the disease is prevalent in only 1% of the population. Or, given a caricature of a student who is introverted, we think it more likely for them to be in computer science than social work, even though the latter has much more students.</p>
+<h3 id="regression-fallacy">Regression Fallacy</h3>
+<p>We assume that a measurement has returned to normal, because of corrective actions taken, ignoring random, normal fluctuations.</p>
+<p>For example, golf scores are influenced by talent and luck. If a golfer scores lower than the average initially, it is more likely that they will score higher than their previous score (assuming no other variables change).</p>
+<p>This can lead to the 'Post hoc fallacy', in which we attribute an event happening prior to another event as its cause, when in reality there may have been no link.</p>
+<p>For example, pilot teachers who come to the conclusion that scolding poor-performing pilots increases their performance: as poor performance is below the average, it is likely that even without the scolding, their performance would have improved.</p>
+<h3 id="framing">Framing</h3>
+<p>We decide between options based on whether their connotations are positive or negative, even if they are actually equal.</p>
+<div class="admonition note">
+<p>Which treatment is more effective?</p>
+<ul>
+<li>Treatment A: Kills 66% of those affected with the disease</li>
+<li>Treatment B: Saves 33% of those affected with the disease</li>
+</ul>
+<p>Most participants chose treatment B, despite their equality.</p>
+</div>
+<p>Additionally, we passively accept decision problems as they are framed (positively or negatively).</p>
+<div class="admonition note">
+<p class="admonition-title">Equivalent Gambles</p>
+<ul>
+<li>Would you accept a gamble that offers a 10% chance to win $95 and a 90% chance to lose $5? (<em>Most people would say no</em>)</li>
+<li>Would you pay $5 to participate in a lottery that offers a 10% chance to win $100 and a 90% chance to win nothing? (<em>Most people would say yes</em>)</li>
+</ul>
+</div>
+<p>The two choices are, in fact, identical. A bad outcome is much more acceptable if it is framed as a cost, versus a loss (System 1 thinking).</p>
+<p>Another example:</p>
+<div class="admonition note">
+<p class="admonition-title">The Asian disease problem</p>
+<p>Imagine that the United States is preparing for the outbreak of an unusual Asian disease, which is expected to kill 600 people. Two alternative programs to combat the disease have been proposed. Assume that the exact scientific estimates of the consequences of the programs are as follows:</p>
+<ul>
+<li>If program A is adopted, 200 people will be saved.</li>
+<li>If program B is adopted, there is a one-third probability that 600 people will be saved and a two-thirds probability that no people will be saved.</li>
+</ul>
+</div>
+<p>Yet another, which shows people readily make logically incompatible choices:</p>
+<div class="admonition note">
+<p class="admonition-title">Tax Reliefs for the Poor vs Rich</p>
+<p>Supposing the amount of exemption is independent of the taxpayer's income.</p>
+<p><em>Should the child exemption be larger for the rich than for the poor?</em></p>
+<p>The tax law could have been written differently, framing the exemption as a surcharge instead. Now, in the alternative formulation, families with fewer than the default number of children would pay a surcharge.</p>
+<p><em>Should the childless poor pay as large a surcharge as the childless rich?</em></p>
+<p>Answering 'No' to both questions is logically inconsistent (think about it).</p>
+<hr />
+<p>Note: I have been challenged by friends who claim that the second scenario is not equivalent to the first, because there is a larger decrease in marginal utility for the poor as compared to the rich. However, this can be rectified by rewording the second scenario as follows:</p>
+<p><em>All families receive $X. Families with fewer than the default number of children would pay a surcharge of $X.</em></p>
+<p>Now, there is no change in marginal utility for the rich vs the poor.</p>
+</div>
+<h2 id="anchoring">Anchoring</h2>
+<p>An individual's judgements or decisions are influenced by a reference point or "anchor" which can be completely irrelevant, and can include numeric/non-numeric items.</p>
+<p>For example, individuals given higher random numbers (obtained via the last 2 digits of their social security numbers) were more likely to donate more to charity in an experimental study. An anchoring index can also be calculated to determine the effect.</p>
+<h2 id="availability-heuristic">Availability heuristic</h2>
+<p>We judge the probability of an event based on how easily examples come to our mind. For example, we overestimate the probability of dying in a dramatic event, such as a terrorist attack, over common and more mundane events like diabetes or stroke.</p>
+<h4 id="hindsight-bias">Hindsight bias</h4>
+<p>The tendency for us to perceive past events as having been more predictable than they were.</p>
+<p>For example, with regards to the 9/11 incident, the CIA obtained information that al-Qaeda might be planning a major attack on the US, and brought the information not to the President, but to the National Security Adviser. After the incident, an editor of the Washing Post declared that it should have been obvious that the information should have gone to the President.</p>
+<h2 id="the-law-of-small-numbers">The Law of Small Numbers</h2>
+<p>In small populations, extreme outcomes (both high and low) are more likely, causing us to jump to invalid conclusions. For example, the incidence rates of kidney cancer are likely to be both higher and lower in smaller towns than in larger cities because the sample size is smaller.</p>
+<h2 id="preference-reversal">Preference reversal</h2>
+<p>People make different choices when presented with the choices in isolation, versus when they are given simultaneously and available for direct comparison.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Dictionary A</th>
+<th style="text-align: center;">Dictionary B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Year of publication</td>
+<td style="text-align: center;">1993</td>
+<td style="text-align: center;">1993</td>
+</tr>
+<tr>
+<td style="text-align: center;">Number of entries</td>
+<td style="text-align: center;">10,000</td>
+<td style="text-align: center;">20,000</td>
+</tr>
+<tr>
+<td style="text-align: center;">Condition</td>
+<td style="text-align: center;">Like new</td>
+<td style="text-align: center;">Cover torn, otherwise like new</td>
+</tr>
+</tbody>
+</table>
+<p>In single evaluations, Dictionary A is valued more highly, whereas in joint evaluations Dictionary B is more preferred.</p>
+<p>Additionally, our evaluations are particularly inconsistent when comparison is across categories. For example:</p>
+<div class="admonition note">
+<ul>
+<li>Which do you like more, apples or peaches?</li>
+<li>Which do you like more, steak or stew?</li>
+<li>Which do you like more, apples or steak?</li>
+</ul>
+</div>
+<p>There appears to be no stable answer for the third question compared to the other questions (possibly, no total order exists).</p>
+<h2 id="decision-vs-experienced-utility">Decision vs Experienced Utility</h2>
+<p>Our <em>remembering self</em> judges experiences only on their peaks and ending, compared to our <em>experiencing self</em> which judges experiences as the average of the experience. However, it is our <em>remembering self</em> which makes decisions for us, which can appear controversial.</p>
+<div class="admonition note">
+<p class="admonition-title">Cold Hand Experiment</p>
+<p>Participants were asked to hold their hand up to the wrist in painfully cold water until they were invited to remove it and offered a warm towel, recording their experience frequently over the episode.</p>
+<p>Each participant endured two cold-hand episodes:</p>
+<p>The <strong>short</strong> episode consisted of 60 seconds of immersion in water at 14° Celsius, which is experienced as painfully cold, but not intolerable. At the end of the 60 seconds, the experimenter instructed the participant to remove his hand from the water and offered a warm towel.</p>
+<p>The <strong>long</strong> episode lasted 90 seconds. Its first 60 seconds were identical to the short episode. The experimenter said nothing at all at the end of the 60 seconds. Instead he opened a valve that allowed slightly warmer water to flow into the tub. During the additional 30 seconds, the temperature of the water rose by roughly 1°, just enough for most subjects to detect a slight decrease in the intensity of pain.</p>
+<p>Our participants were told that they would have three cold-hand trials, but in fact they experienced only the short and the long episodes, each with a different hand. The trials were separated by seven minutes. Seven minutes after the second trial, the participants were given a choice about the third trial. They were told that one of their experiences would be repeated exactly, and were free to choose whether to repeat the experience they had had with their left hand or with their right hand. Of course, half the participants had the short trial with the left hand, half with the right; half had the short trial first, half began with the long, etc. This was a carefully controlled experiment.</p>
+<p>80% of the participants who reported that their pain diminished during the final phase of the longer episode opted to repeat it, thereby declaring themselves willing to suffer 30 seconds of needless pain in the anticipated third trial.</p>
+</div>
+<h2 id="experienced-well-being">Experienced Well-Being</h2>
+<p>The satiation level beyong which experienced well-being no longer increases was a household income of about $75,000 in high-cost areas, with the average increase of experienced well-being associated with incomes beyond that level being precisely zero.</p>
+<p>One explanation is that wealth is associated with a decreased ability to enjoy the small pleasures of life.</p>
+<h2 id="focusing-illusion">Focusing illusion</h2>
+<p><em>Nothing in life is as important as you think it is when you are thinking about it.</em></p>
+<p>When you are asked "How much pleasure do you get from your car?", you immediately came up with an answer - you know how much you like your car.</p>
+<p>However, if you were asked "When do you get pleasure from your car?", the answer is different - you get pleasure from your car when you <em>think</em> about your car, which is probably not very often.</p>
+<p>Our average happiness can be influenced by positive reminders of gratefulness towards the things, events and people in our life, since our <em>remembering self</em> is the one determining whether we were happy on average, or not (and it is also subject to the <a href="#availability-heuristic">availability bias</a>).</p>
+<h2 id="misc">Misc</h2>
+<ul>
+<li><strong>Ego depletion</strong>: An effort of will or self-control is tiring - if you have had to force yourself to do something, you are less willing/able to exert self-control when the next challenge comes around.</li>
+<li>The priming effect - e.g. reminders of money resulted in people being less willing to help another student who pretended to be confused about an experimental task. Or, reminding people of their mortality increases the appeal of authoritarian ideas.</li>
+<li>The mental shotgun: We answer difficult questions by substituting them with easier ones. For example: 'How happy are you with your life these days?' becomes 'What is my mood right now?'.</li>
+<li>How we react to gains and losses depends on how much we have currently (prospect theory).</li>
+<li>We become risk seeking when all possible options are bad.</li>
+<li>We are risk adverse (or loss adverse), in a roughly 2:1 ratio (i.e. we consider a 50% chance to lose $100 equal to a 50% chance to gain $200).</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Intelligent Women Dating Down</p>
+<p>Suppose I told you that women of above average intelligence tend to date men who are less intelligent than them.</p>
+<p>You could probably produce a couple reasons as to why that might be true, and it is probably your natural inclination to do so. However, it's not particularly necessary.</p>
+<p>This can be answered with simple statistics; a woman of above average intelligence is in the 60-70th percentile, which would make her also more intelligent than 60-70% of men. In fact, if intelligence is a normal distribution then it would increase this number to about 80%. So the dating pool for a woman of above average intelligence includes 60-80% of individuals less intelligent than her.</p>
+</div>
 
 
 
