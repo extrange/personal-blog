@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+  workflow_call:
 
 jobs:
   build-and-deploy:
@@ -12,21 +13,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.x (latest)
-        uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-          cache: "pip"
 
-      - name: Install dependencies
+      - name: Set up pdm
         run: |
-          python --version
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          curl -sSL https://pdm-project.org/install-pdm.py | python3 -
+      
+      - name: Sync pdm
+        run: pdm sync
 
       - name: Build
-        run: |
-          mkdocs build
+        run: pdm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4

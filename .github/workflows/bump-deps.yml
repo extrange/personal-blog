@@ -4,6 +4,7 @@ on:
   schedule:
     # Run weekly at 00:00 on Sunday
     - cron: "0 0 * * 0"
+
 jobs:
   bump-dependencies:
     runs-on: ubuntu-latest
@@ -11,8 +12,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -26,11 +25,12 @@ jobs:
       - name: Update dependencies
         run: pdm update -u
 
-      - name: Test build
-        run: pdm run build
-
       - name: Commit changes
         id: auto-commit-action
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update dependencies"
+
+  deploy:
+    needs: bump-dependencies
+    uses: ./.github/workflows/deploy.yaml
