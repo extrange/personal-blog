@@ -4,7 +4,21 @@ categories:
 date: 2021-04-15
 ---
 
-# Python Package Management on Windows
+# Python Package Management
+
+## **Update 2024-04-07**
+
+I've to using [remote containers over SSH].
+
+I use [pdm] as a Python package manager, which is something like `npm`.
+
+I've found it much better in terms of updating dependencies (`pdm update -u`) and ensuring build reproducibility with the use of lockfiles.
+
+Regarding automatic dependency updates and deployment:
+
+    - The main use of Github workflows is being able to automatically rebuild hosted web apps when dependencies are detected to have been changed.
+    - If the project is hosted locally, I can update dependencies myself with pdm update -u or ncu -u now and then.
+    - Dependabot doesn't support pdm lockfiles, and even if it did, when there is an update, I would have to access the terminal to rebuild the container, in which case I might have as well have did the update and tested it there and then myself.
 
 ## **Update 17/11/21**
 
@@ -90,3 +104,5 @@ As to which is the best, `pipreqs` or `pigar`, I've tried both, and `pipreqs` is
 
 [--not-required]: https://pip.pypa.io/en/stable/cli/pip_list/#cmdoption-not-required
 [compatible-version-specifiers]: https://www.python.org/dev/peps/pep-0440/#compatible-release
+[remote containers over SSH]: ./2022-02-07-vscode-remote-containers-over-ssh.md
+[pdm]: https://pdm-project.org/en/latest/
