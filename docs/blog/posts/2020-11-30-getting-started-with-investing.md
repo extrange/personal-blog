@@ -155,7 +155,7 @@ Some factors you may want to consider are:
 Worried about losing your money if the broker goes bust? Fret not:
 
 -   US brokers are protected by the [SIPC](https://www.sipc.org/for-investors/what-sipc-protects), up to $500,000
--   Locally, bank deposits are insured for up to $75,000[^local-bank-insurance] by the [SDIC](https://www.sdic.org.sg/faq/di_faq)
+-   Locally, bank deposits are insured for up to $75,000[^local-bank-insurance] by the [SDIC](https://www.sdic.org.sg/di_faq)
 
 ## Epilogue
 
