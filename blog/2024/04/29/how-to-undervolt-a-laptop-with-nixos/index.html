@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog/2022/02/07/vscode-remote-containers-over-ssh/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2024/04/29/how-to-undervolt-a-laptop-with-nixos/">
       
       
-        <link rel="prev" href="../../04/on-deep-work/">
+        <link rel="prev" href="../../18/book-summary-the-courage-to-be-happy/">
       
-      
-        <link rel="next" href="../setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/">
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>VSCode Remote Containers over SSH - Nicholas</title>
+        <title>How to Undervolt a Laptop (with NixOS) - Nicholas</title>
       
     
     
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="VSCode Remote Containers over SSH - Nicholas" >
+        <meta  property="og:title"  content="How to Undervolt a Laptop (with NixOS) - Nicholas" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-02-07-vscode-remote-containers-over-ssh.png" >
+        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2024-04-29-undervolting-laptop.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +69,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2022/02/07/vscode-remote-containers-over-ssh/" >
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2024/04/29/how-to-undervolt-a-laptop-with-nixos/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="VSCode Remote Containers over SSH - Nicholas" >
+        <meta  name="twitter:title"  content="How to Undervolt a Laptop (with NixOS) - Nicholas" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-02-07-vscode-remote-containers-over-ssh.png" >
+        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2024-04-29-undervolting-laptop.png" >
       
     
     
@@ -109,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vscode-remote-containers-over-ssh" class="md-skip">
+        <a href="#how-to-undervolt-a-laptop-with-nixos" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              VSCode Remote Containers over SSH
+              How to Undervolt a Laptop (with NixOS)
             
           </span>
         </div>
@@ -879,18 +877,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Requirements
+      Setup
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-not-code-server" class="md-nav__link">
+  <a href="#undervolting" class="md-nav__link">
     <span class="md-ellipsis">
-      Why not code-server?
+      Undervolting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lowering-temperature-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lowering Temperature Limit
     </span>
   </a>
   
@@ -933,7 +940,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2022-02-07 00:00:00" class="md-ellipsis">February 7, 2022</time>
+                        <time datetime="2024-04-29 00:00:00" class="md-ellipsis">April 29, 2024</time>
                       </div>
                     </li>
                     
@@ -955,7 +962,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                           <span class="md-ellipsis">
                             
-                              2 min read
+                              3 min read
                             
                           </span>
                         </div>
@@ -975,96 +982,97 @@
         
 
 
-<h1 id="vscode-remote-containers-over-ssh">VSCode Remote Containers over SSH</h1>
-<p>When working remotely with a laptop, sometimes we might want access to more CPU power, RAM or a GPU. <a href="https://code.visualstudio.com/docs/remote/ssh">VSCode supports accessing a remote machine</a>, and if <a href="https://www.docker.com/">Docker</a> is installed on the remote machine, you can even connect to remote <a href="https://code.visualstudio.com/docs/remote/containers">development containers</a>. This approach tremendously saves battery life since computation is done on the remote server.</p>
+<h1 id="how-to-undervolt-a-laptop-with-nixos">How to Undervolt a Laptop (with NixOS)</h1>
+<p>Sometimes your laptop might run too hot and you want to reduce the temperatures.</p>
+<p>Apart from <a href="https://www.instructables.com/How-to-Clean-Laptop-Fan-and-Apply-Thermal-Paste-on/">cleaning the fans and changing the thermal paste</a>, there are 2 software options available to you.</p>
 <!-- more -->
 
-<h2 id="requirements">Requirements</h2>
-<ul>
-<li>
-<p><strong>Working SSH connection</strong>. If you prefer to use SSH with certificates, you can refer to my <a href="../setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/">post</a>.</p>
-</li>
-<li>
-<p>(on Windows) <a href="https://www.hanselman.com/blog/the-easy-way-how-to-ssh-into-bash-and-wsl2-on-windows-10-from-an-external-machine"><strong>Setup <code>bash</code> as the default SSH shell</strong></a>. <code>bash</code> needs to be the default SSH shell, otherwise development containers will <a href="https://code.visualstudio.com/docs/remote/ssh#_known-limitations">not work</a>.</p>
-</li>
-</ul>
-<p>Once that is done, you can follow the <a href="https://code.visualstudio.com/docs/remote/ssh">official guide</a>.</p>
-<p>You can now run <a href="https://huggingface.co/EleutherAI/gpt-j-6B">powerful transformer models</a> and more from your laptop!</p>
-<h2 id="why-not-code-server">Why not <code>code-server</code>?</h2>
-<p><a href="https://github.com/coder/code-server"><code>code-server</code></a> is a fully browser-based implementation of VSCode, and offers nearly the same experience. Compared to SSH, all that is needed is a client with a browser, and there is no need for SSH certificates.</p>
-<p>However, the <a href="https://github.com/coder/code-server/issues/1315">lack of support for VSCode Remote-Container and Remote-SSH extensions</a><sup id="fnref:proprietary-extensions"><a class="footnote-ref" href="#fn:proprietary-extensions">1</a></sup> were a deal-breaker for me, since I primarily develop within <a href="https://code.visualstudio.com/docs/remote/containers">development containers</a><sup id="fnref:devcontainers"><a class="footnote-ref" href="#fn:devcontainers">2</a></sup>.</p>
-<p><code>code-server</code> can be run in a Docker container too, and addtional <code>code-server</code> containers can even be created on-the-fly from within code-server itself. However, the configuration to automatically forward the relevant ports is going to be complicated.</p>
-<p><strong>Authentication Concerns</strong></p>
-<p><code>code-server</code> uses a websocket stream. While <code>nginx</code> can be setup to <a href="https://nginx.org/en/docs/http/ngx_http_auth_request_module.html">require authentication</a> before initiating the stream, there's no simple way to deauthenticate a websocket stream<sup id="fnref:nginx"><a class="footnote-ref" href="#fn:nginx">3</a></sup> once its established, unlike SSH connections.</p>
-<p>A comparison of features:</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th><code>code-server</code></th>
-<th>VSCode Remote-SSH</th>
+<th>Method</th>
+<th>Pros</th>
+<th>Cons</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Security</td>
-<td>Less secure<sup id="fnref:http-security"><a class="footnote-ref" href="#fn:http-security">4</a></sup></td>
-<td>As secure as SSH is</td>
+<td>Undervolting</td>
+<td>No performance impact. Lower battery usage.</td>
+<td>System instability</td>
 </tr>
 <tr>
-<td>IP Visibility</td>
-<td>Can be hidden behind Cloudflare</td>
-<td>Public</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Password or external server<sup id="fnref2:nginx"><a class="footnote-ref" href="#fn:nginx">3</a></sup></td>
-<td>SSH password, 2FA, key or certificate</td>
-</tr>
-<tr>
-<td>Client requirements</td>
-<td>Any browser</td>
-<td>SSH client</td>
-</tr>
-<tr>
-<td>Access host filesystem</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Forward ports from host</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Full VSCode experience</td>
-<td>No Remote-Containers support</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Open Source</td>
-<td>Yes</td>
-<td>Extension is proprietary</td>
+<td>Lowering Temperature Limit</td>
+<td>CPU cannot exceed the set temperature in any circumstance.</td>
+<td>Poorer performance, as CPU will reduce frequency as necessary to keep within temperature envelope.</td>
 </tr>
 </tbody>
 </table>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:proprietary-extensions">
-<p>Sadly, VSCode is <a href="https://news.ycombinator.com/item?id=24047638">not as open</a> as I used to think.&#160;<a class="footnote-backref" href="#fnref:proprietary-extensions" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:devcontainers">
-<p>For the reasons I do this, see <a href="../../../../2021/11/17/developing-in-wsl-containers-now-with-gpu-support/">this post</a>.&#160;<a class="footnote-backref" href="#fnref:devcontainers" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:nginx">
-<p>While <code>nginx</code> can <a href="https://nginx.org/en/docs/http/websocket.html">proxy websocket connections</a>, it can't terminate them once established.&#160;<a class="footnote-backref" href="#fnref:nginx" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nginx" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:http-security">
-<p>Web applications have multiple vectors of attack, for example the <a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a>.&#160;<a class="footnote-backref" href="#fnref:http-security" title="Jump back to footnote 4 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p>Either or both methods can be used simultaneously.</p>
+<p>The tool used for either of these is <a href="https://github.com/georgewhewell/undervolt"><code>undervolt</code></a>.</p>
+<h2 id="setup">Setup</h2>
+<p>Add the following packages:</p>
+<div class="language-nix highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>home<span class="o">.</span><span class="ss">packages</span> <span class="o">=</span> <span class="k">with</span> pkgs<span class="p">;</span> <span class="p">[</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="c1"># ...</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="hll">    undervolt
+</span></span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="hll">    s-tui
+</span></span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="hll">    stress
+</span></span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">];</span>
+</span></code></pre></div>
+<p>Then run <code>sudo nixos-rebuild switch --flake path:.</code> in the same directory as your NixOS config.</p>
+<p>To check if it works, run <code>sudo undervolt -r</code>. You should see output similar to the following:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>❯ sudo undervolt -r
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>temperature target: -10 (90C)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>core: 0.0 mV
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>gpu: 0.0 mV
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>cache: 0.0 mV
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>uncore: 8000.0 mV
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>analogio: 0.0 mV
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>powerlimit: 36.0W (short: 0.00244140625s - enabled) / 28.0W (long: 28.0s - enabled)
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>turbo: enable
+</span></code></pre></div>
+<h2 id="undervolting">Undervolting</h2>
+<p>Undervolting reduces the voltage supplied to the CPU, reducing thermal generation, but also introducing instability, since the CPU is now running on a lower voltage than it was designed for.</p>
+<p>There is no guaranteed value which will definitely be stable, so it is a process of trial and error.</p>
+<p>Before applying any modifications, run <code>s-tui</code> and select <code>Stress</code>. Let it run for a few minutes and observe the maximum temperature, as well as average core frequency.</p>
+<figure>
+  <a class="glightbox" href="/static/images/2024-04-29/stress.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2024-04-29/stress.png" alt="s-tui" loading="lazy"/></a>
+  <figcaption>Baseline: the maximum temperature reached is 79C and average frequency is 2200MHz<figcaption/>
+</figure>
+
+<p>We can start with -50mV to both the <code>core</code> and <code>cache</code> (note that the undervolt given to the <code>core</code> and <code>cache</code> must be identical).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Settings are temporary and will be restored after reboot/crash</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="hll">❯<span class="w"> </span>sudo<span class="w"> </span>undervolt<span class="w"> </span>--core<span class="w"> </span>-50<span class="w"> </span>--cache<span class="w"> </span>-50
+</span></span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Confirm settings</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>❯<span class="w"> </span>sudo<span class="w"> </span>undervolt<span class="w"> </span>-r
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>temperature<span class="w"> </span>target:<span class="w"> </span>-10<span class="w"> </span><span class="o">(</span>90C<span class="o">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="hll">core:<span class="w"> </span>-49.8<span class="w"> </span>mV
+</span></span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>gpu:<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span>mV
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="hll">cache:<span class="w"> </span>-49.8<span class="w"> </span>mV
+</span></span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>uncore:<span class="w"> </span><span class="m">8000</span>.0<span class="w"> </span>mV
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>analogio:<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span>mV
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>powerlimit:<span class="w"> </span><span class="m">36</span>.0W<span class="w"> </span><span class="o">(</span>short:<span class="w"> </span><span class="m">0</span>.00244140625s<span class="w"> </span>-<span class="w"> </span>enabled<span class="o">)</span><span class="w"> </span>/<span class="w"> </span><span class="m">28</span>.0W<span class="w"> </span><span class="o">(</span>long:<span class="w"> </span><span class="m">28</span>.0s<span class="w"> </span>-<span class="w"> </span>enabled<span class="o">)</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>turbo:<span class="w"> </span><span class="nb">enable</span>
+</span></code></pre></div>
+<p>Then, rerun <code>s-tui</code>. You should see that the average frequency is now higher, while the maximum temperature may be the same. This indicates that the CPU had additional thermal headroom to increase frequency further.</p>
+<figure>
+  <a class="glightbox" href="/static/images/2024-04-29/stress-undervolt.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2024-04-29/stress-undervolt.png" alt="s-tui" loading="lazy"/></a>
+  <figcaption>The maximum temperature reached is still around 80C, but average frequency is 10% higher at 2400MHz<figcaption/>
+</figure>
+
+<p><strong>Note: As you increase the undervolt (i.e. more negative), the system will become more unstable (BSOD, freezes, crashes, etc). The job here is to determine the highest undervolt that the CPU can tolerate stably.</strong></p>
+<h2 id="lowering-temperature-limit">Lowering Temperature Limit</h2>
+<p>This is the more stable method with possible performance penalty. It will, however, guarantee that the CPU will not go above a set temperature.</p>
+<p>To set the upper limit to 60C, run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>~<span class="w"> </span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>❯<span class="w"> </span>sudo<span class="w"> </span>undervolt<span class="w"> </span>--temp<span class="w"> </span><span class="m">60</span>
+</span></code></pre></div>
+<p>Then rerun <code>s-tui</code>.</p>
+<figure>
+  <a class="glightbox" href="/static/images/2024-04-29/stress-temp.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2024-04-29/stress-temp.png" alt="s-tui" loading="lazy"/></a>
+  <figcaption>The maximum temperature reached is now 60C, but average frequency has dropped to 1600MHz to compensate<figcaption/>
+</figure>
 
 
 
