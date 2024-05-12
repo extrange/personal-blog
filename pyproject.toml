@@ -6,7 +6,7 @@ authors = [
     {name = "extrange", email = "29305375+extrange@users.noreply.github.com"},
 ]
 dependencies = [
-    "mkdocs-glightbox>=0.3.7",
+    "mkdocs-glightbox>=0.4.0",
     "mkdocs-material[imaging]>=9.5.21",
     "mkdocs-redirects>=1.2.1",
 ]
