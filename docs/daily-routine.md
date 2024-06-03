@@ -98,7 +98,7 @@ I stop eating by about 12 noon.
 [fish-oil]: blog/posts/2022-10-28-nutrition-and-health.md#omega-3
 [if-schedule]: blog/posts/2022-10-28-nutrition-and-health.md#timingintermittent-fasting
 [protein]: blog/posts/2022-10-28-nutrition-and-health.md#protein
-[recipe]: https://recipes.nicholaslyz.com/explore/recipes/bbc37612-578a-41ef-ae07-e561dc32ef20/mixed-beans-lentils-wholegrains-with-fruits-and-tau-kwa
+[recipe]: https://recipes.nicholaslyz.com/explore/recipes/home/seasoned-lentils-with-tofu-fruits-vegetables-and-nuts
 [nutrients]: blog/posts/2022-10-28-nutrition-and-health.md#comparison-of-various-nutrients-across-major-staple-foods
 [cooking-beans]: blog/posts/2023-09-11-best-way-cook-beans.md
 [friends]: blog/posts/2023-11-05-biohacker-lifestyle.md
