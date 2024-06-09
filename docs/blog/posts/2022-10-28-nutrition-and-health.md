@@ -154,13 +154,16 @@ Omega-3 fatty acids obtained from marine or algae sources (i.e. EPA/DHA) are ass
 Sources of EPA/DHA include oily fish like salmon or mackerel.
 
 ![](../../static/images/2022-10-28/fish-omega3.jpg)
+![](../../static/images/2022-10-28/omega3.jpg)
 
 Mackerel is overall the best option for price and amount of omega 3.
 
+#### Notes
+
 -   Saba = Japanese Mackerel
 -   Batang = Spanish Mackerel
-
-Pangasius (cream dory, vietnamese catfish) may be a [safe option][pangasius].
+-   Pangasius (cream dory, vietnamese catfish) may be a [safe option][pangasius].
+-   Barramundi, pan fried, is quite tasty
 
 ### Creatine
 
