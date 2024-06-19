@@ -92,6 +92,8 @@ An intake of red meat above 500g/week is associated with an [increased risk][red
 
 Whey protein is a great source, however there are concerns about [contamination][protein-contamination] with heavy metals, and so I limit my total intake from this source.
 
+Note also that different proteins have different [digestability scores].
+
 The key principles are:
 
 -   Consume more protein as a total percentage of caloric intake.
@@ -275,3 +277,4 @@ A balanced diet of nutrients can be therefore constructed with beans as the base
 [theanine-tea-content]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4787341/
 [lentils]: https://www.myweekendkitchen.in/types-of-lentils-pulses-english-hindi/
 [staple-food-comparison]: https://en.wikipedia.org/wiki/Template:Comparison_of_major_staple_foods
+[digestability scores]: https://en.wikipedia.org/wiki/Protein_quality
