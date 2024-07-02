@@ -92,7 +92,7 @@ An intake of red meat above 500g/week is associated with an [increased risk][red
 
 Whey protein is a great source, however there are concerns about [contamination][protein-contamination] with heavy metals, and so I limit my total intake from this source.
 
-Note also that different proteins have different [digestability scores].
+Note also that different proteins have different [digestability scores], though soy still ranks very high in terms of [digestibilty][soy-digestibility] (associated [paper][diaas-paper])
 
 The key principles are:
 
@@ -278,3 +278,5 @@ A balanced diet of nutrients can be therefore constructed with beans as the base
 [lentils]: https://www.myweekendkitchen.in/types-of-lentils-pulses-english-hindi/
 [staple-food-comparison]: https://en.wikipedia.org/wiki/Template:Comparison_of_major_staple_foods
 [digestability scores]: https://en.wikipedia.org/wiki/Protein_quality
+[diaas-paper]: https://onlinelibrary.wiley.com/doi/pdf/10.1002/fsn3.1809
+[soy-digestibility]: https://reddit.com/r/biology/comments/qh7q1y/why_do_soybeans_contain_all_essential_amino_acids/
