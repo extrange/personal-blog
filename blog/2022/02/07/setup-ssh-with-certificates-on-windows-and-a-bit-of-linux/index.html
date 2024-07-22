@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.76a95c52.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1172,7 +1172,7 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
 <li><a href="https://www.bastillion.io/">Bastillion</a> - Not certificate based. Also, need to manually upload and download the public keys and configure SSH.</li>
 <li><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/use-cases/ssh/">Cloudflare Tunnel</a> - Need to download on both server and client. I had some issues setting up SSH certificate login.</li>
 <li><a href="https://smallstep.com/docs/step-ca">Step</a> - Need to download on both server and client. Also, TLS connection to <code>step-ca</code> from a client requires adding its generated root certificate as a trusted certificate<sup id="fnref:leaf-certificates"><a class="footnote-ref" href="#fn:leaf-certificates">3</a></sup>.</li>
-<li><a href="https://goteleport.com/docs/getting-started/">Teleport</a> - Need to download on both server and client. Teleport Nodes (the server component) are not supported on Windows. The ability to record SSH sessions might be useful if I were to move to Linux.</li>
+<li><a href="https://goteleport.com">Teleport</a> - Need to download on both server and client. Teleport Nodes (the server component) are not supported on Windows. The ability to record SSH sessions might be useful if I were to move to Linux.</li>
 <li><a href="https://www.vaultproject.io/">Vault by HashiCorp</a> - Need to download on both server and client.</li>
 </ul>
 <p>Instead, to streamline the process of generating client certificates, I plan to write a certificate provisioning server which will probably rely on the (already-existing) 2FA login my web app backend uses. This would call <code>ssh-keygen</code> and return the signed public/private key pair.</p>
