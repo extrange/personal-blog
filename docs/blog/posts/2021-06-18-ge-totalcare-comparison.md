@@ -10,7 +10,7 @@ On 2 Apr 2021, MOH [announced](https://www.asiaone.com/money/integrated-shield-p
 
 <!-- more -->
 
-With this in mind, I decided to look at the Great Eastern's (GE) [new riders](https://www.greateasternlife.com/content/dam/great-eastern/sg/homepage/personal-insurance/our-products/health-insurance/great-supremehealth/gsh-gtc-benefit-schedule-and-premium-rates.pdf).
+With this in mind, I decided to look at the Great Eastern's (GE) [new riders](https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/gels-ftrp-imc-cm/health-insurance-/great-supremehealth/gels-pdt-pd-gsh-gtc-benefit-and-premium-tables-eng.pdf)
 
 ![](../../static/images/2021-06-18-ge-totalcare-comparison/ge-totalcare-rider-infographic.jpg)
 

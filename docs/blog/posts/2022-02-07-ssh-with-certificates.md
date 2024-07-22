@@ -247,7 +247,7 @@ Instead, to streamline the process of generating client certificates, I plan to 
 [ssh]: https://www.ssh.com/academy/ssh/protocol
 [sshfp]: https://en.wikipedia.org/wiki/SSHFP_record
 [step]: https://smallstep.com/docs/step-ca
-[teleport]: https://goteleport.com/docs/getting-started/
+[teleport]: https://goteleport.com
 [tls]: https://en.wikipedia.org/wiki/Transport_Layer_Security
 [tofu]: https://en.wikipedia.org/wiki/Trust_on_first_use
 [vault]: https://www.vaultproject.io/
