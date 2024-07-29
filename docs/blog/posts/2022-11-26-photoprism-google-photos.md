@@ -24,7 +24,7 @@ PhotoPrism can also be installed on mobile devices as a [Progressive Web App][pw
 
 Photoprism suggests using [PhotoSync][photosync], an app available on Android and iOS. However, the WebDAV sync feature, essential to work with PhotoPrism, is a [paid][photosync-paid] feature.
 
-[Syncthing][syncthing] is a free, open source continuous file synchronization program, with a reliable [conflict resolution algorithm][conflicts]. It offers [Android][syncthing-android] and iOS versions as well.
+[Syncthing][syncthing] is a free, open source continuous file synchronization program, with a reliable [conflict resolution algorithm][conflicts]. It offers [Android][syncthing-android] (via F-Droid) and iOS versions as well.
 
 You can sync your phone's camera folder (sometimes called `DCIM`) to PhotoPrism's [`import` folder][photoprism-import] using Syncthing.
 
@@ -58,7 +58,7 @@ By using the [Send & Receive Folder][send-receive-folder] type in Syncthing, whe
 [pwa]: https://docs.photoprism.app/user-guide/pwa/
 [syncthing]: https://syncthing.net/
 [conflicts]: https://docs.syncthing.net/users/syncing.html?highlight=conflict#conflicting-changes
-[syncthing-android]: https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid&hl=en&gl=US
+[syncthing-android]: https://f-droid.org/en/packages/com.nutomic.syncthingandroid/
 [compose]: https://dl.photoprism.org/docker/scheduler/
 [ofelia]: https://github.com/mcuadros/ofelia
 [send-receive-folder]: https://docs.syncthing.net/v1.23.5/users/foldertypes#send-receive-folder
