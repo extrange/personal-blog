@@ -22,7 +22,8 @@
 				"esbenp.prettier-vscode",
 				"yzhang.markdown-all-in-one",
 				"tamasfe.even-better-toml",
-				"github.vscode-github-actions"
+				"github.vscode-github-actions",
+				"bierner.markdown-mermaid"
 			]
 		}
 	}

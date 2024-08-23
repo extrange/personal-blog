@@ -210,7 +210,7 @@ We will now setup a peer-to-peer VPN, which will let us access our server anywhe
 
     However, in our current setup, the VM is not directly accessible from the internet or even the LAN, because the [default network][default-network][^default-network] it is connected to is not assigned an IP address on the LAN, so there is no way to port forward the required ports.
 
-    One way is to give the VM its own IP address on the network via a [`macvtap`][macvtap] interface, as [shown above](#4-install-windows-and-setup-moonlight-streaming).
+    One way is to give the VM its own IP address on the network via a [`macvtap`][macvtap] interface, as [shown above](#4-install-windows-and-setup-streaming).
 
     However, sometimes port forwarding may not work due to [NATs][nat], your ISP blocking ports, or firewalls.
 

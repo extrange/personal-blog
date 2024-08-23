@@ -86,7 +86,7 @@ The playlists are then visible in Navidrome and automatically updated as new fil
 [airsonic-advanced]: https://github.com/airsonic-advanced/airsonic-advanced
 [issue]: https://github.com/navidrome/navidrome/issues/351
 [mediamonkey]: https://www.mediamonkey.com/
-[computing-philosophy]: 2022-02-27-my-computing-philosophy.md#stable-open-source-environment
+[computing-philosophy]: 2022-02-27-my-computing-philosophy.md#my-computing-philosophy
 [funkwhale]: https://funkwhale.audio/
 [jellyfin]: https://jellyfin.org/
 [navidrome]: https://www.navidrome.org/

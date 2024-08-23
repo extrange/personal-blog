@@ -21,7 +21,7 @@ This is my current portfolio allocation as of 2/6/21.
 
     _As I've emphasized throughout this site, I don't pick individual stocks, nor actively trade. Such activity, to me, is [likely to lead to loss](2020-11-30-getting-started-with-investing.md)._
 
-These are the reasons for my own portfolio allocation [above](2020-12-02-asset-allocation.md#asset-allocation1).
+These are the reasons for my own portfolio allocation [above](#my-investment-portfolio).
 
 -   As I am still working, the bulk return of my portfolio comes from equities. I am comfortable bearing the drawdown risk.
 -   For equities, I buy both an ETF investing in large and mid-cap companies globally across both emerging and developed markets (ISAC), and another in small-cap companies, also globally (WSML).
@@ -52,7 +52,7 @@ See this [post](2021-06-08-which-is-the-best-index-fund-etf.md#why-isac-over-vwr
 
 #### Why not [IMID](https://markets.ft.com/data/etfs/tearsheet/summary?s=IMID:LSE:USD)? This includes small to large-cap stocks across developing AND developed markets!
 
-See this [post](2021-06-08-which-is-the-best-index-fund-etf.md#why-not-imidhttpsmarketsftcomdataetfstearsheetsummarysimidlseusd-this-includes-small-to-large-cap-stocks-across-developing-and-developed-markets).
+See this [post](2021-06-08-which-is-the-best-index-fund-etf.md#why-not-imid-this-includes-small-to-large-cap-stocks-across-developing-and-developed-markets).
 
 #### How often to rebalance the portfolio?
 
