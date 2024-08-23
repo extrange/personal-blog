@@ -7,8 +7,8 @@ date: 2022-05-22
 # My Self-Hosting Journey
 
 <figure>
-  <img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/>
-  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+  <img src="/static/images/2022-05-22/sysmon.jpg" alt="System Monitoring with btop" loading="lazy"/>
+  <figcaption>System monitoring with btop</figcaption>
 </figure>
 
 Self-hosting your own services has been catching up in popularity: the [selfhosted subreddit][selfhosted] has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge [list][awesome-selfhosted] here).
@@ -26,7 +26,7 @@ It was with those considerations in mind that I decided to go ahead with self ho
 ![](../../static/images/2022-05-22/neofetch.jpg)
 
 -   **CPU**: Intel i5-12400F (6 cores, 12 threads, 18M Cache, up to 4.40Ghz)
--   **Memory**: Crucial 32GB DDR4 3200Mhz
+-   **Memory**: Crucial 64GB DDR4 3200Mhz (with 32GB of `zram` as swap)
 -   **Motherboard**: Gigabyte B660M DS3H DDR4
 -   **Boot Drive**: Samsung 500GB 980 NVME M.2
 -   **OS**: Fedora Linux (Server Edition)
@@ -38,11 +38,11 @@ In addition, I have ~ [30TB of storage](#storage-and-backup) in a RAID1 configur
 ## Hosted Services
 
 <figure>
-  <img src="/static/images/2022-05-22/sysmon.jpg" alt="System Monitoring with btop" loading="lazy"/>
-  <figcaption>System monitoring with btop</figcaption>
+  <img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/>
+  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
 </figure>
 
-I use [Dashy][dashy] to display all the hosted web services on [my site](https://home.nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request] to a Django backend.
+I use [Dashy][dashy] to display all the hosted web services (approx ~27) on [my site](https://home.nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request] to a Django backend.
 
 All hosted services are in Docker containers with limited permissions to reduce the possible attack surface, with logs all redirected to the `systemd` journal, with the [`journald` driver](https://docs.docker.com/config/containers/logging/journald/).
 
@@ -52,7 +52,7 @@ Uptime monitoring is hosted on an offsite VPS with [Uptime Kuma][uptime-kuma], o
 
 ## Storage and Backup
 
-As of 2022 Dec, I have 32TB of raw storage, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 8TB ATA WDC WD80EAZZ-00B8TB (all non-SMR drives[^smr]) in a (software) BtrFS RAID-1 configuration, corresponding to approximately 16TB of usable storage.
+As of 2024 Aug, I have 32TB of raw storage, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 8TB ATA WDC WD80EAZZ-00B8TB (all non-SMR drives[^smr]) in a (software) BtrFS RAID-1 configuration, corresponding to approximately 16TB of usable storage.
 
 I use SSHFS to access my storage remotely. This storage is accessible locally in my LAN via [NFS][nfs], which Windows also supports[^nfs-issues].
 
