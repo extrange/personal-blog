@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog/2021/12/17/my-collection-of-useful-utilities/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2024/08/17/logging-comparison-of-frameworks/">
       
       
-        <link rel="prev" href="../../04/crispy-apple-chips/">
+        <link rel="prev" href="../../../07/17/setting-up-moonlight-on-a-raspberry-pi-4/">
       
-      
-        <link rel="next" href="../../25/skiing-in-st-moritz-switzerland/">
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>My Collection of Useful Utilities - Nicholas</title>
+        <title>Logging: Comparison of Frameworks - Nicholas</title>
       
     
     
@@ -59,11 +57,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="My Collection of Useful Utilities - Nicholas" >
+        <meta  property="og:title"  content="Logging: Comparison of Frameworks - Nicholas" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2021-12-17-useful-utilities.png" >
+        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2024-08-17-logging.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,15 +69,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2021/12/17/my-collection-of-useful-utilities/" >
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2024/08/17/logging-comparison-of-frameworks/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="My Collection of Useful Utilities - Nicholas" >
+        <meta  name="twitter:title"  content="Logging: Comparison of Frameworks - Nicholas" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2021-12-17-useful-utilities.png" >
+        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2024-08-17-logging.png" >
       
     
     
@@ -109,7 +107,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#my-collection-of-useful-utilities" class="md-skip">
+        <a href="#logging-comparison-of-frameworks" class="md-skip">
           Skip to content
         </a>
       
@@ -144,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              My Collection of Useful Utilities
+              Logging: Comparison of Frameworks
             
           </span>
         </div>
@@ -879,36 +877,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
+  <a href="#what-is-a-logging-framework" class="md-nav__link">
     <span class="md-ellipsis">
-      Python
+      What is a Logging Framework?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#windows" class="md-nav__link">
+  <a href="#aggregator-comparison-todo" class="md-nav__link">
     <span class="md-ellipsis">
-      Windows
+      Aggregator Comparison TODO
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cross-platform" class="md-nav__link">
+  <a href="#analyzer-comparison-todo" class="md-nav__link">
     <span class="md-ellipsis">
-      Cross-Platform
+      Analyzer Comparison TODO
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#web" class="md-nav__link">
+  <a href="#visualizer-comparison-todo" class="md-nav__link">
     <span class="md-ellipsis">
-      Web
+      Visualizer Comparison TODO
     </span>
   </a>
   
@@ -951,7 +949,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2021-12-17 00:00:00" class="md-ellipsis">December 17, 2021</time>
+                        <time datetime="2024-08-17 00:00:00" class="md-ellipsis">August 17, 2024</time>
                       </div>
                     </li>
                     
@@ -993,42 +991,72 @@
         
 
 
-<h1 id="my-collection-of-useful-utilities">My Collection of Useful Utilities</h1>
-<p>Stuff I use, arranged by language/OS. Inspired by this <a href="https://news.ycombinator.com/item?id=29582437">article</a>.</p>
+<h1 id="logging-comparison-of-frameworks">Logging: Comparison of Frameworks</h1>
+<p>Logging is an often overlooked part of software development, and something I have been neglecting only up till recently. In this post, I compare several logging frameworks.</p>
 <!-- more -->
 
-<h2 id="python">Python</h2>
+<h2 id="what-is-a-logging-framework">What is a Logging Framework?</h2>
+<p>A logging framework (or stack) is a collection of software components which aggregate, analyze and display information collected from sources.</p>
+<p>In simple terms, the stages are as follows:</p>
+<pre class="mermaid"><code>graph TD
+  Sources --&gt; Aggregators
+  Aggregators --&gt; Analyzers
+  Analyzers --&gt; Visualizers</code></pre>
+<p><em>Note: Analyzers may also store the raw log data.</em></p>
+<p>For each stage, there are several choices of software you can choose from. We can add this to the diagram:</p>
+<pre class="mermaid"><code>graph TD
+
+  subgraph Sources
+    Syslog
+    Systemd-journald
+    Kubernetes
+    Docker
+    Kafka[Apache Kafka]
+    Apps[Application Logs]
+  end
+
+  Sources --&gt; Aggregators
+
+  subgraph Aggregators
+    Promtail
+    FluentD
+    FluentBit
+        subgraph ES["Elastic Stack (ES)"]
+        direction TB
+        Filebeat --&gt; Logstash
+        end
+    Vector
+  end
+
+  Aggregators --&gt; Analyzers
+
+  subgraph Analyzers
+    Loki
+    Elasticsearch
+  end
+
+  Analyzers --&gt; Visualizers
+
+  subgraph Visualizers
+    Grafana
+    Kibana["Kibana (ES)"]
+  end</code></pre>
+<p>The 3 most popular logging stacks (combinations) are:</p>
+<p>PLG:</p>
 <ul>
-<li><a href="https://github.com/grantjenks/python-diskcache/">diskcache</a>: Python disk-backed cache, Django compatible, faster than Redis and Memcached</li>
-<li><a href="https://fastapi.tiangolo.com/">FastAPI</a>: High performance backend framework based on OpenAPI, JSON Schema and Python types via <a href="https://pydantic-docs.helpmanual.io/">Pydantic</a></li>
-<li><a href="https://github.com/willmcgugan/rich">rich</a>: rich terminal formatting</li>
-<li><a href="https://github.com/willmcgugan/textual">textual</a>: CSS/HTML/React inspired reactive, responsive terminal UIs (<a href="../../../../../static/images/2021-12-17/textual.gif">demo</a>)</li>
-<li><a href="https://tqdm.github.io/">tqdm</a>: intuitive progress bars for Python<ul>
-<li>Also with support for sending realtime updates to <a href="https://tqdm.github.io/docs/contrib.telegram/">Telegram</a></li>
+<li>Promtail</li>
+<li>Loki</li>
+<li>Grafana</li>
 </ul>
-</li>
-<li><a href="https://typer.tiangolo.com/">Typer</a>: Alternative to <code>argparser</code> using Python types</li>
-</ul>
-<h2 id="windows">Windows</h2>
+<p>EFK/ELK</p>
 <ul>
-<li><a href="https://www.voidtools.com/">Everything</a>: Extremely fast filename search (&lt; 1s) with regex support</li>
-<li><a href="https://handbrake.fr/">Handbrake</a>: Open-source video transcoder</li>
-<li><a href="https://obsproject.com/">OBS Studio</a>: Open-source screen recorder</li>
+<li>FluentD/Logstash</li>
+<li>Elasticsearch</li>
+<li>Kibana</li>
 </ul>
-<h2 id="cross-platform">Cross-Platform</h2>
-<ul>
-<li><a href="https://asciinema.org/">asciinema</a>: Terminal session recorder</li>
-<li><a href="https://www.docker.com/">Docker</a>: Containerization at its finest</li>
-<li><a href="https://hashcat.net/hashcat/">hashcat</a>: GPU-accelerated hash cracker</li>
-<li><a href="https://www.veracrypt.fr/en/Home.html">VeraCrypt</a>: TrueCrypt successor for full-disk/file/partition encryption with plausible deniability</li>
-<li><a href="https://github.com/yt-dlp">yt-dlp</a>: Youtube-dl fork, a general purpose website video downloader</li>
-</ul>
-<h2 id="web">Web</h2>
-<ul>
-<li><a href="https://canarytokens.org/generate">CanaryTokens</a>: Get alerted when someone clicks a link, image, opens an Explorer folder, or even when a vulnerable service executes code using the <a href="https://en.wikipedia.org/wiki/Log4Shell">Log4Shell</a> vulnerability.</li>
-<li><a href="https://github.com/sindresorhus/awesome">Awesome</a>: Huge, community maintained list-of-lists about programming, books, and many other topics (note - <a href="https://github.com/Igglybuff/awesome-piracy">Awesome Piracy</a> isn't linked)</li>
-<li><a href="https://mega.nz/folder/kj5hWI6J#0cyw0-ZdvZKOJW3fPI6RfQ">4chan Recommendation Charts</a>: Massive lists of recommendations about almost anything from books, movies, games, comics to anime.</li>
-</ul>
+<h2 id="aggregator-comparison-todo">Aggregator Comparison TODO</h2>
+<h2 id="analyzer-comparison-todo">Analyzer Comparison TODO</h2>
+<h2 id="visualizer-comparison-todo">Visualizer Comparison TODO</h2>
 
 
 

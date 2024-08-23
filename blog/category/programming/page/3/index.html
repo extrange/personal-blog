@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
@@ -602,6 +602,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#best-practices-for-debugging-service-workers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices for Debugging Service Workers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#my-computing-philosophy" class="md-nav__link">
     <span class="md-ellipsis">
       My Computing Philosophy
@@ -677,15 +686,6 @@
   <a href="#the-uselayouteffect-hook" class="md-nav__link">
     <span class="md-ellipsis">
       The useLayoutEffect hook
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python-package-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python Package Management
     </span>
   </a>
   
@@ -1005,6 +1005,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#best-practices-for-debugging-service-workers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices for Debugging Service Workers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#my-computing-philosophy" class="md-nav__link">
     <span class="md-ellipsis">
       My Computing Philosophy
@@ -1085,15 +1094,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#python-package-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python Package Management
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1108,6 +1108,46 @@
       <header class="md-typeset">
         <h1 id="programming">Programming</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2022-03-24 00:00:00">March 24, 2022</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="best-practices-for-debugging-service-workers"><a class="toclink" href="../../../../2022/03/24/best-practices-for-debugging-service-workers/">Best Practices for Debugging Service Workers</a></h2>
+<p>Service Workers are a great way to add offline functionality to your app, as well as speed up subsequent page loads (especially with the app shell model).</p>
+<p>I recently encountered many issues while debugging, and to save myself and others the hassle, here are some of the best practices I recommend when debugging service workers.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../../../2022/03/24/best-practices-for-debugging-service-workers/">
+          Continue reading
+        </a>
+      </nav>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1468,58 +1508,6 @@
     
       <nav class="md-post__action">
         <a href="../../../../2021/06/20/the-uselayouteffect-hook/">
-          Continue reading
-        </a>
-      </nav>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2021-04-15 00:00:00">April 15, 2021</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../" class="md-meta__link">Programming</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              4 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="python-package-management"><a class="toclink" href="../../../../2021/04/15/python-package-management/">Python Package Management</a></h2>
-<h3 id="update-2024-04-07"><a class="toclink" href="../../../../2021/04/15/python-package-management/#update-2024-04-07"><strong>Update 2024-04-07</strong></a></h3>
-<p>I've to using <a href="../../../../2022/02/07/vscode-remote-containers-over-ssh/">remote containers over SSH</a>.</p>
-<p>I use <a href="https://pdm-project.org/en/latest/">pdm</a> as a Python package manager, which is something like <code>npm</code>.</p>
-<p>I've found it much better in terms of updating dependencies (<code>pdm update -u</code>) and ensuring build reproducibility with the use of lockfiles.</p>
-<p>Regarding automatic dependency updates and deployment:</p>
-<div class="language-text highlight"><pre><span></span><code>- The main use of Github workflows is being able to automatically rebuild hosted web apps when dependencies are detected to have been changed.
-- If the project is hosted locally, I can update dependencies myself with pdm update -u or ncu -u now and then.
-- Dependabot doesn&#39;t support pdm lockfiles, and even if it did, when there is an update, I would have to access the terminal to rebuild the container, in which case I might have as well have did the update and tested it there and then myself.
-</code></pre></div>
-<h3 id="update-171121"><a class="toclink" href="../../../../2021/04/15/python-package-management/#update-171121"><strong>Update 17/11/21</strong></a></h3>
-<p>I now use <a href="../../../../2021/11/17/developing-in-wsl-containers-now-with-gpu-support/">WSL2 containers in VSCode</a>. Additionally, I use <code>requirements.txt</code> files generated with:</p>
-<p><code>pip list --format freeze --not-required</code></p>
-<p><a href="https://pip.pypa.io/en/stable/cli/pip_list/#cmdoption-not-required"><code>--not-required</code></a> ensures only top-level packages are printed.</p>
-<p>In addition, I use <code>== X.Y.*</code> (aka <a href="https://www.python.org/dev/peps/pep-0440/#compatible-release">compatible version specifiers</a>) to pin the major and minor version of packages, while allowing for patch versions to be updated automatically each time the container is rebuilt. This prevents surprises during deployment (e.g. missing functionality in minor versions) while allowing bugfix versions to automatically be upgraded without hassle.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../../../2021/04/15/python-package-management/">
           Continue reading
         </a>
       </nav>

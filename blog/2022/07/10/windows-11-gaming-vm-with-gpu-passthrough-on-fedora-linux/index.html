@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
@@ -1291,7 +1291,7 @@
 <summary>Technical Info</summary>
 <p>Moonlight requires <a href="https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#manual-port-forwarding-advanced">certain ports</a> to be forwarded on your router, in order for the PC to be accessible over the internet.</p>
 <p>However, in our current setup, the VM is not directly accessible from the internet or even the LAN, because the <a href="https://libvirt.org/formatnetwork.html#nat-based-network">default network</a><sup id="fnref:default-network"><a class="footnote-ref" href="#fn:default-network">1</a></sup> it is connected to is not assigned an IP address on the LAN, so there is no way to port forward the required ports.</p>
-<p>One way is to give the VM its own IP address on the network via a <a href="https://virt.kernelnewbies.org/MacVTap"><code>macvtap</code></a> interface, as <a href="#4-install-windows-and-setup-moonlight-streaming">shown above</a>.</p>
+<p>One way is to give the VM its own IP address on the network via a <a href="https://virt.kernelnewbies.org/MacVTap"><code>macvtap</code></a> interface, as <a href="#4-install-windows-and-setup-streaming">shown above</a>.</p>
 <p>However, sometimes port forwarding may not work due to <a href="https://en.wikipedia.org/wiki/Network_address_translation">NATs</a>, your ISP blocking ports, or firewalls.</p>
 <p>Therefore, a better solution is to use a peer-to-peer VPN provider, which utilizes <a href="https://tailscale.com/blog/how-nat-traversal-works/">NAT traversal</a> techniques such as <a href="https://en.wikipedia.org/wiki/UDP_hole_punching">UDP hole punching</a> to connect to hosts behind NATs/firewalls.</p>
 <ul>

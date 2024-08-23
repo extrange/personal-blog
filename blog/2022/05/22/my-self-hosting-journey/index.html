@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
@@ -1028,21 +1028,21 @@
 
 <h1 id="my-self-hosting-journey">My Self-Hosting Journey</h1>
 <figure>
-  <a class="glightbox" href="/static/images/2022-05-22/dashy.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/></a>
-  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+  <a class="glightbox" href="/static/images/2022-05-22/sysmon.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/sysmon.jpg" alt="System Monitoring with btop" loading="lazy"/></a>
+  <figcaption>System monitoring with btop</figcaption>
 </figure>
 
 <p>Self-hosting your own services has been catching up in popularity: the <a href="https://www.reddit.com/r/selfhosted/">selfhosted subreddit</a> has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge <a href="https://github.com/awesome-selfhosted/awesome-selfhosted">list</a> here).</p>
 <!-- more -->
 
 <p>Self-hosting frees you from vendor lock-in. By using open-source alternatives, you gain portability for your data, and you are free to change to another solution anytime. In addition, there is the benefit of learning about server management and the command-line, which in my opinion are portable skills which can be used in any environment, unlike GUIs which are specific for an application.</p>
-<p>In addition, I have been getting increasingly frustrated with Windows due to various <a href="../../../02/27/my-computing-philosophy/#stable-open-source-environment">issues</a>, and switching to Linux offers one a much needed breath of freedom, customizability and fresh air. Finally, I wanted something which I could keep running 24/7 and not have to pay recurring subscriptions.</p>
+<p>In addition, I have been getting increasingly frustrated with Windows due to various <a href="../../../02/27/my-computing-philosophy/#declarative-environment">issues</a>, and switching to Linux offers one a much needed breath of freedom, customizability and fresh air. Finally, I wanted something which I could keep running 24/7 and not have to pay recurring subscriptions.</p>
 <p>It was with those considerations in mind that I decided to go ahead with self hosting.</p>
 <h2 id="specifications">Specifications</h2>
 <p><a class="glightbox" href="../../../../../static/images/2022-05-22/neofetch.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-05-22/neofetch.jpg" /></a></p>
 <ul>
 <li><strong>CPU</strong>: Intel i5-12400F (6 cores, 12 threads, 18M Cache, up to 4.40Ghz)</li>
-<li><strong>Memory</strong>: Crucial 32GB DDR4 3200Mhz</li>
+<li><strong>Memory</strong>: Crucial 64GB DDR4 3200Mhz (with 32GB of <code>zram</code> as swap)</li>
 <li><strong>Motherboard</strong>: Gigabyte B660M DS3H DDR4</li>
 <li><strong>Boot Drive</strong>: Samsung 500GB 980 NVME M.2</li>
 <li><strong>OS</strong>: Fedora Linux (Server Edition)</li>
@@ -1051,16 +1051,16 @@
 <p>In addition, I have ~ <a href="#storage-and-backup">30TB of storage</a> in a RAID1 configuration assembled from various drives.</p>
 <h2 id="hosted-services">Hosted Services</h2>
 <figure>
-  <a class="glightbox" href="/static/images/2022-05-22/sysmon.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/sysmon.jpg" alt="System Monitoring with btop" loading="lazy"/></a>
-  <figcaption>System monitoring with btop</figcaption>
+  <a class="glightbox" href="/static/images/2022-05-22/dashy.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/></a>
+  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
 </figure>
 
-<p>I use <a href="https://github.com/Lissy93/dashy">Dashy</a> to display all the hosted web services on <a href="https://home.nicholaslyz.com">my site</a>. Authentication is via <code>nginx</code>'s <a href="http://nginx.org/en/docs/http/ngx_http_auth_request_module.html"><code>auth_request</code></a> to a Django backend.</p>
+<p>I use <a href="https://github.com/Lissy93/dashy">Dashy</a> to display all the hosted web services (approx ~27) on <a href="https://home.nicholaslyz.com">my site</a>. Authentication is via <code>nginx</code>'s <a href="http://nginx.org/en/docs/http/ngx_http_auth_request_module.html"><code>auth_request</code></a> to a Django backend.</p>
 <p>All hosted services are in Docker containers with limited permissions to reduce the possible attack surface, with logs all redirected to the <code>systemd</code> journal, with the <a href="https://docs.docker.com/config/containers/logging/journald/"><code>journald</code> driver</a>.</p>
 <h2 id="uptime-monitoring">Uptime Monitoring</h2>
 <p>Uptime monitoring is hosted on an offsite VPS with <a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a>, on a separate <a href="https://uptime.icybat.com">site</a>, with notifications via Telegram. This is to allow for redundancy in case my server goes down.</p>
 <h2 id="storage-and-backup">Storage and Backup</h2>
-<p>As of 2022 Dec, I have 32TB of raw storage, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 8TB ATA WDC WD80EAZZ-00B8TB (all non-SMR drives<sup id="fnref:smr"><a class="footnote-ref" href="#fn:smr">1</a></sup>) in a (software) BtrFS RAID-1 configuration, corresponding to approximately 16TB of usable storage.</p>
+<p>As of 2024 Aug, I have 32TB of raw storage, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 8TB ATA WDC WD80EAZZ-00B8TB (all non-SMR drives<sup id="fnref:smr"><a class="footnote-ref" href="#fn:smr">1</a></sup>) in a (software) BtrFS RAID-1 configuration, corresponding to approximately 16TB of usable storage.</p>
 <p>I use SSHFS to access my storage remotely. This storage is accessible locally in my LAN via <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>, which Windows also supports<sup id="fnref:nfs-issues"><a class="footnote-ref" href="#fn:nfs-issues">5</a></sup>.</p>
 <p>I chose BtrFS over <code>dmraid</code> + ext4 as BtrFS:</p>
 <ul>
