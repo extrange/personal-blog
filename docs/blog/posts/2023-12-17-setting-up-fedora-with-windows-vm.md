@@ -19,7 +19,7 @@ Reasons why you might want to do this:
 
 ## 1. Install Fedora
 
-Head over to the [Fedora] website and grab the ISO of your choice. Fedora offers several 'spins' - these are simply Fedora with different desktop environments preinstalled. GNOME is the default, with KDE Plasma, XFCE, Budgie, Cinnamon and others available. There is quite a bit of [satire] re. GNOME vs KDE online.
+Head over to the [Fedora] website and grab the ISO of your choice. Fedora offers several 'spins' - these are simply Fedora with different desktop environments preinstalled. GNOME is the default, with KDE Plasma, XFCE, Budgie, Cinnamon and others available.
 
 Fedora uses the [Btrfs] filesystem by default. It also enables [zram] by [default][fedora-zram], an alternative to using [swap].
 
@@ -283,7 +283,6 @@ That's it! You should now have a working Windows VM capable of playing games wit
 [Btrfs]: https://btrfs.readthedocs.io/en/latest/
 [Fedora]: https://fedoraproject.org/
 [Ventoy]: https://www.ventoy.net/en/index.html
-[satire]: https://baine.jeojck.com/GNOMEvKDE.html
 [zram]: https://wiki.archlinux.org/title/Zram
 [fedora-zram]: https://fedoraproject.org/wiki/Changes/SwapOnZRAM#Detailed_Description
 [swap]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-swapspace
@@ -291,7 +290,6 @@ That's it! You should now have a working Windows VM capable of playing games wit
 [fedora-virtualization]: https://docs.fedoraproject.org/en-US/quick-docs/virtualization-getting-started/
 [windows-iso]: https://www.microsoft.com/software-download/windows11
 [vfio]: 2022-07-10-win11-vm-gpu-passthrough.md#1-setup-gpu-passthrough
-[dummy-plug]: https://shopee.sg/[SG+Local+Seller]+HDMI+dummy+dongle+plug+for+Computer-Laptop-Graphics+card-i.35062141.9337174262/
 [required]: https://looking-glass.io/docs/B6/requirements/
 [installation instructions]: https://looking-glass.io/docs/B6/install/
 [subvolumes]: https://wiki.archlinux.org/title/btrfs#Subvolumes

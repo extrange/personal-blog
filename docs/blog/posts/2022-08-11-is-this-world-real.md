@@ -66,7 +66,7 @@ Another interesting argument I read online arguing for objective reality goes as
 
 [book]: https://www.goodreads.com/book/show/41817484-the-case-against-reality
 [cogito]: https://en.wikipedia.org/wiki/Cogito,_ergo_sum
-[critique]: https://www.psychologyinaction.org/2016-04-26-the-case-for-reality/
+[critique]: https://web.archive.org/web/20240529114844/https://www.psychologyinaction.org/2016-04-26-the-case-for-reality/
 [discussion]: https://www.youtube.com/watch?v=dd6CQCbk2ro
 [drugs]: https://www.goodreads.com/book/show/8791.LSD
 [ego-death]: https://en.wikipedia.org/wiki/Ego_death
@@ -74,7 +74,7 @@ Another interesting argument I read online arguing for objective reality goes as
 [fitness]: https://en.wikipedia.org/wiki/Fitness_(biology)
 [issues]: https://plato.stanford.edu/entries/panpsychism/#SubjSummProb
 [mimicry]: https://en.wikipedia.org/wiki/Batesian_mimicry
-[obscurantism]: https://www.psychologyinaction.org/2014-11-09-obscurantism-lame-explanations-to-the-lame-questions/
+[obscurantism]: https://web.archive.org/web/20240529141806/https://www.psychologyinaction.org/2014-11-09-obscurantism-lame-explanations-to-the-lame-questions/
 [panpsychism]: https://plato.stanford.edu/entries/panpsychism/#ConsVersEmerPanp
 [philosophy-math]: https://plato.stanford.edu/entries/philosophy-mathematics/
 [selfish-gene]: https://www.youtube.com/watch?v=_9c--umcSrQ
