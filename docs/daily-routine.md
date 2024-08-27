@@ -12,9 +12,9 @@ While there are many more potential changes that I could make with regards to th
 
 **Light exposure**: Immediately after waking up, I try to head outside, such as when I cycle to work, or head to the market to get groceries. Also, throughout the day, I try to go outdoors. These light exposures help in retraining the circadian rhythm and improving mood.
 
-**[Breakfast](#breakfast)**.
+**Tea**: I drink a cup of [green tea].
 
-**Exercise**: I cycle to work, run, gym, or on the weekends, play badminton/hike.
+**Exercise**: I cycle to work, run, gym, or on the weekends, play badminton/hike. I aim to run 3-4x a week (~5km) and gym 2x a week.
 
 ## Intellectual Stimulation
 
@@ -48,19 +48,19 @@ While there are many more potential changes that I could make with regards to th
 
 ## Diet
 
-**Legumes/wholegrains, vegetables, tofu and protein (chicken/fish)**: I aim for at least [~100g of protein][protein] and 30g of dietary fibre per day. To minimize antinutrients and maximize nutrients I follow [certain practices][cooking-beans] when preparing the legumes.
+**Legumes/wholegrains, vegetables, tofu/protein (seafood & fish)**: I aim for at least [~100g of protein][protein] and 30g of dietary fibre per day. To minimize antinutrients and maximize nutrients I follow [certain practices][cooking-beans] when preparing the legumes.
 
 Consuming a variety of vegetables is important, as a single vegetable seldom contains [all the necessary vitamins/nutrients][nutrients].
 
-**Intermittent Fasting**: I [intermittent fast][if-schedule], following the [16/8][16/8] schedule (time restricted eating). I eat the most at breakfast, less at lunch, and skip dinner. From 12 noon onwards, I only drink water/tea, and I do not take any food.
+**Intermittent Fasting**: I [intermittent fast][if-schedule], following the [16/8][16/8] schedule (time restricted eating). I skip breakfast, eat the most at lunch, and skip dinner. From ~2pm onwards, I only drink water/tea, and I do not take any food.
 
-_I was previously doing IF for lunch/dinner, but recently shifted the window earlier as an empty stomach before bed improves my sleep. Also, I'm not unwaveringly strict about IF - I do eat dinner from time to time and simply shift breakfast to lunch the next day._
+_I do eat dinner from time to time for social reasons._
 
-### Breakfast
+### Lunch
 
 <figure>
   <div style="max-width: 400px"><img src="/static/images/2022-08-01/lunch.jpg" alt="Lunch" loading="lazy"/></div>
-  <figcaption>Mixed beans with steel-cut oats, chia seeds, psyllium husk powder, fruits, tau kwa and vegetables (old recipe)<figcaption/>
+  <figcaption>250g lentils (dry weight) with broccoli, carrots and sweet potato<figcaption/>
 </figure>
 
 This is the largest meal of the day for me, and the [most important][nutrients] for fibre and protein, consisting of wholegrains/legumes, tau kwa, nuts and fruits. I sometimes drink [tea](blog/posts/2022-10-28-nutrition-and-health.md#tea).
@@ -71,24 +71,10 @@ View my [recipe here][recipe].
 
 This varies, but I sometimes also eat:
 
--   Chicken breast
--   Fatty fish (mackerel/salmon/canned sardines)
--   Edamame
--   Random leftover food
+-   Fatty fish (mackerel, salmon, canned sardines)
+-   Fruits (grapes, dates)
 
 Occasionally I take supplements e.g. [fish oil][fish-oil].
-
-### Lunch
-
-This is usually a defrosted pack of precooked steamed vegetables:
-
--   Broccoli
--   Cauliflower
--   Sweet potato
--   Ginger
--   Shiitake mushrooms
-
-I stop eating by about 12 noon.
 
 ## Misc
 
@@ -113,3 +99,4 @@ I stop eating by about 12 noon.
 [book list]: https://calibre.nicholaslyz.com
 [recordings]: piano.md
 [principles]: principles.md
+[green tea]: blog/posts/2022-10-28-nutrition-and-health.md#tea
