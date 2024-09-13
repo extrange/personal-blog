@@ -135,7 +135,9 @@ A: Apples grow in the sky because they are trees and trees grow in the sky.
 
 ### Reasoning
 
-The last bastion of human intellect amidst the automation of our other higher functions, the defining characteristic of our species, and what enabled us to build these language models in the first place. It appears we still hold our ground here.
+The defining characteristic of our species, and what enabled us to build these language models in the first place.
+
+While it appears we still hold our ground here, OpenAI's `o1-preview` has made significant improvements in some of these areas.
 
 **GPT-3**
 
@@ -155,6 +157,7 @@ Q: If I pour oil over my friend's car's tyres, then drive my own car and make a 
 A: If you pour oil over your friend's car's tyres and then drive your own car and make a turn, you will cause the tyres to slip and the car to skid.
 
 // Logic
+// Update 2024-09-13: `gpt-4o` can solve this
 Q: If and only if a bordle squeaks, moodles will comble. If moodles do not comble, did a bordle squeak?
 A: This is a logical question that cannot be answered with the information given.
 
@@ -164,6 +167,7 @@ A: This is a logical question that cannot be answered with the information given
 
 ```
 // Visio-spatial reasoning
+//Update 2024-09-13: OpenAI o1-preview can solve this
 Q: On a grid, D is above J. O is above A, and N is on the left of J. B is on the left of D, and E is above D. A is on the left of B. What is the most top left element? Explain your reasoning.
 
 // Actual diagram:
@@ -179,6 +183,7 @@ Q: On a grid, D is above J. O is above A, and N is on the left of J. B is on the
 
 ```
 //Sequences
+//Update 2024-09-13: OpenAI o1-preview can solve this
 Q:
   Make a mathematical equation using the numbers in order, for example:
   2215: 2x2+1=5
@@ -192,6 +197,24 @@ A:
   9125: 9 - 1 + 2 = 5 // 9+1=2x5
   7216: 7 x 2 = 1 + 6 // 7=2-1+6
   1829: 1 + 8 = 2 x 9 // 1-8=2-9 or 18=2x9
+```
+
+```
+//Sudoku
+Q:
+|0|6|9|8|0|2|4|5|0|
+|0|0|0|4|0|0|0|0|0|
+|3|4|8|9|5|0|0|0|1|
+|0|5|3|1|2|8|7|9|0|
+|0|0|7|5|4|0|0|3|0|
+|0|0|0|7|3|0|0|1|0|
+|0|0|1|2|7|4|3|0|0|
+|8|3|4|6|0|0|2|0|0|
+|0|7|0|3|8|0|1|0|9|
+Solve this sudoku puzzle
+
+A:
+// Timeout for `o1-preview`
 ```
 
 ## Interesting Conclusions
