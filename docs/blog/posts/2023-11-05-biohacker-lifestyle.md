@@ -61,7 +61,7 @@ Other notes:
 
 -   **Sleep early, and wake up early.** I might want to emulate this, seeing as I am not very productive at night, and exposure to light after 6pm does adversely affect sleep. After all, sleep is the best nootropic.
 -   **Wear blue blocker glasses after 6pm.** He cuts off light exposure at 6pm. Since I sometimes have to go out to meet friends, I should consider wearing blue blocker glasses.
--   **Have a consistent, relaxing bedtime ritual**. Ironically, inspired by this negative [review] for [The Circadion Code] by Satchin Panda.
+-   **Have a consistent, relaxing bedtime ritual**. Ironically, inspired by this negative [review] for [The Circadian Code] by Satchin Panda.
 -   **Play [brown noise] at night.** I recently discovered this, and I believe it does help with sleep and concentration. I may want to invest in a better speaker for this.
 
 ### Diet

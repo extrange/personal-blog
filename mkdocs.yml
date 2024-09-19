@@ -17,6 +17,8 @@ theme:
     - navigation.indexes
     - navigation.expand
     - content.code.copy
+  font:
+    code: JetBrains Mono
 
 nav:
   - Home: index.md
@@ -92,3 +94,4 @@ extra_javascript:
 
 extra_css:
   - stylesheets/code.css
+  - stylesheets/bookerly/font.css
