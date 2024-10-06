@@ -7,7 +7,7 @@ authors = [
 ]
 dependencies = [
     "mkdocs-glightbox>=0.4.0",
-    "mkdocs-material[imaging]>=9.5.38",
+    "mkdocs-material[imaging]>=9.5.39",
     "mkdocs-redirects>=1.2.1",
 ]
 requires-python = "==3.12.*"
