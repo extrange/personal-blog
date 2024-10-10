@@ -531,6 +531,7 @@ At times, Tailscale may not be able to achieve a direct connection (e.g. due to 
 [hard NAT]: https://tailscale.com/blog/how-nat-traversal-works/
 [changing the listen port]: https://github.com/tailscale/tailscale/issues/5114#issuecomment-1402806749
 [Sunshine]: https://app.lizardbyte.dev/Sunshine/?lng=en
+[VirtioFS]: https://virtio-fs.gitlab.io/
 [virtiofs-instructions]: https://virtio-fs.gitlab.io/howto-windows.html
 [virtio-multiple]: https://github.com/virtio-win/kvm-guest-drivers-windows/issues/590
 [virtual-display-driver]: https://github.com/itsmikethetech/Virtual-Display-Driver
