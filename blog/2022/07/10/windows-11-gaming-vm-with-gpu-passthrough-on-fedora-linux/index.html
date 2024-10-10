@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.38">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.39">
     
     
       
@@ -1327,7 +1327,7 @@
 </ul>
 </details>
 <h2 id="7-optional-filesharing-virtiofsnfssamba">7. (Optional) Filesharing: VirtioFS/NFS/SAMBA</h2>
-<p>You may want to share a filesystem between the host and guest. There are several options, with [VirtioFS] being the fastest, followed by SAMBA, then Network File System (NFS).</p>
+<p>You may want to share a filesystem between the host and guest. There are several options, with <a href="https://virtio-fs.gitlab.io/">VirtioFS</a> being the fastest, followed by SAMBA, then Network File System (NFS).</p>
 <p><strong>Note</strong>: If you are using a <code>macvtap</code> interface (to allow the guest to receive its own IP address on the network), it is <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_host_configuration_and_guest_installation_guide/app_macvtap">not possible</a> to connect to the host due to how <code>macvtap</code> works. You will need to create a <code>NAT</code> connection (e.g. <code>Virtual Network 'Default' : NAT</code>) to connect to the host, via a separate subnet.</p>
 <p><strong>VirtioFS</strong></p>
 <p>This is the preferred way. The VirtioFS driver is included in the Linux kernel since 5.4.</p>
@@ -1688,7 +1688,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
     <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
         <script src="../../../../../javascripts/mathjax.js"></script>
       
