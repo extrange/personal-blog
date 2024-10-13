@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:5dab2b2e121ccfcd2d41c156500c86a8df3b98dc178c90bbb7d802f33c3b4c10"
+content_hash = "sha256:2c3795a91f704b10f5802347d747814a97b73ed9b3df0e42c2bb251d03239582"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -307,7 +307,7 @@ files = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.5.39"
+version = "9.5.40"
 requires_python = ">=3.8"
 summary = "Documentation that simply works"
 groups = ["default"]
@@ -325,8 +325,8 @@ dependencies = [
     "requests~=2.26",
 ]
 files = [
-    {file = "mkdocs_material-9.5.39-py3-none-any.whl", hash = "sha256:0f2f68c8db89523cb4a59705cd01b4acd62b2f71218ccb67e1e004e560410d2b"},
-    {file = "mkdocs_material-9.5.39.tar.gz", hash = "sha256:25faa06142afa38549d2b781d475a86fb61de93189f532b88e69bf11e5e5c3be"},
+    {file = "mkdocs_material-9.5.40-py3-none-any.whl", hash = "sha256:8e7a16ada34e79a7b6459ff2602584222f522c738b6a023d1bea853d5049da6f"},
+    {file = "mkdocs_material-9.5.40.tar.gz", hash = "sha256:b69d70e667ec51fc41f65e006a3184dd00d95b2439d982cb1586e4c018943156"},
 ]
 
 [[package]]
@@ -342,19 +342,19 @@ files = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.5.39"
+version = "9.5.40"
 extras = ["imaging"]
 requires_python = ">=3.8"
 summary = "Documentation that simply works"
 groups = ["default"]
 dependencies = [
     "cairosvg~=2.6",
-    "mkdocs-material==9.5.39",
+    "mkdocs-material==9.5.40",
     "pillow~=10.2",
 ]
 files = [
-    {file = "mkdocs_material-9.5.39-py3-none-any.whl", hash = "sha256:0f2f68c8db89523cb4a59705cd01b4acd62b2f71218ccb67e1e004e560410d2b"},
-    {file = "mkdocs_material-9.5.39.tar.gz", hash = "sha256:25faa06142afa38549d2b781d475a86fb61de93189f532b88e69bf11e5e5c3be"},
+    {file = "mkdocs_material-9.5.40-py3-none-any.whl", hash = "sha256:8e7a16ada34e79a7b6459ff2602584222f522c738b6a023d1bea853d5049da6f"},
+    {file = "mkdocs_material-9.5.40.tar.gz", hash = "sha256:b69d70e667ec51fc41f65e006a3184dd00d95b2439d982cb1586e4c018943156"},
 ]
 
 [[package]]
