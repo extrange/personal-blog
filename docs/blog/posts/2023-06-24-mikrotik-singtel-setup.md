@@ -186,13 +186,13 @@ Note: if you receive `certificate is not yet valid` errors after configuring DoH
 [vlan]: https://en.wikipedia.org/wiki/IEEE_802.1Q
 [alcatel-ont]: https://www.singtel.com/personal/support/broadband/routers-ont/alu-ont-led-troubleshoot
 [console]: https://help.mikrotik.com/docs/display/ROS/Command+Line+Interface
-[bridge]: https://wiki.mikrotik.com/wiki/Manual:Interface/Bridge#Summary
+[bridge]: https://help.mikrotik.com/docs/spaces/ROS/pages/328068/Bridging+and+Switching#BridgingandSwitching-Summary
 [mikrotik-vlan]: https://help.mikrotik.com/docs/display/ROS/VLAN
 [nat]: https://help.mikrotik.com/docs/display/ROS/NAT
 [masquerade]: https://help.mikrotik.com/docs/display/ROS/NAT#NAT-Masquerade
 [dhcp]: https://help.mikrotik.com/docs/display/ROS/DHCP#DHCP-Leases
 [hairpin-nat]: https://help.mikrotik.com/docs/display/ROS/NAT#NAT-HairpinNAT
-[nat-properties]: https://wiki.mikrotik.com/wiki/Manual:IP/Firewall/NAT#Properties
+[nat-properties]: https://help.mikrotik.com/docs/spaces/ROS/pages/250708064/Common+Firewall+Matchers+and+Actions
 [doh]: https://gist.github.com/M0r13n/4142018edb10f927cf4f19c6de31614c
 [cloudflare-check-doh]: https://one.one.one.one/help/
 [ntp]: https://en.wikipedia.org/wiki/Network_Time_Protocol
