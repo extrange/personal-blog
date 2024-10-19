@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.40">
     
     
       
@@ -1115,7 +1115,7 @@
 <p>Once you can access the terminal, run the following command:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[admin@MikroTik] &gt; interface/bridge/port print
 </span></code></pre></div>
-<p>We see that a <a href="https://wiki.mikrotik.com/wiki/Manual:Interface/Bridge#Summary">bridge</a> has been created between all the interfaces except <code>ether1</code>.</p>
+<p>We see that a <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/328068/Bridging+and+Switching#BridgingandSwitching-Summary">bridge</a> has been created between all the interfaces except <code>ether1</code>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Flags: I - INACTIVE; H - HW-OFFLOAD
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>#    INTERFACE  BRIDGE  HW   PVID  PRIORITY  PATH-COST  INTERNAL-PATH-COST  HORIZON
@@ -1181,7 +1181,7 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>&gt; ip firewall nat add chain=dstnat action=dst-nat to-addresses=&lt;LOCAL-ADDRESS&gt; to-ports=&lt;LOCAL-PORT&gt; protocol=tcp dst-address-type=local dst-port=&lt;PUBLIC-PORT&gt;
 </span></code></pre></div>
 <p>This rule will forward packets incoming on <code>PUBLIC-PORT</code> and send them to <code>LOCAL-ADDRESS:LOCAL-PORT</code>.</p>
-<p>Additionally, the inclusion of <a href="https://wiki.mikrotik.com/wiki/Manual:IP/Firewall/NAT#Properties"><code>dst-address-type=local</code></a> allows devices within the LAN to access the public URL of a port-forwarded device on the same LAN (also known as <a href="https://help.mikrotik.com/docs/display/ROS/NAT#NAT-HairpinNAT">hairpin NAT</a>).</p>
+<p>Additionally, the inclusion of <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/250708064/Common+Firewall+Matchers+and+Actions"><code>dst-address-type=local</code></a> allows devices within the LAN to access the public URL of a port-forwarded device on the same LAN (also known as <a href="https://help.mikrotik.com/docs/display/ROS/NAT#NAT-HairpinNAT">hairpin NAT</a>).</p>
 <p>Either <code>dst-address-type</code> or <code>dst-address</code> must be set, otherwise all traffic bound for <code>PUBLIC-PORT</code>, even locally, will be routed to <code>LOCAL-ADDRESS</code>.</p>
 <h3 id="setup-dns-over-http-doh">Setup DNS-over-HTTP (DoH)</h3>
 <p>DoH is a more secure form of DNS, which cryptographically verifies responses from the server. You can set it up on the router by following this <a href="https://gist.github.com/M0r13n/4142018edb10f927cf4f19c6de31614c">guide</a> for Cloudflare's 1.1.1.1 service.</p>
