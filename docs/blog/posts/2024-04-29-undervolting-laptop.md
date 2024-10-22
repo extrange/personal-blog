@@ -97,7 +97,7 @@ This is the more stable method with possible performance penalty. It will, howev
 To set the upper limit to 60C, run:
 
 ```bash
-~ 
+~
 ❯ sudo undervolt --temp 60
 ```
 

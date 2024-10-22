@@ -13,20 +13,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version-file: "pyproject.toml"
 
-      - name: Set up pdm
-        run: |
-          curl -sSL https://pdm-project.org/install-pdm.py | python3 -
-      
-      - name: Sync pdm
-        run: pdm sync
+      - name: Install deps
+        run: uv sync --no-dev
 
       - name: Build
-        run: pdm run build
+        run: uv run mkdocs build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4

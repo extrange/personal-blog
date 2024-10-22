@@ -1,23 +1,15 @@
 [project]
 name = "personal-blog"
 version = "0.1.0"
-description = "Default template for PDM package"
+description = "My Personal Blog"
 authors = [
-    {name = "extrange", email = "29305375+extrange@users.noreply.github.com"},
+    { name = "extrange", email = "29305375+extrange@users.noreply.github.com" },
 ]
 dependencies = [
     "mkdocs-glightbox>=0.4.0",
     "mkdocs-material[imaging]>=9.5.41",
     "mkdocs-redirects>=1.2.1",
 ]
-requires-python = "==3.12.*"
+requires-python = ">=3.12"
 readme = "README.md"
-license = {text = "MIT"}
-
-
-[tool.pdm]
-distribution = false
-
-[tool.pdm.scripts]
-start = "mkdocs serve"
-build = "mkdocs build"
+license = { text = "MIT" }

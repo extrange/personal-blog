@@ -36,12 +36,12 @@ fi
 First, get the name of the display with `kmsprint`:
 
 ```text
-user@pi:~ $ kmsprint 
+user@pi:~ $ kmsprint
 Connector 0 (32) HDMI-A-1 (disconnected)
   Encoder 0 (31) TMDS
 Connector 1 (41) HDMI-A-2 (connected)
   Encoder 1 (40) TMDS
-    Crtc 4 (105) 1920x1080@60.00 148.500 1920/88/44/148/+ 1080/4/5/36/+ 60 (60.00) U|D 
+    Crtc 4 (105) 1920x1080@60.00 148.500 1920/88/44/148/+ 1080/4/5/36/+ 60 (60.00) U|D
       Plane 4 (95) fb-id: 343 (crtcs: 4) 0,0 1920x1080 -> 0,0 1920x1080 (XR24 AR24 AB24 XB24 RG16 BG16 AR15 XR15 RG24 BG24 YU16 YV16 YU24 YV24 YU12 YV12 NV12 NV21 NV16 NV61 P030 XR30 AR30 AB30 XB30 RGB8 BGR8 XR12 AR12 XB12 AB12 BX12 BA12 RX12 RA12)
         FB 343 1920x1080 NV12
 ```

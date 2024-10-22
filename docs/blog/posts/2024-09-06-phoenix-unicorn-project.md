@@ -61,7 +61,7 @@ Typical progression of constraints in an organization:
 - Push Quality Closer to the Source: Allow developers to run tests themselves, instead of requiring QA.
 - Optimize for Downstream Work Centers: Prioritize operational, non-functional requirements (e.g. architecture, performance, security) as much as user features.
 
-**Continual Learning and Experimentation**. The creation of a high-trust culture, reinforcing that we are all learners who must take risks in our daily work. 
+**Continual Learning and Experimentation**. The creation of a high-trust culture, reinforcing that we are all learners who must take risks in our daily work.
 
 - Blameless post-mortems: By removing blame, you remove fear; by removing fear, you enable honesty; and honesty enables prevention.
 - Institutionalize the improvement of daily work: Reduce technical debt. E.g. reserving cycles in each development interval, or scheduling _kaizen blitzes_.
