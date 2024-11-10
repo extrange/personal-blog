@@ -84,7 +84,7 @@ Q: **How about critical illness (CI) coverage? Is it worth it?**
 
 A: Yes. CI coverage covers against cancer, stroke, heart attack and other serious diseases[^ci-definition-2019] which, if they don't kill you outright, can leave you unable to work. Buying a CI rider will accelerate[^accelerate] the sum assured in the event of diagnosis of one of these illnesses, helping to cover you when you are unable to work.
 
-Note: This is NOT the same as hospitalization insurance ([shield plans](https://www.moh.gov.sg/cost-financing/healthcare-schemes-subsidies/medishield-life/about-integrated-shield-plans)). Hospitalization insurance pays for the cost of treatment and surgery. After you leave the hospital, you're on your own. CI coverage is to help defray your living costs due to lack of income.
+Note: This is NOT the same as hospitalization insurance ([shield plans](https://www.moh.gov.sg/managing-expenses/schemes-and-subsidies/integrated-shield-plans/about-integrated-shield-plans/)). Hospitalization insurance pays for the cost of treatment and surgery. After you leave the hospital, you're on your own. CI coverage is to help defray your living costs due to lack of income.
 
 Q: **Should I buy Early Critical Illness (ECI) cover?**
 
