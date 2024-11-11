@@ -16,3 +16,15 @@ repos:
     rev: 0.4.25
     hooks:
       - id: uv-lock
+  - repo: local
+    hooks:
+      - id: trufflehog
+        name: TruffleHog
+        description: Scan the latest commit for any secrets
+        entry: bash -c 'trufflehog git file://. --since-commit HEAD --only-verified --fail --no-update'
+        language: system
+        stages: ["pre-commit", "pre-push"]
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 39.9.1
+    hooks:
+      - id: renovate-config-validator
