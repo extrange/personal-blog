@@ -64,7 +64,7 @@ In recent years I have become much more conscious of what I eat, in part due to 
 
 ## Spirituality
 
-I'm a big fan of Alan Watts, an American who was deeply involved in the promotion of Japanese Zen to the world. His [videos](https://www.youtube.com/watch?v=khOaAHK7efc) and [writings](https://www.goodreads.com/book/show/514210.The_Way_of_Zen) are frank, witty and hint at the beauty of his thought.
+I'm a big fan of Alan Watts, a British who was deeply involved in the promotion of Japanese Zen to the world. His [videos](https://www.youtube.com/watch?v=khOaAHK7efc) and [writings](https://www.goodreads.com/book/show/514210.The_Way_of_Zen) are frank, witty and hint at the beauty of his thought.
 
 [My worldview](blog/posts/2022-03-03-determinism-and-stoicism.md) aligns most closely with Stoicism, and I am exploring Vipassana and Zen.
 
