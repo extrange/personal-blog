@@ -16,6 +16,8 @@ The mind is responsible for our experience of the world, and the decisions we ma
 
 **Intellectual Stimulation**: Maintaining a constant source of quality intellectual stimulation is a project I have been working on over the years. I enjoy finding [ways] to maximize maintaining the state of flow.
 
+In addition, after watching [The Social Dilemma], I have disable (proprietary) recommendation engines, such as Youtube, or Reddit, via extensions.
+
 ??? note "Filtering Phone Notifications"
 
     To balance notifications and distractions, I currently have my phone setup as follows:
@@ -92,3 +94,4 @@ I form relationships with [emotionally mature] people, and actively seek to avoi
 [emotionally mature]: blog/posts/2023-12-14-emotional-maturity.md
 [diet]: daily-routine.md#diet
 [orthogonal]: https://www.lesswrong.com/posts/va3TazozR9uWBfAoM/stop-trying-to-have-interesting-friends
+[The Social Dilemma]: https://www.thesocialdilemma.com/
