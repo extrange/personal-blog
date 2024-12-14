@@ -16,6 +16,21 @@ The mind is responsible for our experience of the world, and the decisions we ma
 
 **Intellectual Stimulation**: Maintaining a constant source of quality intellectual stimulation is a project I have been working on over the years. I enjoy finding [ways] to maximize maintaining the state of flow.
 
+??? note "Filtering Phone Notifications"
+
+    To balance notifications and distractions, I currently have my phone setup as follows:
+
+    - Lockscreen: show details, except for Messaging (since OTPs appear there)
+    - Telegram
+        - Notifications: sound and vibration. However, in-app, all notifications are disabled, and individual exceptions are made for groups and persons.
+    - Whatsapp (Personal and Work):
+        - Notifications: sound and vibration
+            - Calls: sound and vibration
+            - Group notifications: disabled
+            - Message notifications: vibration disabled
+    - Discord
+        - Notifications: silent
+
 ## Body
 
 Maintaining healthy habits helps detoxify my mind from the drudgeries of work, and enhances my performance in other domains.
@@ -58,10 +73,10 @@ Finance and my Career are what sustain me fiscally, and give me room to progress
 
 **Finance**: This relates to money and financial risk management, and includes:
 
--   Investments
--   Property
--   Trading bots
--   Insurance
+- Investments
+- Property
+- Trading bots
+- Insurance
 
 **Job (Career)**: Having a meaningful career, which provides not only fair remuneration, but intellectual stimulation in a positive environment, is a blessing.
 
