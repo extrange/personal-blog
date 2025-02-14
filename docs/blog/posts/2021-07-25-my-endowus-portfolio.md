@@ -1,6 +1,6 @@
 ---
 categories:
-    - Finance
+  - Finance
 date: 2021-07-25
 ---
 
@@ -28,10 +28,10 @@ You might note that there isn't any investment in property or REITS here, and th
 
 And that is how I achieve my 80/20 equity/bond split with Endowus!
 
-[wef]: https://eu.dimensional.com/en/funds/world-equity-fund-sgd-acc
+[wef]: https://www.dimensional.com/sg-en/funds/ie00bf20l762/world-equity-fund-sgd-acc
 [acwi]: https://www.msci.com/documents/10199/a71b65b5-d0ea-4b5c-a709-24b1213bc3c5
-[gtvf]: https://eu.dimensional.com/en/funds/global-targeted-value-fund-sgd-acc
-[gcfif]: https://eu.dimensional.com/en/funds/global-core-fixed-income-fund-sgd-acc
+[gtvf]: https://www.dimensional.com/sg-en/funds/ie00bf20l986/global-targeted-value-fund-sgd-acc
+[gcfif]: https://www.dimensional.com/sg-en/funds/ie00bg85lq14/global-core-fixed-income-fund-sgd-acc
 [bbgabi]: https://www.bloomberg.com/quote/LEGATRUU:IND
 [wsci]: https://www.msci.com/documents/10199/a67b0d43-0289-4bce-8499-0c102eaa8399
 [wsml]: https://www.ishares.com/uk/individual/en/products/296576/ishares-msci-world-small-cap-ucits-etf-usd-(acc)-fund

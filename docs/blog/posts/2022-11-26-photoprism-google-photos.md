@@ -1,6 +1,6 @@
 ---
 categories:
-    - Programming
+  - Programming
 date: 2022-11-26
 ---
 
@@ -58,7 +58,7 @@ By using the [Send & Receive Folder][send-receive-folder] type in Syncthing, whe
 [pwa]: https://docs.photoprism.app/user-guide/pwa/
 [syncthing]: https://syncthing.net/
 [conflicts]: https://docs.syncthing.net/users/syncing.html?highlight=conflict#conflicting-changes
-[syncthing-android]: https://f-droid.org/en/packages/com.nutomic.syncthingandroid/
+[syncthing-android]: https://f-droid.org/en/packages/com.github.catfriend1.syncthingandroid/
 [compose]: https://dl.photoprism.org/docker/scheduler/
 [ofelia]: https://github.com/mcuadros/ofelia
 [send-receive-folder]: https://docs.syncthing.net/v1.23.5/users/foldertypes#send-receive-folder
