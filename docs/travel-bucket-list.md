@@ -30,7 +30,7 @@ A list of all the places I want to visit in the future.
 - [ ] Bintan: Find jellyfish here at the beach
 - [ ] China: Great Wall
 - [ ] China, Hunan: Tianmen Mountain
-- [ ] China: Karakoram Highway
+- [ ] China: Karakoram Highway (recommended by Chai Xun)
 - [ ] China: Zhangye Danxia National Geological Park (Danxia landforms, aka Rainbow Mountains)
 - [ ] Dubai: Burj Khalifa (world's tallest building 829m)
 - [ ] Hong Kong: Maclehose Trail
@@ -43,7 +43,7 @@ A list of all the places I want to visit in the future.
 - [ ] Japan: Shikoku 88 Henro Trail ([map][shikoku-henro-trail-map])
 - [ ] Japan: [Koshoji Zen Temple][koshoji-zen-temple]
 - [ ] Korea: [4 Rivers Biking Trail][korea-4-rivers-bike-trail]
-- [ ] Kyrgyzstan: M41 highway
+- [ ] Kyrgyzstan: M41 highway (recommended by Chai Xun)
 - [ ] Langkawi: Find jellyfish here at the beach
 - [ ] Laos: Thakhek Loop (#2/3 route for motorbiking)
 - [ ] Malaysia, Sarawak: [Deer Cave][deer-cave]
