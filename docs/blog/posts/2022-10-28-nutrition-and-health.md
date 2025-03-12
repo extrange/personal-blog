@@ -1,6 +1,6 @@
 ---
 categories:
-    - Cooking
+  - Cooking
 date: 2022-10-28
 ---
 
@@ -34,9 +34,9 @@ However, in 2022, an [NEJM article][nejm-if2] comparing weight loss and metaboli
 
 The key principles appear to be:
 
--   Keeping the eating window short (6 hours is ideal)
--   An earlier window is better than a later one
--   ADF and 5:2 fasting _may_ be more effective for weight loss than TRE
+- Keeping the eating window short (6 hours is ideal)
+- An earlier window is better than a later one
+- ADF and 5:2 fasting _may_ be more effective for weight loss than TRE
 
 ### Cooking Methods
 
@@ -72,11 +72,11 @@ Legumes/lentils are a great source of complex carbohydrates as well as protein a
 
 Resources:
 
--   [Glycemic Index for 100+ foods][gi-table2]
--   [Glycemic Indices for even more foods][gi-table]
--   [Nutritional comparison of various legumes][legumes-chart]
--   [Beans soaking/pressure cooking time chart][beans-chart]
--   [Lentils and their Hindi names][lentils]
+- [Glycemic Index for 100+ foods][gi-table2]
+- [Glycemic Indices for even more foods][gi-table]
+- [Nutritional comparison of various legumes][legumes-chart]
+- [Beans soaking/pressure cooking time chart][beans-chart]
+- [Lentils and their Hindi names][lentils]
 
 ## Protein
 
@@ -96,19 +96,19 @@ Note also that different proteins have different [digestability scores], though 
 
 The key principles are:
 
--   Consume more protein as a total percentage of caloric intake.
--   Aim for a total intake of ~1.6/kg bodyweight/day.
--   Great sources of protein include chicken, fish, eggs, beans and whey.
--   Limit red meat intake to less than 500g/week.
+- Consume more protein as a total percentage of caloric intake.
+- Aim for a total intake of ~1.6/kg bodyweight/day.
+- Great sources of protein include chicken, fish, eggs, beans and whey.
+- Limit red meat intake to less than 500g/week.
 
 ### Protein Source Comparison
 
 Protein content by %:
 
--   Meat: ~20% (of raw weight)
--   Whey protein isolates/concentrates: 90%
--   Tau Kwa: 13.1%
--   Eggs: 13%
+- Meat: ~20% (of raw weight)
+- Whey protein isolates/concentrates: 90%
+- Tau Kwa: 13.1%
+- Eggs: 13%
 
 Tofu (tau kwa), whey protein and frozen chicken breasts are among the most value-for-money sources.
 
@@ -169,10 +169,10 @@ Mackerel is overall the best option for price and amount of omega 3.
 
 #### Notes
 
--   Saba = Japanese Mackerel
--   Batang = Spanish Mackerel
--   Pangasius (cream dory, vietnamese catfish) may be a [safe option][pangasius].
--   Barramundi, pan fried, is quite tasty
+- Saba = Japanese Mackerel
+- Batang = Spanish Mackerel
+- Pangasius (cream dory, vietnamese catfish) may be a [safe option][pangasius].
+- Barramundi, pan fried, is quite tasty
 
 ### Creatine
 
@@ -192,11 +192,11 @@ However, there is some [concern][green-tea-catechins] that excessive consumption
 
 All values per cup.
 
--   White tea: 13mg
--   Green tea: 35mg
--   Oolong tea: 40mg
--   Black tea: 55mg
--   Matcha tea: 80mg
+- White tea: 13mg
+- Green tea: 35mg
+- Oolong tea: 40mg
+- Black tea: 55mg
+- Matcha tea: 80mg
 
 In comparison, coffee contains 100-200mg of caffeine. In general, the more the tea leaves are roasted/fermented/processed, the higher the caffeine content.
 
@@ -239,7 +239,7 @@ A balanced diet of nutrients can be therefore constructed with beans as the base
 [diet-and-body-composition]: https://pubmed.ncbi.nlm.nih.gov/28630601/
 [fibre-intake]: https://www.healthline.com/health/food-nutrition/how-much-fiber-per-day
 [gi-table]: ../../static/images/2022-10-28/gi-table-normal.pdf
-[gi-table2]: https://extension.oregonstate.edu/sites/default/files/documents/1/glycemicindex.pdf
+[gi-table2]: https://www.mv5.ca/EWF/docs/glycemic%20index.pdf
 [green-tea-catechins]: https://pubmed.ncbi.nlm.nih.gov/32625874/
 [if-comparison]: https://www.annualreviews.org/doi/abs/10.1146/annurev-nutr-052020-041327
 [if-timing]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5990470/
@@ -264,7 +264,7 @@ A balanced diet of nutrients can be therefore constructed with beans as the base
 [lectins]: https://www.hsph.harvard.edu/nutritionsource/anti-nutrients/lectins/
 [soaking-beans]: https://www.epicurious.com/expert-advice/soaking-salting-dried-bean-myths-article
 [morning-loaded-calories]: https://www.sciencedirect.com/science/article/pii/S1550413122003448
-[protein-contamination]: https://cleanlabelproject.org/blog-post/new-study-of-protein-powders-from-clean-label-project-finds-elevated-levels-of-heavy-metals-and-bpa-in-53-leading-brands/
+[protein-contamination]: https://cleanlabelproject.org/protein-study-2-0/
 [sweeteners]: https://www.theguardian.com/lifeandstyle/2022/dec/08/artificial-sweeteners-price-of-sugar-free-are-they-as-harmless-as-we-thought
 [one-meal-a-day]: https://www.sciencedirect.com/science/article/abs/pii/S2212267222008747
 [newcastle-diet-paper]: https://www.ncl.ac.uk/media/wwwnclacuk/newcastlemagneticresonancecentre/files/201809%20Sample%20Recipes%20&%20meal%20plans.pdf
@@ -280,7 +280,7 @@ A balanced diet of nutrients can be therefore constructed with beans as the base
 [theanine-reddit-mixed2]: https://www.reddit.com/r/Nootropics/comments/s4mzt6/what_can_and_cant_ltheanine_do/
 [theanine-reddit-mixed3]: https://www.reddit.com/r/Nootropics/comments/1pzq7a/ltheanine_the_only_nootropic_i_have_faith_in/
 [theanine-withdrawal]: https://www.reddit.com/r/StackAdvice/comments/w0napu/is_it_possible_to_have_withdrawals_from_ltheanine/
-[theanine-safety]: https://examine.com/supplements/theanine/research/#LQVz3Qb-safety-and-toxicology
+[theanine-safety]: https://examine.com/supplements/theanine/?show_conditions=true#what-are-l-theanines-main-drawbacks
 [theanine-tea-content]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4787341/
 [lentils]: https://www.myweekendkitchen.in/types-of-lentils-pulses-english-hindi/
 [staple-food-comparison]: https://en.wikipedia.org/wiki/Template:Comparison_of_major_staple_foods
