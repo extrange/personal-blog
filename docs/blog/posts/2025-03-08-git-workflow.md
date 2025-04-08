@@ -1,4 +1,14 @@
+---
+date: 2025-01-30
+categories:
+  - Programming
+---
+
 # My Git Workflow
+
+This is my preferred Git workflow for projects.
+
+<!-- more -->
 
 ## Branches
 
