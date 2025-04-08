@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog/2025/01/30/large-reasoning-models-and-intelligence/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2025/04/08/zram-vs-zswap/">
       
       
-        <link rel="prev" href="../../../../2024/09/06/book-summary-the-phoenix-project-the-unicorn-project-the-devops-handbook-the-three-ways-excerpt/">
+        <link rel="prev" href="../../../01/30/large-reasoning-models-and-intelligence/">
       
       
-        <link rel="next" href="../../../04/08/zram-vs-zswap/">
+        <link rel="next" href="../my-git-workflow/">
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Large Reasoning Models and Intelligence - Nicholas</title>
+        <title>zram vs zswap - Nicholas</title>
       
     
     
@@ -61,11 +61,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Large Reasoning Models and Intelligence - Nicholas" >
+        <meta  property="og:title"  content="zram vs zswap - Nicholas" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-01-30-large-reasoning-models-intelligence.png" >
+        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-04-08-zswap.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -73,15 +73,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2025/01/30/large-reasoning-models-and-intelligence/" >
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2025/04/08/zram-vs-zswap/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Large Reasoning Models and Intelligence - Nicholas" >
+        <meta  name="twitter:title"  content="zram vs zswap - Nicholas" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-01-30-large-reasoning-models-intelligence.png" >
+        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-04-08-zswap.png" >
       
     
     
@@ -111,7 +111,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#large-reasoning-models-and-intelligence" class="md-skip">
+        <a href="#zram-vs-zswap" class="md-skip">
           Skip to content
         </a>
       
@@ -146,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Large Reasoning Models and Intelligence
+              zram vs zswap
             
           </span>
         </div>
@@ -929,69 +929,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#zram" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      zram
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#are-lrms-reasoning-like-us" class="md-nav__link">
+  <a href="#zswap" class="md-nav__link">
     <span class="md-ellipsis">
-      Are LRMs reasoning like us?
+      zswap
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#challenges" class="md-nav__link">
+  <a href="#virtual-memory-kernel-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Challenges
+      Virtual Memory Kernel Configuration
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Challenges">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#domains-with-non-verifiable-rewards" class="md-nav__link">
-    <span class="md-ellipsis">
-      Domains with non-verifiable rewards
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-process-of-discovery" class="md-nav__link">
-    <span class="md-ellipsis">
-      The process of discovery
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#similarity-to-human-reasoning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Similarity to human reasoning
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#is-reasoning-sufficient-for-generalization" class="md-nav__link">
+  <a href="#comparison" class="md-nav__link">
     <span class="md-ellipsis">
-      Is reasoning sufficient for generalization?
+      Comparison
     </span>
   </a>
   
@@ -1034,7 +1001,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-01-30 00:00:00+00:00" class="md-ellipsis">January 30, 2025</time>
+                        <time datetime="2025-04-08 00:00:00+00:00" class="md-ellipsis">April 8, 2025</time>
                       </div>
                     </li>
                     
@@ -1045,7 +1012,7 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/philosophy/">Philosophy</a></span>
+                              <a href="../../../../category/programming/">Programming</a></span>
                         </div>
                       </li>
                     
@@ -1056,7 +1023,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              6 min read
+                              2 min read
                             
                           </span>
                         </div>
@@ -1080,66 +1047,91 @@
 
 
 
-<h1 id="large-reasoning-models-and-intelligence">Large Reasoning Models and Intelligence</h1>
-<p>Toward the end of 2024, a new type of language model was released: the Large Reasoning Model, or LRM. Examples include OpenAI's <a href="https://openai.com/o1/">o1</a>, Qwen's <a href="https://qwenlm.github.io/blog/qwq-32b-preview/">QwQ</a> and Deepseek's <a href="https://arxiv.org/abs/2501.12948">R1</a>. Unlike traditional Large Language Models (LLMs), these models improve their accuracy by performing test-time compute, generating long reasoning chains before outputting their answer.</p>
-<p>In the prior discussion on the <a href="../../../../2022/12/27/on-the-measure-of-intelligence/#defining-intelligence">measures of intelligence</a>, the intelligence of a system is defined as its skill-acquisition efficiency, when given a set of priors and experience. A more intelligent system would end up with greater skill after undergoing a similar amount of experience as a less intelligent system. In essence, this is the measure of the generalization ability of the system in a particular domain.</p>
-<p>This article is an exploration into whether LRMs and the method of generating reasoning chains represent a path toward higher intelligence as defined above.</p>
+<h1 id="zram-vs-zswap">zram vs zswap</h1>
+<p>A comparison of two memory compression techniques in Linux, which aim to be faster than just using swap, and also reduce writes to swap.</p>
 <!-- more -->
 
-<h2 id="introduction">Introduction</h2>
-<p>The current technique of training models to reason, as revealed by Deepseek's <a href="https://arxiv.org/abs/2501.12948">R1</a>, consists in training the model via reinforcement learning. In particular, this can be done without any supervised data. Verification is performed by requiring the model to output the answer in a specified format, which can be automatically verified by rules (e.g. code can be tested to be compilable, while solutions to math problems can be compared directly).</p>
-<p>This process of training produces several emergent abilities, which were not present in the precedent LLMs:</p>
+<h2 id="zram">zram</h2>
+<p><a href="https://docs.kernel.org/admin-guide/blockdev/zram.html">zram</a> is a kernel module which creates a RAM-based block device in memory, which can be used for swap, among other purposes.</p>
+<p>The main <a href="https://docs.kernel.org/admin-guide/blockdev/zram.html#stats">parameters</a> exposed by the module are:</p>
 <ul>
-<li>Difficulty Estimation: The ability to identify hard problems (or problems requiring more reasoning), and spend more time reasoning on them.</li>
-<li>Self Correction: The ability to correct itself, right after it outputs an erroneous statement, instead of continuing to (wrongly) justify itself.</li>
-<li>Reflection: The ability to autonomously reflect on whether its proposed answer is correct (without prompting), and if not, try another, often repeatedly.</li>
+<li><code>comp_algorithm</code>: Compression algorithm to use</li>
+<li><code>disksize</code>: Size of the block device</li>
+<li><code>backing_dev</code>: A backing device to write incompressible/idle pages to (optional)</li>
 </ul>
-<h2 id="are-lrms-reasoning-like-us">Are LRMs reasoning like us?</h2>
-<p>It is easy to anthropormorphize these models and say that they reason like us, that perhaps their internal monologue represents the way we approach problems given their readable chains of reasoning.</p>
-<p>However, there are several behaviors which suggest this may not be the case.</p>
-<p>R1-Zero is the version of R1 trained purely by RL, without any Supervised Fine Tuning (SFT) data, such as human annotated chains of reasoning. In essence it was provided with questions, and rewards were given based on correctness of the final response and adherence to putting its thinking process between specified tags.</p>
-<p>The Deepseek team found that R1-Zero had issues with poor readability and language mixing in its output. As a result, they gathered a dataset of labelled Chain of Thought (CoT) data and pretrained the base model on it, before applying the same RL process as R1-Zero. The resulting model produced outputs which were more human readable and performance was slightly better in some domains.</p>
-<p>The team behind the ARC AGI benchmark (a test for general intelligence, of which the creator of also defined intelligence as mentioned above), noted the <a href="https://arcprize.org/blog/r1-zero-r1-results-analysis">following</a> about Deepseek's reasoning models, in particular R1-Zero:</p>
-<ol>
-<li>SFT data, for example via human annotated reasoning chains, is not necessary for accurate and legible Chain of Thought (CoT) reasoning in strongly verifiable domains.</li>
-<li>The R1-Zero training process is capable of creating its own internal domain specific language (“DSL”) in token space via RL optimization.</li>
-<li>SFT is necessary for increasing CoT reasoning domain generality.</li>
-</ol>
-<p>These claims are examined:</p>
-<p><strong>Claim (1)</strong> suggests that the problem of illegible outputs that Deepseek encountered with R1-Zero did not appear during the ARC AGI benchmark.</p>
-<p>It is interesting to speculate why this is the case - perhaps the ARC AGI dataset simply did not cause the model to enter that part of the token space where the illegibility that the creators found resides?</p>
-<p><strong>Claim (2)</strong> is more important and suggests that the model is using these reasoning tokens (possibly illegible to us) as its own language for solving a problem.</p>
-<p>The implication is that the model is using our language to reason, but not in a way we normally understand (or else they would not be illegible to us). Taken further, it could mean that these models are reasoning in a completely inhuman way, one which we may never be able to understand, but which the outputs are verifiably correct.</p>
-<p><strong>Claim (3)</strong> tempers the implications of Claim (2) somewhat, and suggests that pretraining on SFT data helps the model to generalize.</p>
-<p>Why this is the case isn't clear. Perhaps SFT data contains traces of reasoning relevant for other domains? Or more broadly, only models which reason in a human-like manner can achieve generalizability (as perceived by humans - see <a href="../../../../2022/12/27/on-the-measure-of-intelligence/#the-generality-of-human-intelligence">this discussion</a> for why intelligence must have a defined scope). If this is true, it would mean that achieving generalizability is only possible by human chains of reasoning.</p>
-<h2 id="challenges">Challenges</h2>
-<p>Here we examine both practical and philosophical challenges with this approach.</p>
-<h3 id="domains-with-non-verifiable-rewards">Domains with non-verifiable rewards</h3>
-<p>While it is likely to <a href="https://www.interconnects.ai/p/why-reasoning-models-will-generalize">see LRMs improving</a> on domains with verifiable solutions, such as math and coding, the same cannot be easily said on domains <a href="https://news.ycombinator.com/item?id=42868768">without easily verifiable solutions</a>, such as literature, poetry, or even the question of which theorem is more useful.</p>
-<p>In such domains, there is often no objective truth to base rewards on. For example, deciding which piece of poetry is better, or which story is more engaging.</p>
-<p>How are we going to train the models if there is no objective truth to ground on?</p>
-<h3 id="the-process-of-discovery">The process of discovery</h3>
-<p>Suppose we wanted to train the models to discover new theorems in say, physics or math.</p>
-<p>One approach would be to collect a set of knowledge priors that we believe the discovers had at the time - e.g. the collection of all 18th century science, in the case of Einstein, and then perform RL on these models until they discovered the theory of relativity.</p>
-<p>While we don't know if this approach will work, this raises the question of whether language alone is sufficient for reasoning.</p>
-<p>In his discovery of relativity, did Einstein use aspects of the physical world, such as his perception of space and/or time, which we cannot put into language, and which were crucial to the discovery? If so, then it might be the case that these models will not be able to reproduce the theory given only language.</p>
-<p>But how can we overcome this - how do we encode the information which we cannot put into words, into a model?</p>
-<h3 id="similarity-to-human-reasoning">Similarity to human reasoning</h3>
-<p>Assuming human reasoning is required for generalizability, how much do the CoT outputs of these models resemble human reasoning?</p>
-<p>When we think of the solution to a problem, we do not necessarily generate a long CoT in our head - solutions sometimes appear to us suddenly. What is going on in our brains when this happens? Are we even conscious of the process?</p>
-<p>That said, there are several reasons why these models may still be performing human-like reasoning:</p>
+<p>zram also allows the user to set a <a href="https://docs.kernel.org/admin-guide/blockdev/zram.html#writeback">limit</a> on the amount of writeback to swap, which can help to prolong the life of SSDs.</p>
+<p>The <a href="https://linuxreviews.org/Comparison_of_Compression_Algorithms">best compression algorithm</a> appears to be <code>zstd</code>.</p>
+<p>The current statistics can be viewed with <code>zramctl</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>❯ zramctl
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>NAME       ALGORITHM DISKSIZE DATA COMPR TOTAL STREAMS MOUNTPOINT
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>/dev/zram0 zstd         15.6G  28M  7.2M  8.6M       8 [SWAP]
+</span></code></pre></div>
+<p>zram can be enabled on NixOS with the <a href="https://github.com/NixOS/nixpkgs/blob/nixos-unstable/nixos/modules/config/zram.nix">zram module</a>.</p>
+<h2 id="zswap">zswap</h2>
+<p><a href="https://docs.kernel.org/admin-guide/mm/zswap.html">zswap</a> is another kernel module which acts as a compressed cache in RAM, for swap pages. It intercepts pages in the process of being swapped out, and compresses them in RAM.</p>
+<p>The main parameters exposed by the module are (see all with <code>ls -1 /sys/module/zswap/parameters/</code>):</p>
 <ul>
-<li>These models are internally performing human-like reasoning (via their weights), despite the CoT tokens they are outputting. Perhaps those tokens are used as a sort of scratchpad, and are not meant to convey any sort of intention about their internal state.</li>
-<li>Our human subconscious thought process is actually similar to the illegible tokens these models produce sometimes (bizarre if it were true)</li>
+<li><code>compressor</code>: Compression algorithm to use</li>
+<li><code>max_pool_percent</code>: Maximum percentage of RAM to use for zswap</li>
+<li><code>zpool</code>: The zpool (compressed memory allocator) to use</li>
+<li><code>shrinker_enabled</code>: Whether to proactively write cold pages to swap</li>
 </ul>
-<p>Of course, it may not even be necessary to replicate human reasoning to achieve generalization.</p>
-<h2 id="is-reasoning-sufficient-for-generalization">Is reasoning sufficient for generalization?</h2>
-<p>If reasoning were to truly allow for generalization, then we would see the following in upcoming LRMs:</p>
-<ul>
-<li>Reasoning trained models are well better in peak performance than existing autoregressive models in many domains we would not expect and are not necessarily verifiable, such as literature.</li>
-<li>Even if we train the model on simpler but verifiable tasks such as 'does this code compile', it eventually learns to write code that solves different tasks, e.g. LeetCode.</li>
-</ul>
-<p>Till we see these aspects, the question remains unanswered.</p>
+<p>The current parameters can be viewed with:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>grep<span class="w"> </span>-r<span class="w"> </span>.<span class="w"> </span>/sys/module/zswap/parameters/
+</span></code></pre></div>
+<p>Current statistics can be viewed via the debugfs interface:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>grep<span class="w"> </span>-r<span class="w"> </span>.<span class="w"> </span>/sys/kernel/debug/zswap/
+</span></code></pre></div>
+<p>Extra documentation for the choices of parameters (e.g. <code>zpool</code>) can be found in the <a href="https://github.com/torvalds/linux/blob/master/mm/Kconfig">Memory Management Kconfig menu</a> and on the <a href="https://wiki.archlinux.org/title/Zswap#Using_kernel_boot_parameters">Arch Wiki</a>.</p>
+<details class="note">
+<summary>NixOS</summary>
+<p>To enable zswap on NixOS, since there is currently <a href="https://github.com/NixOS/nixpkgs/issues/119244">no zswap option module</a>, it can be set with kernel parameters instead, e.g.:</p>
+<div class="language-nix highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>boot<span class="o">.</span><span class="ss">kernelParams</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="s2">&quot;zswap.enabled=1&quot;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="s2">&quot;zswap.compressor=zstd&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="s2">&quot;zswap.zpool=zsmalloc&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="s2">&quot;zswap.max_pool_percent=50&quot;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="s2">&quot;zswap.shrinker_enabled=1&quot;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">];</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>boot<span class="o">.</span>initrd<span class="o">.</span><span class="ss">kernelModules</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="s2">&quot;zsmalloc&quot;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="c1"># Enable other modules as required, e.g.</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="c1"># &quot;lz4&quot;</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="c1"># &quot;z3fold&quot;</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">];</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1"># Note that you also need a swap device setup, e.g.:</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="ss">swapDevices</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="p">{</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="ss">device</span> <span class="o">=</span> <span class="s2">&quot;/swapfile&quot;</span><span class="p">;</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="ss">size</span> <span class="o">=</span> <span class="mi">16</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">;</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="p">}</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="p">];</span>
+</span></code></pre></div>
+<p>The list of kernel parameters available can be viewed from source <a href="https://github.com/torvalds/linux/blob/master/mm/zswap.c">here</a> (the parameters to <code>module_param_cb</code> and <code>module_param_named</code>).</p>
+<p>You can view the current Kconfig parameters with <code>zcat /proc/config.gz</code>.</p>
+</details>
+<details class="note">
+<summary>Test zswap</summary>
+<p>To check that zswap is working and writing back to swap:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Stress memory</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>stress-ng<span class="w"> </span>--vm<span class="w"> </span><span class="m">2</span><span class="w"> </span>--vm-bytes<span class="w"> </span>4G<span class="w"> </span>--timeout<span class="w"> </span>60s
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Check that written_back_pages is increasing</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>grep<span class="w"> </span>-r<span class="w"> </span>.<span class="w"> </span>/sys/kernel/debug/zswap/
+</span></code></pre></div>
+</details>
+<h2 id="virtual-memory-kernel-configuration">Virtual Memory Kernel Configuration</h2>
+<p>As these swap devices are faster than the filesystem, the swappiness and other parameters should be <a href="https://wiki.archlinux.org/title/Zram#Optimizing_swap_on_zram">increased accordingly</a>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>vm.swappiness = 180
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>vm.watermark_boost_factor = 0
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>vm.watermark_scale_factor = 125
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>vm.page-cluster = 0
+</span></code></pre></div>
+<h2 id="comparison">Comparison</h2>
+<p>LinuxReviews found that on a memory constrained device compiling Chrome, zram was faster than zswap (<a href="https://linuxreviews.org/Zswap#Performance_Implications">article</a>).</p>
+<p>Currently I use zram with a disksize of 200% of RAM (suggested by <a href="https://github.com/joedefen/linux-ram-hunger?tab=readme-ov-file#increasing-your-zram-potential">this</a>) on my 8G laptop.</p>
 
 
 
