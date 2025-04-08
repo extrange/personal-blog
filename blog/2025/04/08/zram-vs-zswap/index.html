@@ -1068,7 +1068,7 @@
 </span></code></pre></div>
 <p>zram can be enabled on NixOS with the <a href="https://github.com/NixOS/nixpkgs/blob/nixos-unstable/nixos/modules/config/zram.nix">zram module</a>.</p>
 <h2 id="zswap">zswap</h2>
-<p><a href="https://docs.kernel.org/admin-guide/mm/zswap.html">zswap</a> is another kernel module which acts as a compressed cache in RAM, for swap pages. It intercepts pages in the process of being swapped out, and compresses them in RAM.</p>
+<p><a href="https://docs.kernel.org/admin-guide/mm/zswap.html">zswap</a> is another kernel module which acts as a compressed cache in RAM, for swap pages. It intercepts pages in the process of being swapped out, and compresses them in RAM. See a thorough explanation on <a href="https://lwn.net/Articles/537422/">LWN.net</a>.</p>
 <p>The main parameters exposed by the module are (see all with <code>ls -1 /sys/module/zswap/parameters/</code>):</p>
 <ul>
 <li><code>compressor</code>: Compression algorithm to use</li>
