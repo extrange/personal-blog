@@ -1,7 +1,7 @@
 ---
 categories:
-    - Philosophy
-    - Programming
+  - Philosophy
+  - Programming
 date: 2022-03-30
 ---
 
@@ -22,12 +22,12 @@ One field in particular has been widely viewed as holding promise for artificial
 
 Some of the [impressive feats][impressive-feats] that these models are capable of include:
 
--   Chatbots
--   Question answering
--   Reading comprehension
--   Generating commands from text
--   Generating code from natural language
--   Translation
+- Chatbots
+- Question answering
+- Reading comprehension
+- Generating commands from text
+- Generating code from natural language
+- Translation
 
 and more.
 
@@ -63,14 +63,14 @@ Now, if our hypothesis above is true, which is that these models do not possess 
 
 After some research on the internet, there are several other individuals who have also extensively analyzed the abilities and shortcomings of GPT-3:
 
--   [Gary Marcus][gary-marcus] explains why [LaMDA][lamda] is not sentient. He also has conducted a [workshop][workshop] exploring the importance of compositionality in AI, which I highly recommend watching.
--   [gwern.net][gwern-gpt3-nonfiction]: An extremely thorough analysis of GPT-3's anagramming, logic and even ASCII art capabilities. There is a [sister article][gwern-gpt3-fiction] on GPT-3's creative abilities. An interesting reason for many of GPT-3's failings with anagrams and rhyming poetry appears to have to do with the [byte pair encoding][bpe].
--   [Giving GPT-3 a Turing Test][kevin-lacker-gpt3]: Kevin Lacker has a great writeup on GPT-3's (in)ability to handle common sense, trivia and logic.
+- [Gary Marcus][gary-marcus] explains why [LaMDA][lamda] is not sentient. He also has conducted a [workshop][workshop] exploring the importance of compositionality in AI, which I highly recommend watching.
+- [gwern.net][gwern-gpt3-nonfiction]: An extremely thorough analysis of GPT-3's anagramming, logic and even ASCII art capabilities. There is a [sister article][gwern-gpt3-fiction] on GPT-3's creative abilities. An interesting reason for many of GPT-3's failings with anagrams and rhyming poetry appears to have to do with the [byte pair encoding][bpe].
+- [Giving GPT-3 a Turing Test][kevin-lacker-gpt3]: Kevin Lacker has a great writeup on GPT-3's (in)ability to handle common sense, trivia and logic.
 
 In addition, there have been several interesting benchmarks developed, seeing as these models have already achieved human level performance on previously challenging datasets such as [SuperGLUE][superglue].
 
--   [HellaSwag][hellaswag] (2019): This utilizes language models to generate adversarial prompts for a sentence completion task, and is aimed to be continuously updated as models improve. It suggests that '_Only once this cycle becomes impossible can we say that the underlying_ **_task_** _– as opposed an individual dataset – is solved._'
--   [Measuring Massive Multitask Language Understanding][multitask-language-understanding] (2021): The authors measure a model's accuracy across 57 different tasks including US history, computer science, algebra, medicine, law and more. What is particularly interesting is how GPT-3's accuracy varies across different fields. For example, it performs well in fields such as psychology and marketing, but performs at the level of random chance for fields such as high school physics, moral scenarios and elementary mathematics. This perhaps further suggests that the models themselves perform well in fields where _memorization_ of material is emphasized, rather than actual _deductive reasoning_ (which would indicate a real understanding).
+- [HellaSwag][hellaswag] (2019): This utilizes language models to generate adversarial prompts for a sentence completion task, and is aimed to be continuously updated as models improve. It suggests that '_Only once this cycle becomes impossible can we say that the underlying_ **_task_** _– as opposed an individual dataset – is solved._'
+- [Measuring Massive Multitask Language Understanding][multitask-language-understanding] (2021): The authors measure a model's accuracy across 57 different tasks including US history, computer science, algebra, medicine, law and more. What is particularly interesting is how GPT-3's accuracy varies across different fields. For example, it performs well in fields such as psychology and marketing, but performs at the level of random chance for fields such as high school physics, moral scenarios and elementary mathematics. This perhaps further suggests that the models themselves perform well in fields where _memorization_ of material is emphasized, rather than actual _deductive reasoning_ (which would indicate a real understanding).
 
 ### Arithmetic
 
@@ -215,19 +215,37 @@ Solve this sudoku puzzle
 
 A:
 // Timeout for `o1-preview`
+// o3-mini-high can solve this
+```
+
+```
+//Autograms
+Q: An autogram is a sentence that describes itself in the sense of providing an inventory of its own characters. For example, the following sentence is an autogram:
+"This sentence employs two a's, two c's, two d's, twenty-eight e's, five f's, three g's, eight h's, eleven i's, three l's, two m's, thirteen n's, nine o's, two p's, five r's, twenty-five s's, twenty-three t's, six v's, ten w's, two x's, five y's, and one z."
+Now, I would like for you to compose a perfect autogram sentence that begins with your own unique clause, for example: "Let it be known that this very sentence precisely comprises:"
+
+Do not use the digits 0-9 and only use letters. Do not use any tools, python, or searches.
+
+o3 (incorrect):
+This pangram contains five a, one b, two c, three d, fifteen e, six f, four g, seven h, eight i, two j, one k, three l, two m, five n, six o, two p, one q, five r, six s, six t, three u, four v, two w, one x, two y, and one z.
+
+o4-mini-high: Attempts to search the web/gives up
+
+gemini-2.5-pro-preview-03-25 (incorrect):
+Let it be known that this very sentence precisely comprises: four a's, two b's, four c's, two d's, forty-five e's, six f's, one g's, nine h's, fifteen i's, one j's, two k's, two l's, two m's, fifteen n's, twenty o's, three p's, one q's, thirteen r's, thirty-four s's, twenty-four t's, four u's, three v's, ten w's, four x's, six y's, and one z's.
 ```
 
 ## Interesting Conclusions
 
 Despite the failings of the models above, there are some interesting conclusions to be drawn from their successes:
 
--   Machine translation may not actually require an understanding of either the source or target sentence, given that current language models perform very well even when trained on monolingual corpora (Benden & Koller, 2020[^climbing-towards-nlu]).
--   Likewise, reading comprehension, for example the kind tested in schools, may also not require an actual understanding of the text.
+- Machine translation may not actually require an understanding of either the source or target sentence, given that current language models perform very well even when trained on monolingual corpora (Benden & Koller, 2020[^climbing-towards-nlu]).
+- Likewise, reading comprehension, for example the kind tested in schools, may also not require an actual understanding of the text.
 
 Since the release of [ChatGPT][chatgpt], there have been interesting insights circulating online:
 
--   _Applying a concept to an example is a lot easier than sorting a list of digits. Sorting requires superlinear processing on the input. If you're not doing something like step-by-step, there is necessarily a length of list where this fails, because transformers can only do a constant amount of work per token generated. In comparison, the performance of applying a concept is a lot harder to quantify, but doesn't seem obviously superlinear on input._ (comment from [astralcodexten](https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the/comment/11113962))
--   Suggestion that verifying solutions from LLMs might be easier than coming up with a solution oneself (discussion on [astralcodexten](https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the/comment/11109450))
+- _Applying a concept to an example is a lot easier than sorting a list of digits. Sorting requires superlinear processing on the input. If you're not doing something like step-by-step, there is necessarily a length of list where this fails, because transformers can only do a constant amount of work per token generated. In comparison, the performance of applying a concept is a lot harder to quantify, but doesn't seem obviously superlinear on input._ (comment from [astralcodexten](https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the/comment/11113962))
+- Suggestion that verifying solutions from LLMs might be easier than coming up with a solution oneself (discussion on [astralcodexten](https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the/comment/11109450))
 
 **What is required for a model to think like we do?**
 
@@ -235,9 +253,9 @@ The answer to this question is probably the holy grail of artificial general int
 
 Others think that _compositionality_, the property that the meaning of the whole is and can be derived from meanings of the parts, is something [missing in current large language models (LLMs)][gary-marcus-slides] like [GPT-3][gpt3] and others. He argues that:
 
--   LLMs do not decompose sentences into say, entities and relationships between those entities (e.g. 'the _cat_ sat on the _mat_' vs 'the _mat_ sat on the _cat_')
--   There is no accessible database that is (directly) updated
--   In models such as [DALL-E 2][dalle2] which generate images, this lack of compositionality can been seen more obviously in tasks such as _A red cube on top of a blue cube_, which require the model to identify objects and propositions, and combine them correctly, in order to complete.
+- LLMs do not decompose sentences into say, entities and relationships between those entities (e.g. 'the _cat_ sat on the _mat_' vs 'the _mat_ sat on the _cat_')
+- There is no accessible database that is (directly) updated
+- In models such as [DALL-E 2][dalle2] which generate images, this lack of compositionality can been seen more obviously in tasks such as _A red cube on top of a blue cube_, which require the model to identify objects and propositions, and combine them correctly, in order to complete.
 
 <figure>
   <img src="/static/images/2022-03-30/dalle2-cubes.jpg" style="max-width: 300px; margin:0 auto" alt="DALL-E 2's attempts at a red cube on top of a blue cube" loading="lazy"/>
@@ -267,3 +285,7 @@ I don't know what the answer is, but I suspect that models that think like us sh
 [superglue]: https://super.gluebenchmark.com/leaderboard
 [workshop]: https://garymarcus.substack.com/p/nonsense-on-stilts
 [dalle2]: https://openai.com/dall-e-2/
+
+```
+
+```
