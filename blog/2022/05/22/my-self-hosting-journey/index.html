@@ -1081,11 +1081,6 @@
 
 
 <h1 id="my-self-hosting-journey">My Self-Hosting Journey</h1>
-<figure>
-  <a class="glightbox" href="/static/images/2022-05-22/sysmon.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/sysmon.jpg" alt="System Monitoring with btop" loading="lazy"/></a>
-  <figcaption>System monitoring with btop</figcaption>
-</figure>
-
 <p>Self-hosting your own services has been catching up in popularity: the <a href="https://www.reddit.com/r/selfhosted/">selfhosted subreddit</a> has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge <a href="https://github.com/awesome-selfhosted/awesome-selfhosted">list</a> here).</p>
 <!-- more -->
 
@@ -1105,12 +1100,13 @@
 <p>In addition, I have ~ <a href="#storage-and-backup">30TB of storage</a> in a RAID1 configuration assembled from various drives.</p>
 <h2 id="hosted-services">Hosted Services</h2>
 <figure>
-  <a class="glightbox" href="/static/images/2022-05-22/dashy.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/></a>
-  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+  <a class="glightbox" href="/static/images/2022-05-22/homepage.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-05-22/homepage.jpg" alt="My Server" loading="lazy"/></a>
+  <figcaption>My homepage</figcaption>
 </figure>
 
-<p>I use <a href="https://github.com/Lissy93/dashy">Dashy</a> to display all the hosted web services (approx ~27) on <a href="https://home.nicholaslyz.com">my site</a>. Authentication is via <code>nginx</code>'s <a href="http://nginx.org/en/docs/http/ngx_http_auth_request_module.html"><code>auth_request</code></a> to a Django backend.</p>
-<p>All hosted services are in Docker containers with limited permissions to reduce the possible attack surface, with logs all redirected to the <code>systemd</code> journal, with the <a href="https://docs.docker.com/config/containers/logging/journald/"><code>journald</code> driver</a>.</p>
+<p>I use <a href="https://gethomepage.dev">Homepage</a> to view all the web services (approx ~27) hosted on my server.</p>
+<p>All hosted services are in Docker containers with limited permissions to reduce the possible attack surface.</p>
+<p>Logs are aggregated with Vector and sent to Loki, and viewed on Grafana.</p>
 <h2 id="uptime-monitoring">Uptime Monitoring</h2>
 <p>Uptime monitoring is hosted on an offsite VPS with <a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a>, on a separate <a href="https://uptime.icybat.com">site</a>, with notifications via Telegram. This is to allow for redundancy in case my server goes down.</p>
 <h2 id="storage-and-backup">Storage and Backup</h2>
