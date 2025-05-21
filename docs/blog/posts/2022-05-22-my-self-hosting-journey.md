@@ -1,15 +1,10 @@
 ---
 categories:
-    - Programming
+  - Programming
 date: 2022-05-22
 ---
 
 # My Self-Hosting Journey
-
-<figure>
-  <img src="/static/images/2022-05-22/sysmon.jpg" alt="System Monitoring with btop" loading="lazy"/>
-  <figcaption>System monitoring with btop</figcaption>
-</figure>
 
 Self-hosting your own services has been catching up in popularity: the [selfhosted subreddit][selfhosted] has over 180K members as of 21/5/22, and the number of self-hosted solutions has been growing exponentially (see a huge [list][awesome-selfhosted] here).
 
@@ -25,11 +20,11 @@ It was with those considerations in mind that I decided to go ahead with self ho
 
 ![](../../static/images/2022-05-22/neofetch.jpg)
 
--   **CPU**: Intel i5-12400F (6 cores, 12 threads, 18M Cache, up to 4.40Ghz)
--   **Memory**: Crucial 64GB DDR4 3200Mhz (with 32GB of `zram` as swap)
--   **Motherboard**: Gigabyte B660M DS3H DDR4
--   **Boot Drive**: Samsung 500GB 980 NVME M.2
--   **OS**: Fedora Linux (Server Edition)
+- **CPU**: Intel i5-12400F (6 cores, 12 threads, 18M Cache, up to 4.40Ghz)
+- **Memory**: Crucial 64GB DDR4 3200Mhz (with 32GB of `zram` as swap)
+- **Motherboard**: Gigabyte B660M DS3H DDR4
+- **Boot Drive**: Samsung 500GB 980 NVME M.2
+- **OS**: Fedora Linux (Server Edition)
 
 Total cost of the above was SGD $830.
 
@@ -38,13 +33,15 @@ In addition, I have ~ [30TB of storage](#storage-and-backup) in a RAID1 configur
 ## Hosted Services
 
 <figure>
-  <img src="/static/images/2022-05-22/dashy.jpg" alt="My Server" loading="lazy"/>
-  <figcaption>My server's <a href="https://home.nicholaslyz.com">homepage</a></figcaption>
+  <img src="/static/images/2022-05-22/homepage.jpg" alt="My Server" loading="lazy"/>
+  <figcaption>My homepage</figcaption>
 </figure>
 
-I use [Dashy][dashy] to display all the hosted web services (approx ~27) on [my site](https://home.nicholaslyz.com). Authentication is via `nginx`'s [`auth_request`][nginx-auth-request] to a Django backend.
+I use [Homepage][homepage] to view all the web services (approx ~27) hosted on my server.
 
-All hosted services are in Docker containers with limited permissions to reduce the possible attack surface, with logs all redirected to the `systemd` journal, with the [`journald` driver](https://docs.docker.com/config/containers/logging/journald/).
+All hosted services are in Docker containers with limited permissions to reduce the possible attack surface.
+
+Logs are aggregated with Vector and sent to Loki, and viewed on Grafana.
 
 ## Uptime Monitoring
 
@@ -58,10 +55,10 @@ I use SSHFS to access my storage remotely. This storage is accessible locally in
 
 I chose BtrFS over `dmraid` + ext4 as BtrFS:
 
--   allows for online subvolume resizing/deletion/modification
--   supports file checksums in RAID modes[^bit-rot]
--   allows for **arbitrary drives to be added/removed** from the RAID configuration, and [balance the resulting filesystem automatically][btrfs-adding-new-devices]
--   supports lightweight snapshots and sending these snapshots to other devices for backup
+- allows for online subvolume resizing/deletion/modification
+- supports file checksums in RAID modes[^bit-rot]
+- allows for **arbitrary drives to be added/removed** from the RAID configuration, and [balance the resulting filesystem automatically][btrfs-adding-new-devices]
+- supports lightweight snapshots and sending these snapshots to other devices for backup
 
 BtrFS also allows for RAID-1 with any number of devices, of all different sizes. The resulting available storage is usually [half the total storage available][btrfs-storage]. This is made possible as the filesystem [allocates data in chunks][btrfs-data-allocation], with each chunk on a RAID-1 setup being duplicated to 2 different drives.
 
@@ -71,11 +68,11 @@ BtrFS also allows for RAID-1 with any number of devices, of all different sizes.
 
 I use `btrbk` together with [`systemd.timer`][systemd.timer] to make hourly rolling snapshots, preserving snapshots:
 
--   every hour for the last 24 hours
--   every day for the past 7 days
--   every week for the past 4 weeks
--   every month for the past 12 months
--   every year for the past 3 years
+- every hour for the last 24 hours
+- every day for the past 7 days
+- every week for the past 4 weeks
+- every month for the past 12 months
+- every year for the past 3 years
 
 This allows me to fallback to any state in the past.
 
@@ -188,11 +185,10 @@ _I was previously using [tmux] and [Powerline]._
 [btrfs-scrub]: https://btrfs.readthedocs.io/en/latest/btrfs-scrub.html
 [btrfs-storage]: https://btrfs.wiki.kernel.org/index.php/FAQ#How_much_space_do_I_get_with_unequal_devices_in_RAID-1_mode.3F
 [cryptsetup]: https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions
-[dashy]: https://github.com/Lissy93/dashy
+[homepage]: https://gethomepage.dev
 [google-authenticator-pam]: https://github.com/google/google-authenticator-libpam
 [mosh]: https://mosh.org/
 [nfs]: https://en.wikipedia.org/wiki/Network_File_System
-[nginx-auth-request]: http://nginx.org/en/docs/http/ngx_http_auth_request_module.html
 [Powerline]: https://github.com/powerline/powerline
 [selfhosted]: https://www.reddit.com/r/selfhosted/
 [smr]: https://www.reddit.com/r/DataHoarder/comments/o5bmcu/comment/h2nfiwq/
