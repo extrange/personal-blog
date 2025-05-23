@@ -71,8 +71,8 @@ View my [recipe here][recipe].
 
 This varies, but I sometimes also eat:
 
--   Fatty fish (mackerel, salmon, canned sardines)
--   Fruits (grapes, dates)
+- Fatty fish (mackerel, salmon, canned sardines)
+- Fruits (grapes, dates)
 
 Occasionally I take supplements e.g. [fish oil][fish-oil].
 
@@ -84,7 +84,7 @@ Occasionally I take supplements e.g. [fish oil][fish-oil].
 [fish-oil]: blog/posts/2022-10-28-nutrition-and-health.md#omega-3
 [if-schedule]: blog/posts/2022-10-28-nutrition-and-health.md#timingintermittent-fasting
 [protein]: blog/posts/2022-10-28-nutrition-and-health.md#protein
-[recipe]: https://recipes.nicholaslyz.com/g/home/r/seasoned-lentils-with-tofu-fruits-vegetables-and-nuts
+[recipe]: https://mealie.nicholaslyz.com/g/home/r/seasoned-lentils-with-tofu-fruits-vegetables-and-nuts
 [nutrients]: blog/posts/2022-10-28-nutrition-and-health.md#comparison-of-various-nutrients-across-major-staple-foods
 [cooking-beans]: blog/posts/2023-09-11-best-way-cook-beans.md
 [friends]: blog/posts/2023-11-05-biohacker-lifestyle.md
@@ -96,7 +96,7 @@ Occasionally I take supplements e.g. [fish oil][fish-oil].
 [Wallabag]: https://wallabag.org/
 [programming projects]: https://github.com/extrange
 [workflow]: blog/posts/2022-02-27-my-computing-philosophy.md
-[book list]: https://calibre.nicholaslyz.com
+[book list]: https://calibre-web.nicholaslyz.com
 [recordings]: piano.md
 [principles]: principles.md
 [green tea]: blog/posts/2022-10-28-nutrition-and-health.md#tea

@@ -267,7 +267,7 @@ A balanced diet of nutrients can be therefore constructed with beans as the base
 [protein-contamination]: https://cleanlabelproject.org/protein-study-2-0/
 [sweeteners]: https://www.theguardian.com/lifeandstyle/2022/dec/08/artificial-sweeteners-price-of-sugar-free-are-they-as-harmless-as-we-thought
 [one-meal-a-day]: https://www.sciencedirect.com/science/article/abs/pii/S2212267222008747
-[newcastle-diet-paper]: https://www.ncl.ac.uk/media/wwwnclacuk/newcastlemagneticresonancecentre/files/201809%20Sample%20Recipes%20&%20meal%20plans.pdf
+[newcastle-diet-paper]: https://momentanewcastle.com/wp-content/uploads/2023/08/NHS_LCD_DL_Leaflet_Newcastle_V4_AW_Web.pdf
 [newcastle-diet]: https://www.diabetes.co.uk/news/2017/dec/newcastle-diet-achieves-type-2-diabetes-remission-after-one-year-of-direct-trial-98030767.html
 [toolkit-for-sleep]: https://hubermanlab.com/toolkit-for-sleep/
 [theanine]: https://en.wikipedia.org/wiki/Theanine
