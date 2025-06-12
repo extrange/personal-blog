@@ -1183,7 +1183,7 @@
 <p>I previously used <a href="../../../02/07/setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/">SSH with certificates</a>, however it does not allow me to revoke access as easily as public keys.</p>
 <p>I run <a href="https://github.com/skeeto/endlessh">Endlessh</a>, an SSH tarpit, on port <code>22</code> to waste attackers' time and keep my <code>journald</code> logs cleaner, while my <code>sshd</code> is configured to listen on another port.</p>
 <h3 id="mobile">Mobile</h3>
-<p>Mobile SSH access is via <a href="https://termux.com/">Termux</a>, a terminal emulator for Android which features <a href="https://mosh.org/">Mosh</a><sup id="fnref:mosh"><a class="footnote-ref" href="#fn:mosh">7</a></sup> pre-installed.</p>
+<p>Mobile SSH access is via <a href="https://termux.com/">Termux</a>, a terminal emulator for Android.</p>
 <h3 id="terminal-ui">Terminal UI</h3>
 <p><a class="glightbox" href="../../../../../static/images/2022-05-22/terminal.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-05-22/terminal.jpg" /></a></p>
 <p>I use <a href="https://zellij.dev/">Zellij</a>, a terminal multiplexer, which allows me to keep terminal sessions running on the server on connection close (even if by accident), and resume them from another computer.</p>
@@ -1217,9 +1217,6 @@
 </li>
 <li id="fn:pam-issues">
 <p>By default, SELinux <a href="https://github.com/google/google-authenticator-libpam/issues/101">blocks</a> <code>sshd</code> from reading the <code>.google_authenticator</code> file in the home directory. One <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-factor-authentication-for-ssh-on-centos-8#step-1-installing-google-s-pam">workaround</a> is to place the file in the <code>.ssh</code> directory instead.&#160;<a class="footnote-backref" href="#fnref:pam-issues" title="Jump back to footnote 6 in the text">&#8617;</a></p>
-</li>
-<li id="fn:mosh">
-<p>Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).&#160;<a class="footnote-backref" href="#fnref:mosh" title="Jump back to footnote 7 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
