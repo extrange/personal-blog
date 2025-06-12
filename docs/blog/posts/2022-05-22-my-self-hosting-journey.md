@@ -148,7 +148,7 @@ I run [Endlessh], an SSH tarpit, on port `22` to waste attackers' time and keep 
 
 ### Mobile
 
-Mobile SSH access is via [Termux][termux], a terminal emulator for Android which features [Mosh][mosh][^mosh] pre-installed.
+Mobile SSH access is via [Termux][termux], a terminal emulator for Android.
 
 ### Terminal UI
 
@@ -175,7 +175,6 @@ _I was previously using [tmux] and [Powerline]._
 [^cryptsetup-partition]: The reason I do not use `cryptsetup` (or `dmcrypt`) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.
 [^nfs-issues]: Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the [fix](https://unix.stackexchange.com/questions/276292/need-permission-for-windows-client-to-access-linux-nfs).
 [^pam-issues]: By default, SELinux [blocks](https://github.com/google/google-authenticator-libpam/issues/101) `sshd` from reading the `.google_authenticator` file in the home directory. One [workaround] is to place the file in the `.ssh` directory instead.
-[^mosh]: Mosh allows for SSH access over unreliable/mobile connections, including scenarios like changing IP addresses (which can happen as the mobile device moves out of Wifi range).
 
 [awesome-selfhosted]: https://github.com/awesome-selfhosted/awesome-selfhosted
 [btrbk-issue]: https://github.com/digint/btrbk/issues/339#issuecomment-1332137961
@@ -187,7 +186,6 @@ _I was previously using [tmux] and [Powerline]._
 [cryptsetup]: https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions
 [homepage]: https://gethomepage.dev
 [google-authenticator-pam]: https://github.com/google/google-authenticator-libpam
-[mosh]: https://mosh.org/
 [nfs]: https://en.wikipedia.org/wiki/Network_File_System
 [Powerline]: https://github.com/powerline/powerline
 [selfhosted]: https://www.reddit.com/r/selfhosted/
