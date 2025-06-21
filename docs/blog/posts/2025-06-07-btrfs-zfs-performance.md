@@ -118,7 +118,7 @@ Here, we see that the performance of Btrfs with CoW is abyssmal.
 
 At a recordsize of 128k, ZFS does much better, coming in at around half the perfomance if one were to write in-place (simulated via `nodatacow`). However at 4k recordsize, the performance drops significantly.
 
-In fragmented files/workloads causing fragmentation, a large recordsize can help with sequential reads, at the price of slower random writes.
+In fragmented files/workloads causing fragmentation, a large recordsize can help with sequential reads, at the price of slower random writes ([IO amplification due to read-modify-write cycles][recordsize-zfs-reddit]).
 
 _Note: Btrfs does not offer any way to set the default extent size (the equivalent of recordsize). At present the minimum size is 4kB, with no limit on the maximum._
 
@@ -198,3 +198,4 @@ CoW filesystems allow for efficient snapshotting, and come with a variety of use
 [ashift]: https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#alignment-shift-ashift
 [primarycache]: https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#adaptive-replacement-cache
 [raidz-iops]: https://web.archive.org/web/20150203051453/https://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/
+[recordsize-zfs-reddit]: https://old.reddit.com/r/zfs/comments/shnms0/plex_performance_sqlite_page_size_4k_align_to_zfs/hv4d0yp/
