@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog/2025/05/14/dm-crypt-causing-system-freezes/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2025/06/07/btrfs-vs-zfs-performance/">
       
       
-        <link rel="prev" href="../../../04/08/my-git-workflow/">
+        <link rel="prev" href="../../../05/14/dm-crypt-causing-system-freezes/">
       
       
-        <link rel="next" href="../../../06/07/btrfs-vs-zfs-performance/">
+        <link rel="next" href="../../10/migrating-to-systemd-boot-on-fedora/">
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>dm-crypt Causing System Freezes - Nicholas</title>
+        <title>Btrfs vs ZFS Performance - Nicholas</title>
       
     
     
@@ -61,11 +61,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="dm-crypt Causing System Freezes - Nicholas" >
+        <meta  property="og:title"  content="Btrfs vs ZFS Performance - Nicholas" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-05-14-dm-crypt.png" >
+        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-06-07-btrfs-zfs-performance.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -73,15 +73,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2025/05/14/dm-crypt-causing-system-freezes/" >
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2025/06/07/btrfs-vs-zfs-performance/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="dm-crypt Causing System Freezes - Nicholas" >
+        <meta  name="twitter:title"  content="Btrfs vs ZFS Performance - Nicholas" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-05-14-dm-crypt.png" >
+        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-06-07-btrfs-zfs-performance.png" >
       
     
     
@@ -111,7 +111,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dm-crypt-causing-system-freezes" class="md-skip">
+        <a href="#btrfs-vs-zfs-performance" class="md-skip">
           Skip to content
         </a>
       
@@ -146,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              dm-crypt Causing System Freezes
+              Btrfs vs ZFS Performance
             
           </span>
         </div>
@@ -929,18 +929,87 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-culprit" class="md-nav__link">
+  <a href="#test-results" class="md-nav__link">
     <span class="md-ellipsis">
-      The Culprit
+      Test Results
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-disk-vs-cow-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw disk vs CoW filesystems
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#btrfs-datacow-vs-nodatacow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Btrfs datacow vs nodatacow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-place-writes" class="md-nav__link">
+    <span class="md-ellipsis">
+      In-place writes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Snapshot Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#btrfs-autodefrag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Btrfs autodefrag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zfs-datasets-vs-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      ZFS datasets vs volumes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raid1" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID1
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#fixing" class="md-nav__link">
+  <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
-      Fixing
+      Conclusion
     </span>
   </a>
   
@@ -983,7 +1052,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-05-14 00:00:00+00:00" class="md-ellipsis">May 14, 2025</time>
+                        <time datetime="2025-06-07 00:00:00+00:00" class="md-ellipsis">June 7, 2025</time>
                       </div>
                     </li>
                     
@@ -1005,7 +1074,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              2 min read
+                              5 min read
                             
                           </span>
                         </div>
@@ -1029,46 +1098,400 @@
 
 
 
-<h1 id="dm-crypt-causing-system-freezes"><code>dm-crypt</code> Causing System Freezes</h1>
-<p>For the past year, I had been having frequent system freezes on my <a href="https://github.com/extrange/nixos-config">NixOS</a> desktop and laptop. The system would become completely unresponsive, to the point where only SysRq commands would work.</p>
+<h1 id="btrfs-vs-zfs-performance">Btrfs vs ZFS Performance</h1>
+<p>I have been using Btrfs for my server for a few years, but recently ran into performance issues with databases and snapshots. On the internet, ZFS seemed a pretty popular alternative, so I decided to compare the two in various aspects.</p>
 <!-- more -->
 
-<p>The freezes occured particularly often, and repeatably, during the following events:</p>
+<p>Both ZFS and Btrfs are <a href="https://wiki.archlinux.org/title/Btrfs#Copy-on-Write_(CoW)">copy-on-write</a> (CoW) filesystems. These types of filesystems do not overwrite data in-place. Instead, they write file data to a new block, then update file metadata to point to it. As a result, their performance characteristics differ quite a bit from a traditional non-CoW filesystem like XFS or ext4.</p>
+<p>For this article, I am using <a href="https://github.com/extrange/fio-benchmarks/">test scripts</a> I have written which use <a href="https://github.com/axboe/fio">fio</a>, a highly customizable I/O testing tool supporting a variety of testing patterns.</p>
+<p>The test setup for this article is a spare hard drive I have:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>❯<span class="w"> </span>sudo<span class="w"> </span>parted<span class="w"> </span>/dev/sda<span class="w"> </span>print
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Model:<span class="w"> </span>ATA<span class="w"> </span>TOSHIBA<span class="w"> </span>DT01ACA1<span class="w"> </span><span class="o">(</span>scsi<span class="o">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Disk<span class="w"> </span>/dev/sda:<span class="w"> </span>1000GB
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Sector<span class="w"> </span>size<span class="w"> </span><span class="o">(</span>logical/physical<span class="o">)</span>:<span class="w"> </span>512B/4096B
+</span></code></pre></div>
+<p>All tests are done without caches/buffers (<code>direct=1</code> in fio).</p>
+<p>ZFS supports some tunable parameters, some of which are:</p>
 <ul>
-<li><code>nixos-rebuild</code></li>
-<li>Downloading large files e.g. a 33GB Immich album</li>
+<li><a href="https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#dataset-recordsize">recordsize</a>: This is the minimum size which must be read from either disk/cache when data in a file is to be modified. Writes which are smaller than this will require that the whole record be read and rewritten. Only applicable for datasets.</li>
+<li><a href="https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#zvol-volblocksize">volblocksize</a>: The analogous property to recordsize, only applicable for volumes.</li>
+<li><a href="https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#alignment-shift-ashift">ashift</a>: The block alignment size that ZFS will use per vdev, or equivalently, the smallest possible IO on a vdev.</li>
+<li><a href="https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Workload%20Tuning.html#adaptive-replacement-cache">primarycache</a>: The Adaptive Replacement Cache, an improvement over LRU caches.</li>
 </ul>
-<p>Initially I thought the issue was due to the IO scheduler being used (<code>mq-deadline</code> on my desktop with a SATA SSD, <code>none</code> on my laptop with an NVME SSD). However, even after changing the scheduler, there was no improvement.</p>
-<details class="note">
-<summary>The IO scheduler</summary>
-<p>You can check the scheduler being used for a particular device with:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>❯<span class="w"> </span>cat<span class="w"> </span>/sys/block/nvme0n1/queue/scheduler
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>none<span class="w"> </span>mq-deadline<span class="w"> </span>kyber<span class="w"> </span><span class="o">[</span>bfq<span class="o">]</span>
-</span></code></pre></div>
-<p>To change the scheduler:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>❯<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>none<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/sys/block/nvme0n1/queue/scheduler
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>none
-</span></code></pre></div>
-<p>Generally, <code>bfq</code> is recommended for interactive systems as it guarantees disk latencies similar to idle, at the expense of throughput.</p>
-<p>You can see a comparison of schedulers <a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/managing_storage_devices/setting-the-disk-scheduler_managing-storage-devices#available-disk-schedulers_setting-the-disk-scheduler)">here</a>, as well as on the <a href="https://wiki.archlinux.org/title/Improving_performance#Tuning_kernel_parameters">Arch Linux Wiki</a>.</p>
-</details>
-<h2 id="the-culprit">The Culprit</h2>
-<p>As part of exploration I ran <code>sar -d 1</code>, and noticed that the average disk queue size (<code>aqu-sz</code>) became excessively large during the above operations.</p>
-<p>I found that by simulating large writes (e.g. with <code>openssl rand -out bigfile.bin $((1024 * 1024 * 30000))</code>), I was able to increase the queue size, to the point where disk utilization hovered at 100% and thereafter the system would lockup.</p>
-<p>Finally, I found an article on Reddit that suggested <code>dm-crypt</code> was the <a href="https://old.reddit.com/r/linux/comments/zkyzmh/if_your_system_is_installed_on_dmcrypt_and/">culprit</a>. Turns out, Cloudflare also did a <a href="https://blog.cloudflare.com/speeding-up-linux-disk-encryption/">writeup</a> on the issue.</p>
-<p>Essentially, <code>dm-crypt</code> maintains a separate workqueue for IO, which is actually unnecessary on fast drives like SSDs. For reasons I do not fully understand yet, this can severely degrade performance under load. I suspect this is due to running the IO scheduler over a workqueue (in this case, a sorted binary tree), instead of allowing it to access block IO directly.</p>
-<h2 id="fixing">Fixing</h2>
-<p>You can check whether <code>dm-crypt</code> uses the workqueues:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>❯<span class="w"> </span>sudo<span class="w"> </span>dmsetup<span class="w"> </span>table
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>luks-primary:<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">487315456</span><span class="w"> </span>crypt<span class="w"> </span>aes-xts-plain64<span class="w"> </span>:64:logon:cryptsetup:7b61f149-1dc8-499b-b5b6-078e05031c1b-d0<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">8</span>:2<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>no_read_workqueue<span class="w"> </span>no_write_workqueue
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>vg-nixos:<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">487309312</span><span class="w"> </span>linear<span class="w"> </span><span class="m">254</span>:0<span class="w"> </span><span class="m">2048</span>
-</span></code></pre></div>
-<p>In the example above, the workqueues have already been disabled (<code>no_read_workqueue</code> and <code>no_write_workqueue</code> respectively).</p>
-<p>To change them:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Temporary</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># To make persistent, add --persistent</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>cryptsetup<span class="w"> </span>--perf-no_read_workqueue<span class="w"> </span>--perf-no_write_workqueue<span class="w"> </span>refresh<span class="w"> </span>DEVICE
-</span></code></pre></div>
+<h2 id="test-results">Test Results</h2>
+<h3 id="raw-disk-vs-cow-filesystems">Raw disk vs CoW filesystems</h3>
+<p>First, let's compare the performance of the raw disk versus these filesystems on top.</p>
+<ul>
+<li>Btrfs mount options: <code>datacow,noatime,defaults</code></li>
+<li>ZFS dataset parameters: <code>atime=off, ashift=0, primarycache=metadata, compression=off</code></li>
+</ul>
+<p>Sequential:</p>
+<table>
+<thead>
+<tr>
+<th>Test (in MB/s)</th>
+<th style="text-align: right;">Raw</th>
+<th style="text-align: right;">Btrfs</th>
+<th style="text-align: right;">ZFS 128k</th>
+<th style="text-align: right;">ZFS 4k</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEQ1M_Q8T1 Read</td>
+<td style="text-align: right;">164</td>
+<td style="text-align: right;">185</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">55</td>
+</tr>
+<tr>
+<td>SEQ1M_Q8T1 Write</td>
+<td style="text-align: right;">188</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: right;">162</td>
+<td style="text-align: right;">63</td>
+</tr>
+<tr>
+<td>SEQ1M_Q1T1 Read</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: right;">153</td>
+<td style="text-align: right;">69</td>
+</tr>
+<tr>
+<td>SEQ1M_Q1T1 Write</td>
+<td style="text-align: right;">188</td>
+<td style="text-align: right;">184</td>
+<td style="text-align: right;">143</td>
+<td style="text-align: right;">64</td>
+</tr>
+</tbody>
+</table>
+<p>Btrfs is the fastest here, while ZFS is the slowest. This might be due to read-ahead or other optimizations that Btrfs is doing that I'm not aware of.</p>
+<p>Random:</p>
+<table>
+<thead>
+<tr>
+<th>Test (in IOPS)</th>
+<th style="text-align: right;">Raw</th>
+<th style="text-align: right;">Btrfs</th>
+<th style="text-align: right;">ZFS 128k</th>
+<th style="text-align: right;">ZFS 4k</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RND4K_Q32T1 Read</td>
+<td style="text-align: right;">220</td>
+<td style="text-align: right;">226</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">119</td>
+</tr>
+<tr>
+<td>RND4K_Q32T1 Write</td>
+<td style="text-align: right;">396</td>
+<td style="text-align: right;">16977</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">8787</td>
+</tr>
+<tr>
+<td>RND4K_Q1T1 Read</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">147</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">121</td>
+</tr>
+<tr>
+<td>RND4K_Q1T1 Write</td>
+<td style="text-align: right;">410</td>
+<td style="text-align: right;">6139</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">8262</td>
+</tr>
+</tbody>
+</table>
+<p>Btrfs wins again, with ZFS at 4k recordsize second.</p>
+<p>On CoW filesystems, random writes with high queue depths can exceed that of the raw disk, since the writes can happen sequentially on disk. The filesystem maps them to the correct offsets in the file.</p>
+<h3 id="btrfs-datacow-vs-nodatacow">Btrfs <code>datacow</code> vs <code>nodatacow</code></h3>
+<p>We can directly evaluate the performance characteristics of Btrfs when CoW is turned off (<a href="https://btrfs.readthedocs.io/en/latest/Administration.html">btrfs-admin</a>), and writes are done in-place.</p>
+<table>
+<thead>
+<tr>
+<th>Test (MB/s)</th>
+<th style="text-align: right;"><code>datacow</code></th>
+<th style="text-align: right;"><code>nodatacow</code></th>
+<th style="text-align: right;">Raw</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEQ1M_Q8T1 Read</td>
+<td style="text-align: right;">185</td>
+<td style="text-align: right;">195</td>
+<td style="text-align: right;">164</td>
+</tr>
+<tr>
+<td>SEQ1M_Q8T1 Write</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: right;">187</td>
+<td style="text-align: right;">188</td>
+</tr>
+<tr>
+<td>SEQ1M_Q1T1 Read</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: right;">195</td>
+<td style="text-align: right;">190</td>
+</tr>
+<tr>
+<td>SEQ1M_Q1T1 Write</td>
+<td style="text-align: right;">184</td>
+<td style="text-align: right;">195</td>
+<td style="text-align: right;">188</td>
+</tr>
+</tbody>
+</table>
+<p>No measurable difference in sequential performance.</p>
+<table>
+<thead>
+<tr>
+<th>Test (IOPS)</th>
+<th style="text-align: right;"><code>datacow</code></th>
+<th style="text-align: right;"><code>nodatacow</code></th>
+<th style="text-align: right;">Raw</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RND4K_Q32T1 Read</td>
+<td style="text-align: right;">226</td>
+<td style="text-align: right;">217</td>
+<td style="text-align: right;">220</td>
+</tr>
+<tr>
+<td>RND4K_Q32T1 Write</td>
+<td style="text-align: right;">16977</td>
+<td style="text-align: right;">402</td>
+<td style="text-align: right;">396</td>
+</tr>
+<tr>
+<td>RND4K_Q1T1 Read</td>
+<td style="text-align: right;">147</td>
+<td style="text-align: right;">155</td>
+<td style="text-align: right;">140</td>
+</tr>
+<tr>
+<td>RND4K_Q1T1 Write</td>
+<td style="text-align: right;">6139</td>
+<td style="text-align: right;">350</td>
+<td style="text-align: right;">410</td>
+</tr>
+</tbody>
+</table>
+<p><code>nodatacow</code> random write speeds drop back to that of the raw disk.</p>
+<p>As COW is turned off, random writes happen in-place on disk, and so suffer the same penalties as the raw disk.</p>
+<div class="admonition warning">
+<p class="admonition-title">nodatacow and checksums</p>
+<p>When <code>nodatacow</code> is turned on, checksums (and compression) are disabled. Data corruption cannot be detected. In a RAID1 setup, it will not be possible to determine which disk has the correct block and correction is thus not possible.</p>
+<p>For this reason, despite the performance benefit, <code>nodatacow</code> should not be used.</p>
+<ul>
+<li>Reddit: <a href="https://old.reddit.com/r/btrfs/comments/xki69r/nodatacow_and_data_loss/">NoDataCow and data loss</a></li>
+<li>Unraid: <a href="https://forums.unraid.net/topic/123037-reconsider-btrfs-nocow-default-option-on-domains-share-due-to-irrecoverable-corruption-risks/">Reconsider Btrfs NOCOW Default Option on domains Share due to Irrecoverable Corruption Risks</a></li>
+</ul>
+</div>
+<h3 id="in-place-writes">In-place writes</h3>
+<p>A common database workload involves reading/writing repeatedly to the same file at random locations. This causes fragmentation of the file in CoW filesystems, since the writes are not done in-place. Subsequent sequential reading of the file is going to be slower, possibly close to that of random read performance.</p>
+<p>We can simulate this by first writing a large file, doing random writes for a while, and then reading the same file sequentially.</p>
+<ul>
+<li><em>ZFS dataset parameters: <code>atime=off, ashift=0, primarycache=metadata, compression=off</code></em></li>
+<li><em><code>datacow</code> and <code>nodatacow</code> refer to Btrfs with the respective mount option</em></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th style="text-align: right;"><code>datacow</code></th>
+<th style="text-align: right;">ZFS 128k</th>
+<th style="text-align: right;">ZFS 4k</th>
+<th style="text-align: right;"><code>nodatacow</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEQ1M_Q8T1 Write, MB/s</td>
+<td style="text-align: right;">188</td>
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">187</td>
+</tr>
+<tr>
+<td>SEQ1M_Q8T1 Read, IOPS (Pre)</td>
+<td style="text-align: right;">187</td>
+<td style="text-align: right;">183</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">192</td>
+</tr>
+<tr>
+<td>RND4K_Q32T1 Write, IOPS</td>
+<td style="text-align: right;">20024</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">4933</td>
+<td style="text-align: right;">271</td>
+</tr>
+<tr>
+<td>SEQ1M_Q8T1 Read, MB/s (Post)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">188</td>
+</tr>
+</tbody>
+</table>
+<p>Here, we see that the performance of Btrfs with CoW is abyssmal.</p>
+<p>At a recordsize of 128k, ZFS does much better, coming in at around half the perfomance if one were to write in-place (simulated via <code>nodatacow</code>). However at 4k recordsize, the performance drops significantly.</p>
+<p>In fragmented files/workloads causing fragmentation, a large recordsize can help with sequential reads, at the price of slower random writes.</p>
+<p><em>Note: Btrfs does not offer any way to set the default extent size (the equivalent of recordsize). At present the minimum size is 4kB, with no limit on the maximum.</em></p>
+<h3 id="snapshot-performance">Snapshot Performance</h3>
+<p>Taking repeated snapshots of a filesystem can affect performance, since defragmentation of any sort can't really happen while snapshotted blocks are still being referenced.</p>
+<p>In this test, we take repeated snapshots (~3/s) while the random writes are being done, which should theoretically hamper optimization attempts to sequentially align data.</p>
+<ul>
+<li>ZFS dataset parameters: <code>atime=off, ashift=0, primarycache=metadata, compression=off</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th style="text-align: right;">128k</th>
+<th style="text-align: right;">128k, snaps</th>
+<th style="text-align: right;">4k</th>
+<th style="text-align: right;">4k, snaps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEQ1M_Q8T1 Write, MB/s</td>
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">73</td>
+</tr>
+<tr>
+<td>SEQ1M_Q8T1 Read, MB/s (Post)</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">15</td>
+</tr>
+</tbody>
+</table>
+<h3 id="btrfs-autodefrag">Btrfs <code>autodefrag</code></h3>
+<p>Btrfs` <a href="https://btrfs.readthedocs.io/en/latest/Administration.html">autodefrag</a> feature reads <em>"When enabled, small random writes into files (in a range of tens of kilobytes, currently it’s 64KiB) are detected and queued up for the defragmentation process."</em></p>
+<p>Let's see how turning this on changes things:</p>
+<ul>
+<li>Btrfs mount options: <code>datacow,noatime,defaults</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th style="text-align: right;">noautodefrag</th>
+<th style="text-align: right;">autodefrag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEQ1M_Q8T1 Write</td>
+<td style="text-align: right;">188 MB/s</td>
+<td style="text-align: right;">186 MB/s</td>
+</tr>
+<tr>
+<td>SEQ1M_Q8T1 Read (Pre)</td>
+<td style="text-align: right;">187 MB/s</td>
+<td style="text-align: right;">187 MB/s</td>
+</tr>
+<tr>
+<td>RND4K_Q32T1 Write</td>
+<td style="text-align: right;">20024 IOPS</td>
+<td style="text-align: right;">19708 IOPS</td>
+</tr>
+<tr>
+<td>SEQ1M_Q8T1 Read (Post)</td>
+<td style="text-align: right;">1 MB/s</td>
+<td style="text-align: right;">1 MB/s</td>
+</tr>
+</tbody>
+</table>
+<p>No measurable difference.</p>
+<h3 id="zfs-datasets-vs-volumes">ZFS datasets vs volumes</h3>
+<p>ZFS also supports volumes (zvols), which are datasets that represent a block device. These can be passed as a raw disk to a VM, while still retaining checksums and the ability to snapshot the volume.</p>
+<ul>
+<li><em>ZFS dataset parameters: <code>atime=off, ashift=0, primarycache=metadata, compression=off</code></em></li>
+<li><em>ZFS zvol parameters: <code>ashift=12, compression=off</code></em></li>
+<li><em>Despite turning off caches, results for the SEQ1M_Q8T1 read for zvols were unrealistically high and so they are omitted.</em></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Test (MB/s)</th>
+<th style="text-align: right;">Dataset, 16k</th>
+<th style="text-align: right;">zvol, 16k</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEQ1M_Q8T1 Write</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: right;">113</td>
+</tr>
+<tr>
+<td>SEQ1M_Q1T1 Read</td>
+<td style="text-align: right;">156</td>
+<td style="text-align: right;">264</td>
+</tr>
+<tr>
+<td>SEQ1M_Q1T1 Write</td>
+<td style="text-align: right;">151</td>
+<td style="text-align: right;">43</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Test (IOPS)</th>
+<th style="text-align: right;">Dataset, 16k</th>
+<th style="text-align: right;">zvol, 16k</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RND4K_Q32T1 Read</td>
+<td style="text-align: right;">127</td>
+<td style="text-align: right;">458</td>
+</tr>
+<tr>
+<td>RND4K_Q32T1 Write</td>
+<td style="text-align: right;">121</td>
+<td style="text-align: right;">176</td>
+</tr>
+<tr>
+<td>RND4K_Q1T1 Read</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr>
+<td>RND4K_Q1T1 Write</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">63</td>
+</tr>
+</tbody>
+</table>
+<h3 id="raid1">RAID1</h3>
+<p>We would also like to see if there are any performance gains when using a RAID1 setup, because in theory, reads can be fulfilled by both devices simultaneously.</p>
+<p>To do this, we can run benchmarks on both Btrfs and ZFS, with and without RAID1 setup.</p>
+<p><em>In progress</em></p>
+<p>Of note when using RAIDZ, to improve random IOPS, <a href="https://web.archive.org/web/20150203051453/https://blog.delphix.com/matt/2014/06/06/zfs-stripe-width/">use less disks per vdev</a> (or better, a mirror).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>CoW filesystems allow for efficient snapshotting, and come with a variety of useful features such as checksumming, compression and encryption (only for ZFS). The main drawbacks are due to the CoW mechanism, most clearly observed with heavy random write workloads which cause fragmentation. To some extent, this can be mitigated by increasing the extent/record size, sacrificing random write IOPS for sequential read speeds. At the time of this writing, only ZFS allows for that.</p>
 
 
 
