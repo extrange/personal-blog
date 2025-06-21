@@ -132,8 +132,8 @@ In this test, we take repeated snapshots (~3/s) while the random writes are bein
 
 | Test                         | 128k | 128k, snaps |  4k | 4k, snaps |
 | ---------------------------- | ---: | ----------: | --: | --------: |
-| SEQ1M_Q8T1 Write, MB/s       |  182 |         180 |  65 |        73 |
-| SEQ1M_Q8T1 Read, MB/s (Post) |   73 |          90 |   3 |        15 |
+| SEQ1M_Q8T1 Write, MB/s       |  182 |         180 |  73 |        73 |
+| SEQ1M_Q8T1 Read, MB/s (Post) |   73 |          90 |   7 |        10 |
 
 ### Btrfs `autodefrag`
 
