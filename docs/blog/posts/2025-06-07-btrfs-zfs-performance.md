@@ -173,7 +173,7 @@ ZFS also supports volumes (zvols), which are datasets that represent a block dev
 | RND4K_Q1T1 Read   |          112 |       210 |
 | RND4K_Q1T1 Write  |          124 |        63 |
 
-### RAID1
+### RAID1/RAIDZ
 
 We would also like to see if there are any performance gains when using a RAID1 setup, because in theory, reads can be fulfilled by both devices simultaneously.
 

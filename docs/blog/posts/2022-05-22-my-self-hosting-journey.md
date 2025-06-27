@@ -49,7 +49,9 @@ Uptime monitoring is hosted on an offsite VPS with [Uptime Kuma][uptime-kuma], o
 
 ## Storage and Backup
 
-As of 2024 Aug, I have 32TB of raw storage, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 8TB ATA WDC WD80EAZZ-00B8TB (all non-SMR drives[^smr]) in a (software) BtrFS RAID-1 configuration, corresponding to approximately 16TB of usable storage.
+_Update 2025-06-27: I've [moved to ZFS]._
+
+Up till 2025 Jun, I had 32TB of raw storage, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 8TB ATA WDC WD80EAZZ-00B8TB (all non-SMR drives[^smr]) in a (software) BtrFS RAID-1 configuration, corresponding to approximately 16TB of usable storage.
 
 I use SSHFS to access my storage remotely. This storage is accessible locally in my LAN via [NFS][nfs], which Windows also supports[^nfs-issues].
 
@@ -198,3 +200,4 @@ _I was previously using [tmux] and [Powerline]._
 [Zellij]: https://zellij.dev/
 [Starship]: https://starship.rs/
 [Endlessh]: https://github.com/skeeto/endlessh
+[moved to zfs]: 2025-06-27-migrating-btrfs-to-zfs.md
