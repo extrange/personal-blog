@@ -636,6 +636,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#migrating-from-btrfs-to-zfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrating from Btrfs to ZFS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#migrating-to-systemd-boot-on-fedora" class="md-nav__link">
     <span class="md-ellipsis">
       Migrating to systemd-boot on Fedora
@@ -711,15 +720,6 @@
   <a href="#setting-up-fedora-with-a-windows-vm" class="md-nav__link">
     <span class="md-ellipsis">
       Setting up Fedora with a Windows VM
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gpu-power-crashes" class="md-nav__link">
-    <span class="md-ellipsis">
-      GPU Power Crashes
     </span>
   </a>
   
@@ -1059,6 +1059,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#migrating-from-btrfs-to-zfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrating from Btrfs to ZFS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#migrating-to-systemd-boot-on-fedora" class="md-nav__link">
     <span class="md-ellipsis">
       Migrating to systemd-boot on Fedora
@@ -1139,15 +1148,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#gpu-power-crashes" class="md-nav__link">
-    <span class="md-ellipsis">
-      GPU Power Crashes
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1162,6 +1162,45 @@
       <header class="md-typeset">
         <h1 id="programming">Programming</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-06-27 00:00:00+00:00">June 27, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="migrating-from-btrfs-to-zfs"><a class="toclink" href="../../2025/06/27/migrating-from-btrfs-to-zfs/">Migrating from Btrfs to ZFS</a></h2>
+<p>In my article on <a href="../../2022/05/22/my-self-hosting-journey/">self hosting</a>, I initially wrote about how I was using Btrfs to store my data. However, I ran into issues with app database read/writes becoming very slow due to fragmentation. Additionally, I wanted better space efficiency than offered by RAID1 as I was expanding my hard drive collection.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="../../2025/06/27/migrating-from-btrfs-to-zfs/">
+          Continue reading
+        </a>
+      </nav>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1519,46 +1558,6 @@
     
       <nav class="md-post__action">
         <a href="../../2023/12/17/setting-up-fedora-with-a-windows-vm/">
-          Continue reading
-        </a>
-      </nav>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-11-07 00:00:00+00:00">November 7, 2023</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="./" class="md-meta__link">Programming</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              3 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="gpu-power-crashes"><a class="toclink" href="../../2023/11/07/gpu-power-crashes/">GPU Power Crashes</a></h2>
-<p>For a few months, while running my <a href="../../2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/">Windows 11 VM</a> with a GPU passthrough-ed, I was getting random reboots/screen hangs. There was a clear pattern - the reboots/hangs occured whenever I launched a resource-intensive application on the VM, such as a game.</p>
-<p>In an effort to trace down the problem, I looked through <code>dmesg</code> (truncated for brevity) for various boots:</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../2023/11/07/gpu-power-crashes/">
           Continue reading
         </a>
       </nav>
