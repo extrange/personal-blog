@@ -1137,7 +1137,7 @@
 </ul>
 <p>Raidz expansion notes:</p>
 <ul>
-<li>Free space is <a href="https://github.com/openzfs/zfs/pull/12225">miscalculated</a>. However, this can be mitigated somewhat by <a href="https://github.com/openzfs/zfs/discussions/15232#discussioncomment-6904427">using sparse files and offlining them</a>.</li>
+<li>Old blocks remain with their old data-to-parity <a href="https://github.com/openzfs/zfs/pull/12225">ratio</a>. In the worst case scenario, <a href="https://github.com/openzfs/zfs/pull/12225#issuecomment-859366605">expanding a full 4x1TB RAIDZ2 to 8x1TB RAIDZ2 would result in the final array being 50% utilized</a>. However, this can be mitigated somewhat by re-copying over the data, such as with <code>zfs send -R</code> or by <a href="https://github.com/openzfs/zfs/discussions/15232#discussioncomment-6904427">using sparse files and offlining them</a>.</li>
 </ul>
 <h2 id="monitoring">Monitoring:</h2>
 <p>ZFS has nice utilities to monitor drive and pool status.</p>
