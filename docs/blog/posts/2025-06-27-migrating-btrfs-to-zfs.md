@@ -112,7 +112,7 @@ ZFS is not without limitations. In particular:
 
 Raidz expansion notes:
 
-- Free space is [miscalculated]. However, this can be mitigated somewhat by [using sparse files and offlining them].
+- Old blocks remain with their old data-to-parity [ratio]. In the worst case scenario, [expanding a full 4x1TB RAIDZ2 to 8x1TB RAIDZ2 would result in the final array being 50% utilized][raidz-expansion]. However, this can be mitigated somewhat by re-copying over the data, such as with `zfs send -R` or by [using sparse files and offlining them].
 
 ## Monitoring:
 
@@ -139,5 +139,6 @@ More details [here].
 [btrfs-zfs-scripts]: https://github.com/extrange/btrfs-to-zfs
 [sparse-expansion-zfs]: https://old.reddit.com/r/zfs/comments/1i7r7xj/create_a_raidz2_with_one_drive_offline/
 [using sparse files and offlining them]: https://github.com/openzfs/zfs/discussions/15232#discussioncomment-6904427
-[miscalculated]: https://github.com/openzfs/zfs/pull/12225
+[ratio]: https://github.com/openzfs/zfs/pull/12225
 [here]: https://klarasystems.com/articles/openzfs-using-zpool-iostat-to-monitor-pool-perfomance-and-health/
+[raidz-expansion]: https://github.com/openzfs/zfs/pull/12225#issuecomment-859366605
