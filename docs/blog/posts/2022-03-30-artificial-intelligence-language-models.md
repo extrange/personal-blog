@@ -235,6 +235,22 @@ gemini-2.5-pro-preview-03-25 (incorrect):
 Let it be known that this very sentence precisely comprises: four a's, two b's, four c's, two d's, forty-five e's, six f's, one g's, nine h's, fifteen i's, one j's, two k's, two l's, two m's, fifteen n's, twenty o's, three p's, one q's, thirteen r's, thirty-four s's, twenty-four t's, four u's, three v's, ten w's, four x's, six y's, and one z's.
 ```
 
+```
+//ASCII Art
+
+Q:
+
+  mmm    mmm   m   m   mmm
+ "   #  #" "#  #   #  #"  #
+ m"""#  #   #  #   #  #""""
+ "mm"#  "#m#"  "mm"#  "#mm"
+
+what does this say
+
+o3
+It’s an ASCII-art rendering of the word “HELLO” (drawn with the mini FIGlet font).
+```
+
 Other failures:
 
 - o3: [Sliding puzzle without tools]
@@ -297,3 +313,7 @@ I don't know what the answer is, but I suspect that models that think like us sh
 [another]: https://chatgpt.com/share/6804e381-da70-8013-ad32-3ab30fb830d9
 [Failure on ARC-AGI2]: https://chatgpt.com/share/6804e3c9-0724-8013-8d78-ee5c1ce8fa81
 [GCD Calculator in Brainfuck]: https://chatgpt.com/share/6804e43f-f404-8013-97de-367d853bf1e0
+
+```
+
+```
