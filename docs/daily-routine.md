@@ -84,7 +84,7 @@ Occasionally I take supplements e.g. [fish oil][fish-oil].
 [fish-oil]: blog/posts/2022-10-28-nutrition-and-health.md#omega-3
 [if-schedule]: blog/posts/2022-10-28-nutrition-and-health.md#timingintermittent-fasting
 [protein]: blog/posts/2022-10-28-nutrition-and-health.md#protein
-[recipe]: https://mealie.nicholaslyz.com/g/home/r/seasoned-lentils-with-tofu-fruits-vegetables-and-nuts
+[recipe]: https://mealie.nicholaslyz.com/g/home/r/daily-meal
 [nutrients]: blog/posts/2022-10-28-nutrition-and-health.md#comparison-of-various-nutrients-across-major-staple-foods
 [cooking-beans]: blog/posts/2023-09-11-best-way-cook-beans.md
 [friends]: blog/posts/2023-11-05-biohacker-lifestyle.md
