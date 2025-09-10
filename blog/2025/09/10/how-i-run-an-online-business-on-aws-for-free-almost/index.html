@@ -1150,6 +1150,11 @@
 <td>Effectively free for low usage</td>
 </tr>
 <tr>
+<td>API Gateway</td>
+<td>~$0</td>
+<td><a href="https://aws.amazon.com/api-gateway/pricing/">$1/million</a> requests</td>
+</tr>
+<tr>
 <td>DB (Neon)</td>
 <td>~$0.50</td>
 <td>$0.14/CU-hour + $0.35/GB-month storage</td>
@@ -1171,6 +1176,7 @@
 <h2 id="notes">Notes</h2>
 <p><strong>AWS Lightsail</strong> is a cheap way to run Postgres; the cheapest plan is $5/month. You'll need to manage updating and scaling yourself, however.</p>
 <p>Neon starts to get expensive when the DB is being constantly queried - if the costs goes up more than $18.75/month (price of a RDS db.t4g.micro instance), I'll probably switch back.</p>
+<p>API Gateway (and thus Lambdas behind it) do not support SSE. However, it is possible to call the Lambda function URL directly. Note that the endpoint should authenticate the user accordingly, since there is no API Gateway in front.</p>
 <h2 id="faq">FAQ</h2>
 <h3 id="why-not-use-a-nosql-db-like-firestoredynamodb">Why not use a NoSQL DB like Firestore/DynamoDB?</h3>
 <p>I'm personally not a fan of NoSQL as there's less type-safety, less constraint enforcement and migrations are more troublesome. Also, with larger scale, you start paying for read/writes, unlike traditional SQL databases where you just pay for the runtime.</p>
