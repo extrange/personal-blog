@@ -49,12 +49,13 @@ I thought through the above, and realized the pricey components could be swapped
 
 The setup above costs:
 
-| Service    | Price  | Notes                                                 |
-| ---------- | ------ | ----------------------------------------------------- |
-| Lambda     | ~$0    | Effectively free for low usage                        |
-| DB (Neon)  | ~$0.50 | $0.14/CU-hour + $0.35/GB-month storage                |
-| S3         | ~$0    | Frontend                                              |
-| Cloudfront | ~$0    | Free tier includes 1TB of data transfer out per month |
+| Service     | Price  | Notes                                                 |
+| ----------- | ------ | ----------------------------------------------------- |
+| Lambda      | ~$0    | Effectively free for low usage                        |
+| API Gateway | ~$0    | [$1/million][api-gateway] requests                    |
+| DB (Neon)   | ~$0.50 | $0.14/CU-hour + $0.35/GB-month storage                |
+| S3          | ~$0    | Frontend                                              |
+| Cloudfront  | ~$0    | Free tier includes 1TB of data transfer out per month |
 
 _Note: For [Neon], the smallest configuration is 0.25CU, which is 0.25vCPU and 1GB RAM. Assuming the DB is used continuously (highest cost scenario), this would be $26.25/month. The default scale-down time is 5 minutes._
 
@@ -65,6 +66,8 @@ Total: ~$0.50 USD/month
 **AWS Lightsail** is a cheap way to run Postgres; the cheapest plan is $5/month. You'll need to manage updating and scaling yourself, however.
 
 Neon starts to get expensive when the DB is being constantly queried - if the costs goes up more than $18.75/month (price of a RDS db.t4g.micro instance), I'll probably switch back.
+
+API Gateway (and thus Lambdas behind it) do not support SSE. However, it is possible to call the Lambda function URL directly. Note that the endpoint should authenticate the user accordingly, since there is no API Gateway in front.
 
 ## FAQ
 
@@ -85,3 +88,4 @@ Aurora Serverless v2 supports [auto-pause], which scales the instances to zero a
 [AWS Lambda Web Adapter]: https://github.com/awslabs/aws-lambda-web-adapter
 [neon]: https://neon.com/
 [auto-pause]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2-auto-pause.html
+[api-gateway]: https://aws.amazon.com/api-gateway/pricing/
