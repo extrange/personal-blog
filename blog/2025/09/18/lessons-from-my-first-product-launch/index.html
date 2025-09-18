@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://nicholaslyz.com/blog/2025/09/10/how-i-run-an-online-business-on-aws-for-less-than-5month/">
+        <link rel="canonical" href="https://nicholaslyz.com/blog/2025/09/18/lessons-from-my-first-product-launch/">
       
       
-        <link rel="prev" href="../../../06/27/migrating-from-btrfs-to-zfs/">
+        <link rel="prev" href="../../10/how-i-run-an-online-business-on-aws-for-less-than-5month/">
       
-      
-        <link rel="next" href="../../18/lessons-from-my-first-product-launch/">
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>How I run an online business on AWS for less than $5/month - Nicholas</title>
+        <title>Lessons From My First Product Launch - Nicholas</title>
       
     
     
@@ -61,11 +59,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="How I run an online business on AWS for less than $5/month - Nicholas" >
+        <meta  property="og:title"  content="Lessons From My First Product Launch - Nicholas" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-09-10-how-to-run-online-business-aws.png" >
+        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-09-18-my-first-product-launch.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -73,15 +71,15 @@
       
         <meta  property="og:image:height"  content="630" >
       
-        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2025/09/10/how-i-run-an-online-business-on-aws-for-less-than-5month/" >
+        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2025/09/18/lessons-from-my-first-product-launch/" >
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="How I run an online business on AWS for less than $5/month - Nicholas" >
+        <meta  name="twitter:title"  content="Lessons From My First Product Launch - Nicholas" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-09-10-how-to-run-online-business-aws.png" >
+        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2025-09-18-my-first-product-launch.png" >
       
     
     
@@ -111,7 +109,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-i-run-an-online-business-on-aws-for-less-than-5month" class="md-skip">
+        <a href="#lessons-from-my-first-product-launch" class="md-skip">
           Skip to content
         </a>
       
@@ -146,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How I run an online business on AWS for less than $5/month
+              Lessons From My First Product Launch
             
           </span>
         </div>
@@ -929,100 +927,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#typical-setup" class="md-nav__link">
+  <a href="#timeframes" class="md-nav__link">
     <span class="md-ellipsis">
-      Typical Setup
+      Timeframes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#optimized-setup" class="md-nav__link">
+  <a href="#takeaways" class="md-nav__link">
     <span class="md-ellipsis">
-      Optimized Setup
+      Takeaways
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compute-app-runner-vs-ecs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Compute: App Runner vs ECS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#database-neon-vs-rds" class="md-nav__link">
-    <span class="md-ellipsis">
-      Database: Neon vs RDS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#faq" class="md-nav__link">
-    <span class="md-ellipsis">
-      FAQ
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="FAQ">
+    <nav class="md-nav" aria-label="Takeaways">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-not-use-aws-lambdas" class="md-nav__link">
+  <a href="#having-a-solid-backend-is-important" class="md-nav__link">
     <span class="md-ellipsis">
-      Why not use AWS Lambdas?
+      Having a solid backend is important
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-about-aws-lambdas-with-provisioned-concurrencysnapstart" class="md-nav__link">
+  <a href="#automated-deployments-speed-up-development-time" class="md-nav__link">
     <span class="md-ellipsis">
-      What about AWS Lambdas with Provisioned Concurrency/SnapStart?
+      Automated deployments speed up development time
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-about-gcps-cloud-run" class="md-nav__link">
+  <a href="#nice-frontend-stuff" class="md-nav__link">
     <span class="md-ellipsis">
-      How about GCP's Cloud Run?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-not-aws-lightsail-for-the-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why not AWS Lightsail for the database?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-not-use-a-nosql-db-like-firestoredynamodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why not use a NoSQL DB like Firestore/DynamoDB?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#why-not-aurora-serverless-v2-for-the-db" class="md-nav__link">
-    <span class="md-ellipsis">
-      Why not Aurora Serverless V2 for the DB?
+      Nice frontend stuff
     </span>
   </a>
   
@@ -1030,6 +974,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#random-thoughts-about-handling-long-running-jobs-on-the-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Random thoughts about handling long-running jobs on the backend
+    </span>
+  </a>
   
 </li>
       
@@ -1070,7 +1023,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-09-10 00:00:00+00:00" class="md-ellipsis">September 10, 2025</time>
+                        <time datetime="2025-09-18 00:00:00+00:00" class="md-ellipsis">September 18, 2025</time>
                       </div>
                     </li>
                     
@@ -1092,7 +1045,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              5 min read
+                              4 min read
                             
                           </span>
                         </div>
@@ -1116,193 +1069,61 @@
 
 
 
-<h1 id="how-i-run-an-online-business-on-aws-for-less-than-5month">How I run an online business on AWS for less than $5/month</h1>
-<p>I've been working on starting several online applications - simple things like edit PDFs/some other task with Stripe integration. I'm using AWS as my cloud provider (just happens to be something I'm familiar with).</p>
-<p>Previously, I'd be paying something like $50 USD/month per application.</p>
-<p>Now, I've optimized my stack to run them for less than $5 USD/month each.</p>
+<h1 id="lessons-from-my-first-product-launch">Lessons From My First Product Launch</h1>
+<p>Today I launched <a href="https://cloudvise.io">CloudVise</a>, an AI advisor giving personalized advice across multiple topics. It was a long journey, starting all the way back in July.</p>
+<p>Here are some lessons I learnt.</p>
 <!-- more -->
 
-<h2 id="typical-setup">Typical Setup</h2>
-<p>Typically, in a large organization, the stack would be something like:</p>
+<h2 id="timeframes">Timeframes</h2>
+<p>I started work on the product right after I left my previous company, at the start of July.</p>
+<p>The first 1-2 weeks were spent reading some nice fantasy books, relaxing, and brainstorming. Eventually I decided I would make a skeleton of an app first - something that could handle payments and logins, on a Python backend (FastAPI) and a NextJS frontend, hosted on AWS.</p>
+<p>Initially I was very obsessed with Infrastructure-as-Code (IaC), since in my previous company, a lot of the deployment was manual. I started with a production-grade, scalable setup on AWS (with load balancers, containers via Elastic Container Service, and databases vs Relational Database Service).</p>
+<p>After I set that up, I realized that it would cost me ~$50/month just for hosting a single product. So, I spent another week optimizing that setup (I managed to drop the monthly cost per product to $2.50 - you can read about that <a href="../../10/how-i-run-an-online-business-on-aws-for-less-than-5month/">here</a>).</p>
+<p>I worked on the frontend in the last week prior to the product launch. Using AI tools was quite a big help here (I'm not very familiar with TailwindCSS).</p>
+<h2 id="takeaways">Takeaways</h2>
+<h3 id="having-a-solid-backend-is-important">Having a solid backend is important</h3>
+<p>Most people brush aside the backend as it is not something obvious to users, however from my past experience, a misfunctioning/unreliable backend can really turn users away. I was fortunate to have a codebase I had spent a lot of time refining over the previous months which I could adapt for this purpose.</p>
+<p>A well designed backend should:</p>
 <ul>
-<li>Backend: ECS or EKS</li>
-<li>DB: RDS</li>
-<li>Frontend: S3 + CloudFront</li>
+<li>be simple to understand (modular code)</li>
+<li>have functions which do only one thing</li>
+<li>not hardcode variables (so you can develop locally)</li>
+<li>have unit tests (ideally)</li>
 </ul>
-<p>I deploy via Infrastructure-as-Code (IaC), and to keep things tidy, each application uses its own separate set of resources - one AWS RDS DB for each and so on. This isolates applications, and I can provision or destroy each application independently of the rest, with no dependencies between each one.</p>
-<p>The above setup costs (all prices are for the <code>ap-southeast-1</code> region, based on 750 hours/month):</p>
-<table>
-<thead>
-<tr>
-<th>Service</th>
-<th>Price</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://aws.amazon.com/ecs/pricing/">ECS</a></td>
-<td>$3.91</td>
-<td>0.25 vCPU, 0.5GB RAM for <a href="https://aws.amazon.com/fargate/pricing/">Fargate Spot instances</a></td>
-</tr>
-<tr>
-<td><a href="https://aws.amazon.com/vpc/pricing/">Static IP</a> for ECS</td>
-<td>$3.75</td>
-<td>ECS task is in a public subnet</td>
-</tr>
-<tr>
-<td><a href="https://aws.amazon.com/rds/pricing/">RDS</a></td>
-<td>$18.75</td>
-<td>db.t4g.micro - the smallest</td>
-</tr>
-<tr>
-<td><a href="https://aws.amazon.com/elasticloadbalancing/pricing/?nc=sn&amp;loc=3">ALB</a></td>
-<td>$16.88</td>
-<td></td>
-</tr>
-<tr>
-<td>S3</td>
-<td>$0.00</td>
-<td>Frontend</td>
-</tr>
-<tr>
-<td>Cloudfront</td>
-<td>$0.00</td>
-<td>Free tier includes 1TB of data transfer out per month</td>
-</tr>
-</tbody>
-</table>
-<p>Total: $43.29 USD/month</p>
-<details class="note">
-<summary>Why is the ECS task in a public subnet?</summary>
-<p>The ECS task is placed in a public subnet for it to have outbound internet access, so we need to pay for the IPv4 address. Alternatively, it could be put in a private subnet, but then you'd either have to pay for a NAT Gateway, or use something like <a href="https://fck-nat.dev">fck-nat</a>.</p>
-</details>
-<details class="note">
-<summary>ECS without ALB</summary>
-<p>It is possible to run ECS without an ALB, by using CloudMap and a HTTP API Gateway as shown <a href="https://www.stacktape.com/blog/why-i-do-not-use-load-balancer">here</a>. However, Server Sent Events (SSE) are not supported by API Gateway, and so for my applications which use that (e.g. LLM streaming), it is not viable.</p>
-</details>
-<h2 id="optimized-setup">Optimized Setup</h2>
-<p>After thinking through, I realized the pricey components could be swapped out:</p>
+<p>The usual principles of Clean Code apply.</p>
+<h3 id="automated-deployments-speed-up-development-time">Automated deployments speed up development time</h3>
+<p>I use Github Actions for CI/CD, using OpenTofu for deploying infrastructure. Once I make changes to the <code>dev</code> branch, merging them to <code>prod</code> triggers the pipeline and the production site is updated ~5 minutes later.</p>
+<p>This is very helpful for testing production-only things like Stripe payments on the live account, or Google Analytics.</p>
+<h3 id="nice-frontend-stuff">Nice frontend stuff</h3>
+<p>Tailwind CSS (for theming), Shadcn (for components) and Lucide Icons are a great combination. It's easy to swap themes via <a href="https://tweakcn.com">tweakcn</a>, dark mode comes for free, and mainstream LLMs are very familiar with this stack.</p>
+<h2 id="random-thoughts-about-handling-long-running-jobs-on-the-backend">Random thoughts about handling long-running jobs on the backend</h2>
+<p>I was randomly thinking about the best way to handle the scenario where the backend needs to make an API call to a vendor which might take a long time (e.g. video generation).</p>
+<p>I initially thought we could just have the frontend wait for the backend to complete, but I realized this wasn't really feasible because long running HTTP connections can time-out on many layers (API Gateway has a 29s timeout, App Runner has a 120s hard timeout). What happens to the backend result if the connection is interrupted, but the vendor's request finishes?</p>
+<p>There are 2 ways to solve the problem. Both involve asynchronous processing.</p>
+<p>The first is to use a webhook from the vendor. This way, the vendor can notify the backend when the long-running job is complete, and the backend can then update the database accordingly. Meanwhile, the frontend continuously polls a backend endpoint to check the status of the job.</p>
+<p>If the vendor does not have a webhook, then the second best option is to use a queue (e.g. Simple Queue Service). A queue offers features like message retention, dead letter queues to handle failures, and FIFO ordering.</p>
+<p>In particular, an implementation of queue + function system (SQS + Lambda) for a low price could be:</p>
+<p>Queue:</p>
 <ul>
-<li>ECS: Replace with <a href="https://aws.amazon.com/apprunner/">App Runner</a>, a container service that can automatically <a href="https://fgj.codes/posts/app-runner/">scale vCPU usage to zero</a>. You only pay for the cached memory. Scaling down is fast - within a minute.</li>
-<li>RDS: Replace with a serverless Postgres provider - I use <a href="https://neon.com/">Neon</a>.</li>
-<li>ALB: Not required with App Runner.</li>
+<li>message retention period 12 hours</li>
+<li>default visibility: 30s (how long we will wait for a worker to process, before making the message available to other workers again)</li>
+<li>maxReceives: 900 -&gt; 1800s (30min) is max time we can wait for the vendor</li>
+<li>DLQ after that</li>
 </ul>
-<p>The cost:</p>
-<table>
-<thead>
-<tr>
-<th>Service</th>
-<th>Price</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>App Runner</td>
-<td>~$2.60</td>
-<td>$0.007/GB-hour idle, $0.064/vCPU-hour active. Based on 0.25vCPU/0.5GB.</td>
-</tr>
-<tr>
-<td>DB (Neon)</td>
-<td>~$0.50</td>
-<td>$0.14/CU-hour + $0.35/GB-month storage. First 50 hours free.</td>
-</tr>
-<tr>
-<td>S3</td>
-<td>~$0</td>
-<td>Frontend</td>
-</tr>
-<tr>
-<td>Cloudfront</td>
-<td>~$0</td>
-<td>Free tier includes 1TB of data transfer out per month</td>
-</tr>
-</tbody>
-</table>
-<p><em>Note: For <a href="https://neon.com/">Neon</a>, the smallest configuration is 0.25CU, which is 0.25vCPU and 1GB RAM.</em></p>
-<p>Total: ~$3.10 USD/month</p>
-<h2 id="compute-app-runner-vs-ecs">Compute: App Runner vs ECS</h2>
-<p>Assuming the App Runner instance (with 0.25vCPU and 0.5GB RAM) is continually active, this will cost <span class="arithmatex">\((\$0.064/4 + \$0.007/2) \times 750 = \$14.625\)</span>.</p>
-<p>For ECS, an equivalent Fargate Spot instance together with the static IP and ALB would cost <span class="arithmatex">\(\$3.91 + \$3.75 + \$16.88 = \$24.54\)</span>.</p>
-<p>For low-moderate traffic, App Runner is the winner here.</p>
-<p><em>Note: It might be possible to use Cloudfront, CloudMap and ECS (with public IPs). This would still allow for SSE, and cost <span class="arithmatex">\(\$3.91 + \$3.75 = \$7.66\)</span>, making it more attractive if the App Runner cost were to go above this. I haven't explored this yet.</em></p>
-<h2 id="database-neon-vs-rds">Database: Neon vs RDS</h2>
-<p>Neon starts to get expensive when the DB is being constantly queried.</p>
-<p>If the database were to be active throughout the whole month, the cost (for the smallest 0.25CU instance, which has 0.25vCPU and 1GB RAM) would be <span class="arithmatex">\(\$0.14/4 \times 750 = \$26.25\)</span></p>
-<p>In contrast, a RDS db.t4g.micro instance (with 2 vCPUs and 1GB RAM) costs $18.75.</p>
-<p>So if application traffic picks up, I'm switching back to AWS RDS.</p>
-<h2 id="faq">FAQ</h2>
-<h3 id="why-not-use-aws-lambdas">Why not use AWS Lambdas?</h3>
-<p>The state of Lambdas has changed quite rapidly, and now container images are supported, as well as even wrapping an entire web framework (FastAPI/Express/Laravel) into a Lambda via the <a href="https://github.com/awslabs/aws-lambda-web-adapter">AWS Lambda Web Adapter</a>. You do not pay anything for Lambdas when they are not in use (apart from ECR fees if you are using a container image). The Function URL allows Lmabdas to stream their responses, and Cloudfront supports Function URLs as an origin.</p>
-<p>Unfortunately, the biggest drawback is still the cold-start.</p>
-<p>I ran my backend on both App Runner and AWS Lambdas:</p>
-<table>
-<thead>
-<tr>
-<th>Service</th>
-<th>Cold Start Time</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>App Runner</td>
-<td>~300ms</td>
-</tr>
-<tr>
-<td>Lambda</td>
-<td>~6000ms</td>
-</tr>
-</tbody>
-</table>
-<p>The UX is quite bad with such a long cold start time, and it is going to turn away a lot of potential users.</p>
-<p>That being said, if you don't require SSE and can tolerate the cold starts, Lambdas can be cheaper than App Runner.</p>
-<h3 id="what-about-aws-lambdas-with-provisioned-concurrencysnapstart">What about AWS Lambdas with Provisioned Concurrency/SnapStart?</h3>
-<p><a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Provisioned Concurrency</a> pre-initializes a set number of execution environments for your function, reducing cold start times significantly. <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> takes a snapshot of the initialized execution environment and uses it to create new execution environments, further reducing cold start times.</p>
-<p>The base costs (assuming 0 incoming requests, based on a single 0.5GB instances) are:</p>
-<table>
-<thead>
-<tr>
-<th>Service</th>
-<th>Cost</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>App Runner</td>
-<td>$2.60/month</td>
-<td>$0.007/GB-hour idle</td>
-</tr>
-<tr>
-<td>Lambda (Provisioned)</td>
-<td>$5.48/month</td>
-<td>2,628,000 seconds x 0.5GB x 0.0000041667 USD</td>
-</tr>
-<tr>
-<td>Lambda (SnapStart)</td>
-<td>$2.03/month</td>
-<td>0.0000015046 per GB-second for cache</td>
-</tr>
-</tbody>
-</table>
-<p>Unfortunately, SnapStart does not work with container images, which doesn't fit my use case.</p>
-<h3 id="how-about-gcps-cloud-run">How about GCP's Cloud Run?</h3>
-<p>GCP Cloud Run is similar to AWS App Runner, and lets you run a container billed by the second. Unlike App Runner, it supports scaling to zero completely, meaning there is no monthly minimum. However, scaling to zero means that the container's memory is no longer allocated, which can lead to increased latency for cold starts.</p>
-<p>To achieve the same latency characteristics as App Runner, Cloud Run supports keeping a minimum number of instances warm.</p>
-<p>For the equivalent 0.25vCPU, 512MB RAM setup, the price for 1 month is</p>
+<p>A message comes in.</p>
+<p>Worker (a Lambda function):</p>
 <ul>
-<li>vCPU: <span class="arithmatex">\(\$0.0000025 \div 4 \times 2628000 = \$1.6425\)</span></li>
-<li>Memory: <span class="arithmatex">\(\$0.0000025 \div 2 \times 2628000 = \$3.285\)</span></li>
+<li>first, check timestamp: if &gt; 20min in queue, mark failed and send to DLQ</li>
+<li>check job status from the vendor:</li>
+<li>Success: get result, update DB, remove message.</li>
+<li>Pending: if this is the first run, block for 30s, then set the visibility timeout to something short like 5s. On each retry, check message age. If &lt; 60s old → 2s visibility; if &lt; 5m → 5–10s; if &lt; 20m → 15–30s.</li>
+<li>Failed: send to DLQ, remove message.</li>
 </ul>
-<p>Total = $4.9275</p>
-<p>While this is higher than App Runner's minimum cost ($2.60/month), it is possible to run the service completely on demand and only pay for what you use (albeit with long cold start times).</p>
-<h3 id="why-not-aws-lightsail-for-the-database">Why not AWS Lightsail for the database?</h3>
-<p>AWS Lightsail (a VPC service) is a cheap way to run Postgres; the cheapest plan is $5/month. You'll need to manage updating and scaling yourself, however. Also, this makes my IaC a bit less isolated, since multiple applications are going to be sharing the same database - have to be careful to avoid using the same name for databases.</p>
-<h3 id="why-not-use-a-nosql-db-like-firestoredynamodb">Why not use a NoSQL DB like Firestore/DynamoDB?</h3>
-<p>I'm personally not a fan of NoSQL as there's less type-safety, less constraint enforcement and migrations are more troublesome. Also, with larger scale, you start paying for read/writes, unlike traditional SQL databases where you just pay for the runtime.</p>
-<h3 id="why-not-aurora-serverless-v2-for-the-db">Why not Aurora Serverless V2 for the DB?</h3>
-<p>Aurora Serverless v2 supports <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2-auto-pause.html">auto-pause</a>, which scales the instances to zero after inactivity. However, the reboot time is around 15 seconds, which is quite slow.</p>
+<p>DLQ handler:</p>
+<ul>
+<li>Update DB, remove message.</li>
+</ul>
+<p>In the interest of saving money I checked the costs on GCP, which offers Cloud Run Worker Pools. The cost: 0.000011244 × 2,628,000 = 29.549232 (≈ $29.55). Minimum machine size: 1 vCPU, 512 MB RAM. This is still pretty expensive compared to using AWS Lambdas.</p>
 
 
 
