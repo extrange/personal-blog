@@ -119,6 +119,21 @@ The base costs (assuming 0 incoming requests, based on a single 0.5GB instances)
 
 Unfortunately, SnapStart does not work with container images, which doesn't fit my use case.
 
+### How about GCP's Cloud Run?
+
+GCP Cloud Run is similar to AWS App Runner, and lets you run a container billed by the second. Unlike App Runner, it supports scaling to zero completely, meaning there is no monthly minimum. However, scaling to zero means that the container's memory is no longer allocated, which can lead to increased latency for cold starts.
+
+To achieve the same latency characteristics as App Runner, Cloud Run supports keeping a minimum number of instances warm.
+
+For the equivalent 0.25vCPU, 512MB RAM setup, the price for 1 month is
+
+- vCPU: $\$0.0000025 \div 4 \times 2628000 = \$1.6425$
+- Memory: $\$0.0000025 \div 2 \times 2628000 = \$3.285$
+
+Total = $4.9275
+
+While this is higher than App Runner's minimum cost ($2.60/month), it is possible to run the service completely on demand and only pay for what you use (albeit with long cold start times).
+
 ### Why not AWS Lightsail for the database?
 
 AWS Lightsail (a VPC service) is a cheap way to run Postgres; the cheapest plan is $5/month. You'll need to manage updating and scaling yourself, however. Also, this makes my IaC a bit less isolated, since multiple applications are going to be sharing the same database - have to be careful to avoid using the same name for databases.
