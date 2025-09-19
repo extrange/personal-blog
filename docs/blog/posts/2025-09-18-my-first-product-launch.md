@@ -8,6 +8,8 @@ categories:
 
 Today I launched [CloudVise], an AI advisor giving personalized advice across multiple topics. It was a long journey, starting all the way back in July.
 
+![CloudVise Screenshot]
+
 Here are some lessons I learnt.
 
 <!-- more -->
@@ -49,6 +51,75 @@ This is very helpful for testing production-only things like Stripe payments on 
 
 Tailwind CSS (for theming), Shadcn (for components) and Lucide Icons are a great combination. It's easy to swap themes via [tweakcn], dark mode comes for free, and mainstream LLMs are very familiar with this stack.
 
+### Ads and Analytics
+
+Google Ads and Google Analytics were very frustrating the first time I set it up. Some events were not being sent, I had no idea what a 'Google Tag' was, and so on. The Realtime Overview in Google Analytics even broke after I changed something. It was quite confusing and not clear where to see my accounts/properties/websites. After playing around for a while, I managed to get everything working.
+
+**Google Tag Manager (GTM)**
+
+This product allows you to embed various tracking tags into your website (e.g. for Google Analytics, Google Ads, Facebook etc) without having to update tracking code in your frontend each time. Instead, you can configure tags via the UI in Google Tag Manager.
+
+<figure>
+  <img src="/static/images/2025-09-19/tag-manager.jpg" alt="GTM"><figcaption>How I organize GTM: one account, with multiple containers (websites)</figcaption>
+</figure>
+
+An **event** in GTM refers to a unit of interaction you want to measure (e.g. button clicked, page scrolled, paged view, or custom Javascript fired an event).
+
+!!! warning
+
+    GTM does not send events to tags automatically!
+
+    You need to setup **Firing Triggers** for a tag, which will send the event, and optionally any custom payload you configure to the tag's owner.
+
+    See the screenshot below for an example.
+
+Of note, there is a new kind of tag available, (confusingly) called the [Google Tag]. This is a unified tag which:
+
+- replaces multiple tags previously required for different Google products
+- for Analytics, [automatically sends interactions without further configuration][enhanced-analytics]
+- for Ads, tracks conversions, including those via custom events
+
+**Google Analytics**
+
+<figure>
+  <img src="/static/images/2025-09-19/analytics.jpg" alt="Google Analytics"><figcaption>How I organize Google Analytics: one account, multiple properties (websites)</figcaption>
+</figure>
+
+I use Google Analytics to track engagement.
+
+To send the new [Enhanced Analytics][enhanced-analytics] events from Google Tag Manager (via the Google Tag), ensure that the **Firing Triggers** shown in the screenshot below are setup. These triggers are automatically converted in into meaningful events in Analytics, as shown below, without further configuration necessary ('All Pages' becomes `page_view` and so on).
+
+<figure>
+  <img src="/static/images/2025-09-19/google-tag.jpg" alt="GTM"><figcaption>The Google Tag in GTM</figcaption>
+</figure>
+
+<figure>
+  <img src="/static/images/2025-09-19/events.jpg" alt="GTM"><figcaption>Google Tag events are converted to Analytics events</figcaption>
+</figure>
+
+You'll also notice that I have GA4 Event tags setup. These are for custom actions, such as when we push events to the Data Layer via Javascript (e.g. on checkout, or a chat message being sent). For example in NextJS, you can send a `chat_submit` event like this:
+
+```ts hl_lines="7"
+import { sendGTMEvent } from "@next/third-parties/google";
+
+//...
+
+const handleSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+  sendGTMEvent({ event: "chat_submit", topic: activeTopic?.title });
+  // ...
+});
+```
+
+**Google Ads**
+
+In Google Ads, when you create a Campaign, you have 2 main ways of tracking conversions:
+
+- Use Google Analytics' events (convenient)
+- Send a custom event directly (via the _Google Ads Conversion Tracking Tag_)
+
+Some sources on the internet say it is better to send a custom event directly, as that allows data to be sent to Google Ads faster for campaign optimization. I'm not fully sure about this yet (need to test).
+
 ## Random thoughts about handling long-running jobs on the backend
 
 I was randomly thinking about the best way to handle the scenario where the backend needs to make an API call to a vendor which might take a long time (e.g. video generation).
@@ -89,3 +160,6 @@ In the interest of saving money I checked the costs on GCP, which offers Cloud R
 [CloudVise]: https://cloudvise.io
 [optimizing-cost]: ./2025-09-10-how-to-run-online-business-aws.md
 [tweakcn]: https://tweakcn.com
+[CloudVise Screenshot]: ../../static/images/2025-09-19/hero.jpg
+[Google Tag]: https://support.google.com/analytics/answer/11994839?hl=en
+[enhanced-analytics]: https://support.google.com/analytics/answer/9216061?sjid=2205309068553275356-NC
