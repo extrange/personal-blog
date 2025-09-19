@@ -972,6 +972,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ads-and-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ads and Analytics
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1045,7 +1054,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              4 min read
+                              6 min read
                             
                           </span>
                         </div>
@@ -1071,6 +1080,7 @@
 
 <h1 id="lessons-from-my-first-product-launch">Lessons From My First Product Launch</h1>
 <p>Today I launched <a href="https://cloudvise.io">CloudVise</a>, an AI advisor giving personalized advice across multiple topics. It was a long journey, starting all the way back in July.</p>
+<p><a class="glightbox" href="../../../../../static/images/2025-09-19/hero.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="CloudVise Screenshot" src="../../../../../static/images/2025-09-19/hero.jpg" /></a></p>
 <p>Here are some lessons I learnt.</p>
 <!-- more -->
 
@@ -1096,6 +1106,60 @@
 <p>This is very helpful for testing production-only things like Stripe payments on the live account, or Google Analytics.</p>
 <h3 id="nice-frontend-stuff">Nice frontend stuff</h3>
 <p>Tailwind CSS (for theming), Shadcn (for components) and Lucide Icons are a great combination. It's easy to swap themes via <a href="https://tweakcn.com">tweakcn</a>, dark mode comes for free, and mainstream LLMs are very familiar with this stack.</p>
+<h3 id="ads-and-analytics">Ads and Analytics</h3>
+<p>Google Ads and Google Analytics were very frustrating the first time I set it up. Some events were not being sent, I had no idea what a 'Google Tag' was, and so on. The Realtime Overview in Google Analytics even broke after I changed something. It was quite confusing and not clear where to see my accounts/properties/websites. After playing around for a while, I managed to get everything working.</p>
+<p><strong>Google Tag Manager (GTM)</strong></p>
+<p>This product allows you to embed various tracking tags into your website (e.g. for Google Analytics, Google Ads, Facebook etc) without having to update tracking code in your frontend each time. Instead, you can configure tags via the UI in Google Tag Manager.</p>
+<figure>
+  <a class="glightbox" href="/static/images/2025-09-19/tag-manager.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2025-09-19/tag-manager.jpg" alt="GTM"></a><figcaption>How I organize GTM: one account, with multiple containers (websites)</figcaption>
+</figure>
+
+<p>An <strong>event</strong> in GTM refers to a unit of interaction you want to measure (e.g. button clicked, page scrolled, paged view, or custom Javascript fired an event).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>GTM does not send events to tags automatically!</p>
+<p>You need to setup <strong>Firing Triggers</strong> for a tag, which will send the event, and optionally any custom payload you configure to the tag's owner.</p>
+<p>See the screenshot below for an example.</p>
+</div>
+<p>Of note, there is a new kind of tag available, (confusingly) called the <a href="https://support.google.com/analytics/answer/11994839?hl=en">Google Tag</a>. This is a unified tag which:</p>
+<ul>
+<li>replaces multiple tags previously required for different Google products</li>
+<li>for Analytics, <a href="https://support.google.com/analytics/answer/9216061?sjid=2205309068553275356-NC">automatically sends interactions without further configuration</a></li>
+<li>for Ads, tracks conversions, including those via custom events</li>
+</ul>
+<p><strong>Google Analytics</strong></p>
+<figure>
+  <a class="glightbox" href="/static/images/2025-09-19/analytics.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2025-09-19/analytics.jpg" alt="Google Analytics"></a><figcaption>How I organize Google Analytics: one account, multiple properties (websites)</figcaption>
+</figure>
+
+<p>I use Google Analytics to track engagement.</p>
+<p>To send the new <a href="https://support.google.com/analytics/answer/9216061?sjid=2205309068553275356-NC">Enhanced Analytics</a> events from Google Tag Manager (via the Google Tag), ensure that the <strong>Firing Triggers</strong> shown in the screenshot below are setup. These triggers are automatically converted in into meaningful events in Analytics, as shown below, without further configuration necessary ('All Pages' becomes <code>page_view</code> and so on).</p>
+<figure>
+  <a class="glightbox" href="/static/images/2025-09-19/google-tag.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2025-09-19/google-tag.jpg" alt="GTM"></a><figcaption>The Google Tag in GTM</figcaption>
+</figure>
+
+<figure>
+  <a class="glightbox" href="/static/images/2025-09-19/events.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2025-09-19/events.jpg" alt="GTM"></a><figcaption>Google Tag events are converted to Analytics events</figcaption>
+</figure>
+
+<p>You'll also notice that I have GA4 Event tags setup. These are for custom actions, such as when we push events to the Data Layer via Javascript (e.g. on checkout, or a chat message being sent). For example in NextJS, you can send a <code>chat_submit</code> event like this:</p>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">sendGTMEvent</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@next/third-parties/google&quot;</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">//...</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useCallback</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="kt">FormEvent</span><span class="o">&lt;</span><span class="nx">HTMLFormElement</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="hll"><span class="w">  </span><span class="nx">sendGTMEvent</span><span class="p">({</span><span class="w"> </span><span class="nx">event</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;chat_submit&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">topic</span><span class="o">:</span><span class="w"> </span><span class="kt">activeTopic?.title</span><span class="w"> </span><span class="p">});</span>
+</span></span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="c1">// ...</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">});</span>
+</span></code></pre></div>
+<p><strong>Google Ads</strong></p>
+<p>In Google Ads, when you create a Campaign, you have 2 main ways of tracking conversions:</p>
+<ul>
+<li>Use Google Analytics' events (convenient)</li>
+<li>Send a custom event directly (via the <em>Google Ads Conversion Tracking Tag</em>)</li>
+</ul>
+<p>Some sources on the internet say it is better to send a custom event directly, as that allows data to be sent to Google Ads faster for campaign optimization. I'm not fully sure about this yet (need to test).</p>
 <h2 id="random-thoughts-about-handling-long-running-jobs-on-the-backend">Random thoughts about handling long-running jobs on the backend</h2>
 <p>I was randomly thinking about the best way to handle the scenario where the backend needs to make an API call to a vendor which might take a long time (e.g. video generation).</p>
 <p>I initially thought we could just have the frontend wait for the backend to complete, but I realized this wasn't really feasible because long running HTTP connections can time-out on many layers (API Gateway has a 29s timeout, App Runner has a 120s hard timeout). What happens to the backend result if the connection is interrupted, but the vendor's request finishes?</p>
