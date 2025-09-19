@@ -6,11 +6,11 @@ categories:
 
 # Lessons From My First Product Launch
 
-Today I launched [CloudVise], an AI advisor giving personalized advice across multiple topics. It was a long journey, starting all the way back in July.
+Today Chanel and I launched [CloudVise], an AI advisor giving personalized advice across multiple topics. It was a long journey, starting all the way back in July.
 
 ![CloudVise Screenshot]
 
-Here are some lessons I learnt.
+Here are some lessons I learnt through the whole process.
 
 <!-- more -->
 
