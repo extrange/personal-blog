@@ -111,6 +111,12 @@ const handleSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
 });
 ```
 
+!!! warning "Custom events"
+
+    Note that you **cannot** send custom events to the Google Tag directly in Tag Manager.
+
+    You need to create a new GA4 Event tag/Google Ads Conversion Tracking tag, which will (confusingly) use the Google Tag as its configuration.
+
 **Google Ads**
 
 In Google Ads, when you create a Campaign, you have 2 main ways of tracking conversions:
