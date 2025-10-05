@@ -1,6 +1,6 @@
 ---
 categories:
-    - Insurance
+  - Insurance
 date: 2021-06-18
 ---
 
@@ -10,7 +10,7 @@ On 2 Apr 2021, MOH [announced](https://www.asiaone.com/money/integrated-shield-p
 
 <!-- more -->
 
-With this in mind, I decided to look at the Great Eastern's (GE) [new riders](https://www.greateasternlife.com/content/dam/corp-site/great-eastern/sg/gels-ftrp-imc-cm/health-insurance-/great-supremehealth/gels-pdt-pd-gsh-gtc-benefit-and-premium-tables-eng.pdf)
+With this in mind, I decided to look at the Great Eastern's (GE) new riders.
 
 ![](../../static/images/2021-06-18-ge-totalcare-comparison/ge-totalcare-rider-infographic.jpg)
 
@@ -63,8 +63,8 @@ The situation is slightly different for the private riders.
 
 Here, you'll fall into one of the two groups[^groups]:
 
--   Group 1: Restructured hospitals and private hospitals **with** a certificate of pre-authorization[^pre-authorization] (only applicable for panel doctors)
--   Group 2: Private hospitals **without** a certificate of pre-authorization
+- Group 1: Restructured hospitals and private hospitals **with** a certificate of pre-authorization[^pre-authorization] (only applicable for panel doctors)
+- Group 2: Private hospitals **without** a certificate of pre-authorization
 
 If you fall into the first group, the Classic-P and Elite-P plans are **identical** - you only pay 5% of the total bill.
 
@@ -93,10 +93,10 @@ Extra coverage must come at a price.
 
 We can make some observations:
 
--   The P- (or private) class of either plan is markedly more expensive than the A- or B- ones.
--   The Elite plan is markedly more expensive than the Classic plan
-    -   For example, at 35 years, you'd be paying $377 more or 2.1x
-    -   At 70 years, you'd be paying $2,796 more or 2.5x
+- The P- (or private) class of either plan is markedly more expensive than the A- or B- ones.
+- The Elite plan is markedly more expensive than the Classic plan
+  - For example, at 35 years, you'd be paying $377 more or 2.1x
+  - At 70 years, you'd be paying $2,796 more or 2.5x
 
 We can also look at the total premiums one would pay for different lengths of time:
 
@@ -107,7 +107,7 @@ We can also look at the total premiums one would pay for different lengths of ti
 
 One might ask how often must each individual be hospitalized, to receive benefits exceeding the premium paid, over the period of 30 years?
 
-This is not easy to calculate. We would need to take the average hospital bill size, as well as the [hospitalization rates](https://www.moh.gov.sg/resources-statistics/healthcare-institution-statistics/hospital-admission-rates-by-age-and-sex/hospital-admission-rates-by-age-and-sex-2020) for an individual, and then run them through a spreadsheet. (Work in progress)
+This is not easy to calculate. We would need to take the average hospital bill size, as well as the [hospitalization rates](https://www.moh.gov.sg/others/resources-and-statistics/-healthcare-institution-statistics-hospital-admission-rates-by-age-and-sex-hospital-admission-rates-by-age-and-sex-2022) for an individual, and then run them through a spreadsheet. (Work in progress)
 
 Note also, that GE has introduced a [claims-based pricing](https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/great-supremehealth/cap.html) mechanic. I won't go into detail here, but suffice to say, your premiums increase the more times you are admitted, up to 2.5x the standard amount.
 
@@ -117,19 +117,19 @@ This question is subjective, since people have different needs.
 
 For the Classic plan:
 
--   You pay less premiums overall
--   For private hospitals, if you get a certificate of pre-authorization (i.e. a panel doctor), you pay the same as someone on the Elite plan
--   However, for B1 to A wards, you have to pay the greater of 5% or the deductible (~$3,500)
--   And for private hospitals, if you don't have a certificate of pre-authorization, you'll have to pay the greater of 5% or the deductible
+- You pay less premiums overall
+- For private hospitals, if you get a certificate of pre-authorization (i.e. a panel doctor), you pay the same as someone on the Elite plan
+- However, for B1 to A wards, you have to pay the greater of 5% or the deductible (~$3,500)
+- And for private hospitals, if you don't have a certificate of pre-authorization, you'll have to pay the greater of 5% or the deductible
 
 The Elite plan:
 
--   You pay only 5% of the total bill regardless of pre-authorization or ward class
--   However, the total premium paid is much higher than the Classic (up to [$60,000](#private-rider-comparison))
+- You pay only 5% of the total bill regardless of pre-authorization or ward class
+- However, the total premium paid is much higher than the Classic (up to [$60,000](#private-rider-comparison))
 
 I feel that the real question is - would you pay $60,000 extra, to always pay only 5% of the total bill, regardless of the size?
 
-My opinion is that the Elite plan will in a sense 'pay-off' if you get warded frequently in private hospitals. Otherwise, you would be better off using the $60,000 that you would have saved, to pay for the excesses under the Classic plan. Even if you end up co-paying $3000 each admission, you'd have to be warded 20 times from 20 to 74 years of age to end up paying more than what someone with the Elite plan would have paid. Which, based on [statistics](https://www.moh.gov.sg/resources-statistics/healthcare-institution-statistics/hospital-admission-rates-by-age-and-sex/hospital-admission-rates-by-age-and-sex-2020), is unlikely.
+My opinion is that the Elite plan will in a sense 'pay-off' if you get warded frequently in private hospitals. Otherwise, you would be better off using the $60,000 that you would have saved, to pay for the excesses under the Classic plan. Even if you end up co-paying $3000 each admission, you'd have to be warded 20 times from 20 to 74 years of age to end up paying more than what someone with the Elite plan would have paid. Which, based on [statistics](https://www.moh.gov.sg/others/resources-and-statistics/-healthcare-institution-statistics-hospital-admission-rates-by-age-and-sex-hospital-admission-rates-by-age-and-sex-2022), is unlikely.
 
 Therefore, the Classic plan looks like the winner here.
 
