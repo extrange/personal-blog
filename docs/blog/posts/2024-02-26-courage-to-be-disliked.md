@@ -36,6 +36,11 @@ My biggest takeaways are:
 -   People lost in the desire for recognition have their interpersonal relationship cards in the hands of others.
 -   Children do not grow up to become what their parents want them to be.
 
+## On Competition
+
+-   Life is not a competition.
+-   A healthy feeling of inferiority is not something that comes from comparing oneself to others; it comes from one’s comparison with one’s ideal self.
+
 ## On Power Struggles
 
 -   Power struggles should be avoided.
