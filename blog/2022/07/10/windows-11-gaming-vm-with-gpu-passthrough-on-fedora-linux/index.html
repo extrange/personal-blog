@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,7 +15,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
@@ -26,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.84d31ad4.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -43,7 +40,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
       
     
@@ -59,42 +56,43 @@
     
     
       
-        <meta  property="og:type"  content="website" >
+        <meta property="og:type" content="website">
       
-        <meta  property="og:title"  content="Windows 11 Gaming VM with GPU Passthrough on Fedora Linux - Nicholas" >
+        <meta property="og:title" content="Windows 11 Gaming VM with GPU Passthrough on Fedora Linux - Nicholas">
       
-        <meta  property="og:description"  content="None" >
+        <meta property="og:description" content="None">
       
-        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-07-10-win11-vm-gpu-passthrough.png" >
+        <meta property="og:image" content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-07-10-win11-vm-gpu-passthrough.png">
       
-        <meta  property="og:image:type"  content="image/png" >
+        <meta property="og:image:type" content="image/png">
       
-        <meta  property="og:image:width"  content="1200" >
+        <meta property="og:image:width" content="1200">
       
-        <meta  property="og:image:height"  content="630" >
+        <meta property="og:image:height" content="630">
       
-        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/" >
+        <meta property="og:url" content="https://nicholaslyz.com/blog/2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/">
       
-        <meta  name="twitter:card"  content="summary_large_image" >
+        <meta name="twitter:card" content="summary_large_image">
       
-        <meta  name="twitter:title"  content="Windows 11 Gaming VM with GPU Passthrough on Fedora Linux - Nicholas" >
+        <meta name="twitter:title" content="Windows 11 Gaming VM with GPU Passthrough on Fedora Linux - Nicholas">
       
-        <meta  name="twitter:description"  content="None" >
+        <meta name="twitter:description" content="None">
       
-        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-07-10-win11-vm-gpu-passthrough.png" >
+        <meta name="twitter:image" content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-07-10-win11-vm-gpu-passthrough.png">
       
     
     
-   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
+  <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -134,7 +132,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -162,7 +160,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -171,15 +169,15 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -379,7 +377,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2">
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -653,7 +651,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4">
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -724,7 +722,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2">
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -910,7 +908,7 @@
               
                 
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1122,7 +1120,7 @@
             <div class="md-post__back">
               <div class="md-nav__title md-nav__container">
                 <a href="../../../../" class="md-nav__link">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
                   <span class="md-ellipsis">
                     Back to index
                   </span>
@@ -1141,7 +1139,7 @@
                   <ul class="md-nav__list">
                     <li class="md-nav__item">
                       <div class="md-nav__link">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
                         <time datetime="2022-07-10 00:00:00+00:00" class="md-ellipsis">July 10, 2022</time>
                       </div>
                     </li>
@@ -1149,7 +1147,7 @@
                     
                       <li class="md-nav__item">
                         <div class="md-nav__link">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
                           <span class="md-ellipsis">
                             in
                             
@@ -1161,7 +1159,7 @@
                       
                       <li class="md-nav__item">
                         <div class="md-nav__link">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
                           <span class="md-ellipsis">
                             
                               14 min read
@@ -1190,7 +1188,7 @@
 
 <h1 id="windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux">Windows 11 Gaming VM with GPU Passthrough on Fedora Linux</h1>
 <figure>
-  <a class="glightbox" href="/static/images/2022-07-10/demo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/demo.jpg" alt="Gaming on a laptop remotely over Nvidia Gamestream" loading="lazy"/></a>
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/static/images/2022-07-10/demo.jpg" data-desc-position="bottom"><img src="/static/images/2022-07-10/demo.jpg" alt="Gaming on a laptop remotely over Nvidia Gamestream" loading="lazy"></a>
   <figcaption>Gaming on a laptop remotely with Nvidia Gamestream using mobile data</figcaption>
 </figure>
 
@@ -1226,7 +1224,7 @@
 <h2 id="1-setup-gpu-passthrough">1. Setup GPU Passthrough</h2>
 <p><strong>Enable IOMMU</strong></p>
 <p>Open <code>/etc/default/grub</code> with your editor of choice, and append <code>intel_iommu=on</code> as well as <code>initcall_blacklist=sysfb_init</code> to <code>GRUB_CMDLINE_LINUX</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&quot;resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on initcall_blacklist=sysfb_init&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">"resume=UUID=16671cec-3bb8-46bb-b931-083c93082763 rhgb quiet intel_iommu=on initcall_blacklist=sysfb_init"</span>
 </span></code></pre></div>
 <details class="note">
 <summary>What is the purpose of <code>initcall_blacklist=sysfb_init</code>?</summary>
@@ -1243,7 +1241,7 @@
 <p><strong>Configure <code>vfio-pci</code> module to load on boot</strong></p>
 <p>Create the following files with the content as shown (you will need superuser privileges):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">#/etc/dracut.conf.d/10-vfio.conf</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">add_drivers</span><span class="o">+=</span><span class="s2">&quot; vfio_pci vfio vfio_iommu_type1 vfio_virqfd &quot;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">add_drivers</span><span class="o">+=</span><span class="s2">" vfio_pci vfio vfio_iommu_type1 vfio_virqfd "</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">#/etc/modules-load.d/vfio-pci.conf</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>vfio-pci
@@ -1266,7 +1264,7 @@
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>&lt;truncated&gt;
 </span></code></pre></div>
 <p>Now reboot, and check that IOMMU is working:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>iommu
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w">&nbsp;</span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>iommu
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.000000<span class="o">]</span><span class="w"> </span>Command<span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span><span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763<span class="w"> </span>rhgb<span class="w"> </span>quiet<span class="w"> </span><span class="nv">intel_iommu</span><span class="o">=</span>on
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="o">[</span><span class="w">    </span><span class="m">0</span>.133682<span class="o">]</span><span class="w"> </span>Kernel<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line:<span class="w"> </span><span class="nv">BOOT_IMAGE</span><span class="o">=(</span>hd4,gpt4<span class="o">)</span>/vmlinuz-5.18.10-200.fc36.x86_64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>2a1d4d2a-7016-4f91-aa55-92d1b284668d<span class="w"> </span>ro<span class="w"> </span><span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>root<span class="w"> </span><span class="nv">resume</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>16671cec-3bb8-46bb-b931-083c93082763<span class="w"> </span>rhgb<span class="w"> </span>quiet<span class="w"> </span><span class="nv">intel_iommu</span><span class="o">=</span>on
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="hll"><span class="o">[</span><span class="w">    </span><span class="m">0</span>.133749<span class="o">]</span><span class="w"> </span>DMAR:<span class="w"> </span>IOMMU<span class="w"> </span>enabled
@@ -1292,27 +1290,27 @@
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mber5/virt-manager:latest</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">            </span><span class="nt">HOSTS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;[&#39;qemu:///system&#39;]&quot;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">            </span><span class="nt">HOSTS</span><span class="p">:</span><span class="w"> </span><span class="s">"['qemu:///system']"</span>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:80&quot;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"8080:80"</span>
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
 </span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock&quot;</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/vm:/vm&quot;</span><span class="w"> </span><span class="c1"># Or wherever you want to store your VM images/virtual harddisks</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"/var/run/libvirt/libvirt-sock:/var/run/libvirt/libvirt-sock"</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"/vm:/vm"</span><span class="w"> </span><span class="c1"># Or wherever you want to store your VM images/virtual harddisks</span>
 </span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
 </span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="nt">devices</span><span class="p">:</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/dev/kvm:/dev/kvm&quot;</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"/dev/kvm:/dev/kvm"</span>
 </span></code></pre></div>
 <p>Start the container with <code>docker compose up -d</code>.</p>
 <h2 id="4-install-windows-and-setup-streaming">4. Install Windows and setup streaming</h2>
 <p>Now, navigate to <code>http://localhost:8080</code> and you should see the <code>virt-manager</code> interface:</p>
-<p><a class="glightbox" href="../../../../../static/images/2022-07-10/docker-virt-manager.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/docker-virt-manager.gif" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../static/images/2022-07-10/docker-virt-manager.gif" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/docker-virt-manager.gif"></a></p>
 <p>Create a new VM, and under <code>Add Hardware &gt; PCI Host Device</code>, add your GPU.</p>
 <details class="note">
 <summary>Giving the VM an IP address on the LAN</summary>
 <p>If you would like your VM also have its own IP address on the LAN (e.g. to play multiplayer games with peers on the same subnet), you can add a <a href="https://virt.kernelnewbies.org/MacVTap"><code>macvtap</code></a> interface now, in addition to the standard bridge network between guest and host.</p>
 <p>To do this, add another <code>NIC</code> and ensure <code>Host device enpXsX: macvtap</code> is selected.</p>
-<p><a class="glightbox" href="../../../../../static/images/2022-07-10/vm-network.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-network.jpg" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../static/images/2022-07-10/vm-network.jpg" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-network.jpg"></a></p>
 <p>If you just want to be able to access the VM over the internet, you can use a peer-to-peer VPN as shown <a href="#5-setup-overlay-mesh-network-aka-peer-to-peer-vpn">below</a>.</p>
 </details>
 <p>Next, install Windows 11 (you can get the ISO from <a href="https://www.microsoft.com/software-download/windows11">here</a>).</p>
@@ -1333,7 +1331,7 @@
 </ul>
 <p>Once the Windows VM boots, install the NVIDIA drivers, and then ensure that the GPU is detected by the VM.</p>
 </details>
-<p><a class="glightbox" href="../../../../../static/images/2022-07-10/vm-gpu.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-gpu.jpg" /></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../static/images/2022-07-10/vm-gpu.jpg" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-gpu.jpg"></a></p>
 <p>Next, install <a href="https://app.lizardbyte.dev/Sunshine/?lng=en">Sunshine</a>, the streaming server. Follow the instructions on the website.</p>
 <details class="note">
 <summary>What about NVIDIA Gamestream?</summary>
@@ -1362,7 +1360,7 @@
 <p>Now, you have a working VM with <a href="https://moonlight-stream.org/">Moonlight</a> for gaming, and Remote Desktop (slower, but much less data usage) for doing work!</p>
 <h2 id="6-setup-apache-guacamole">6. Setup Apache Guacamole</h2>
 <figure>
-  <a class="glightbox" href="/static/images/2022-07-10/guacamole.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/guacamole.jpg" alt="Accessing a Windows VM over a browser with Apache Guacamole" loading="lazy"/></a>
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/static/images/2022-07-10/guacamole.jpg" data-desc-position="bottom"><img src="/static/images/2022-07-10/guacamole.jpg" alt="Accessing a Windows VM over a browser with Apache Guacamole" loading="lazy"></a>
   <figcaption>Accessing a Windows VM over a browser with Apache Guacamole</figcaption>
 </figure>
 
@@ -1496,7 +1494,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <ul>
 <li>
 <p>After an RDP session, the main desktop is locked. To fix this, create a batch file with the following content, and run it <strong>with administrator rights</strong> to disconnect the RDP and unlock the main desktop:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Powershell -Command &quot;tscon rdp-tcp#0 /DEST:console&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Powershell -Command "tscon rdp-tcp#0 /DEST:console"
 </span></code></pre></div>
 </li>
 </ul>
@@ -1567,7 +1565,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 </li>
 <li>
 <p>Types of VM network connections compared:
-    <a class="glightbox" href="../../../../../static/images/2022-07-10/vm-networking.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-networking.png" /></a></p>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../../../static/images/2022-07-10/vm-networking.png" data-desc-position="bottom"><img alt="" src="../../../../../static/images/2022-07-10/vm-networking.png"></a></p>
 </li>
 </ul>
 <p>For more information on the <code>libvirt</code> domain XML, check out the <a href="https://libvirt.org/formatdomain.html">documentation</a>.</p>
@@ -1578,19 +1576,19 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <h3 id="steam-link">Steam Link</h3>
 <p><a href="https://store.steampowered.com/remoteplay#anywhere">Steam Link</a> is another solution for low latency desktop streaming, which is also available cross-platform. One advantage compared to <a href="https://moonlight-stream.org/">Moonlight</a> is that it works without a GPU installed (it uses <code>libx264</code> on the CPU). While the performance using a GPU (using <a href="https://en.wikipedia.org/wiki/Nvidia_NVENC">NVENC</a>) is roughly equivalent to Moonlight at the same bitrate, performance without a GPU leaves a lot to be desired, in terms of encoding time and therefore latency.</p>
 <figure>
-  <a class="glightbox" href="/static/images/2022-07-10/steamlink.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/steamlink.jpg" alt="Steam Link without GPU" loading="lazy"/></a>
-  <figcaption>Steam Link using <code>libx264</code> (CPU) encoding. <br/>Note the encoding latency of 130ms (game: Hearthstone)</figcaption>
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/static/images/2022-07-10/steamlink.jpg" data-desc-position="bottom"><img src="/static/images/2022-07-10/steamlink.jpg" alt="Steam Link without GPU" loading="lazy"></a>
+  <figcaption>Steam Link using <code>libx264</code> (CPU) encoding. <br>Note the encoding latency of 130ms (game: Hearthstone)</figcaption>
 </figure>
 
 <p>Gaming (even light) is therefore not possible without a GPU. Even for non-gaming tasks, there is little reason not to use Remote Desktop/Apache Guacamole instead, which have much lower network bandwidth requirements.</p>
 <p>Steam Link also appears to render the cursor client-side, compared to Moonlight which renders the cursor on the server. This introduces some visible screen artifacts, as can be seen in the comparison images when the cursor is click-dragged rapidly (the desktop lags behind the cursor for Steam Link).</p>
 <figure>
-  <a class="glightbox" href="/static/images/2022-07-10/steamlink-cursor.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/steamlink-cursor.jpg" alt="Steam Link" loading="lazy"/></a>
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/static/images/2022-07-10/steamlink-cursor.jpg" data-desc-position="bottom"><img src="/static/images/2022-07-10/steamlink-cursor.jpg" alt="Steam Link" loading="lazy"></a>
   <figcaption>Steam Link</figcaption>
 </figure>
 
 <figure>
-  <a class="glightbox" href="/static/images/2022-07-10/moonlight-cursor.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/static/images/2022-07-10/moonlight-cursor.jpg" alt="Moonlight" loading="lazy"/></a>
+  <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="/static/images/2022-07-10/moonlight-cursor.jpg" data-desc-position="bottom"><img src="/static/images/2022-07-10/moonlight-cursor.jpg" alt="Moonlight" loading="lazy"></a>
   <figcaption>Moonlight</figcaption>
 </figure>
 
@@ -1607,10 +1605,10 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 <li><a href="https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Setting_up_IOMMU">PCI passthrough via OVMF</a></li>
 </ul>
 <div class="footnote">
-<hr />
+<hr>
 <ol>
 <li id="fn:default-network">
-<p>The default network (which you can view with <code>sudo virsh net-dumpxml default</code>) is configured with <a href="https://libvirt.org/formatnetwork.html#connectivity"><code>forward mode='nat'</code></a>, which allows outbound communication for guests, but not inbound communications (unless you configure computers on the LAN to use your host as a NAT).&#160;<a class="footnote-backref" href="#fnref:default-network" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>The default network (which you can view with <code>sudo virsh net-dumpxml default</code>) is configured with <a href="https://libvirt.org/formatnetwork.html#connectivity"><code>forward mode='nat'</code></a>, which allows outbound communication for guests, but not inbound communications (unless you configure computers on the LAN to use your host as a NAT).&nbsp;<a class="footnote-backref" href="#fnref:default-network" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 </ol>
 </div>
@@ -1631,24 +1629,9 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
 
 
 
-<!-- Giscus -->
+
 <h2 id="__comments">Comments</h2>
-<script
-  src="https://giscus.app/client.js"
-  data-repo="extrange/personal-blog"
-  data-repo-id="MDEwOlJlcG9zaXRvcnkzNzE1Mzc1Mjc="
-  data-category="Announcements"
-  data-category-id="DIC_kwDOFiU2d84CRQpc"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="bottom"
-  data-theme="dark"
-  data-lang="en"
-  crossorigin="anonymous"
-  async
-></script>
+<script src="https://giscus.app/client.js" data-repo="extrange/personal-blog" data-repo-id="MDEwOlJlcG9zaXRvcnkzNzE1Mzc1Mjc=" data-category="Announcements" data-category-id="DIC_kwDOFiU2d84CRQpc" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="dark" data-lang="en" crossorigin="anonymous" async></script>
 
 <!-- Synchronize Giscus theme with palette -->
 <script>
@@ -1715,7 +1698,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
       
     
     <a href="https://github.com/extrange/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
     </a>
   
     
@@ -1723,7 +1706,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
     
     
     <a href="mailto:me@nicholaslyz.com" target="_blank" rel="noopener" title="" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"></path></svg>
     </a>
   
 </div>
@@ -1743,7 +1726,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
       <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="../../../../../javascripts/mathjax.js"></script>
       
@@ -1752,7 +1735,7 @@ Enable-WindowsOptionalFeature -FeatureName ServicesForNFS-ClientOnly, ClientForN
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html><!-- Giscus -->

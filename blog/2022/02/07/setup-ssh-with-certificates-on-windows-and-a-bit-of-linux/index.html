@@ -1,7 +1,4 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,7 +15,7 @@
       
       
       <link rel="icon" href="../../../../../static/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
@@ -26,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.84d31ad4.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -43,7 +40,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
       
     
@@ -59,42 +56,43 @@
     
     
       
-        <meta  property="og:type"  content="website" >
+        <meta property="og:type" content="website">
       
-        <meta  property="og:title"  content="Setup SSH with Certificates on Windows (and a bit of Linux) - Nicholas" >
+        <meta property="og:title" content="Setup SSH with Certificates on Windows (and a bit of Linux) - Nicholas">
       
-        <meta  property="og:description"  content="None" >
+        <meta property="og:description" content="None">
       
-        <meta  property="og:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-02-07-ssh-with-certificates.png" >
+        <meta property="og:image" content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-02-07-ssh-with-certificates.png">
       
-        <meta  property="og:image:type"  content="image/png" >
+        <meta property="og:image:type" content="image/png">
       
-        <meta  property="og:image:width"  content="1200" >
+        <meta property="og:image:width" content="1200">
       
-        <meta  property="og:image:height"  content="630" >
+        <meta property="og:image:height" content="630">
       
-        <meta  property="og:url"  content="https://nicholaslyz.com/blog/2022/02/07/setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/" >
+        <meta property="og:url" content="https://nicholaslyz.com/blog/2022/02/07/setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/">
       
-        <meta  name="twitter:card"  content="summary_large_image" >
+        <meta name="twitter:card" content="summary_large_image">
       
-        <meta  name="twitter:title"  content="Setup SSH with Certificates on Windows (and a bit of Linux) - Nicholas" >
+        <meta name="twitter:title" content="Setup SSH with Certificates on Windows (and a bit of Linux) - Nicholas">
       
-        <meta  name="twitter:description"  content="None" >
+        <meta name="twitter:description" content="None">
       
-        <meta  name="twitter:image"  content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-02-07-ssh-with-certificates.png" >
+        <meta name="twitter:image" content="https://nicholaslyz.com/assets/images/social/blog/posts/2022-02-07-ssh-with-certificates.png">
       
     
     
-   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
+  <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
   
   
     
@@ -134,7 +132,7 @@
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -162,7 +160,7 @@
       
         <label class="md-header__button md-icon" for="__search">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         </label>
         <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -171,15 +169,15 @@
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -379,7 +377,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2">
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -653,7 +651,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4">
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -724,7 +722,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2">
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -910,7 +908,7 @@
               
                 
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1017,7 +1015,7 @@
             <div class="md-post__back">
               <div class="md-nav__title md-nav__container">
                 <a href="../../../../" class="md-nav__link">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
                   <span class="md-ellipsis">
                     Back to index
                   </span>
@@ -1036,7 +1034,7 @@
                   <ul class="md-nav__list">
                     <li class="md-nav__item">
                       <div class="md-nav__link">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
                         <time datetime="2022-02-07 00:00:00+00:00" class="md-ellipsis">February 7, 2022</time>
                       </div>
                     </li>
@@ -1044,7 +1042,7 @@
                     
                       <li class="md-nav__item">
                         <div class="md-nav__link">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
                           <span class="md-ellipsis">
                             in
                             
@@ -1056,7 +1054,7 @@
                       
                       <li class="md-nav__item">
                         <div class="md-nav__link">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
                           <span class="md-ellipsis">
                             
                               8 min read
@@ -1097,7 +1095,7 @@
 <p>SSH supports <a href="https://datatracker.ietf.org/doc/html/rfc4252#section-5">several authentication methods</a>, but the most common are:</p>
 <ul>
 <li><code>password</code>: Login using the password of the host user. Most common, but vulnerable to password guessing attacks such as brute-force or dictionary-based methods.</li>
-<li><code>publickey</code>: Utilizes <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public key</a> authentication. Effectively resistant<sup id="fnref:ssh-key-comparison"><a class="footnote-ref" href="#fn:ssh-key-comparison">2</a></sup> to any form of password guessing attack. This mode also allows for the use of <strong>certificates</strong>, and is the mode we will be using.</li>
+<li><code>publickey</code>: Utilizes <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public key</a> authentication. Effectively resistant<sup id="fnref:ssh-key-comparison"><a class="footnote-ref" href="#fn:ssh-key-comparison">5</a></sup> to any form of password guessing attack. This mode also allows for the use of <strong>certificates</strong>, and is the mode we will be using.</li>
 </ul>
 <h2 id="certificates">Certificates</h2>
 <p><em>What are certificates?</em></p>
@@ -1138,7 +1136,7 @@
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Your public key has been saved in user_ca.pub.
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>The key fingerprint is:
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>SHA256:OxXXnTRmRiD7bxGMgyuU4fz4JTxKcEpGrngbIWpz/ow nick@Desktop-Nick
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>The key&#39;s randomart image is:
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>The key's randomart image is:
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>+--[ED25519 256]--+
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>|       . . . .oB |
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>|      o o o +.B.o|
@@ -1173,13 +1171,13 @@
 <li><a href="https://man.openbsd.org/ssh-keygen.1#n"><code>-n</code></a>: Comma-separated list of usernames (on the host, <strong>not</strong> WSL) which the client is allowed to log into the host as. Usernames must already exist on the host. Also known as 'principals'. If this option is omitted, the client will not be able to login.</li>
 <li><a href="https://man.openbsd.org/ssh-keygen.1#V"><code>-V</code></a>: Validity interval of the certificate. If omitted, the certificate will be valid forever.</li>
 </ul>
-<p>Then, copy the files <code>client_key</code> (private key), <code>client_key.pub</code> (public key) and <code>client_key-cert.pub</code> (signed public key) to the client <sup id="fnref:linux-key-permissions"><a class="footnote-ref" href="#fn:linux-key-permissions">4</a></sup>. Usually, these files are placed in <code>%UserProfile%\.ssh</code>.</p>
+<p>Then, copy the files <code>client_key</code> (private key), <code>client_key.pub</code> (public key) and <code>client_key-cert.pub</code> (signed public key) to the client <sup id="fnref:linux-key-permissions"><a class="footnote-ref" href="#fn:linux-key-permissions">2</a></sup>. Usually, these files are placed in <code>%UserProfile%\.ssh</code>.</p>
 <h2 id="3-login">3. Login</h2>
 <p>Now, test the SSH login from the client!</p>
 <p><code>ssh -i &lt;PATH_TO_KEYFILE&gt; you@your.domain.name</code></p>
 <p>where <code>&lt;PATH_TO_KEYFILE&gt;</code> is the location to the private key, e.g. <code>~\.ssh\client_key</code>.</p>
 <p>You should not be prompted for a password.</p>
-<p>If you don't want to keep having to specify the keyfile, create/edit the <a href="https://linux.die.net/man/5/ssh_config">config</a> file (usually at <code>~/.ssh/config</code>)<sup id="fnref:openssh-config-windows"><a class="footnote-ref" href="#fn:openssh-config-windows">5</a></sup>:</p>
+<p>If you don't want to keep having to specify the keyfile, create/edit the <a href="https://linux.die.net/man/5/ssh_config">config</a> file (usually at <code>~/.ssh/config</code>)<sup id="fnref:openssh-config-windows"><a class="footnote-ref" href="#fn:openssh-config-windows">3</a></sup>:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Host ssh.your-domain.com
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  HostName ssh.your-domain.com
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  User your-username
@@ -1191,7 +1189,7 @@
 <p><code>ssh-add &lt;keyfile&gt;</code></p>
 <p><code>&lt;keyfile&gt;</code> is the location of the private key, e.g. <code>user_ca</code>.</p>
 <p>To check the keys which have been added to the agent, run <code>ssh-add -l</code>.</p>
-<p>From now on, <code>ssh-agent</code> will automatically supply the signed public key and private key in commands such as <code>ssh</code>.<sup id="fnref:ssh-add-windows"><a class="footnote-ref" href="#fn:ssh-add-windows">6</a></sup></p>
+<p>From now on, <code>ssh-agent</code> will automatically supply the signed public key and private key in commands such as <code>ssh</code>.<sup id="fnref:ssh-add-windows"><a class="footnote-ref" href="#fn:ssh-add-windows">4</a></sup></p>
 <p>(Only on Windows)
 Note: (On the host) If you added the host's certificate signing private key (e.g. <code>user_ca</code>) to <code>ssh-agent</code>, when you want to sign a client`s public key, you need to use the following command instead:</p>
 <p><code>ssh-keygen -Us user_ca -I &lt;client_name&gt; -n &lt;usernames&gt; -V +1d client_key.pub</code></p>
@@ -1200,7 +1198,7 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
 <p>How does the client authenticate the host the first time round? How does the client know that the public key the host is presenting really is the correct key, and not an attacker's key?</p>
 <p>One way would be to verify the host's key fingerprint manually when connecting the first time. This is known as <a href="https://en.wikipedia.org/wiki/Trust_on_first_use">trust on first use</a>.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># ssh server@server.com
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>The authenticity of host &#39;server@server.com (192.168.65.2)&#39; can&#39;t be established.
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>The authenticity of host 'server@server.com (192.168.65.2)' can't be established.
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>ECDSA key fingerprint is SHA256:e3eMAe6IrkZkWfCnYasBJUNRyHDC8SzDI0gLP9wWf1A.
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Are you sure you want to continue connecting (yes/no/[fingerprint])?
 </span></code></pre></div>
@@ -1214,7 +1212,7 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
 <p>You need to add this information as an <code>SSHFP</code> record via your DNS registrar.</p>
 <p>Finally, on the client, when we connect, we use the following command (non case-sensitive):</p>
 <p><code>ssh -o "VerifyHostKeyDNS ask" you@your.domain.name</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>The authenticity of host &#39;your.domain.name (xx.xx.xx.xx)&#39; can&#39;t be established.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>The authenticity of host 'your.domain.name (xx.xx.xx.xx)' can't be established.
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>ED25519 key fingerprint is SHA256:+SErmIxcsukCd0axMznGsy2fHEkYNiB2VHa6drUd3TE.
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Matching host key fingerprint found in DNS.
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Are you sure you want to continue connecting (yes/no/[fingerprint])?
@@ -1225,32 +1223,32 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
 <ul>
 <li><a href="https://www.bastillion.io/">Bastillion</a> - Not certificate based. Also, need to manually upload and download the public keys and configure SSH.</li>
 <li><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/use-cases/ssh/">Cloudflare Tunnel</a> - Need to download on both server and client. I had some issues setting up SSH certificate login.</li>
-<li><a href="https://smallstep.com/docs/step-ca">Step</a> - Need to download on both server and client. Also, TLS connection to <code>step-ca</code> from a client requires adding its generated root certificate as a trusted certificate<sup id="fnref:leaf-certificates"><a class="footnote-ref" href="#fn:leaf-certificates">3</a></sup>.</li>
+<li><a href="https://smallstep.com/docs/step-ca">Step</a> - Need to download on both server and client. Also, TLS connection to <code>step-ca</code> from a client requires adding its generated root certificate as a trusted certificate<sup id="fnref:leaf-certificates"><a class="footnote-ref" href="#fn:leaf-certificates">6</a></sup>.</li>
 <li><a href="https://goteleport.com">Teleport</a> - Need to download on both server and client. Teleport Nodes (the server component) are not supported on Windows. The ability to record SSH sessions might be useful if I were to move to Linux.</li>
 <li><a href="https://www.vaultproject.io/">Vault by HashiCorp</a> - Need to download on both server and client.</li>
 </ul>
 <p>Instead, to streamline the process of generating client certificates, I plan to write a certificate provisioning server which will probably rely on the (already-existing) 2FA login my web app backend uses. This would call <code>ssh-keygen</code> and return the signed public/private key pair.</p>
 <p>*[nonce]: Number Only used oNCE</p>
 <div class="footnote">
-<hr />
+<hr>
 <ol>
 <li id="fn:port-tunneling">
-<p>You could use this to bypass firewalls, by running a <a href="https://ma.ttias.be/socks-proxy-linux-ssh-bypass-content-filters/">SOCKS proxy</a> over the tunnel.&#160;<a class="footnote-backref" href="#fnref:port-tunneling" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:ssh-key-comparison">
-<p>RSA, EdDSA and Ed25519 are <a href="https://goteleport.com/blog/comparing-ssh-keys/">considered secure</a>. DSA (and ECDSA, which uses DSA in a different mathematical group, namely elliptic curves) are susceptible to <a href="https://blog.trailofbits.com/2020/06/11/ecdsa-handle-with-care/">key recovery attacks</a> when the nonce is reused/predictable.&#160;<a class="footnote-backref" href="#fnref:ssh-key-comparison" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:leaf-certificates">
-<p>This is because publicly trusted CAs only issue <a href="https://github.com/smallstep/certificates/discussions/466">leaf certificates</a>, which cannot be used to sign other certificates.&#160;<a class="footnote-backref" href="#fnref:leaf-certificates" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>You could use this to bypass firewalls, by running a <a href="https://ma.ttias.be/socks-proxy-linux-ssh-bypass-content-filters/">SOCKS proxy</a> over the tunnel.&nbsp;<a class="footnote-backref" href="#fnref:port-tunneling" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 <li id="fn:linux-key-permissions">
-<p>On Linux, the private key must have <code>chmod 600</code> permissions (i.e. no read access to anyone other than the user), otherwise <code>ssh-add</code> will refuse to add the key.&#160;<a class="footnote-backref" href="#fnref:linux-key-permissions" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>On Linux, the private key must have <code>chmod 600</code> permissions (i.e. no read access to anyone other than the user), otherwise <code>ssh-add</code> will refuse to add the key.&nbsp;<a class="footnote-backref" href="#fnref:linux-key-permissions" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:openssh-config-windows">
-<p>Unfortunately, Windows <a href="https://superuser.com/questions/1537763/location-of-openssh-configuration-file-on-windows">does not generate</a> the <code>config</code> file automatically on connecting to a host, unlike Linux. You'll have to create it yourself.&#160;<a class="footnote-backref" href="#fnref:openssh-config-windows" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Unfortunately, Windows <a href="https://superuser.com/questions/1537763/location-of-openssh-configuration-file-on-windows">does not generate</a> the <code>config</code> file automatically on connecting to a host, unlike Linux. You'll have to create it yourself.&nbsp;<a class="footnote-backref" href="#fnref:openssh-config-windows" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
 <li id="fn:ssh-add-windows">
-<p>On Windows, you may now safely delete the private key and the signed public key, as it is stored encrypted in the <a href="https://github.com/PowerShell/Win32-OpenSSH/issues/1487">registry</a>.&#160;<a class="footnote-backref" href="#fnref:ssh-add-windows" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>On Windows, you may now safely delete the private key and the signed public key, as it is stored encrypted in the <a href="https://github.com/PowerShell/Win32-OpenSSH/issues/1487">registry</a>.&nbsp;<a class="footnote-backref" href="#fnref:ssh-add-windows" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn:ssh-key-comparison">
+<p>RSA, EdDSA and Ed25519 are <a href="https://goteleport.com/blog/comparing-ssh-keys/">considered secure</a>. DSA (and ECDSA, which uses DSA in a different mathematical group, namely elliptic curves) are susceptible to <a href="https://blog.trailofbits.com/2020/06/11/ecdsa-handle-with-care/">key recovery attacks</a> when the nonce is reused/predictable.&nbsp;<a class="footnote-backref" href="#fnref:ssh-key-comparison" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:leaf-certificates">
+<p>This is because publicly trusted CAs only issue <a href="https://github.com/smallstep/certificates/discussions/466">leaf certificates</a>, which cannot be used to sign other certificates.&nbsp;<a class="footnote-backref" href="#fnref:leaf-certificates" title="Jump back to footnote 6 in the text">↩</a></p>
 </li>
 </ol>
 </div>
@@ -1271,24 +1269,9 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
 
 
 
-<!-- Giscus -->
+
 <h2 id="__comments">Comments</h2>
-<script
-  src="https://giscus.app/client.js"
-  data-repo="extrange/personal-blog"
-  data-repo-id="MDEwOlJlcG9zaXRvcnkzNzE1Mzc1Mjc="
-  data-category="Announcements"
-  data-category-id="DIC_kwDOFiU2d84CRQpc"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="bottom"
-  data-theme="dark"
-  data-lang="en"
-  crossorigin="anonymous"
-  async
-></script>
+<script src="https://giscus.app/client.js" data-repo="extrange/personal-blog" data-repo-id="MDEwOlJlcG9zaXRvcnkzNzE1Mzc1Mjc=" data-category="Announcements" data-category-id="DIC_kwDOFiU2d84CRQpc" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="dark" data-lang="en" crossorigin="anonymous" async></script>
 
 <!-- Synchronize Giscus theme with palette -->
 <script>
@@ -1355,7 +1338,7 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
       
     
     <a href="https://github.com/extrange/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
     </a>
   
     
@@ -1363,7 +1346,7 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
     
     
     <a href="mailto:me@nicholaslyz.com" target="_blank" rel="noopener" title="" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"></path></svg>
     </a>
   
 </div>
@@ -1383,7 +1366,7 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
       <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "header.autohide", "navigation.sections", "navigation.indexes", "navigation.expand", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="../../../../../javascripts/mathjax.js"></script>
       
@@ -1392,7 +1375,7 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html><!-- Giscus -->
