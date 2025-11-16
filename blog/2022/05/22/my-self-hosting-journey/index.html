@@ -1110,11 +1110,11 @@
 <h2 id="storage-and-backup">Storage and Backup</h2>
 <p><em>Update 2025-06-27: I've <a href="../../../../2025/06/27/migrating-from-btrfs-to-zfs/">moved to ZFS</a>.</em></p>
 <p>Up till 2025 Jun, I had 32TB of raw storage, consisting of 2x WDC WD120EMFZ-11A6JA0 12TB drives plus a 8TB ATA WDC WD80EAZZ-00B8TB (all non-SMR drives<sup id="fnref:smr"><a class="footnote-ref" href="#fn:smr">1</a></sup>) in a (software) BtrFS RAID-1 configuration, corresponding to approximately 16TB of usable storage.</p>
-<p>I use SSHFS to access my storage remotely. This storage is accessible locally in my LAN via <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>, which Windows also supports<sup id="fnref:nfs-issues"><a class="footnote-ref" href="#fn:nfs-issues">2</a></sup>.</p>
+<p>I use SSHFS to access my storage remotely. This storage is accessible locally in my LAN via <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a>, which Windows also supports<sup id="fnref:nfs-issues"><a class="footnote-ref" href="#fn:nfs-issues">5</a></sup>.</p>
 <p>I chose BtrFS over <code>dmraid</code> + ext4 as BtrFS:</p>
 <ul>
 <li>allows for online subvolume resizing/deletion/modification</li>
-<li>supports file checksums in RAID modes<sup id="fnref:bit-rot"><a class="footnote-ref" href="#fn:bit-rot">6</a></sup></li>
+<li>supports file checksums in RAID modes<sup id="fnref:bit-rot"><a class="footnote-ref" href="#fn:bit-rot">2</a></sup></li>
 <li>allows for <strong>arbitrary drives to be added/removed</strong> from the RAID configuration, and <a href="https://btrfs.wiki.kernel.org/index.php/Using_Btrfs_with_Multiple_Devices#Adding_new_devices">balance the resulting filesystem automatically</a></li>
 <li>supports lightweight snapshots and sending these snapshots to other devices for backup</li>
 </ul>
@@ -1178,7 +1178,7 @@
 <p><strong>Maintenance</strong></p>
 <p>I run <a href="https://btrfs.readthedocs.io/en/latest/btrfs-scrub.html"><code>btrfs scrub</code></a> monthly via a <code>systemd.timer</code>.</p>
 <h2 id="ssh-access">SSH Access</h2>
-<p>SSH access to my server is available via public keys and password access with 2FA (provided via <a href="https://github.com/google/google-authenticator-libpam">Google Authenticator PAM</a><sup id="fnref:pam-issues"><a class="footnote-ref" href="#fn:pam-issues">5</a></sup>).</p>
+<p>SSH access to my server is available via public keys and password access with 2FA (provided via <a href="https://github.com/google/google-authenticator-libpam">Google Authenticator PAM</a><sup id="fnref:pam-issues"><a class="footnote-ref" href="#fn:pam-issues">6</a></sup>).</p>
 <p>I previously used <a href="../../../02/07/setup-ssh-with-certificates-on-windows-and-a-bit-of-linux/">SSH with certificates</a>, however it does not allow me to revoke access as easily as public keys.</p>
 <p>I run <a href="https://github.com/skeeto/endlessh">Endlessh</a>, an SSH tarpit, on port <code>22</code> to waste attackers' time and keep my <code>journald</code> logs cleaner, while my <code>sshd</code> is configured to listen on another port.</p>
 <h3 id="mobile">Mobile</h3>
@@ -1202,8 +1202,8 @@
 <li id="fn:smr">
 <p>SMR drives have a much greater <a href="https://www.reddit.com/r/DataHoarder/comments/o5bmcu/comment/h2nfiwq/">write penalty</a> compared to CMR/PMR drives.&nbsp;<a class="footnote-backref" href="#fnref:smr" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
-<li id="fn:nfs-issues">
-<p>Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the <a href="https://unix.stackexchange.com/questions/276292/need-permission-for-windows-client-to-access-linux-nfs">fix</a>.&nbsp;<a class="footnote-backref" href="#fnref:nfs-issues" title="Jump back to footnote 2 in the text">↩</a></p>
+<li id="fn:bit-rot">
+<p>If some bits in one of the drives were to fail (e.g. due to <a href="https://en.wikipedia.org/wiki/Bit_rot">bit rot</a>), <code>dmraid</code> would not know which drive contains the correct data as it operates below the filesystem layer.&nbsp;<a class="footnote-backref" href="#fnref:bit-rot" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:btrbk-issue">
 <p>There is an issue with <a href="https://github.com/digint/btrbk/issues/339#issuecomment-1332137961"><code>btrbk</code> not sending snapshots without direct parent-child uuid link when using <code>resume</code></a>. To get around this, I use <code>archive</code> initially to copy snapshots over to the external drive.&nbsp;<a class="footnote-backref" href="#fnref:btrbk-issue" title="Jump back to footnote 3 in the text">↩</a></p>
@@ -1211,11 +1211,11 @@
 <li id="fn:cryptsetup-partition">
 <p>The reason I do not use <code>cryptsetup</code> (or <code>dmcrypt</code>) directly on the disk is that Windows/other software might accidentally wipe the partition table (and the LUKS header), rendering the disk unlockable.&nbsp;<a class="footnote-backref" href="#fnref:cryptsetup-partition" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
-<li id="fn:pam-issues">
-<p>By default, SELinux <a href="https://github.com/google/google-authenticator-libpam/issues/101">blocks</a> <code>sshd</code> from reading the <code>.google_authenticator</code> file in the home directory. One <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-factor-authentication-for-ssh-on-centos-8#step-1-installing-google-s-pam">workaround</a> is to place the file in the <code>.ssh</code> directory instead.&nbsp;<a class="footnote-backref" href="#fnref:pam-issues" title="Jump back to footnote 5 in the text">↩</a></p>
+<li id="fn:nfs-issues">
+<p>Windows sets the UID/GID to -2 for some reason, preventing you from writing to files by default. This is the <a href="https://unix.stackexchange.com/questions/276292/need-permission-for-windows-client-to-access-linux-nfs">fix</a>.&nbsp;<a class="footnote-backref" href="#fnref:nfs-issues" title="Jump back to footnote 5 in the text">↩</a></p>
 </li>
-<li id="fn:bit-rot">
-<p>If some bits in one of the drives were to fail (e.g. due to <a href="https://en.wikipedia.org/wiki/Bit_rot">bit rot</a>), <code>dmraid</code> would not know which drive contains the correct data as it operates below the filesystem layer.&nbsp;<a class="footnote-backref" href="#fnref:bit-rot" title="Jump back to footnote 6 in the text">↩</a></p>
+<li id="fn:pam-issues">
+<p>By default, SELinux <a href="https://github.com/google/google-authenticator-libpam/issues/101">blocks</a> <code>sshd</code> from reading the <code>.google_authenticator</code> file in the home directory. One <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-factor-authentication-for-ssh-on-centos-8#step-1-installing-google-s-pam">workaround</a> is to place the file in the <code>.ssh</code> directory instead.&nbsp;<a class="footnote-backref" href="#fnref:pam-issues" title="Jump back to footnote 6 in the text">↩</a></p>
 </li>
 </ol>
 </div>

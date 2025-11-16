@@ -1095,7 +1095,7 @@
 <p>SSH supports <a href="https://datatracker.ietf.org/doc/html/rfc4252#section-5">several authentication methods</a>, but the most common are:</p>
 <ul>
 <li><code>password</code>: Login using the password of the host user. Most common, but vulnerable to password guessing attacks such as brute-force or dictionary-based methods.</li>
-<li><code>publickey</code>: Utilizes <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public key</a> authentication. Effectively resistant<sup id="fnref:ssh-key-comparison"><a class="footnote-ref" href="#fn:ssh-key-comparison">5</a></sup> to any form of password guessing attack. This mode also allows for the use of <strong>certificates</strong>, and is the mode we will be using.</li>
+<li><code>publickey</code>: Utilizes <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public key</a> authentication. Effectively resistant<sup id="fnref:ssh-key-comparison"><a class="footnote-ref" href="#fn:ssh-key-comparison">2</a></sup> to any form of password guessing attack. This mode also allows for the use of <strong>certificates</strong>, and is the mode we will be using.</li>
 </ul>
 <h2 id="certificates">Certificates</h2>
 <p><em>What are certificates?</em></p>
@@ -1171,13 +1171,13 @@
 <li><a href="https://man.openbsd.org/ssh-keygen.1#n"><code>-n</code></a>: Comma-separated list of usernames (on the host, <strong>not</strong> WSL) which the client is allowed to log into the host as. Usernames must already exist on the host. Also known as 'principals'. If this option is omitted, the client will not be able to login.</li>
 <li><a href="https://man.openbsd.org/ssh-keygen.1#V"><code>-V</code></a>: Validity interval of the certificate. If omitted, the certificate will be valid forever.</li>
 </ul>
-<p>Then, copy the files <code>client_key</code> (private key), <code>client_key.pub</code> (public key) and <code>client_key-cert.pub</code> (signed public key) to the client <sup id="fnref:linux-key-permissions"><a class="footnote-ref" href="#fn:linux-key-permissions">2</a></sup>. Usually, these files are placed in <code>%UserProfile%\.ssh</code>.</p>
+<p>Then, copy the files <code>client_key</code> (private key), <code>client_key.pub</code> (public key) and <code>client_key-cert.pub</code> (signed public key) to the client <sup id="fnref:linux-key-permissions"><a class="footnote-ref" href="#fn:linux-key-permissions">4</a></sup>. Usually, these files are placed in <code>%UserProfile%\.ssh</code>.</p>
 <h2 id="3-login">3. Login</h2>
 <p>Now, test the SSH login from the client!</p>
 <p><code>ssh -i &lt;PATH_TO_KEYFILE&gt; you@your.domain.name</code></p>
 <p>where <code>&lt;PATH_TO_KEYFILE&gt;</code> is the location to the private key, e.g. <code>~\.ssh\client_key</code>.</p>
 <p>You should not be prompted for a password.</p>
-<p>If you don't want to keep having to specify the keyfile, create/edit the <a href="https://linux.die.net/man/5/ssh_config">config</a> file (usually at <code>~/.ssh/config</code>)<sup id="fnref:openssh-config-windows"><a class="footnote-ref" href="#fn:openssh-config-windows">3</a></sup>:</p>
+<p>If you don't want to keep having to specify the keyfile, create/edit the <a href="https://linux.die.net/man/5/ssh_config">config</a> file (usually at <code>~/.ssh/config</code>)<sup id="fnref:openssh-config-windows"><a class="footnote-ref" href="#fn:openssh-config-windows">5</a></sup>:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Host ssh.your-domain.com
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  HostName ssh.your-domain.com
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  User your-username
@@ -1189,7 +1189,7 @@
 <p><code>ssh-add &lt;keyfile&gt;</code></p>
 <p><code>&lt;keyfile&gt;</code> is the location of the private key, e.g. <code>user_ca</code>.</p>
 <p>To check the keys which have been added to the agent, run <code>ssh-add -l</code>.</p>
-<p>From now on, <code>ssh-agent</code> will automatically supply the signed public key and private key in commands such as <code>ssh</code>.<sup id="fnref:ssh-add-windows"><a class="footnote-ref" href="#fn:ssh-add-windows">4</a></sup></p>
+<p>From now on, <code>ssh-agent</code> will automatically supply the signed public key and private key in commands such as <code>ssh</code>.<sup id="fnref:ssh-add-windows"><a class="footnote-ref" href="#fn:ssh-add-windows">6</a></sup></p>
 <p>(Only on Windows)
 Note: (On the host) If you added the host's certificate signing private key (e.g. <code>user_ca</code>) to <code>ssh-agent</code>, when you want to sign a client`s public key, you need to use the following command instead:</p>
 <p><code>ssh-keygen -Us user_ca -I &lt;client_name&gt; -n &lt;usernames&gt; -V +1d client_key.pub</code></p>
@@ -1223,7 +1223,7 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
 <ul>
 <li><a href="https://www.bastillion.io/">Bastillion</a> - Not certificate based. Also, need to manually upload and download the public keys and configure SSH.</li>
 <li><a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/use-cases/ssh/">Cloudflare Tunnel</a> - Need to download on both server and client. I had some issues setting up SSH certificate login.</li>
-<li><a href="https://smallstep.com/docs/step-ca">Step</a> - Need to download on both server and client. Also, TLS connection to <code>step-ca</code> from a client requires adding its generated root certificate as a trusted certificate<sup id="fnref:leaf-certificates"><a class="footnote-ref" href="#fn:leaf-certificates">6</a></sup>.</li>
+<li><a href="https://smallstep.com/docs/step-ca">Step</a> - Need to download on both server and client. Also, TLS connection to <code>step-ca</code> from a client requires adding its generated root certificate as a trusted certificate<sup id="fnref:leaf-certificates"><a class="footnote-ref" href="#fn:leaf-certificates">3</a></sup>.</li>
 <li><a href="https://goteleport.com">Teleport</a> - Need to download on both server and client. Teleport Nodes (the server component) are not supported on Windows. The ability to record SSH sessions might be useful if I were to move to Linux.</li>
 <li><a href="https://www.vaultproject.io/">Vault by HashiCorp</a> - Need to download on both server and client.</li>
 </ul>
@@ -1235,20 +1235,20 @@ Note: (On the host) If you added the host's certificate signing private key (e.g
 <li id="fn:port-tunneling">
 <p>You could use this to bypass firewalls, by running a <a href="https://ma.ttias.be/socks-proxy-linux-ssh-bypass-content-filters/">SOCKS proxy</a> over the tunnel.&nbsp;<a class="footnote-backref" href="#fnref:port-tunneling" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
-<li id="fn:linux-key-permissions">
-<p>On Linux, the private key must have <code>chmod 600</code> permissions (i.e. no read access to anyone other than the user), otherwise <code>ssh-add</code> will refuse to add the key.&nbsp;<a class="footnote-backref" href="#fnref:linux-key-permissions" title="Jump back to footnote 2 in the text">↩</a></p>
-</li>
-<li id="fn:openssh-config-windows">
-<p>Unfortunately, Windows <a href="https://superuser.com/questions/1537763/location-of-openssh-configuration-file-on-windows">does not generate</a> the <code>config</code> file automatically on connecting to a host, unlike Linux. You'll have to create it yourself.&nbsp;<a class="footnote-backref" href="#fnref:openssh-config-windows" title="Jump back to footnote 3 in the text">↩</a></p>
-</li>
-<li id="fn:ssh-add-windows">
-<p>On Windows, you may now safely delete the private key and the signed public key, as it is stored encrypted in the <a href="https://github.com/PowerShell/Win32-OpenSSH/issues/1487">registry</a>.&nbsp;<a class="footnote-backref" href="#fnref:ssh-add-windows" title="Jump back to footnote 4 in the text">↩</a></p>
-</li>
 <li id="fn:ssh-key-comparison">
-<p>RSA, EdDSA and Ed25519 are <a href="https://goteleport.com/blog/comparing-ssh-keys/">considered secure</a>. DSA (and ECDSA, which uses DSA in a different mathematical group, namely elliptic curves) are susceptible to <a href="https://blog.trailofbits.com/2020/06/11/ecdsa-handle-with-care/">key recovery attacks</a> when the nonce is reused/predictable.&nbsp;<a class="footnote-backref" href="#fnref:ssh-key-comparison" title="Jump back to footnote 5 in the text">↩</a></p>
+<p>RSA, EdDSA and Ed25519 are <a href="https://goteleport.com/blog/comparing-ssh-keys/">considered secure</a>. DSA (and ECDSA, which uses DSA in a different mathematical group, namely elliptic curves) are susceptible to <a href="https://blog.trailofbits.com/2020/06/11/ecdsa-handle-with-care/">key recovery attacks</a> when the nonce is reused/predictable.&nbsp;<a class="footnote-backref" href="#fnref:ssh-key-comparison" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:leaf-certificates">
-<p>This is because publicly trusted CAs only issue <a href="https://github.com/smallstep/certificates/discussions/466">leaf certificates</a>, which cannot be used to sign other certificates.&nbsp;<a class="footnote-backref" href="#fnref:leaf-certificates" title="Jump back to footnote 6 in the text">↩</a></p>
+<p>This is because publicly trusted CAs only issue <a href="https://github.com/smallstep/certificates/discussions/466">leaf certificates</a>, which cannot be used to sign other certificates.&nbsp;<a class="footnote-backref" href="#fnref:leaf-certificates" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:linux-key-permissions">
+<p>On Linux, the private key must have <code>chmod 600</code> permissions (i.e. no read access to anyone other than the user), otherwise <code>ssh-add</code> will refuse to add the key.&nbsp;<a class="footnote-backref" href="#fnref:linux-key-permissions" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn:openssh-config-windows">
+<p>Unfortunately, Windows <a href="https://superuser.com/questions/1537763/location-of-openssh-configuration-file-on-windows">does not generate</a> the <code>config</code> file automatically on connecting to a host, unlike Linux. You'll have to create it yourself.&nbsp;<a class="footnote-backref" href="#fnref:openssh-config-windows" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:ssh-add-windows">
+<p>On Windows, you may now safely delete the private key and the signed public key, as it is stored encrypted in the <a href="https://github.com/PowerShell/Win32-OpenSSH/issues/1487">registry</a>.&nbsp;<a class="footnote-backref" href="#fnref:ssh-add-windows" title="Jump back to footnote 6 in the text">↩</a></p>
 </li>
 </ol>
 </div>
