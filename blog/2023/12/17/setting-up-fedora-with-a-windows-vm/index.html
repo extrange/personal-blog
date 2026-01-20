@@ -1253,7 +1253,7 @@
 </ul>
 <p>Before proceeding, ensure you are not using the display output of the GPU you want to passthrough.</p>
 <p>In order to setup GPU passthrough, you will need to use the <code>vfio</code> driver for your GPU (instead of <code>amdgpu</code>, <code>nouveau</code> or <code>nvidia</code>).</p>
-<p>Follow step 1 of <a href="../../../../2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/#1-setup-gpu-passthrough">this guide</a>.</p>
+<p>Follow step 1 of <a href="../../../../2022/07/10/windows-gaming-vm-with-gpu-passthrough-on-linux/#1-setup-gpu-passthrough">this guide</a>.</p>
 <p>Check if you are successful by running the following command:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>lspci<span class="w"> </span>-knn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>nvidia<span class="w"> </span>-A5
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="m">01</span>:00.0<span class="w"> </span>VGA<span class="w"> </span>compatible<span class="w"> </span>controller<span class="w"> </span><span class="o">[</span><span class="m">0300</span><span class="o">]</span>:<span class="w"> </span>NVIDIA<span class="w"> </span>Corporation<span class="w"> </span>GP102<span class="w"> </span><span class="o">[</span>GeForce<span class="w"> </span>GTX<span class="w"> </span><span class="m">1080</span><span class="w"> </span>Ti<span class="o">]</span><span class="w"> </span><span class="o">[</span>10de:1b06<span class="o">]</span><span class="w"> </span><span class="o">(</span>rev<span class="w"> </span>a1<span class="o">)</span>
@@ -1379,7 +1379,7 @@
 <p>Now, when you reboot, you should be able to see your storage volumes in the file manager.</p>
 <h2 id="6-share-btrfs-host-volume-with-windows-guest">6. Share Btrfs host volume with Windows guest</h2>
 <p>Unfortunately, Windows cannot read Btrfs. To share your Btrfs volume with Linux, setup a network share from the Fedora host to the Windows guest.</p>
-<p>Follow the instructions <a href="../../../../2022/07/10/windows-11-gaming-vm-with-gpu-passthrough-on-fedora-linux/#7-optional-filesharing-virtiofsnfssamba">here</a> for setting up SAMBA.</p>
+<p>Follow the instructions <a href="../../../../2022/07/10/windows-gaming-vm-with-gpu-passthrough-on-linux/#7-optional-filesharing-virtiofsnfssamba">here</a> for setting up SAMBA.</p>
 <p>That's it! You should now have a working Windows VM capable of playing games with GPU passthrough.</p>
 <h2 id="common-linux-commands">Common Linux commands</h2>
 <ul>
