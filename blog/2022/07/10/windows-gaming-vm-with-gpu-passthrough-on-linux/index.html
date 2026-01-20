@@ -1468,30 +1468,34 @@
 <p><em>Note: For AMD GPUs, this might not be necessary, as the <code>amdgpu</code> driver automatically rebinds itself once the VM is shutdown.</em></p>
 <h3 id="moonlight-specific-issues">Moonlight-specific Issues</h3>
 <ul>
-<li>Moonlight requires that the server machine (whether VM or physical) be <strong>unlocked</strong>, and that there are <strong>no Remote Desktop Connections</strong> ongoing.</li>
+<li>
+<p>Moonlight requires that the server machine (whether VM or physical) be <strong>unlocked</strong>, and that there are <strong>no Remote Desktop Connections</strong> ongoing.</p>
+<ul>
 <li>
 <p>After an RDP session, the main desktop is locked. To fix this, create a batch file with the following content, and run it <strong>with administrator rights</strong> to disconnect the RDP and unlock the main desktop:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Powershell -Command "tscon rdp-tcp#0 /DEST:console"
 </span></code></pre></div>
+</li>
+</ul>
 </li>
 <li>
 <p>The streaming resolution of Moonlight is <strong>not</strong> what is set in the GUI of Moonlight or in the game, but rather, it is capped at the resolution of the virtual machine's desktop. So, if you want to stream in 4K, ensure you change the virtual machine's desktop resolution to 4K prior to launching the game.</p>
 </li>
 <li>
 <p>Some useful shortcuts:</p>
-</li>
+<ul>
 <li>Quit moonlight: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-q">Q</kbd></span></li>
 <li>Minimize window: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-d">D</kbd></span></li>
 <li>Show stats overlay: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-s">S</kbd></span></li>
 <li>Paste text from host: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-v">V</kbd></span></li>
-<li>
-<p>Toggle mouse and keyboard capture: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-z">Z</kbd></span></p>
+<li>Toggle mouse and keyboard capture: <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-z">Z</kbd></span></li>
+</ul>
 </li>
 <li>
 <p>Moonlight not filling screen:</p>
-</li>
-<li>
-<p><a href="https://github.com/moonlight-stream/moonlight-android/issues/588">Use the Nvidia control panel to change the screen resolution.</a></p>
+<ul>
+<li><a href="https://github.com/moonlight-stream/moonlight-android/issues/588">Use the Nvidia control panel to change the screen resolution.</a></li>
+</ul>
 </li>
 <li>
 <p>Intermittent black screen: <a href="https://github.com/moonlight-stream/nvidia-gamestream-issues/issues/27">Disable hardware-accelerated GPU scheduling</a></p>
@@ -1504,9 +1508,9 @@
 </li>
 <li>
 <p>VM hangs/pauses, and in <code>dmesg</code> you see <code>[ 6044.433981] vfio-pci 0000:07:00.0: BAR 0: can't reserve [mem 0xe0000000-0xefffffff 64bit pref]</code> and similar errors:</p>
-</li>
-<li>
-<p>Ensure that the <a href="https://forum.proxmox.com/threads/problem-with-gpu-passthrough.55918/post-478351"><code>initcall_blacklist=sysfb_init</code></a> kernel parameter has been added to <code>grub.cfg</code>.</p>
+<ul>
+<li>Ensure that the <a href="https://forum.proxmox.com/threads/problem-with-gpu-passthrough.55918/post-478351"><code>initcall_blacklist=sysfb_init</code></a> kernel parameter has been added to <code>grub.cfg</code>.</li>
+</ul>
 </li>
 <li>
 <p><code>virt-manager</code>/QEMU supports sharing the VM display via an embedded VNC server. For Apache Guacamole to connect to this however, the embedded viewer (in <code>virt-manager</code>) must first be closed.</p>
@@ -1516,27 +1520,27 @@
 </li>
 <li>
 <p>Nvidia Geforce Experience says 'Unsupported CPU':</p>
-</li>
-<li>
-<p>Change the CPU model in <code>virt-manager</code> (in the XML) to <code>host-model</code> (<a href="https://libvirt.org/formatdomain.html#cpu-model-and-topology">preferred</a>) or <code>host-passthrough</code>.</p>
+<ul>
+<li>Change the CPU model in <code>virt-manager</code> (in the XML) to <code>host-model</code> (<a href="https://libvirt.org/formatdomain.html#cpu-model-and-topology">preferred</a>) or <code>host-passthrough</code>.</li>
+</ul>
 </li>
 <li>
 <p>Passthrough-ed USB devices, when disconnected, prevent the VM from booting</p>
-</li>
-<li>
-<p>Add <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-manipulating_the_domain_xml-devices#sect-Host_physical_machine_device_assignment-USB_PCI_devices"><code>startupPolicy="optional"</code></a> to the <code>&lt;source&gt;</code> tag in the XML for the passthrough-ed USB device</p>
+<ul>
+<li>Add <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-manipulating_the_domain_xml-devices#sect-Host_physical_machine_device_assignment-USB_PCI_devices"><code>startupPolicy="optional"</code></a> to the <code>&lt;source&gt;</code> tag in the XML for the passthrough-ed USB device</li>
+</ul>
 </li>
 <li>
 <p>Low FPS when display is set to 'Duplicate these displays':</p>
-</li>
-<li>
-<p>Change display settings to 'Extend these displays' instead. I suspect when displays are duplicated, the GPU works extra to render frames on both monitors, causing the FPS drop.</p>
+<ul>
+<li>Change display settings to 'Extend these displays' instead. I suspect when displays are duplicated, the GPU works extra to render frames on both monitors, causing the FPS drop.</li>
+</ul>
 </li>
 <li>
 <p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/virtualization_tuning_and_optimization_guide/index">Useful VM performance tuning options</a></p>
-</li>
-<li>
-<p>For example, setting multiple sockets with each having 1 CPU and 1 core is more efficient.</p>
+<ul>
+<li>For example, setting multiple sockets with each having 1 CPU and 1 core is more efficient.</li>
+</ul>
 </li>
 <li>
 <p>Types of VM network connections compared:
