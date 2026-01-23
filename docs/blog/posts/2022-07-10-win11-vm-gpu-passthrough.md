@@ -274,6 +274,12 @@ Some [workarounds] have been discussed, however in my case, the solution that wo
 
 I think this works because once the guest is shut down, the `amdgpu` driver binds back to the VM, and this somefixes fixes the state of the card.
 
+You can enforce that the guest never reboots by adding the following to the libvirt domain XML:
+
+```xml
+<on_reboot>destroy</on_reboot>
+```
+
 ### Disabling VFIO
 
 At times you may want to disable VFIO or GPU passthrough, for example when you want to [use the GPU in the host](2022-07-10-docker-gpu-fedora.md).
