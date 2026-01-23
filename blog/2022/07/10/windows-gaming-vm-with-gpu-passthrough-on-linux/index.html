@@ -1462,6 +1462,9 @@
 <p>There is a <a href="https://forum.level1techs.com/t/the-state-of-amd-rx-7000-series-vfio-passthrough-april-2024/210242">known issue</a> with AMD GPUs locking up the host when the guest VM is rebooted.</p>
 <p>Some <a href="https://forum.level1techs.com/t/vfio-pass-through-working-on-9070xt/227194">workarounds</a> have been discussed, however in my case, the solution that works is to unsure that the <strong>guest is never rebooted</strong>. Instead, allow the guest to shut down, and then start it again manually.</p>
 <p>I think this works because once the guest is shut down, the <code>amdgpu</code> driver binds back to the VM, and this somefixes fixes the state of the card.</p>
+<p>You can enforce that the guest never reboots by adding the following to the libvirt domain XML:</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">&lt;on_reboot&gt;</span>destroy<span class="nt">&lt;/on_reboot&gt;</span>
+</span></code></pre></div>
 <h3 id="disabling-vfio">Disabling VFIO</h3>
 <p>At times you may want to disable VFIO or GPU passthrough, for example when you want to <a href="../docker-containers-with-gpu-access-in-fedora/">use the GPU in the host</a>.</p>
 <p>To disable GPU passthrough, simply remove <code>vfio-pci.ids=xxxx:xxxx,yyyy:yyyy</code> from your <a href="https://wiki.archlinux.org/title/Kernel_parameters">kernel parameters</a> (or <code>boot.kernelParams</code> in NixOS) then reboot.</p>
@@ -1473,7 +1476,7 @@
 <ul>
 <li>
 <p>After an RDP session, the main desktop is locked. To fix this, create a batch file with the following content, and run it <strong>with administrator rights</strong> to disconnect the RDP and unlock the main desktop:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Powershell -Command "tscon rdp-tcp#0 /DEST:console"
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Powershell -Command "tscon rdp-tcp#0 /DEST:console"
 </span></code></pre></div>
 </li>
 </ul>
