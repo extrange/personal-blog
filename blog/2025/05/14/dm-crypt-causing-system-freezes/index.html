@@ -1054,6 +1054,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Fixing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-nixos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For NixOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1178,6 +1195,9 @@
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Temporary</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># To make persistent, add --persistent</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>cryptsetup<span class="w"> </span>--perf-no_read_workqueue<span class="w"> </span>--perf-no_write_workqueue<span class="w"> </span>refresh<span class="w"> </span>DEVICE
+</span></code></pre></div>
+<h3 id="for-nixos">For NixOS</h3>
+<div class="language-nix highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>boot<span class="o">.</span>initrd<span class="o">.</span>luks<span class="o">.</span>devices<span class="o">.</span><span class="s2">"path/to/your/luks/device"</span><span class="o">.</span> <span class="ss">bypassWorkqueues</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
 </span></code></pre></div>
 
 
