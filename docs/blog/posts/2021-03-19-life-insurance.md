@@ -52,7 +52,7 @@ A: Yes, but is it really worth paying 10 times more for that privilege? You coul
 
 Q: **How about the annual bonuses that the insurance company is offering? 3.75% is a lot!**
 
-A: Firstly, the bonuses are [not guaranteed](https://www.moneysense.gov.sg/articles/2018/10/understanding-whole-life-insurance). Secondly, the bonus rates are significantly lower than what you can get from [broad-based index investing](./2020-12-02-asset-allocation.md#historical-returns) - $100 compounded for 10 years at 3.75% is $144.59, while at 8% (US stock historical return) it is $215.89. You'd be better off buying a term life policy and investing the rest yourself.
+A: Firstly, the bonuses are [not guaranteed](https://www.moneysense.gov.sg/understanding-whole-life-insurance). Secondly, the bonus rates are significantly lower than what you can get from [broad-based index investing](./2020-12-02-asset-allocation.md#historical-returns) - $100 compounded for 10 years at 3.75% is $144.59, while at 8% (US stock historical return) it is $215.89. You'd be better off buying a term life policy and investing the rest yourself.
 
 If you don't think you can invest, put it all into CPF. The SA (Special Account) interest of 4%++pa/yr beats nearly all whole life plans in the market. **In fact, just by having $130K in CPF by your early 30s, you could have $1,000,000 in CPF by 65[^1M65].**
 
@@ -102,7 +102,7 @@ A: Premiums are cheaper overall the earlier you buy. For example, for a sum assu
 [^source]: [comparefirst.sg](https://www.comparefirst.sg)
 [^multiplier]: Mathematically speaking, a multiplier component on a whole-life policy is equivalent to purchasing an additional term insurance over the same duration. For example, a $100,000 whole life policy with a 2x multiplier up to 75, is equivalent to buying the basic $100,000 whole life policy and then buying another $100,000 term insurance till 75.
 [^inflation]: The median inflation rate for Singapore was 1.72%pa from 1961-2021 ([source](https://www.macrotrends.net/countries/SGP/singapore/inflation-rate-cpi)). At this rate, $100 now will be worth $84, 10 years in the future.
-[^life-expectancy-100]: Do note there is a 'risk' that you will live beyond 100 and thus not get your payout - [around 4%](https://www.singstat.gov.sg/-/media/files/publications/population/lifetable18-19.pdf), to be exact.
+[^life-expectancy-100]: Do note there is a 'risk' that you will live beyond 100 and thus not get your payout - [around 4%](https://www.singstat.gov.sg/publication-resources/complete-life-tables-for-singapore-resident-population-2024-2025), to be exact.
 [^1M65]: [1M65](https://blog.seedly.sg/1m65-1-million-by-65-cpf/)
 [^inflation-adjusted]: To be exact, you could calculate the total inflation-adjusted premiums for term and whole life for a more accurate comparison.
 [^ci-definition-2019]: The standard definitions of 37 critical illnesses can be found [here](https://www.lia.org.sg/media/2160/mu5819-part-2-of-4-_lia-ci-framework-2019_lia-definitions-for-37-cis.pdf). The definitions have become stricter over time, e.g. a lot of early cancers are excluded, so it helps to buy your policy earlier while you can.

@@ -50,7 +50,7 @@ After using the parameters above, my library of 4K videos was compressed from 24
 [av1-support]: https://caniuse.com/av1
 [h265]: https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding
 [av1-benchmark]: https://medium.com/@ewoutterhoeven/av1-is-ready-for-prime-time-svt-av1-beats-x265-and-libvpx-in-quality-bitrate-and-speed-31c1960703db
-[vmaf]: https://scribe.rip/netflix-techblog/toward-a-practical-perceptual-video-quality-metric-653f208b9652
+[vmaf]: https://netflixtechblog.com/toward-a-practical-perceptual-video-quality-metric-653f208b9652
 [x265]: https://en.wikipedia.org/wiki/X265
 [SVT-AV1]: https://gitlab.com/AOMediaCodec/SVT-AV1
 [ffmpeg]: https://ffmpeg.org/

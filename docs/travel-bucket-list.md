@@ -157,7 +157,7 @@ A list of all the places I want to visit in the future.
 [lake-yamdrok]: https://en.wikipedia.org/wiki/Yamdrok_Lake
 [hinatuan-enchanted-river]: https://en.wikipedia.org/wiki/Hinatuan_Enchanted_River
 [manta-retreat]: https://maps.app.goo.gl/BoLfKbrpeCs93JTVA
-[melina-beach-resort]: http://www.melinabeachresort.com/
+[melina-beach-resort]: https://www.melinabeachresort.com/about-1
 [deer-cave]: https://en.wikipedia.org/wiki/Deer_Cave
 [koshoji-zen-temple]: https://www.uji-koushouji.jp/en/
 [shikoku-henro-trail-map]: https://goo.gl/maps/9kVejaXqGLE7eh537

@@ -235,7 +235,7 @@ The rate of progress in the field of AI continues to accelerate, and it is certa
 [arc]: https://github.com/fchollet/ARC
 [chatgpt]: https://openai.com/blog/chatgpt/
 [coinrun]: https://arxiv.org/abs/1812.02341
-[core-knowledge]: http://harvardlds.org/wp-content/uploads/2017/01/SpelkeKinzler07-1.pdf
+[core-knowledge]: https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/f/2214/files/2020/01/Core-Knowledge.pdf
 [keras-book]: https://www.manning.com/books/deep-learning-with-python-second-edition
 [kolmogorov-complexity]: https://en.wikipedia.org/wiki/Kolmogorov_complexity
 [nfl-theorem]: https://machinelearningmastery.com/no-free-lunch-theorem-for-machine-learning/
