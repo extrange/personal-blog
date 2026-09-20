@@ -62,4 +62,4 @@ Wool
 ### Body Hygiene
 
 [aotu-stove]: https://www.amazon.com/dp/B07NJYV3NP
-[decathlon-cookset]: https://www.decathlon.sg/p/mountain-hiking-1-6l-2-people-stainless-steel-camping-cookset-mh100-grey-blue-quechua-8492725.html
+[decathlon-cookset]: https://www.decathlon.com/products/camping-cook-set-stainless-2-person-mh100

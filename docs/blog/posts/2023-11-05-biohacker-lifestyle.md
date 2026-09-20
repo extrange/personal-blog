@@ -76,7 +76,7 @@ Other notes:
 
 I'm probably not going to go full [Brian Johnson] and [take 111 pills daily, do 'IsoTib ankle rotations' or eat 2250 calories per day in a 6 hour period][blueprint] (actually, maybe the last), but I think the general principles of eating vegetables and reducing light exposure hold a lot of value in a society sometimes so obsessed with materialism, that we have sometimes forgotten how to live.
 
-[blueprint]: https://protocol.bryanjohnson.com/Home
+[blueprint]: https://protocol.bryanjohnson.com
 [brown noise]: https://www.nytimes.com/interactive/2022/09/23/well/mind/brown-noise.html
 [Brian Johnson]: https://www.gq-magazine.co.uk/lifestyle/article/bryan-johnson-millionaire-deaging-technology
 [Andrew Huberman]: https://www.hubermanlab.com/

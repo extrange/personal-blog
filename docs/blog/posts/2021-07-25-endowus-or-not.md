@@ -97,7 +97,7 @@ For ideas on what to buy, check out my suggestions for [IBKR](2021-01-16-my-inve
 [cash-smart]: https://endowus.com/cash-smart
 [syfe-pricing]: https://www.syfe.com/pricing
 [stashaway-pricing]: https://www.stashaway.sg/pricing
-[kristal-pricing]: https://www.kristal.ai/pricing
+[kristal-pricing]: https://help.kristal.ai/hc/en-us/articles/4402257903121-What-are-the-fees-charged-when-I-invest-in-Kristal-Portfolios
 [ibkr-aum]: https://investors.interactivebrokers.com/ir/main.php?file=latestMetricPR
 [ibkr]: https://www.interactivebrokers.com/en/home.php
 [ibkr-commissions]: https://www.interactivebrokers.com/en/index.php?f=1340

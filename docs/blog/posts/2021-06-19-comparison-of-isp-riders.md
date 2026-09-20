@@ -168,7 +168,7 @@ All 3 insurers here offer 5% co-payment riders here (although Prudential's PRUEx
 
 Of note, only NTUC does not explictly mention claims-based pricing.
 
-However, there is an 'additional non-panel payment' which is [unspecified](https://www.income.com.sg/kcassets/a1efbbbf-27cc-4c7f-beb1-f42951819219/Website-Product-Information-Deluxe-Care-Classic-Care-Rider-EIS.pdf).
+However, there is an 'additional non-panel payment' which is [unspecified](https://www.income.com.sg/panels-comparison-of-benefits).
 
 ![](../../static/images/2021-06-19-comparison-of-isp-riders/ntuc-deluxe-additional-non-panel-payment.jpg)
 
