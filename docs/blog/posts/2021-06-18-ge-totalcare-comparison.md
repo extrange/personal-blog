@@ -107,7 +107,7 @@ We can also look at the total premiums one would pay for different lengths of ti
 
 One might ask how often must each individual be hospitalized, to receive benefits exceeding the premium paid, over the period of 30 years?
 
-This is not easy to calculate. We would need to take the average hospital bill size, as well as the [hospitalization rates](https://www.moh.gov.sg/others/resources-and-statistics/-healthcare-institution-statistics-hospital-admission-rates-by-age-and-sex-hospital-admission-rates-by-age-and-sex-2022) for an individual, and then run them through a spreadsheet. (Work in progress)
+This is not easy to calculate. We would need to take the average hospital bill size, as well as the [hospitalization rates](https://www.moh.gov.sg/others/resources-and-statistics/--healthcare-institution-statistics-hospital-admission-rates-by-age-and-sex-hospital-admission-rates-by-age-and-sex-2024) for an individual, and then run them through a spreadsheet. (Work in progress)
 
 Note also, that GE has introduced a [claims-based pricing](https://www.greateasternlife.com/sg/en/personal-insurance/our-products/health-insurance/great-supremehealth/cap.html) mechanic. I won't go into detail here, but suffice to say, your premiums increase the more times you are admitted, up to 2.5x the standard amount.
 
@@ -129,7 +129,7 @@ The Elite plan:
 
 I feel that the real question is - would you pay $60,000 extra, to always pay only 5% of the total bill, regardless of the size?
 
-My opinion is that the Elite plan will in a sense 'pay-off' if you get warded frequently in private hospitals. Otherwise, you would be better off using the $60,000 that you would have saved, to pay for the excesses under the Classic plan. Even if you end up co-paying $3000 each admission, you'd have to be warded 20 times from 20 to 74 years of age to end up paying more than what someone with the Elite plan would have paid. Which, based on [statistics](https://www.moh.gov.sg/others/resources-and-statistics/-healthcare-institution-statistics-hospital-admission-rates-by-age-and-sex-hospital-admission-rates-by-age-and-sex-2022), is unlikely.
+My opinion is that the Elite plan will in a sense 'pay-off' if you get warded frequently in private hospitals. Otherwise, you would be better off using the $60,000 that you would have saved, to pay for the excesses under the Classic plan. Even if you end up co-paying $3000 each admission, you'd have to be warded 20 times from 20 to 74 years of age to end up paying more than what someone with the Elite plan would have paid. Which, based on [statistics](https://www.moh.gov.sg/others/resources-and-statistics/--healthcare-institution-statistics-hospital-admission-rates-by-age-and-sex-hospital-admission-rates-by-age-and-sex-2024), is unlikely.
 
 Therefore, the Classic plan looks like the winner here.
 

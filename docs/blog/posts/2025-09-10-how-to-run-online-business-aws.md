@@ -160,4 +160,4 @@ Aurora Serverless v2 supports [auto-pause], which scales the instances to zero a
 [SnapStart]: https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html
 [Provisioned Concurrency]: https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html
 [ecs-without-alb]: https://www.stacktape.com/blog/why-i-do-not-use-load-balancer
-[app-runner-scale]: https://fgj.codes/posts/app-runner/
+[app-runner-scale]: https://web.archive.org/web/20250718124819/https://fgj.codes/posts/app-runner/
