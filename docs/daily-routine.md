@@ -96,7 +96,7 @@ Occasionally I take supplements e.g. [fish oil][fish-oil].
 [Wallabag]: https://wallabag.org/
 [programming projects]: https://github.com/extrange
 [workflow]: blog/posts/2022-02-27-my-computing-philosophy.md
-[book list]: https://calibre-web.nicholaslyz.com
+[book list]: https://grimmory.nicholaslyz.com
 [recordings]: piano.md
 [principles]: principles.md
 [green tea]: blog/posts/2022-10-28-nutrition-and-health.md#tea
