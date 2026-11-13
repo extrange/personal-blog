@@ -18,7 +18,7 @@ While there are many more potential changes that I could make with regards to th
 
 ## Intellectual Stimulation
 
-**Books**: I keep a [book list], which I read on my [Kindle]. I find studying something novel or challenging such as plumbing, acoustics, TCP/IP, reverse engineering or cryptography actually lifts my mood. Conversely, fiction, such as manga/fanfiction, helps expand my imagination.
+**Books**: I keep a book list, which I read on my [Kindle]. I find studying something novel or challenging such as plumbing, acoustics, TCP/IP, reverse engineering or cryptography actually lifts my mood. Conversely, fiction, such as manga/fanfiction, helps expand my imagination.
 
 **Games**: Video games can be an incredible source of creativity and imagination. Some games like Starcraft and Diablo II were so ahead of their time. I found Mirror's Edge to be fun as well.
 
@@ -96,7 +96,6 @@ Occasionally I take supplements e.g. [fish oil][fish-oil].
 [Wallabag]: https://wallabag.org/
 [programming projects]: https://github.com/extrange
 [workflow]: blog/posts/2022-02-27-my-computing-philosophy.md
-[book list]: https://grimmory.nicholaslyz.com
 [recordings]: piano.md
 [principles]: principles.md
 [green tea]: blog/posts/2022-10-28-nutrition-and-health.md#tea
