@@ -45,7 +45,9 @@ Logs are aggregated with Vector and sent to Loki, and viewed on Grafana.
 
 ## Uptime Monitoring
 
-Uptime monitoring is hosted on an offsite VPS with [Uptime Kuma][uptime-kuma], on a separate [site](https://uptime.icybat.com), with notifications via Telegram. This is to allow for redundancy in case my server goes down.
+Uptime monitoring runs on an offsite VPS with [Uptime Kuma][uptime-kuma], with notifications via Telegram. This is to allow for redundancy in case my server goes down.
+
+_Update 2026-11-22: Uptime Kuma has since been replaced by blackbox exporter checks with Grafana alerting, and its public status site is no longer online._
 
 ## Storage and Backup
 
